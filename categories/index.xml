@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on IT Notes</title>
+        <link>https://itzm.netlify.app/categories/</link>
+        <description>Recent content in Categories on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Sun, 29 Sep 2024 10:11:39 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Attlassian</title>
+        <link>https://itzm.netlify.app/categories/attlassian/</link>
+        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/attlassian/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/attlassian/attlassian-2.jpg" alt="Featured image of post Attlassian" /&gt;</description>
+        </item>
+        <item>
+        <title>Ansible</title>
+        <link>https://itzm.netlify.app/categories/ansible/</link>
+        <pubDate>Tue, 24 Sep 2024 15:57:25 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/ansible/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/ansible/ansible-2.jpg" alt="Featured image of post Ansible" /&gt;</description>
+        </item>
+        <item>
+        <title>Kubernetes</title>
+        <link>https://itzm.netlify.app/categories/kubernetes/</link>
+        <pubDate>Tue, 24 Sep 2024 15:57:25 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/kubernetes/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/kubernetes/kubernetes.jpg" alt="Featured image of post Kubernetes" /&gt;</description>
+        </item>
+        <item>
+        <title>FreeIPA</title>
+        <link>https://itzm.netlify.app/categories/freeipa/</link>
+        <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/freeipa/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/freeipa/freeIPA.jpg" alt="Featured image of post FreeIPA" /&gt;</description>
+        </item>
+        <item>
+        <title>HAProxy</title>
+        <link>https://itzm.netlify.app/categories/haproxy/</link>
+        <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/haproxy/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/haproxy/haproxy-2.jpg" alt="Featured image of post HAProxy" /&gt;</description>
+        </item>
+        <item>
+        <title>Windows</title>
+        <link>https://itzm.netlify.app/categories/windows/</link>
+        <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/windows/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/windows/windows.jpg" alt="Featured image of post Windows" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

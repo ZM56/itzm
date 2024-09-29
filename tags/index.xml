@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on IT Notes</title>
+        <link>https://itzm.netlify.app/tags/</link>
+        <description>Recent content in Tags on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Sun, 29 Sep 2024 10:11:39 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Attlassian</title>
+        <link>https://itzm.netlify.app/tags/attlassian/</link>
+        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/attlassian/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ccnfluence</title>
+        <link>https://itzm.netlify.app/tags/ccnfluence/</link>
+        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/ccnfluence/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Docker</title>
+        <link>https://itzm.netlify.app/tags/docker/</link>
+        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ubuntu</title>
+        <link>https://itzm.netlify.app/tags/ubuntu/</link>
+        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/ubuntu/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ansible</title>
+        <link>https://itzm.netlify.app/tags/ansible/</link>
+        <pubDate>Tue, 24 Sep 2024 15:57:25 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/ansible/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Kubernetes</title>
+        <link>https://itzm.netlify.app/tags/kubernetes/</link>
+        <pubDate>Tue, 24 Sep 2024 15:57:25 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/kubernetes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Jira</title>
+        <link>https://itzm.netlify.app/tags/jira/</link>
+        <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/jira/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>FreeIPA</title>
+        <link>https://itzm.netlify.app/tags/freeipa/</link>
+        <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/freeipa/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HAProxy</title>
+        <link>https://itzm.netlify.app/tags/haproxy/</link>
+        <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/haproxy/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Patroni</title>
+        <link>https://itzm.netlify.app/tags/patroni/</link>
+        <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/patroni/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Postgresql</title>
+        <link>https://itzm.netlify.app/tags/postgresql/</link>
+        <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/postgresql/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Active Directory</title>
+        <link>https://itzm.netlify.app/tags/active-directory/</link>
+        <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/active-directory/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Bitlocker</title>
+        <link>https://itzm.netlify.app/tags/bitlocker/</link>
+        <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/bitlocker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Windows</title>
+        <link>https://itzm.netlify.app/tags/windows/</link>
+        <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/tags/windows/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

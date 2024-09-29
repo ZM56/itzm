@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on IT Notes</title>
+        <link>https://itzm.netlify.app/page/</link>
+        <description>Recent content in Pages on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://itzm.netlify.app/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Архивы</title>
+        <link>https://itzm.netlify.app/archives/</link>
+        <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://itzm.netlify.app/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Обо мне</title>
+        <link>https://itzm.netlify.app/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://itzm.netlify.app/about/</guid>
+        <description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;! Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
+&lt;p&gt;Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux (Ubuntu, CentOS, AltLinux), Unix (FreeBSD, OpenBSD), IPTables, FreeIPA domain-cluster&lt;/li&gt;
+&lt;li&gt;PowerDNS, Bind9, Squid, Asterisk, Exim, OpenVPN, Wireguard, Nextcloud&lt;/li&gt;
+&lt;li&gt;PostgreSQL, MySQL, MSSQL&lt;/li&gt;
+&lt;li&gt;Docker, Docker-compose, Ansible (roles, collection, galaxy), IaC подход&lt;/li&gt;
+&lt;li&gt;Kubernetes, Helm, ArgoCD, Terraform, Prometheus, Grafana, Loki, Kafka, Gitlab, Jenkins, CI/CD&lt;/li&gt;
+&lt;li&gt;Nginx, HAProxy, Keycloak, Nexus, Harbor&lt;/li&gt;
+&lt;li&gt;Python, Bash, Powershell&lt;/li&gt;
+&lt;li&gt;Attlassian (Jira, Confluence, Butbucker), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li&gt;
+&lt;li&gt;Windows Servers (2012, 2016, 2019, 2022), Clusters DataBases, AD, GPO, DNS, DHCP, SCCM&lt;/li&gt;
+&lt;li&gt;Maxpatrol, SearchInform&lt;/li&gt;
+&lt;li&gt;Kaspersky Security Center, KES for Linux, KES for Windows, Kaspersky Web Traffic Security, Kaspersky Mail Gateway&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Постоянно учусь новому и открыт для интересных идей и проектов.
+Знания и навыки из разных областей помогают мне решать задачи на стыке dev/sec/ops команд.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Поиск</title>
+        <link>https://itzm.netlify.app/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://itzm.netlify.app/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
