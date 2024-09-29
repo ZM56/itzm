@@ -12,7 +12,7 @@
         <pubDate>Tue, 24 Sep 2024 15:57:25 +0500</pubDate>
         
         <guid>https://itzm.netlify.app/p/k8s/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/k8s/kubesprayinstall.jpg" alt="Featured image of post Разворачиваем K8S кластер через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.netlify.app/p/k8s/kubespray.jpg" alt="Featured image of post Разворачиваем K8S кластер через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
 &lt;p&gt;Кластер будет состоять из 2-х Master node, 2-х Worker node.&lt;/p&gt;
 &lt;p&gt;Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p&gt;
 &lt;p&gt;Требования по ресурсам:&lt;/p&gt;
