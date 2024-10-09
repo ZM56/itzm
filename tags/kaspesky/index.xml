@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Kaspesky on IT Notes</title>
+        <link>https://itzm.netlify.app/tags/kaspesky/</link>
+        <description>Recent content in Kaspesky on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Wed, 09 Oct 2024 20:20:54 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/kaspesky/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Запуск bash скриптов используя Kaspersky Security Center</title>
+        <link>https://itzm.netlify.app/p/kaspersky-bash/</link>
+        <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/p/kaspersky-bash/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
+Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
+Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
+Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &amp;ldquo;затаскивать&amp;rdquo; машину в домен.&lt;/p&gt;
+&lt;p&gt;Сам скрипт здесь не представлен, но я заметил отсутствие информации о запуске скриптов с Каспера.
+Этот процесс я опишу здесь.&lt;/p&gt;
+&lt;h3 id=&#34;шаг-1-подготовка-файла-скрипта&#34;&gt;Шаг 1. Подготовка файла скрипта
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).&lt;/li&gt;
+&lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
+&lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/notepad.jpg&#34;
+	width=&#34;704&#34;
+	height=&#34;743&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;94&#34;
+		data-flex-basis=&#34;227px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Если скрипт копируется с Linux машины заранее дайте ему право на выполнение:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x add_freeipa.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/sh.jpg&#34;
+	width=&#34;666&#34;
+	height=&#34;25&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;2664&#34;
+		data-flex-basis=&#34;6393px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;шаг-2-создание-инсталяционного-пакета&#34;&gt;Шаг 2. Создание инсталяционного пакета
+&lt;/h3&gt;&lt;p&gt;Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/1.jpg&#34;
+	width=&#34;528&#34;
+	height=&#34;127&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;415&#34;
+		data-flex-basis=&#34;997px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Для указанного исполняемого файла&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/2.jpg&#34;
+	width=&#34;587&#34;
+	height=&#34;615&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;95&#34;
+		data-flex-basis=&#34;229px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем наш скрипт, который мы скопировали на сервер Касперского&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/scr.jpg&#34;
+	width=&#34;589&#34;
+	height=&#34;633&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;93&#34;
+		data-flex-basis=&#34;223px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;После чего установится пакет, который будет размещен в общей папке сервера&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/3.jpg&#34;
+	width=&#34;755&#34;
+	height=&#34;724&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;250px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/4.jpg&#34;
+	width=&#34;753&#34;
+	height=&#34;723&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;249px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Например, если в поле вписать sudo -s, то выполнение будет происходит так:
+/bin/sh &amp;hellip; &amp;lsquo;add_freeipa.sh&amp;rsquo; sudo -s. То есть в заполнении этого поля нет необходимости, так как параметр не повлияет на скрипт.&lt;/p&gt;
+&lt;h3 id=&#34;шаг-3-создание-задачи-установки&#34;&gt;Шаг 3. Создание задачи установки
+&lt;/h3&gt;&lt;p&gt;Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &amp;ldquo;По расписанию&amp;rdquo; и указать время запуска задания.&lt;/p&gt;
+&lt;p&gt;Нажимаем на созданном нами исталяционном пакете &amp;ldquo;Установить программу&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/5.jpg&#34;
+	width=&#34;620&#34;
+	height=&#34;206&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;300&#34;
+		data-flex-basis=&#34;722px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем на группу и выбираем устройства, на которые будет распространяться задача&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/6.jpg&#34;
+	width=&#34;583&#34;
+	height=&#34;638&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;91&#34;
+		data-flex-basis=&#34;219px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Обязательно отметьте галкой пункт &amp;ldquo;Не устанавливать программу, если она уже установлена&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В случае, если в логах Вы увидите &amp;ldquo;Permission Denied&amp;rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/task.JPG&#34;
+	width=&#34;754&#34;
+	height=&#34;721&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;250px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Наблюдаем за выполнением и читаем конечный лог задачи&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/kaspersky-bash/7.jpg&#34;
+	width=&#34;939&#34;
+	height=&#34;725&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;129&#34;
+		data-flex-basis=&#34;310px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Если скрипт будет выдавать ошибку она будет отображена здесь, но статус задачи всё равно будет &amp;ldquo;Завершена успешно&amp;rdquo;, поэтому чтобы отлаживать скрипт используйте &amp;ldquo;Результаты выполнения задания&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В моём случае задача выполнилась успешно, оповещение WARNING можно не брать во внимание.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
