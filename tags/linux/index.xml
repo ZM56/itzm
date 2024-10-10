@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Linux on IT Notes</title>
+        <link>https://itzm.netlify.app/tags/linux/</link>
+        <description>Recent content in Linux on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Thu, 10 Oct 2024 16:10:36 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Полезные команды Linux</title>
+        <link>https://itzm.netlify.app/p/linux/</link>
+        <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/p/linux/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/p/linux/linux.jpg" alt="Featured image of post Полезные команды Linux" /&gt;&lt;h3 id=&#34;автозамена-слова&#34;&gt;Автозамена слова
+&lt;/h3&gt;&lt;p&gt;sed -i &amp;rsquo;s#false#true#g&amp;rsquo; file.txt&lt;/p&gt;
+&lt;h3 id=&#34;замена-всех-вхождений-в-файлах&#34;&gt;Замена всех вхождений в файлах
+&lt;/h3&gt;&lt;p&gt;sed -i -r &amp;rsquo;s/draft: true/draft: false/&amp;rsquo; /opt/*&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

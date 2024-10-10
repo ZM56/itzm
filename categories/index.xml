@@ -6,7 +6,15 @@
         <description>Recent content in Categories on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Wed, 09 Oct 2024 20:20:54 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 10 Oct 2024 16:10:36 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Linux</title>
+        <link>https://itzm.netlify.app/categories/linux/</link>
+        <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
+        
+        <guid>https://itzm.netlify.app/categories/linux/</guid>
+        <description>&lt;img src="https://itzm.netlify.app/categories/linux/miniLinux.jpg" alt="Featured image of post Linux" /&gt;</description>
+        </item>
+        <item>
         <title>Kaspersky</title>
         <link>https://itzm.netlify.app/categories/kaspersky/</link>
         <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
