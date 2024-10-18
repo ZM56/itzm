@@ -12,7 +12,7 @@
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
         <guid>https://itzm.netlify.app/p/kubernetes/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/kubernetes/awx.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.netlify.app/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
 &lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
