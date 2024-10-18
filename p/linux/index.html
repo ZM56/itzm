@@ -252,6 +252,8 @@
       <ol>
         <li><a href="#автозамена-слова">Автозамена слова</a></li>
         <li><a href="#замена-всех-вхождений-в-файлах">Замена всех вхождений в файлах</a></li>
+        <li><a href="#найти-слово-во-всех-файлах-директории-рекурсивно">Найти слово во всех файлах директории (Рекурсивно)</a></li>
+        <li><a href="#получить-все-ip-адреса-сетевого-интерфейса-хоста-и-вывести-первый">Получить все IP адреса сетевого интерфейса хоста и вывести первый</a></li>
       </ol>
     </li>
   </ol>
@@ -350,10 +352,42 @@
     
     
     <h3 id="автозамена-слова">Автозамена слова
-</h3><p>sed -i &rsquo;s#false#true#g&rsquo; file.txt</p>
-<h3 id="замена-всех-вхождений-в-файлах">Замена всех вхождений в файлах
-</h3><p>sed -i -r &rsquo;s/draft: true/draft: false/&rsquo; /opt/*</p>
-
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed -i <span class="s1">&#39;s#false#true#g&#39;</span> file.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="замена-всех-вхождений-в-файлах">Замена всех вхождений в файлах
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed -i -r <span class="s1">&#39;s/draft: true/draft: false/&#39;</span> /opt/*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="найти-слово-во-всех-файлах-директории-рекурсивно">Найти слово во всех файлах директории (Рекурсивно)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">grep -ir <span class="s2">&#34;слово&#34;</span> /etc/random_dir
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="получить-все-ip-адреса-сетевого-интерфейса-хоста-и-вывести-первый">Получить все IP адреса сетевого интерфейса хоста и вывести первый
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hostname -I <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 

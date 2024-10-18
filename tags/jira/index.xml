@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
         <lastBuildDate>Wed, 18 Sep 2024 19:11:39 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/jira/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Развертывание Jira в docker-compose</title>
+        <title>Установка Jira в docker-compose</title>
         <link>https://itzm.netlify.app/p/jira-docker/</link>
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
         <guid>https://itzm.netlify.app/p/jira-docker/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/jira-docker/jira.jpg" alt="Featured image of post Развертывание Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.netlify.app/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;

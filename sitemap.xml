@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://itzm.netlify.app/p/kubernetes/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
     <loc>https://itzm.netlify.app/p/linux/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
@@ -39,10 +42,34 @@
     <lastmod>2024-08-11T23:01:42+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/</loc>
-    <lastmod>2024-10-10T16:10:36+05:00</lastmod>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/tags/ansible/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/categories/ansible/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/categories/</loc>
-    <lastmod>2024-10-10T16:10:36+05:00</lastmod>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/tags/helm/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/tags/kubernetes/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/categories/kubernetes/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/post/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/tags/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.netlify.app/tags/ubuntu/</loc>
+    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/tags/centos/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
@@ -51,15 +78,6 @@
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/categories/linux/</loc>
-    <lastmod>2024-10-10T16:10:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/post/</loc>
-    <lastmod>2024-10-10T16:10:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/tags/</loc>
-    <lastmod>2024-10-10T16:10:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/tags/ubuntu/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/tags/bash/</loc>
@@ -82,18 +100,6 @@
   </url><url>
     <loc>https://itzm.netlify.app/tags/docker/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/tags/ansible/</loc>
-    <lastmod>2024-09-24T15:57:25+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/categories/ansible/</loc>
-    <lastmod>2024-09-24T15:57:25+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/tags/kubernetes/</loc>
-    <lastmod>2024-09-24T15:57:25+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.netlify.app/categories/kubernetes/</loc>
-    <lastmod>2024-09-24T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.netlify.app/tags/jira/</loc>
     <lastmod>2024-09-18T19:11:39+05:00</lastmod>

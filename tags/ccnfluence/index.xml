@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
         <lastBuildDate>Sun, 29 Sep 2024 10:11:39 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/ccnfluence/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Развертывание Confluence в docker-compose</title>
+        <title>Установка Confluence в docker-compose</title>
         <link>https://itzm.netlify.app/p/confluence-docker/</link>
         <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
         
         <guid>https://itzm.netlify.app/p/confluence-docker/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/confluence-docker/confluence.jpg" alt="Featured image of post Развертывание Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.netlify.app/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
 Установка схожа с развертыванием другого продукта Attlassian - Jira &lt;code&gt;(На сайте есть заметка)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
