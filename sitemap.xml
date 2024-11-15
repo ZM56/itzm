@@ -2,146 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://itzm.netlify.app/p/kubernetes/</loc>
+    <loc>https://itzm.tech/p/kubernetes/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/linux/</loc>
+    <loc>https://itzm.tech/p/linux/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/kaspersky-bash/</loc>
+    <loc>https://itzm.tech/p/kaspersky-bash/</loc>
     <lastmod>2024-10-09T20:20:54+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/confluence-docker/</loc>
+    <loc>https://itzm.tech/p/confluence-docker/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/k8s/</loc>
+    <loc>https://itzm.tech/p/k8s/</loc>
     <lastmod>2024-09-24T15:57:25+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/jira-docker/</loc>
+    <loc>https://itzm.tech/p/jira-docker/</loc>
     <lastmod>2024-09-18T19:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/freeipa-commands/</loc>
+    <loc>https://itzm.tech/p/freeipa-commands/</loc>
     <lastmod>2024-09-17T17:46:35+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/freeipa-password/</loc>
+    <loc>https://itzm.tech/p/freeipa-password/</loc>
     <lastmod>2024-09-16T23:34:43+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/haproxy/</loc>
+    <loc>https://itzm.tech/p/haproxy/</loc>
     <lastmod>2024-08-23T18:39:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/freeipa-client-ansible/</loc>
+    <loc>https://itzm.tech/p/freeipa-client-ansible/</loc>
     <lastmod>2024-08-20T00:08:15+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/freeipa-client/</loc>
+    <loc>https://itzm.tech/p/freeipa-client/</loc>
     <lastmod>2024-08-20T00:08:15+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/bitlocker/</loc>
+    <loc>https://itzm.tech/p/bitlocker/</loc>
     <lastmod>2024-08-12T22:53:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/p/freeipa/</loc>
+    <loc>https://itzm.tech/p/freeipa/</loc>
     <lastmod>2024-08-11T23:01:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/</loc>
+    <loc>https://itzm.tech/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/ansible/</loc>
+    <loc>https://itzm.tech/tags/ansible/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/ansible/</loc>
+    <loc>https://itzm.tech/categories/ansible/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/</loc>
+    <loc>https://itzm.tech/categories/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/helm/</loc>
+    <loc>https://itzm.tech/tags/helm/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/kubernetes/</loc>
+    <loc>https://itzm.tech/tags/kubernetes/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/kubernetes/</loc>
+    <loc>https://itzm.tech/categories/kubernetes/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/post/</loc>
+    <loc>https://itzm.tech/post/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/</loc>
+    <loc>https://itzm.tech/tags/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/ubuntu/</loc>
+    <loc>https://itzm.tech/tags/ubuntu/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/centos/</loc>
+    <loc>https://itzm.tech/tags/centos/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/linux/</loc>
+    <loc>https://itzm.tech/tags/linux/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/linux/</loc>
+    <loc>https://itzm.tech/categories/linux/</loc>
     <lastmod>2024-10-10T16:10:36+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/bash/</loc>
+    <loc>https://itzm.tech/tags/bash/</loc>
     <lastmod>2024-10-09T20:20:54+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/kaspersky/</loc>
+    <loc>https://itzm.tech/categories/kaspersky/</loc>
     <lastmod>2024-10-09T20:20:54+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/kaspesky/</loc>
+    <loc>https://itzm.tech/tags/kaspesky/</loc>
     <lastmod>2024-10-09T20:20:54+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/attlassian/</loc>
+    <loc>https://itzm.tech/tags/attlassian/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/attlassian/</loc>
+    <loc>https://itzm.tech/categories/attlassian/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/ccnfluence/</loc>
+    <loc>https://itzm.tech/tags/ccnfluence/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/docker/</loc>
+    <loc>https://itzm.tech/tags/docker/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/jira/</loc>
+    <loc>https://itzm.tech/tags/jira/</loc>
     <lastmod>2024-09-18T19:11:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/freeipa/</loc>
+    <loc>https://itzm.tech/tags/freeipa/</loc>
     <lastmod>2024-09-17T17:46:35+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/freeipa/</loc>
+    <loc>https://itzm.tech/categories/freeipa/</loc>
     <lastmod>2024-09-17T17:46:35+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/haproxy/</loc>
+    <loc>https://itzm.tech/tags/haproxy/</loc>
     <lastmod>2024-08-23T18:39:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/haproxy/</loc>
+    <loc>https://itzm.tech/categories/haproxy/</loc>
     <lastmod>2024-08-23T18:39:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/patroni/</loc>
+    <loc>https://itzm.tech/tags/patroni/</loc>
     <lastmod>2024-08-23T18:39:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/postgresql/</loc>
+    <loc>https://itzm.tech/tags/postgresql/</loc>
     <lastmod>2024-08-23T18:39:42+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/active-directory/</loc>
+    <loc>https://itzm.tech/tags/active-directory/</loc>
     <lastmod>2024-08-12T22:53:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/bitlocker/</loc>
+    <loc>https://itzm.tech/tags/bitlocker/</loc>
     <lastmod>2024-08-12T22:53:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/tags/windows/</loc>
+    <loc>https://itzm.tech/tags/windows/</loc>
     <lastmod>2024-08-12T22:53:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/categories/windows/</loc>
+    <loc>https://itzm.tech/categories/windows/</loc>
     <lastmod>2024-08-12T22:53:39+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/page/</loc>
+    <loc>https://itzm.tech/page/</loc>
     <lastmod>2024-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/archives/</loc>
+    <loc>https://itzm.tech/archives/</loc>
     <lastmod>2024-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://itzm.netlify.app/about/</loc>
+    <loc>https://itzm.tech/about/</loc>
   </url><url>
-    <loc>https://itzm.netlify.app/search/</loc>
+    <loc>https://itzm.tech/search/</loc>
   </url>
 </urlset>

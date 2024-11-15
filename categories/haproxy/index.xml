@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>HAProxy on IT Notes</title>
-        <link>https://itzm.netlify.app/categories/haproxy/</link>
+        <link>https://itzm.tech/categories/haproxy/</link>
         <description>Recent content in HAProxy on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Fri, 23 Aug 2024 18:39:42 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/categories/haproxy/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 23 Aug 2024 18:39:42 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/haproxy/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>High Availability Cluster HAProxy &#43; Patroni</title>
-        <link>https://itzm.netlify.app/p/haproxy/</link>
+        <link>https://itzm.tech/p/haproxy/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>https://itzm.netlify.app/p/haproxy/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
+        <guid>https://itzm.tech/p/haproxy/</guid>
+        <description>&lt;img src="https://itzm.tech/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
 &lt;p&gt;HAProxy установим в качестве контейнера в &lt;em&gt;docker-compose&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;IP: 192.168.10.9&lt;/li&gt;

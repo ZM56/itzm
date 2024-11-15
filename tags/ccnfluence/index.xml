@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Ccnfluence on IT Notes</title>
-        <link>https://itzm.netlify.app/tags/ccnfluence/</link>
+        <link>https://itzm.tech/tags/ccnfluence/</link>
         <description>Recent content in Ccnfluence on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sun, 29 Sep 2024 10:11:39 +0500</lastBuildDate><atom:link href="https://itzm.netlify.app/tags/ccnfluence/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 29 Sep 2024 10:11:39 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/ccnfluence/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Установка Confluence в docker-compose</title>
-        <link>https://itzm.netlify.app/p/confluence-docker/</link>
+        <link>https://itzm.tech/p/confluence-docker/</link>
         <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
         
-        <guid>https://itzm.netlify.app/p/confluence-docker/</guid>
-        <description>&lt;img src="https://itzm.netlify.app/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
+        <guid>https://itzm.tech/p/confluence-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
 Установка схожа с развертыванием другого продукта Attlassian - Jira &lt;code&gt;(На сайте есть заметка)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -141,7 +141,7 @@
 &lt;/div&gt;&lt;h3 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;Переходим в браузер и набираем IP нашего хоста&lt;/p&gt;
 &lt;p&gt;Выбираем &lt;code&gt;Non-cluster (single node)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/confluence-docker/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/1.jpg&#34;
 	width=&#34;828&#34;
 	height=&#34;278&#34;
 	
@@ -154,7 +154,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее подключаемся к нашей базе данных, используя данные указанные в compose-файле&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/confluence-docker/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/2.jpg&#34;
 	width=&#34;799&#34;
 	height=&#34;709&#34;
 	
@@ -170,7 +170,7 @@
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://itzm.netlify.app/p/jira-docker/#%D1%88%D0%B0%D0%B3-3-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%B0%D1%86%D0%B8%D1%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Активация подробно описана здесь&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Создаёте тестовый пространство, тестовый проект и входите в Confluence.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.netlify.app/p/confluence-docker/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/3.jpg&#34;
 	width=&#34;925&#34;
 	height=&#34;443&#34;
 	
