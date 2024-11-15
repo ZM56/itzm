@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jira on IT Notes</title>
-        <link>https://itzm.tech/tags/jira/</link>
+        <link>http://localhost:1313/tags/jira/</link>
         <description>Recent content in Jira on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Wed, 18 Sep 2024 19:11:39 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/jira/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 18 Sep 2024 19:11:39 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/jira/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Установка Jira в docker-compose</title>
-        <link>https://itzm.tech/p/jira-docker/</link>
+        <link>http://localhost:1313/p/jira-docker/</link>
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/jira-docker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <guid>http://localhost:1313/p/jira-docker/</guid>
+        <description>&lt;img src="http://localhost:1313/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -138,7 +138,7 @@
 &lt;/div&gt;&lt;h3 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;Переходим в браузер и набираем адрес нашего хоста, ip:80&lt;/p&gt;
 &lt;p&gt;Меняем язык на нужный вам и выбираем &amp;ldquo;Я выполню настройку самостоятельно&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/1.png&#34;
 	width=&#34;800&#34;
 	height=&#34;549&#34;
 	
@@ -152,7 +152,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;Моя база данных&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Вводим все данные из нашего контейнера db&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/2.png&#34;
 	width=&#34;796&#34;
 	height=&#34;775&#34;
 	
@@ -167,7 +167,7 @@
 &lt;p&gt;И проводим &amp;ldquo;Тест подключения&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Нажимаем &amp;ldquo;Далее&amp;rdquo; и ждём пока создается база (Процесс может быть длительным ~5-20 минут)&lt;/p&gt;
 &lt;p&gt;Указываем наш URL, по которому будет открываться Jira&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/3.png&#34;
 	width=&#34;798&#34;
 	height=&#34;496&#34;
 	
@@ -181,7 +181,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-3-активация&#34;&gt;Шаг 3. Активация
 &lt;/h3&gt;&lt;p&gt;И так мы подходим к моменту активации.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/5.png&#34;
 	width=&#34;804&#34;
 	height=&#34;418&#34;
 	
@@ -242,7 +242,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Сохраняем и стартуем контейнер:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/4.png&#34;
 	width=&#34;925&#34;
 	height=&#34;145&#34;
 	
@@ -276,7 +276,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Заполняйте свои данные в полях: mail, userName, CompanyName, и вместе XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера&lt;/p&gt;
 &lt;p&gt;После выполнения команды полученный ключ вставляйте в поле &amp;ldquo;Ваш ключ лицензии&amp;rdquo; и жмите &amp;ldquo;Далее&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/6.png&#34;
 	width=&#34;805&#34;
 	height=&#34;455&#34;
 	
@@ -290,7 +290,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-4-завершаем-настройку-в-веб-интерфейсе&#34;&gt;Шаг 4. Завершаем настройку в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;После активации вводим данные нашего локального admina JIRA&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/7.png&#34;
 	width=&#34;806&#34;
 	height=&#34;484&#34;
 	
@@ -303,7 +303,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;На данном этапе можно настроить получение уведомлений на email&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/8.png&#34;
 	width=&#34;800&#34;
 	height=&#34;299&#34;
 	

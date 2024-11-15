@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Helm on IT Notes</title>
-        <link>https://itzm.tech/tags/helm/</link>
+        <link>http://localhost:1313/tags/helm/</link>
         <description>Recent content in Helm on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/helm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/helm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Установка Ansible AWX в K3S</title>
-        <link>https://itzm.tech/p/kubernetes/</link>
+        <link>http://localhost:1313/p/kubernetes/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/kubernetes/</guid>
-        <description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
+        <guid>http://localhost:1313/p/kubernetes/</guid>
+        <description>&lt;img src="http://localhost:1313/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
 &lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -129,7 +129,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get nodes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/nodes.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/nodes.jpg&#34;
 	width=&#34;486&#34;
 	height=&#34;52&#34;
 	
@@ -203,7 +203,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dep-oper.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dep-oper.jpg&#34;
 	width=&#34;707&#34;
 	height=&#34;339&#34;
 	
@@ -224,7 +224,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -w
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/pods.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/pods.jpg&#34;
 	width=&#34;698&#34;
 	height=&#34;59&#34;
 	
@@ -303,7 +303,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get svc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/svc.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/svc.jpg&#34;
 	width=&#34;924&#34;
 	height=&#34;99&#34;
 	
@@ -335,7 +335,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Пароль: из команды выше
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/home.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/home.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;754&#34;
 	
@@ -534,7 +534,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get ing
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/ing.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/ing.jpg&#34;
 	width=&#34;663&#34;
 	height=&#34;53&#34;
 	
@@ -548,7 +548,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;На этом этапе имя сервера уже должно быть создано в DNS и резолвиться&lt;/p&gt;
 &lt;p&gt;При входе по IP вы получите ошибку 404&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/404.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/404.jpg&#34;
 	width=&#34;518&#34;
 	height=&#34;94&#34;
 	
@@ -561,7 +561,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Теперь заходим по имени нашего сервера в веб-консоль, и можем пользоваться. На этом установка завершена.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dns.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dns.jpg&#34;
 	width=&#34;510&#34;
 	height=&#34;111&#34;
 	
@@ -573,7 +573,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;1102px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/admin.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/admin.jpg&#34;
 	width=&#34;1920&#34;
 	height=&#34;478&#34;
 	
