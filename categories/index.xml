@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on IT Notes</title>
-        <link>http://localhost:1313/categories/</link>
+        <link>https://itzm.tech/categories/</link>
         <description>Recent content in Categories on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Ansible</title>
-        <link>http://localhost:1313/categories/ansible/</link>
+        <link>https://itzm.tech/categories/ansible/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/ansible/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/ansible/ansible-2.jpg" alt="Featured image of post Ansible" /&gt;</description>
+        <guid>https://itzm.tech/categories/ansible/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/ansible/ansible-2.jpg" alt="Featured image of post Ansible" /&gt;</description>
         </item>
         <item>
         <title>Kubernetes</title>
-        <link>http://localhost:1313/categories/kubernetes/</link>
+        <link>https://itzm.tech/categories/kubernetes/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/kubernetes/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/kubernetes/kubernetes.jpg" alt="Featured image of post Kubernetes" /&gt;</description>
+        <guid>https://itzm.tech/categories/kubernetes/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/kubernetes/kubernetes.jpg" alt="Featured image of post Kubernetes" /&gt;</description>
         </item>
         <item>
         <title>Linux</title>
-        <link>http://localhost:1313/categories/linux/</link>
+        <link>https://itzm.tech/categories/linux/</link>
         <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/linux/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/linux/miniLinux.jpg" alt="Featured image of post Linux" /&gt;</description>
+        <guid>https://itzm.tech/categories/linux/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/linux/miniLinux.jpg" alt="Featured image of post Linux" /&gt;</description>
         </item>
         <item>
         <title>Kaspersky</title>
-        <link>http://localhost:1313/categories/kaspersky/</link>
+        <link>https://itzm.tech/categories/kaspersky/</link>
         <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/kaspersky/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/kaspersky/kasper.jpg" alt="Featured image of post Kaspersky" /&gt;</description>
+        <guid>https://itzm.tech/categories/kaspersky/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/kaspersky/kasper.jpg" alt="Featured image of post Kaspersky" /&gt;</description>
         </item>
         <item>
         <title>Attlassian</title>
-        <link>http://localhost:1313/categories/attlassian/</link>
+        <link>https://itzm.tech/categories/attlassian/</link>
         <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/attlassian/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/attlassian/attlassian-2.jpg" alt="Featured image of post Attlassian" /&gt;</description>
+        <guid>https://itzm.tech/categories/attlassian/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/attlassian/attlassian-2.jpg" alt="Featured image of post Attlassian" /&gt;</description>
         </item>
         <item>
         <title>FreeIPA</title>
-        <link>http://localhost:1313/categories/freeipa/</link>
+        <link>https://itzm.tech/categories/freeipa/</link>
         <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/freeipa/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/freeipa/freeIPA.jpg" alt="Featured image of post FreeIPA" /&gt;</description>
+        <guid>https://itzm.tech/categories/freeipa/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/freeipa/freeIPA.jpg" alt="Featured image of post FreeIPA" /&gt;</description>
         </item>
         <item>
         <title>HAProxy</title>
-        <link>http://localhost:1313/categories/haproxy/</link>
+        <link>https://itzm.tech/categories/haproxy/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/haproxy/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/haproxy/haproxy-2.jpg" alt="Featured image of post HAProxy" /&gt;</description>
+        <guid>https://itzm.tech/categories/haproxy/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/haproxy/haproxy-2.jpg" alt="Featured image of post HAProxy" /&gt;</description>
         </item>
         <item>
         <title>Windows</title>
-        <link>http://localhost:1313/categories/windows/</link>
+        <link>https://itzm.tech/categories/windows/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/categories/windows/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/windows/windows.jpg" alt="Featured image of post Windows" /&gt;</description>
+        <guid>https://itzm.tech/categories/windows/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/windows/windows.jpg" alt="Featured image of post Windows" /&gt;</description>
         </item>
         
     </channel>

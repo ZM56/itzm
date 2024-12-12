@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Bash on IT Notes</title>
-        <link>http://localhost:1313/tags/bash/</link>
+        <link>https://itzm.tech/tags/bash/</link>
         <description>Recent content in Bash on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Wed, 09 Oct 2024 20:20:54 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/bash/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 09 Oct 2024 20:20:54 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/bash/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Запуск bash скриптов используя Kaspersky Security Center</title>
-        <link>http://localhost:1313/p/kaspersky-bash/</link>
+        <link>https://itzm.tech/p/kaspersky-bash/</link>
         <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/kaspersky-bash/</guid>
-        <description>&lt;img src="http://localhost:1313/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
+        <guid>https://itzm.tech/p/kaspersky-bash/</guid>
+        <description>&lt;img src="https://itzm.tech/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
 Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
 Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
 Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &amp;ldquo;затаскивать&amp;rdquo; машину в домен.&lt;/p&gt;
@@ -24,7 +24,7 @@
 &lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
 &lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/notepad.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad.jpg&#34;
 	width=&#34;704&#34;
 	height=&#34;743&#34;
 	
@@ -48,7 +48,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/sh.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/sh.jpg&#34;
 	width=&#34;666&#34;
 	height=&#34;25&#34;
 	
@@ -62,7 +62,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-2-создание-инсталяционного-пакета&#34;&gt;Шаг 2. Создание инсталяционного пакета
 &lt;/h3&gt;&lt;p&gt;Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/1.jpg&#34;
 	width=&#34;528&#34;
 	height=&#34;127&#34;
 	
@@ -75,7 +75,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Для указанного исполняемого файла&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/2.jpg&#34;
 	width=&#34;587&#34;
 	height=&#34;615&#34;
 	
@@ -88,7 +88,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем наш скрипт, который мы скопировали на сервер Касперского&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/scr.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/scr.jpg&#34;
 	width=&#34;589&#34;
 	height=&#34;633&#34;
 	
@@ -101,7 +101,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;После чего установится пакет, который будет размещен в общей папке сервера&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/3.jpg&#34;
 	width=&#34;755&#34;
 	height=&#34;724&#34;
 	
@@ -114,7 +114,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/4.jpg&#34;
 	width=&#34;753&#34;
 	height=&#34;723&#34;
 	
@@ -131,7 +131,7 @@
 &lt;h3 id=&#34;шаг-3-создание-задачи-установки&#34;&gt;Шаг 3. Создание задачи установки
 &lt;/h3&gt;&lt;p&gt;Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &amp;ldquo;По расписанию&amp;rdquo; и указать время запуска задания.&lt;/p&gt;
 &lt;p&gt;Нажимаем на созданном нами исталяционном пакете &amp;ldquo;Установить программу&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/5.jpg&#34;
 	width=&#34;620&#34;
 	height=&#34;206&#34;
 	
@@ -144,7 +144,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем на группу и выбираем устройства, на которые будет распространяться задача&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/6.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/6.jpg&#34;
 	width=&#34;583&#34;
 	height=&#34;638&#34;
 	
@@ -160,7 +160,7 @@
 &lt;ul&gt;
 &lt;li&gt;В случае, если в логах Вы увидите &amp;ldquo;Permission Denied&amp;rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/task.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/task.JPG&#34;
 	width=&#34;754&#34;
 	height=&#34;721&#34;
 	
@@ -173,7 +173,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Наблюдаем за выполнением и читаем конечный лог задачи&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/7.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/7.jpg&#34;
 	width=&#34;939&#34;
 	height=&#34;725&#34;
 	
