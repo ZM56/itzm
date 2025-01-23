@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://itzm.tech/p/k8s/</loc>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
+  </url><url>
     <loc>https://itzm.tech/p/kubernetes/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
@@ -13,9 +16,6 @@
   </url><url>
     <loc>https://itzm.tech/p/confluence-docker/</loc>
     <lastmod>2024-09-29T10:11:39+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/p/k8s/</loc>
-    <lastmod>2024-09-24T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/p/jira-docker/</loc>
     <lastmod>2024-09-18T19:11:39+05:00</lastmod>
@@ -42,30 +42,30 @@
     <lastmod>2024-08-11T23:01:42+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/ansible/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/ansible/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/helm/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/kubernetes/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/kubernetes/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/post/</loc>
-    <lastmod>2024-10-18T20:19:36+05:00</lastmod>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/</loc>
+    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/helm/</loc>
     <lastmod>2024-10-18T20:19:36+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/ubuntu/</loc>

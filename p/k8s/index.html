@@ -10,7 +10,7 @@
 <meta property='og:description' content="Базовое развертывание кластера Kubernetes">
 <meta property='og:url' content='https://itzm.tech/p/k8s/'>
 <meta property='og:site_name' content='IT Notes'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Kubernetes' /><meta property='article:tag' content='Ansible' /><meta property='article:published_time' content='2024-09-24T15:57:25&#43;05:00'/><meta property='article:modified_time' content='2024-09-24T15:57:25&#43;05:00'/><meta property='og:image' content='https://itzm.tech/p/k8s/kubespray1.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Kubernetes' /><meta property='article:tag' content='Ansible' /><meta property='article:published_time' content='2025-01-12T15:57:25&#43;05:00'/><meta property='article:modified_time' content='2025-01-12T15:57:25&#43;05:00'/><meta property='og:image' content='https://itzm.tech/p/k8s/kubespray1.jpg' />
 <meta name="twitter:title" content="Установка K8S кластера через Kubespray">
 <meta name="twitter:description" content="Базовое развертывание кластера Kubernetes"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://itzm.tech/p/k8s/kubespray1.jpg' />
@@ -331,7 +331,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">сент. 24, 2024</time>
+                <time class="article-time--published">янв. 12, 2025</time>
             </div>
         
 
@@ -346,7 +346,7 @@
 
 
                 <time class="article-time--reading">
-                    Время чтения: 4 мин.
+                    Время чтения: 5 мин.
                 </time>
             </div>
         
@@ -417,7 +417,7 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/swap.img   none    swap   sw   <span class="m">0</span>   <span class="m">0</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Убираем DHCP. Открываем на редактирование:</p>
+</div><p>Отключаем DHCP. Открываем на редактирование:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -738,6 +738,15 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo cp -rfp inventory/sample inventory/k8s_cluster
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>И меняем разрешения, чтобы избежать ощибок доступов при установке:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo chmod -R <span class="m">777</span> /opt/kubespray/inventory/k8s_cluster
+</span></span></code></pre></td></tr></table>
+</div>
 </div><p>Удаляем все из файла /k8s_cluster/inventory.ini:</p>
 <p>Открываем на редактирование:</p>
 <div class="highlight"><div class="chroma">
@@ -801,7 +810,25 @@
 </span></span><span class="line"><span class="cl"><span class="na">calico_rr</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Чтобы в дальнейшем использовать Helm-charts заранее выполним отметим этот компонент на установку для всего кластера в файле /k8s_cluster/group_vars/k8s_cluster/addons.yaml:</p>
+</div><p>Чтобы в дальнейшем использовать Helm-charts заранее отметим этот компонент на установку для всего кластера в файле /k8s_cluster/group_vars/k8s_cluster/addons.yaml:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/kubespray/inventory/k8s_cluster/group_vars/k8s_cluster
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Открываем на редактирование:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo nano addons.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Устанавливаем значение true:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -856,7 +883,25 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/kubespray 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Вставляем в блоке [ssh_connection]:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">remote_user</span><span class="o">=</span><span class="s">admin</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Доустановлю ansible на master-1:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install ansible -y
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="шаг-3-запуск-развертывания">Шаг 3. Запуск развертывания
@@ -869,10 +914,32 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ansible-playbook -u admin -i inventory/k8s_cluster/inventory.ini -b cluster.yml
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>Если ошибки по подключению к master-1, то добавляем запрос ssh паролей &ldquo;-kK&rdquo; в конец команды:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ansible-playbook -u admin -i inventory/k8s_cluster/inventory.ini -b cluster.yml -kK
+</span></span></code></pre></td></tr></table>
+</div>
 </div><blockquote>
 <p>Установка занимает в среднем от 30 до 60 минут</p>
 </blockquote>
-<p>После выполнения всех шагов проверяем состояние нод:</p>
+<p>После установки команды будут работать только от пользователя root. Сделаем это для текущего пользователя (admin):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.kube
+</span></span><span class="line"><span class="cl">sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Проверяем состояние всех нод:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1062,7 +1129,9 @@
     <section class="copyright">
         &copy; 
         
-        2024 IT Notes
+            2024 - 
+        
+        2025 IT Notes
     </section>
     
     <section class="powerby">
