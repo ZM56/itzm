@@ -6,7 +6,15 @@
         <description>Recent content in Categories on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sun, 12 Jan 2025 15:57:25 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 04 Feb 2025 20:05:35 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Linux</title>
+        <link>https://itzm.tech/categories/linux/</link>
+        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
+        
+        <guid>https://itzm.tech/categories/linux/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/linux/miniLinux.jpg" alt="Featured image of post Linux" /&gt;</description>
+        </item>
+        <item>
         <title>Ansible</title>
         <link>https://itzm.tech/categories/ansible/</link>
         <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
@@ -21,14 +29,6 @@
         
         <guid>https://itzm.tech/categories/kubernetes/</guid>
         <description>&lt;img src="https://itzm.tech/categories/kubernetes/kubernetes.jpg" alt="Featured image of post Kubernetes" /&gt;</description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://itzm.tech/categories/linux/</link>
-        <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
-        
-        <guid>https://itzm.tech/categories/linux/</guid>
-        <description>&lt;img src="https://itzm.tech/categories/linux/miniLinux.jpg" alt="Featured image of post Linux" /&gt;</description>
         </item>
         <item>
         <title>Kaspersky</title>
