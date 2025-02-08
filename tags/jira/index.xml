@@ -12,7 +12,7 @@
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
         <guid>https://itzm.tech/p/jira-docker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;

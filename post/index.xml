@@ -1682,7 +1682,7 @@ AWX-operator установлен. Далее устанавливаем веб-
         <guid>https://itzm.tech/p/confluence-docker/</guid>
         <description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
-Установка схожа с развертыванием другого продукта Attlassian - Jira &lt;code&gt;(На сайте есть заметка)&lt;/code&gt;&lt;/p&gt;
+Установка схожа с развертыванием другого продукта Atlassian - Jira &lt;code&gt;(На сайте есть заметка)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Система: Ubuntu 22.04&lt;/li&gt;
@@ -1859,7 +1859,7 @@ AWX-operator установлен. Далее устанавливаем веб-
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
         <guid>https://itzm.tech/p/jira-docker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Attlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
