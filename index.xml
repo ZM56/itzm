@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>IT Notes</title>
-        <link>https://itzm.tech/</link>
+        <link>http://localhost:1313/</link>
         <description>Recent content on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Tue, 04 Feb 2025 20:05:35 +0500</lastBuildDate><atom:link href="https://itzm.tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 04 Feb 2025 20:05:35 +0500</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Установка корневого сертификата Linux</title>
-        <link>https://itzm.tech/p/linux_cert/</link>
+        <link>http://localhost:1313/p/linux_cert/</link>
         <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/linux_cert/</guid>
-        <description>&lt;img src="https://itzm.tech/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" /&gt;&lt;blockquote&gt;
+        <guid>http://localhost:1313/p/linux_cert/</guid>
+        <description>&lt;img src="http://localhost:1313/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" /&gt;&lt;blockquote&gt;
 &lt;p&gt;Для использования защищенного https подключения Linux-серверами установим корневой сертификат.
 Сгенерировать сертификат, при наличии локального Центра сертификации можно двумя способами.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;1-способ-генерации-сертификата-через-веб-интерфейс&#34;&gt;1 способ генерации сертификата. Через Веб-интерфейс.
 &lt;/h3&gt;&lt;p&gt;Создаём запрос серта на центре сертификации. В адресной строке браузера вводим имя или ip сервера сертификации.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;http://&amp;lt;ip_адрес_сервера_сертификации&amp;gt;/certsrv&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr1.jpg&#34;
 	width=&#34;980&#34;
 	height=&#34;356&#34;
 	
@@ -36,7 +36,7 @@
 &lt;li&gt;Выбираем: Base64&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Скачиваем:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr2.jpg&#34;
 	width=&#34;829&#34;
 	height=&#34;466&#34;
 	
@@ -111,7 +111,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;certutil -ca.cert ca_name.cer
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr3.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr3.jpg&#34;
 	width=&#34;692&#34;
 	height=&#34;152&#34;
 	
@@ -232,11 +232,11 @@
         </item>
         <item>
         <title>Установка K8S кластера через Kubespray</title>
-        <link>https://itzm.tech/p/k8s/</link>
+        <link>http://localhost:1313/p/k8s/</link>
         <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/k8s/</guid>
-        <description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
+        <guid>http://localhost:1313/p/k8s/</guid>
+        <description>&lt;img src="http://localhost:1313/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
 &lt;p&gt;Кластер будет состоять из 2-х Master node, 2-х Worker node.&lt;/p&gt;
 &lt;p&gt;Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p&gt;
 &lt;p&gt;Требования по ресурсам:&lt;/p&gt;
@@ -866,11 +866,11 @@
         </item>
         <item>
         <title>Установка Ansible AWX в K3S</title>
-        <link>https://itzm.tech/p/kubernetes/</link>
+        <link>http://localhost:1313/p/kubernetes/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/kubernetes/</guid>
-        <description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
+        <guid>http://localhost:1313/p/kubernetes/</guid>
+        <description>&lt;img src="http://localhost:1313/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
 &lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -987,7 +987,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get nodes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/nodes.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/nodes.jpg&#34;
 	width=&#34;486&#34;
 	height=&#34;52&#34;
 	
@@ -1061,7 +1061,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dep-oper.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dep-oper.jpg&#34;
 	width=&#34;707&#34;
 	height=&#34;339&#34;
 	
@@ -1082,7 +1082,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -w
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/pods.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/pods.jpg&#34;
 	width=&#34;698&#34;
 	height=&#34;59&#34;
 	
@@ -1161,7 +1161,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get svc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/svc.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/svc.jpg&#34;
 	width=&#34;924&#34;
 	height=&#34;99&#34;
 	
@@ -1193,7 +1193,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Пароль: из команды выше
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/home.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/home.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;754&#34;
 	
@@ -1392,7 +1392,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get ing
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/ing.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/ing.jpg&#34;
 	width=&#34;663&#34;
 	height=&#34;53&#34;
 	
@@ -1406,7 +1406,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;На этом этапе имя сервера уже должно быть создано в DNS и резолвиться&lt;/p&gt;
 &lt;p&gt;При входе по IP вы получите ошибку 404&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/404.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/404.jpg&#34;
 	width=&#34;518&#34;
 	height=&#34;94&#34;
 	
@@ -1419,7 +1419,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Теперь заходим по имени нашего сервера в веб-консоль, и можем пользоваться. На этом установка завершена.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dns.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dns.jpg&#34;
 	width=&#34;510&#34;
 	height=&#34;111&#34;
 	
@@ -1431,7 +1431,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;1102px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/admin.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/admin.jpg&#34;
 	width=&#34;1920&#34;
 	height=&#34;478&#34;
 	
@@ -1447,11 +1447,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Полезные команды Linux</title>
-        <link>https://itzm.tech/p/linux/</link>
+        <link>http://localhost:1313/p/linux/</link>
         <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/linux/</guid>
-        <description>&lt;img src="https://itzm.tech/p/linux/linux.jpg" alt="Featured image of post Полезные команды Linux" /&gt;&lt;h3 id=&#34;автозамена-слова&#34;&gt;Автозамена слова
+        <guid>http://localhost:1313/p/linux/</guid>
+        <description>&lt;img src="http://localhost:1313/p/linux/linux.jpg" alt="Featured image of post Полезные команды Linux" /&gt;&lt;h3 id=&#34;автозамена-слова&#34;&gt;Автозамена слова
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1491,11 +1491,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Запуск bash скриптов используя Kaspersky Security Center</title>
-        <link>https://itzm.tech/p/kaspersky-bash/</link>
+        <link>http://localhost:1313/p/kaspersky-bash/</link>
         <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/kaspersky-bash/</guid>
-        <description>&lt;img src="https://itzm.tech/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
+        <guid>http://localhost:1313/p/kaspersky-bash/</guid>
+        <description>&lt;img src="http://localhost:1313/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
 Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
 Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
 Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &amp;ldquo;затаскивать&amp;rdquo; машину в домен.&lt;/p&gt;
@@ -1507,7 +1507,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
 &lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/notepad.jpg&#34;
 	width=&#34;704&#34;
 	height=&#34;743&#34;
 	
@@ -1531,7 +1531,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/sh.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/sh.jpg&#34;
 	width=&#34;666&#34;
 	height=&#34;25&#34;
 	
@@ -1545,7 +1545,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-2-создание-инсталяционного-пакета&#34;&gt;Шаг 2. Создание инсталяционного пакета
 &lt;/h3&gt;&lt;p&gt;Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/1.jpg&#34;
 	width=&#34;528&#34;
 	height=&#34;127&#34;
 	
@@ -1558,7 +1558,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Для указанного исполняемого файла&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/2.jpg&#34;
 	width=&#34;587&#34;
 	height=&#34;615&#34;
 	
@@ -1571,7 +1571,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем наш скрипт, который мы скопировали на сервер Касперского&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/scr.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/scr.jpg&#34;
 	width=&#34;589&#34;
 	height=&#34;633&#34;
 	
@@ -1584,7 +1584,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;После чего установится пакет, который будет размещен в общей папке сервера&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/3.jpg&#34;
 	width=&#34;755&#34;
 	height=&#34;724&#34;
 	
@@ -1597,7 +1597,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/4.jpg&#34;
 	width=&#34;753&#34;
 	height=&#34;723&#34;
 	
@@ -1614,7 +1614,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;h3 id=&#34;шаг-3-создание-задачи-установки&#34;&gt;Шаг 3. Создание задачи установки
 &lt;/h3&gt;&lt;p&gt;Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &amp;ldquo;По расписанию&amp;rdquo; и указать время запуска задания.&lt;/p&gt;
 &lt;p&gt;Нажимаем на созданном нами исталяционном пакете &amp;ldquo;Установить программу&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/5.jpg&#34;
 	width=&#34;620&#34;
 	height=&#34;206&#34;
 	
@@ -1627,7 +1627,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем на группу и выбираем устройства, на которые будет распространяться задача&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/6.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/6.jpg&#34;
 	width=&#34;583&#34;
 	height=&#34;638&#34;
 	
@@ -1643,7 +1643,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;ul&gt;
 &lt;li&gt;В случае, если в логах Вы увидите &amp;ldquo;Permission Denied&amp;rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/task.JPG&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/task.JPG&#34;
 	width=&#34;754&#34;
 	height=&#34;721&#34;
 	
@@ -1656,7 +1656,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Наблюдаем за выполнением и читаем конечный лог задачи&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/7.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/7.jpg&#34;
 	width=&#34;939&#34;
 	height=&#34;725&#34;
 	
@@ -1676,11 +1676,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Установка Confluence в docker-compose</title>
-        <link>https://itzm.tech/p/confluence-docker/</link>
+        <link>http://localhost:1313/p/confluence-docker/</link>
         <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/confluence-docker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
+        <guid>http://localhost:1313/p/confluence-docker/</guid>
+        <description>&lt;img src="http://localhost:1313/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
 Установка схожа с развертыванием другого продукта Atlassian - Jira &lt;code&gt;(На сайте есть заметка)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -1809,7 +1809,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;&lt;h3 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;Переходим в браузер и набираем IP нашего хоста&lt;/p&gt;
 &lt;p&gt;Выбираем &lt;code&gt;Non-cluster (single node)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/1.jpg&#34;
 	width=&#34;828&#34;
 	height=&#34;278&#34;
 	
@@ -1822,7 +1822,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее подключаемся к нашей базе данных, используя данные указанные в compose-файле&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/2.jpg&#34;
 	width=&#34;799&#34;
 	height=&#34;709&#34;
 	
@@ -1838,7 +1838,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://itzm.netlify.app/p/jira-docker/#%D1%88%D0%B0%D0%B3-3-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%B0%D1%86%D0%B8%D1%8F&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Активация подробно описана здесь&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Создаёте тестовый пространство, тестовый проект и входите в Confluence.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/3.jpg&#34;
 	width=&#34;925&#34;
 	height=&#34;443&#34;
 	
@@ -1855,11 +1855,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Установка Jira в docker-compose</title>
-        <link>https://itzm.tech/p/jira-docker/</link>
+        <link>http://localhost:1313/p/jira-docker/</link>
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/jira-docker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <guid>http://localhost:1313/p/jira-docker/</guid>
+        <description>&lt;img src="http://localhost:1313/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -1985,7 +1985,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;&lt;h3 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;Переходим в браузер и набираем адрес нашего хоста, ip:80&lt;/p&gt;
 &lt;p&gt;Меняем язык на нужный вам и выбираем &amp;ldquo;Я выполню настройку самостоятельно&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/1.png&#34;
 	width=&#34;800&#34;
 	height=&#34;549&#34;
 	
@@ -1999,7 +1999,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;Моя база данных&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Вводим все данные из нашего контейнера db&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/2.png&#34;
 	width=&#34;796&#34;
 	height=&#34;775&#34;
 	
@@ -2014,7 +2014,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;p&gt;И проводим &amp;ldquo;Тест подключения&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Нажимаем &amp;ldquo;Далее&amp;rdquo; и ждём пока создается база (Процесс может быть длительным ~5-20 минут)&lt;/p&gt;
 &lt;p&gt;Указываем наш URL, по которому будет открываться Jira&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/3.png&#34;
 	width=&#34;798&#34;
 	height=&#34;496&#34;
 	
@@ -2028,7 +2028,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-3-активация&#34;&gt;Шаг 3. Активация
 &lt;/h3&gt;&lt;p&gt;И так мы подходим к моменту активации.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/5.png&#34;
 	width=&#34;804&#34;
 	height=&#34;418&#34;
 	
@@ -2089,7 +2089,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Сохраняем и стартуем контейнер:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/4.png&#34;
 	width=&#34;925&#34;
 	height=&#34;145&#34;
 	
@@ -2123,7 +2123,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Заполняйте свои данные в полях: mail, userName, CompanyName, и вместе XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера&lt;/p&gt;
 &lt;p&gt;После выполнения команды полученный ключ вставляйте в поле &amp;ldquo;Ваш ключ лицензии&amp;rdquo; и жмите &amp;ldquo;Далее&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/6.png&#34;
 	width=&#34;805&#34;
 	height=&#34;455&#34;
 	
@@ -2137,7 +2137,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-4-завершаем-настройку-в-веб-интерфейсе&#34;&gt;Шаг 4. Завершаем настройку в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;После активации вводим данные нашего локального admina JIRA&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/7.png&#34;
 	width=&#34;806&#34;
 	height=&#34;484&#34;
 	
@@ -2150,7 +2150,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;На данном этапе можно настроить получение уведомлений на email&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/8.png&#34;
 	width=&#34;800&#34;
 	height=&#34;299&#34;
 	
@@ -2176,11 +2176,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Полезные команды FreeIPA</title>
-        <link>https://itzm.tech/p/freeipa-commands/</link>
+        <link>http://localhost:1313/p/freeipa-commands/</link>
         <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/freeipa-commands/</guid>
-        <description>&lt;img src="https://itzm.tech/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
+        <guid>http://localhost:1313/p/freeipa-commands/</guid>
+        <description>&lt;img src="http://localhost:1313/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
 &lt;p&gt;Выгрузить список всех устройств, подключенных к каталогу FreeIPA:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2330,11 +2330,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>FreeIPA. Отправка уведомления пользователю об истечении пароля</title>
-        <link>https://itzm.tech/p/freeipa-password/</link>
+        <link>http://localhost:1313/p/freeipa-password/</link>
         <pubDate>Mon, 16 Sep 2024 23:34:43 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/freeipa-password/</guid>
-        <description>&lt;img src="https://itzm.tech/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
+        <guid>http://localhost:1313/p/freeipa-password/</guid>
+        <description>&lt;img src="http://localhost:1313/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
 Благо есть встроенный дополнительный модуль, который позволяет это сделать. Имя этого модуля IPA-ENP, который &amp;ldquo;под капотом&amp;rdquo; представляет собой набор python скриптов.&lt;/p&gt;
 &lt;p&gt;Главный сервер FreeIPA у нас крутится в докер-компоузе. Заходим на сервер-клиента по ssh, который будет работать 24/7 и рассылать уведомления.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-установка-дополнительного-модуля-и-настройка&#34;&gt;Шаг 1. Установка дополнительного модуля и настройка
@@ -2606,11 +2606,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>High Availability Cluster HAProxy &#43; Patroni</title>
-        <link>https://itzm.tech/p/haproxy/</link>
+        <link>http://localhost:1313/p/haproxy/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/haproxy/</guid>
-        <description>&lt;img src="https://itzm.tech/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
+        <guid>http://localhost:1313/p/haproxy/</guid>
+        <description>&lt;img src="http://localhost:1313/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
 &lt;p&gt;HAProxy установим в качестве контейнера в &lt;em&gt;docker-compose&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;IP: 192.168.10.9&lt;/li&gt;
@@ -2790,11 +2790,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Добавление клиентов FreeIPA используя Ansible</title>
-        <link>https://itzm.tech/p/freeipa-client-ansible/</link>
+        <link>http://localhost:1313/p/freeipa-client-ansible/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/freeipa-client-ansible/</guid>
-        <description>&lt;img src="https://itzm.tech/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
+        <guid>http://localhost:1313/p/freeipa-client-ansible/</guid>
+        <description>&lt;img src="http://localhost:1313/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
 &lt;/h3&gt;&lt;p&gt;В консоли сервера FreeIPA выполняем обновление пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2946,7 +2946,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Дожидаемся процесса установки.
 Готово. Наши сервера успешно присоединены к домену.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client-ansible/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client-ansible/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;322&#34;
 	
@@ -2962,11 +2962,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Добавление клиентов FreeIPA. Ручной метод</title>
-        <link>https://itzm.tech/p/freeipa-client/</link>
+        <link>http://localhost:1313/p/freeipa-client/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/freeipa-client/</guid>
-        <description>&lt;img src="https://itzm.tech/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
+        <guid>http://localhost:1313/p/freeipa-client/</guid>
+        <description>&lt;img src="http://localhost:1313/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
 &lt;/h3&gt;&lt;p&gt;Для начала перейдем на хост и выполним стандартную процедуру обновления пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3136,7 +3136,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;После завершения процесса наш компьютер успешно присоединен к домену.
 Это можно увидеть в веб-интерфейсе&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;252&#34;
 	
@@ -3152,18 +3152,18 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Bitlocker &#43; Recovery keys Active Directory</title>
-        <link>https://itzm.tech/p/bitlocker/</link>
+        <link>http://localhost:1313/p/bitlocker/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/bitlocker/</guid>
-        <description>&lt;img src="https://itzm.tech/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker &#43; Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
+        <guid>http://localhost:1313/p/bitlocker/</guid>
+        <description>&lt;img src="http://localhost:1313/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker &#43; Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
 &lt;h4 id=&#34;включение-дополнительной-роли-на-сервере-ad&#34;&gt;Включение дополнительной роли на сервере AD
 &lt;/h4&gt;&lt;h4 id=&#34;создание-и-назначение-групповой-политики&#34;&gt;Создание и назначение групповой политики
 &lt;/h4&gt;&lt;h4 id=&#34;проверка-на-конечном-устройстве&#34;&gt;Проверка на конечном устройстве
 &lt;/h4&gt;&lt;p&gt;Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
 Диспетчер серверов
 Добавить роли и компоненты&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/1.png&#34;
 	width=&#34;402&#34;
 	height=&#34;196&#34;
 	
@@ -3176,7 +3176,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Установка ролей или компонентов - Далее&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/2.png&#34;
 	width=&#34;787&#34;
 	height=&#34;293&#34;
 	
@@ -3189,7 +3189,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем наш сервер (Отмечен по умолчанию)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/3.png&#34;
 	width=&#34;786&#34;
 	height=&#34;345&#34;
 	
@@ -3203,7 +3203,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;Роли сервера - нажимаем далее&lt;/p&gt;
 &lt;p&gt;Компоненты отмечаем галкой &amp;ldquo;Шифрование диска BitLocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/4.png&#34;
 	width=&#34;790&#34;
 	height=&#34;363&#34;
 	
@@ -3216,7 +3216,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Отмечаем галками как на скриншоте и нажимаем &amp;ldquo;Добавить компоненты&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/5.png&#34;
 	width=&#34;416&#34;
 	height=&#34;453&#34;
 	
@@ -3229,7 +3229,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Устанавливаем галку &amp;ldquo;Автоматический перезапуск конечного сервера&amp;rdquo; и нажимаем &amp;ldquo;Установить&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/7.png&#34;
 	width=&#34;786&#34;
 	height=&#34;556&#34;
 	
@@ -3242,7 +3242,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Создаём OU-шку для компьютеров, на которые будем раскатывать GPO&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/8.png&#34;
 	width=&#34;676&#34;
 	height=&#34;540&#34;
 	
@@ -3255,7 +3255,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Закидываем наш компьютер&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/9.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/9.png&#34;
 	width=&#34;733&#34;
 	height=&#34;442&#34;
 	
@@ -3271,7 +3271,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/h4&gt;&lt;p&gt;Переходим в Управление групповой политикой
 На созданной нами OU - Создать объект групповой политики и связать его
 Называем политику, в моём случае Шифрование&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/10.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/10.png&#34;
 	width=&#34;595&#34;
 	height=&#34;638&#34;
 	
@@ -3284,7 +3284,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Изменить&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/11.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/11.png&#34;
 	width=&#34;399&#34;
 	height=&#34;275&#34;
 	
@@ -3297,7 +3297,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в &amp;ldquo;Конфигурация компьютера&amp;rdquo; - &amp;ldquo;Политики&amp;rdquo; - &amp;ldquo;Административные шаблоны&amp;rdquo; - Компоненты Windows - Шифрование диска&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/12.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/12.png&#34;
 	width=&#34;346&#34;
 	height=&#34;83&#34;
 	
@@ -3310,7 +3310,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Устанавливаем параметры в &amp;ldquo;Включено&amp;rdquo; и отмечаем галками&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/13.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/13.png&#34;
 	width=&#34;763&#34;
 	height=&#34;557&#34;
 	
@@ -3322,7 +3322,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;328px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/14.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/14.png&#34;
 	width=&#34;765&#34;
 	height=&#34;612&#34;
 	
@@ -3335,7 +3335,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/15.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/15.png&#34;
 	width=&#34;760&#34;
 	height=&#34;603&#34;
 	
@@ -3348,7 +3348,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/16.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/16.png&#34;
 	width=&#34;274&#34;
 	height=&#34;75&#34;
 	
@@ -3362,7 +3362,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;Включаем &amp;ldquo;Выбор методов восстановления дисков операционной системы..&amp;rdquo;
 Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &amp;ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/17.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/17.png&#34;
 	width=&#34;762&#34;
 	height=&#34;726&#34;
 	
@@ -3377,7 +3377,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;h4 id=&#34;шифрование-на-конечном-устройстве&#34;&gt;Шифрование на конечном устройстве
 &lt;/h4&gt;&lt;p&gt;Ручной способ:
 Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &amp;ldquo;Включить битлокер&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/18.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/18.png&#34;
 	width=&#34;627&#34;
 	height=&#34;463&#34;
 	
@@ -3390,7 +3390,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем &amp;ldquo;Шифровать только занятое место&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/19.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/19.png&#34;
 	width=&#34;621&#34;
 	height=&#34;482&#34;
 	
@@ -3403,7 +3403,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Ставим галку &amp;ldquo;Запустить проверку систему BitLocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/20.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/20.png&#34;
 	width=&#34;622&#34;
 	height=&#34;486&#34;
 	
@@ -3416,7 +3416,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/21.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/21.png&#34;
 	width=&#34;361&#34;
 	height=&#34;166&#34;
 	
@@ -3428,7 +3428,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;521px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/22.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/22.png&#34;
 	width=&#34;352&#34;
 	height=&#34;206&#34;
 	
@@ -3450,7 +3450,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Ключи восстановления можно найти в Active Directory&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/23.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/23.png&#34;
 	width=&#34;464&#34;
 	height=&#34;553&#34;
 	
@@ -3466,7 +3466,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;li&gt;При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
 Для этого в фильтрах безопасности политики &amp;ldquo;Шифрование&amp;rdquo; удаляем &amp;ldquo;Прошедшие проверку&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/24.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/24.png&#34;
 	width=&#34;940&#34;
 	height=&#34;308&#34;
 	
@@ -3479,7 +3479,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Нажимаем добавить - Тип объектов - Ставим галочку &amp;ldquo;Компьютер&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/25.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/25.png&#34;
 	width=&#34;501&#34;
 	height=&#34;425&#34;
 	
@@ -3492,7 +3492,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Вводим имя нашего ПК и нажимаем добавить&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/26.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/26.png&#34;
 	width=&#34;832&#34;
 	height=&#34;368&#34;
 	
@@ -3510,11 +3510,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Установка сервера FreeIPA в Docker-compose</title>
-        <link>https://itzm.tech/p/freeipa/</link>
+        <link>http://localhost:1313/p/freeipa/</link>
         <pubDate>Sun, 11 Aug 2024 23:01:42 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/freeipa/</guid>
-        <description>&lt;img src="https://itzm.tech/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;Предполагается, что у вас уже установлен docker, docker-compose и ansible.&lt;/p&gt;
+        <guid>http://localhost:1313/p/freeipa/</guid>
+        <description>&lt;img src="http://localhost:1313/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;Предполагается, что у вас уже установлен docker, docker-compose и ansible.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-настройка-сервера&#34;&gt;Шаг 1. Настройка сервера
 &lt;/h3&gt;&lt;p&gt;Назначаем имя серверу:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3672,7 +3672,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Далее переходим в веб-консоль по нашему адресу:&lt;/p&gt;
 &lt;p&gt;Здесь нажимаем &amp;ldquo;Отмена&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/1.jpg&#34;
 	width=&#34;327&#34;
 	height=&#34;260&#34;
 	
@@ -3685,7 +3685,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Авторизуемся:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/2.jpg&#34;
 	width=&#34;928&#34;
 	height=&#34;258&#34;
 	
@@ -3709,7 +3709,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Наш домен FreeIPA создан.
 Дальнейшее конфигурирование выполняется в панели администратора веб-интерфейса.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/4.jpg&#34;
 	width=&#34;1059&#34;
 	height=&#34;159&#34;
 	
@@ -3725,18 +3725,18 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Архивы</title>
-        <link>https://itzm.tech/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://itzm.tech/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Обо мне</title>
-        <link>https://itzm.tech/about/</link>
+        <link>http://localhost:1313/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://itzm.tech/about/</guid>
+        <guid>http://localhost:1313/about/</guid>
         <description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;! Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
 &lt;p&gt;Я - Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
@@ -3759,10 +3759,10 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Поиск</title>
-        <link>https://itzm.tech/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://itzm.tech/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         
