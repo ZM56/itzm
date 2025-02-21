@@ -2,160 +2,160 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on IT Notes</title>
-        <link>https://itzm.tech/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Recent content in Tags on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Tue, 04 Feb 2025 20:05:35 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>CentOS</title>
-        <link>https://itzm.tech/tags/centos/</link>
-        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/centos/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://itzm.tech/tags/linux/</link>
-        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/linux/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Ubuntu</title>
-        <link>https://itzm.tech/tags/ubuntu/</link>
-        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/ubuntu/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Ansible</title>
-        <link>https://itzm.tech/tags/ansible/</link>
-        <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/ansible/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Kubernetes</title>
-        <link>https://itzm.tech/tags/kubernetes/</link>
-        <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/kubernetes/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Helm</title>
-        <link>https://itzm.tech/tags/helm/</link>
-        <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/helm/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Bash</title>
-        <link>https://itzm.tech/tags/bash/</link>
-        <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/bash/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Kaspesky</title>
-        <link>https://itzm.tech/tags/kaspesky/</link>
-        <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/kaspesky/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 21 Feb 2025 21:11:45 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Atlassian</title>
-        <link>https://itzm.tech/tags/atlassian/</link>
-        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        <link>http://localhost:1313/tags/atlassian/</link>
+        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/atlassian/</guid>
+        <guid>http://localhost:1313/tags/atlassian/</guid>
         <description></description>
         </item>
         <item>
         <title>Confluence</title>
-        <link>https://itzm.tech/tags/confluence/</link>
-        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        <link>http://localhost:1313/tags/confluence/</link>
+        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/confluence/</guid>
+        <guid>http://localhost:1313/tags/confluence/</guid>
         <description></description>
         </item>
         <item>
         <title>Docker</title>
-        <link>https://itzm.tech/tags/docker/</link>
-        <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
+        <link>http://localhost:1313/tags/docker/</link>
+        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/docker/</guid>
+        <guid>http://localhost:1313/tags/docker/</guid>
         <description></description>
         </item>
         <item>
         <title>Jira</title>
-        <link>https://itzm.tech/tags/jira/</link>
-        <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
+        <link>http://localhost:1313/tags/jira/</link>
+        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/jira/</guid>
+        <guid>http://localhost:1313/tags/jira/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ubuntu</title>
+        <link>http://localhost:1313/tags/ubuntu/</link>
+        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/ubuntu/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CentOS</title>
+        <link>http://localhost:1313/tags/centos/</link>
+        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/centos/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Linux</title>
+        <link>http://localhost:1313/tags/linux/</link>
+        <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/linux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ansible</title>
+        <link>http://localhost:1313/tags/ansible/</link>
+        <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/ansible/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Kubernetes</title>
+        <link>http://localhost:1313/tags/kubernetes/</link>
+        <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/kubernetes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Helm</title>
+        <link>http://localhost:1313/tags/helm/</link>
+        <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/helm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Bash</title>
+        <link>http://localhost:1313/tags/bash/</link>
+        <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/bash/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Kaspesky</title>
+        <link>http://localhost:1313/tags/kaspesky/</link>
+        <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
+        
+        <guid>http://localhost:1313/tags/kaspesky/</guid>
         <description></description>
         </item>
         <item>
         <title>FreeIPA</title>
-        <link>https://itzm.tech/tags/freeipa/</link>
+        <link>http://localhost:1313/tags/freeipa/</link>
         <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/freeipa/</guid>
+        <guid>http://localhost:1313/tags/freeipa/</guid>
         <description></description>
         </item>
         <item>
         <title>HAProxy</title>
-        <link>https://itzm.tech/tags/haproxy/</link>
+        <link>http://localhost:1313/tags/haproxy/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/haproxy/</guid>
+        <guid>http://localhost:1313/tags/haproxy/</guid>
         <description></description>
         </item>
         <item>
         <title>Patroni</title>
-        <link>https://itzm.tech/tags/patroni/</link>
+        <link>http://localhost:1313/tags/patroni/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/patroni/</guid>
+        <guid>http://localhost:1313/tags/patroni/</guid>
         <description></description>
         </item>
         <item>
         <title>Postgresql</title>
-        <link>https://itzm.tech/tags/postgresql/</link>
+        <link>http://localhost:1313/tags/postgresql/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/postgresql/</guid>
+        <guid>http://localhost:1313/tags/postgresql/</guid>
         <description></description>
         </item>
         <item>
         <title>Active Directory</title>
-        <link>https://itzm.tech/tags/active-directory/</link>
+        <link>http://localhost:1313/tags/active-directory/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/active-directory/</guid>
+        <guid>http://localhost:1313/tags/active-directory/</guid>
         <description></description>
         </item>
         <item>
         <title>Bitlocker</title>
-        <link>https://itzm.tech/tags/bitlocker/</link>
+        <link>http://localhost:1313/tags/bitlocker/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/bitlocker/</guid>
+        <guid>http://localhost:1313/tags/bitlocker/</guid>
         <description></description>
         </item>
         <item>
         <title>Windows</title>
-        <link>https://itzm.tech/tags/windows/</link>
+        <link>http://localhost:1313/tags/windows/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>https://itzm.tech/tags/windows/</guid>
+        <guid>http://localhost:1313/tags/windows/</guid>
         <description></description>
         </item>
         
