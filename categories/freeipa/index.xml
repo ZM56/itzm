@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>FreeIPA on IT Notes</title>
-        <link>http://localhost:1313/categories/freeipa/</link>
+        <link>https://itzm.tech/categories/freeipa/</link>
         <description>Recent content in FreeIPA on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Tue, 17 Sep 2024 17:46:35 +0500</lastBuildDate><atom:link href="http://localhost:1313/categories/freeipa/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 17 Sep 2024 17:46:35 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/freeipa/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Полезные команды FreeIPA</title>
-        <link>http://localhost:1313/p/freeipa-commands/</link>
+        <link>https://itzm.tech/p/freeipa-commands/</link>
         <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-commands/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
+        <guid>https://itzm.tech/p/freeipa-commands/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
 &lt;p&gt;Выгрузить список всех устройств, подключенных к каталогу FreeIPA:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -162,11 +162,11 @@
         </item>
         <item>
         <title>FreeIPA. Отправка уведомления пользователю об истечении пароля</title>
-        <link>http://localhost:1313/p/freeipa-password/</link>
+        <link>https://itzm.tech/p/freeipa-password/</link>
         <pubDate>Mon, 16 Sep 2024 23:34:43 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-password/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
+        <guid>https://itzm.tech/p/freeipa-password/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
 Благо есть встроенный дополнительный модуль, который позволяет это сделать. Имя этого модуля IPA-ENP, который &amp;ldquo;под капотом&amp;rdquo; представляет собой набор python скриптов.&lt;/p&gt;
 &lt;p&gt;Главный сервер FreeIPA у нас крутится в докер-компоузе. Заходим на сервер-клиента по ssh, который будет работать 24/7 и рассылать уведомления.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-установка-дополнительного-модуля-и-настройка&#34;&gt;Шаг 1. Установка дополнительного модуля и настройка
@@ -438,11 +438,11 @@
         </item>
         <item>
         <title>Добавление клиентов FreeIPA используя Ansible</title>
-        <link>http://localhost:1313/p/freeipa-client-ansible/</link>
+        <link>https://itzm.tech/p/freeipa-client-ansible/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-client-ansible/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
+        <guid>https://itzm.tech/p/freeipa-client-ansible/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
 &lt;/h3&gt;&lt;p&gt;В консоли сервера FreeIPA выполняем обновление пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -594,7 +594,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Дожидаемся процесса установки.
 Готово. Наши сервера успешно присоединены к домену.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client-ansible/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client-ansible/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;322&#34;
 	
@@ -610,11 +610,11 @@
         </item>
         <item>
         <title>Добавление клиентов FreeIPA. Ручной метод</title>
-        <link>http://localhost:1313/p/freeipa-client/</link>
+        <link>https://itzm.tech/p/freeipa-client/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-client/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
+        <guid>https://itzm.tech/p/freeipa-client/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
 &lt;/h3&gt;&lt;p&gt;Для начала перейдем на хост и выполним стандартную процедуру обновления пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -784,7 +784,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;После завершения процесса наш компьютер успешно присоединен к домену.
 Это можно увидеть в веб-интерфейсе&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;252&#34;
 	
@@ -800,11 +800,11 @@
         </item>
         <item>
         <title>Установка сервера FreeIPA в Docker-compose</title>
-        <link>http://localhost:1313/p/freeipa/</link>
+        <link>https://itzm.tech/p/freeipa/</link>
         <pubDate>Sun, 11 Aug 2024 23:01:42 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;Предполагается, что у вас уже установлен docker, docker-compose и ansible.&lt;/p&gt;
+        <guid>https://itzm.tech/p/freeipa/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;Предполагается, что у вас уже установлен docker, docker-compose и ansible.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-настройка-сервера&#34;&gt;Шаг 1. Настройка сервера
 &lt;/h3&gt;&lt;p&gt;Назначаем имя серверу:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -962,7 +962,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Далее переходим в веб-консоль по нашему адресу:&lt;/p&gt;
 &lt;p&gt;Здесь нажимаем &amp;ldquo;Отмена&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/1.jpg&#34;
 	width=&#34;327&#34;
 	height=&#34;260&#34;
 	
@@ -975,7 +975,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Авторизуемся:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/2.jpg&#34;
 	width=&#34;928&#34;
 	height=&#34;258&#34;
 	
@@ -999,7 +999,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Наш домен FreeIPA создан.
 Дальнейшее конфигурирование выполняется в панели администратора веб-интерфейса.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/4.jpg&#34;
 	width=&#34;1059&#34;
 	height=&#34;159&#34;
 	

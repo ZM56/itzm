@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jira on IT Notes</title>
-        <link>http://localhost:1313/tags/jira/</link>
+        <link>https://itzm.tech/tags/jira/</link>
         <description>Recent content in Jira on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Fri, 21 Feb 2025 21:11:45 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/jira/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Feb 2025 21:11:45 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/jira/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Offline установка плагинов в Confluence, Jira</title>
-        <link>http://localhost:1313/p/plugins_atlassian/</link>
+        <link>https://itzm.tech/p/plugins_atlassian/</link>
         <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/plugins_atlassian/</guid>
-        <description>&lt;img src="http://localhost:1313/p/plugins_atlassian/market.jpg" alt="Featured image of post Offline установка плагинов в Confluence, Jira" /&gt;&lt;p&gt;В данном примере производится оффлайн установка плагинов с магазина Atlassian внутрь докер контейнера, в котором крутится Confluence или Jira.
+        <guid>https://itzm.tech/p/plugins_atlassian/</guid>
+        <description>&lt;img src="https://itzm.tech/p/plugins_atlassian/market.jpg" alt="Featured image of post Offline установка плагинов в Confluence, Jira" /&gt;&lt;p&gt;В данном примере производится оффлайн установка плагинов с магазина Atlassian внутрь докер контейнера, в котором крутится Confluence или Jira.
 Даже если у вас не используется докер общая логика будет понятна.&lt;/p&gt;
 &lt;h2 id=&#34;установка-в-confluence&#34;&gt;Установка в Confluence
 &lt;/h2&gt;&lt;h3 id=&#34;шаг-1-загрузка-плагина-с-сайта&#34;&gt;Шаг 1. Загрузка плагина с сайта
@@ -20,7 +20,7 @@
 &lt;p&gt;Входим через google аккаунт, или регистрируемся на &lt;a class=&#34;link&#34; href=&#34;https://marketplace.atlassian.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://marketplace.atlassian.com/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Ищем в поиске плагин PlantUML&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/1.jpg&#34;
 	width=&#34;804&#34;
 	height=&#34;188&#34;
 	
@@ -33,7 +33,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в карточку приложения&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/2.jpg&#34;
 	width=&#34;528&#34;
 	height=&#34;320&#34;
 	
@@ -46,7 +46,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;В примере установлена версия Confluence Data Center, поэтому выбираем Data Center и перейти на вкладку Installation&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/3.jpg&#34;
 	width=&#34;838&#34;
 	height=&#34;393&#34;
 	
@@ -59,7 +59,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;version history page&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/4.jpg&#34;
 	width=&#34;1324&#34;
 	height=&#34;307&#34;
 	
@@ -72,7 +72,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Data Center - Развернуть вкладку - Download installer&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/5.jpg&#34;
 	width=&#34;1587&#34;
 	height=&#34;481&#34;
 	
@@ -219,11 +219,11 @@
         </item>
         <item>
         <title>Установка Jira в docker-compose</title>
-        <link>http://localhost:1313/p/jira-docker/</link>
+        <link>https://itzm.tech/p/jira-docker/</link>
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/jira-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
+        <guid>https://itzm.tech/p/jira-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;/p&gt;
 &lt;p&gt;Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -349,7 +349,7 @@
 &lt;/div&gt;&lt;h3 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;Переходим в браузер и набираем адрес нашего хоста, ip:80&lt;/p&gt;
 &lt;p&gt;Меняем язык на нужный вам и выбираем &amp;ldquo;Я выполню настройку самостоятельно&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/1.png&#34;
 	width=&#34;800&#34;
 	height=&#34;549&#34;
 	
@@ -363,7 +363,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;Моя база данных&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Вводим все данные из нашего контейнера db&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/2.png&#34;
 	width=&#34;796&#34;
 	height=&#34;775&#34;
 	
@@ -378,7 +378,7 @@
 &lt;p&gt;И проводим &amp;ldquo;Тест подключения&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Нажимаем &amp;ldquo;Далее&amp;rdquo; и ждём пока создается база (Процесс может быть длительным ~5-20 минут)&lt;/p&gt;
 &lt;p&gt;Указываем наш URL, по которому будет открываться Jira&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/3.png&#34;
 	width=&#34;798&#34;
 	height=&#34;496&#34;
 	
@@ -392,7 +392,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-3-активация&#34;&gt;Шаг 3. Активация
 &lt;/h3&gt;&lt;p&gt;И так мы подходим к моменту активации.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/5.png&#34;
 	width=&#34;804&#34;
 	height=&#34;418&#34;
 	
@@ -453,7 +453,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Сохраняем и стартуем контейнер:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/4.png&#34;
 	width=&#34;925&#34;
 	height=&#34;145&#34;
 	
@@ -487,7 +487,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Заполняйте свои данные в полях: mail, userName, CompanyName, и вместе XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера&lt;/p&gt;
 &lt;p&gt;После выполнения команды полученный ключ вставляйте в поле &amp;ldquo;Ваш ключ лицензии&amp;rdquo; и жмите &amp;ldquo;Далее&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/6.png&#34;
 	width=&#34;805&#34;
 	height=&#34;455&#34;
 	
@@ -501,7 +501,7 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-4-завершаем-настройку-в-веб-интерфейсе&#34;&gt;Шаг 4. Завершаем настройку в веб-интерфейсе
 &lt;/h3&gt;&lt;p&gt;После активации вводим данные нашего локального admina JIRA&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/7.png&#34;
 	width=&#34;806&#34;
 	height=&#34;484&#34;
 	
@@ -514,7 +514,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;На данном этапе можно настроить получение уведомлений на email&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/8.png&#34;
 	width=&#34;800&#34;
 	height=&#34;299&#34;
 	
