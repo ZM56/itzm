@@ -365,7 +365,8 @@
     <section class="article-content">
     
     
-    <p>Предполагается, что у вас уже установлен docker, docker-compose и ansible.</p>
+    <p><code>Установка выполняется на Ubuntu 22.04</code></p>
+<p>Предполагается, что у вас уже установлен docker, docker-compose и ansible.</p>
 <h3 id="шаг-1-настройка-сервера">Шаг 1. Настройка сервера
 </h3><p>Назначаем имя серверу:</p>
 <div class="highlight"><div class="chroma">
@@ -402,6 +403,19 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/usr/bin/pip install gssapi –pre
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Настраиваем параметры системного ядра, чтобы избежать ошибки &ldquo;Failed to create /init.scope control group: No such file or directory&rdquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;GRUB_CMDLINE_LINUX=systemd.unified_cgroup_hierarchy=false&#39;</span> &gt; /etc/default/grub.d/cgroup.cfg
+</span></span><span class="line"><span class="cl">sudo update-grub
+</span></span><span class="line"><span class="cl">sudo reboot
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="шаг-2-запускаем-freeipa-в-контейнере">Шаг 2. Запускаем freeipa в контейнере
@@ -489,7 +503,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Europe/Moscow&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">ipa-server-install</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- --<span class="l">domain= domain.local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- --<span class="l">domain=domain.local</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- --<span class="l">realm=DOMAIN.LOCAL</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- --<span class="l">admin-password=changeME</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- --<span class="l">http-pin=mypass</span><span class="w">
