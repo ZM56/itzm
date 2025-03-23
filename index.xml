@@ -1716,7 +1716,6 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).&lt;/li&gt;
 &lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
-&lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad.jpg&#34;
 	width=&#34;704&#34;
@@ -1728,6 +1727,22 @@ AWX-operator установлен. Далее устанавливаем веб-
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;94&#34;
 		data-flex-basis=&#34;227px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
+&lt;li&gt;Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad_2.jpg&#34;
+	width=&#34;770&#34;
+	height=&#34;582&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -3963,7 +3978,7 @@ AWX-operator установлен. Далее устанавливаем веб-
         
         <guid>https://itzm.tech/about/</guid>
         <description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;! Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
-&lt;p&gt;Я - Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
+&lt;p&gt;Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Linux (Ubuntu, CentOS, AltLinux), Unix (FreeBSD, OpenBSD), IPTables, FreeIPA domain-cluster&lt;/li&gt;
@@ -3973,7 +3988,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;li&gt;Kubernetes, Helm, ArgoCD, Terraform, Prometheus, Grafana, Loki, Kafka, Gitlab, Jenkins, CI/CD&lt;/li&gt;
 &lt;li&gt;Nginx, HAProxy, Keycloak, Nexus, Harbor&lt;/li&gt;
 &lt;li&gt;Python, Bash, Powershell&lt;/li&gt;
-&lt;li&gt;Attlassian (Jira, Confluence, Butbucker), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li&gt;
+&lt;li&gt;Atlassian (Jira, Confluence, Bitbucket), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li&gt;
 &lt;li&gt;Windows Servers (2012, 2016, 2019, 2022), Clusters DataBases, AD, GPO, DNS, DHCP, SCCM&lt;/li&gt;
 &lt;li&gt;Maxpatrol, SearchInform&lt;/li&gt;
 &lt;li&gt;Kaspersky Security Center, KES for Linux, KES for Windows, Kaspersky Web Traffic Security, Kaspersky Mail Gateway&lt;/li&gt;

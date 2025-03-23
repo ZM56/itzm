@@ -22,7 +22,6 @@
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).&lt;/li&gt;
 &lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
-&lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad.jpg&#34;
 	width=&#34;704&#34;
@@ -34,6 +33,22 @@
 		class=&#34;gallery-image&#34; 
 		data-flex-grow=&#34;94&#34;
 		data-flex-basis=&#34;227px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
+&lt;li&gt;Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad_2.jpg&#34;
+	width=&#34;770&#34;
+	height=&#34;582&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;132&#34;
+		data-flex-basis=&#34;317px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;ul&gt;
