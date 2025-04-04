@@ -1,0 +1,255 @@
+---
+title: "Promtail, Loki, Grafana в docker"
+description: Стек для логирования
+date: 2025-03-23T17:31:32+05:00
+slug: loki-in-docker
+image: loki.jpg
+categories:
+    - Logging
+tags:
+    - Linux
+    - Docker
+    - Loki
+    - Grafana
+comments: true
+weight: 1
+---
+
+> Основная цель: 
+Сделать общее хранилище и визуализацию логов, с серверов.
+
+
+
+Адрес моего сервера 192.168.10.131
+
+Здесь теория...
+
+![](all.jpg)
+
+### Шаг 1. Установка docker, docker-compose
+
+```shell
+sudo apt update
+sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+sudo apt install docker-ce -y
+sudo apt-get install docker-compose
+```
+
+Здесь еще описать подробнее пользователь, группа и т.д...
+
+
+### Шаг 2. Подготавливаем файлы конфига
+
+Создаём директории:
+
+```shell
+sudo mkdir -p /opt/logging/data_loki
+sudo mkdir /opt/logging/promtail
+```
+
+Создаём файл compose:
+
+```shell
+sudo nano /opt/logging/docker-compose.yaml
+```
+
+Наполняем:
+
+```yaml
+services:
+  loki:
+    container_name: loki
+    image: grafana/loki:3.4.2
+    command: "-config.file=/etc/loki/config.yaml"
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./data_loki/config.yaml:/etc/loki/config.yaml:ro
+    restart: unless-stopped
+  promtail:
+    image: grafana/promtail:3.4.2
+    command: "-config.file=/mnt/config/config.yaml"
+    volumes:
+      - ./promtail/config.yaml:/mnt/config/config.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+  grafana:
+    image: grafana/grafana-oss:11.5.2
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+```
+
+Конфигурация содержит 3 сервиса: Loki, Promtail и Grafana
+
+
+Создаём файл конфига promtail:
+
+```shell
+sudo nano /opt/promtail/config.yaml
+```
+
+Наполняем:
+
+```yaml
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://192.168.10.131:3100/loki/api/v1/push  # Изменяйте на IP своего сервера с Promtail
+
+scrape_configs:
+  # Сбор логов с Docker контейнеров
+  - job_name: docker-logs
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+    relabel_configs:
+      - source_labels: [__meta_docker_container_name]
+        target_label: container
+      - source_labels: [__meta_docker_container_log_stream]
+        target_label: stream
+
+  # Сбор логов из файлов (например, системные логи)
+  - job_name: system-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: varlogs
+          __path__: /var/log/*.log
+
+```
+
+Собирать логи с контейнеров можно двумя способами:
+> Первый - это установить loki docker plugin для доставки логов до Loki. 
+> Второй - это прописывать на конечных устройствах сборку через docker сокет, как в нашем случае.
+
+Далее создаём конфиг loki:
+
+```yaml
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /loki
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks
+      rules_directory: /loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2020-10-24
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+ruler:
+  alertmanager_url: http://localhost:9093
+```
+
+Чуть расписать конфигурацию что и зачем....
+
+
+### Шаг 3. Запускаем
+
+```shell
+sudo docker-compose up -d
+```
+
+Открываем графану по IP-адресу сервера, порт 3000
+
+![](logon.jpg)
+
+* По умолчанию `admin:admin`
+
+Переходим на вкладку `Connections -> Add new connection -> Loki -> URL: http://192.168.10.131:3100 -> Save and Test`
+
+Если все сделано правильно подключение активируется и графана начнёт отображать логи во вкладке `Explore -> Logs`
+
+![](conn.jpg)
+
+### Шаг 4. Подключаем другой docker-хост
+
+Заходим на сервер, который будет отправлять логи. Создаём директории:
+
+```shell
+sudo mkdir /opt/promtail
+cd /opt/promtail/
+sudo nano docker-compose.yaml
+```
+
+Наполняем:
+
+```yaml
+services:
+  promtail:
+    image: grafana/promtail:3.4.2
+    command: "-config.file=/mnt/config/config.yaml"
+    volumes:
+      - ./config/config.yaml:/mnt/config/config.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+```
+
+И создаём конфигурацию:
+
+```shell
+sudo mkdir -p ./config/
+sudo nano ./config/config.yaml
+```
+
+Подключаем сервер на отправку логов:
+
+```yaml
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://192.168.10.131:3100/loki/api/v1/push  # Изменяйте на IP своего сервера с Promtail
+
+scrape_configs:
+  - job_name: docker-logs
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+    relabel_configs:
+      - source_labels: [__meta_docker_container_name]
+        target_label: container
+      - source_labels: [__meta_docker_container_log_stream]
+        target_label: stream
+```
+
+Запускаем:
+
+```yaml
+docker-compose up -d
+```
+
+Для примера на данном сервере запущу контейнер с nginx
+
+```shell
+docker run --name nginx -p 8080:80 -d nginx
+```
+
+Иду в графану Explore - Logs и смотрю логи
+
+![](nginx.jpg)

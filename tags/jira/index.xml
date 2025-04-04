@@ -485,7 +485,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;java -jar /opt/atlassian/atlassian-agent/atlassian-agent.jar -d -mail &lt;span class=&#34;s1&#34;&gt;&amp;#39;my@email.com&amp;#39;&lt;/span&gt; -n userName -o CompanyName -p jira -s XXXX-XXXX-XXXX-XXXX
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Заполняйте свои данные в полях: mail, userName, CompanyName, и вместе XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Заполняйте свои данные в полях: mail, userName, CompanyName, -p jira или -p conf в зависимости от приложения, которое активируете и вместо XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера.&lt;/p&gt;
 &lt;p&gt;После выполнения команды полученный ключ вставляйте в поле &amp;ldquo;Ваш ключ лицензии&amp;rdquo; и жмите &amp;ldquo;Далее&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/6.png&#34;
 	width=&#34;805&#34;
