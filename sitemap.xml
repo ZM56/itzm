@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://itzm.tech/p/other/</loc>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+  </url><url>
     <loc>https://itzm.tech/p/vsftpd/</loc>
     <lastmod>2025-04-04T00:10:05+05:00</lastmod>
   </url><url>
@@ -51,18 +54,27 @@
     <lastmod>2024-08-11T23:01:42+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/</loc>
-    <lastmod>2025-04-04T00:10:05+05:00</lastmod>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/</loc>
-    <lastmod>2025-04-04T00:10:05+05:00</lastmod>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
   </url><url>
-    <loc>https://itzm.tech/categories/linux/</loc>
-    <lastmod>2025-04-04T00:10:05+05:00</lastmod>
+    <loc>https://itzm.tech/tags/kubernetes/</loc>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/categories/kubernetes/</loc>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/other/</loc>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/post/</loc>
-    <lastmod>2025-04-04T00:10:05+05:00</lastmod>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/</loc>
+    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/categories/linux/</loc>
     <lastmod>2025-04-04T00:10:05+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/ubuntu/</loc>
@@ -93,12 +105,6 @@
     <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/ansible/</loc>
-    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/kubernetes/</loc>
-    <lastmod>2025-01-12T15:57:25+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/categories/kubernetes/</loc>
     <lastmod>2025-01-12T15:57:25+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/helm/</loc>

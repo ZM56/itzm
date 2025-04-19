@@ -6,7 +6,23 @@
         <description>Recent content in Tags on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Fri, 04 Apr 2025 00:10:05 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 19 Apr 2025 20:37:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Kubernetes</title>
+        <link>https://itzm.tech/tags/kubernetes/</link>
+        <pubDate>Sat, 19 Apr 2025 20:37:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/kubernetes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Other</title>
+        <link>https://itzm.tech/tags/other/</link>
+        <pubDate>Sat, 19 Apr 2025 20:37:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/other/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Ubuntu</title>
         <link>https://itzm.tech/tags/ubuntu/</link>
         <pubDate>Fri, 04 Apr 2025 00:10:05 +0500</pubDate>
@@ -68,14 +84,6 @@
         <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
         
         <guid>https://itzm.tech/tags/ansible/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Kubernetes</title>
-        <link>https://itzm.tech/tags/kubernetes/</link>
-        <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/kubernetes/</guid>
         <description></description>
         </item>
         <item>
