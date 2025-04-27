@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://itzm.tech/p/other/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+    <loc>https://itzm.tech/p/mario_k8s/</loc>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/p/vsftpd/</loc>
     <lastmod>2025-04-04T00:10:05+05:00</lastmod>
@@ -54,25 +54,25 @@
     <lastmod>2024-08-11T23:01:42+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/categories/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/kubernetes/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/categories/kubernetes/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/other/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+    <lastmod>2025-05-10T12:00:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/post/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+    <lastmod>2025-05-10T12:00:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/categories/</loc>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/kubernetes/</loc>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/categories/kubernetes/</loc>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/other/</loc>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/</loc>
-    <lastmod>2025-04-19T20:37:00+05:00</lastmod>
+    <lastmod>2025-04-27T10:37:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/linux/</loc>
     <lastmod>2025-04-04T00:10:05+05:00</lastmod>
@@ -156,6 +156,8 @@
     <lastmod>2024-05-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/categories/logging/</loc>
+  </url><url>
+    <loc>https://itzm.tech/categories/zabbix/</loc>
   </url><url>
     <loc>https://itzm.tech/about/</loc>
   </url><url>
