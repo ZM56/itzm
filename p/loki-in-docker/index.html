@@ -10,7 +10,7 @@
 <meta property='og:description' content="Стек для логирования. Установка в docker.">
 <meta property='og:url' content='http://localhost:1313/p/loki-in-docker/'>
 <meta property='og:site_name' content='IT Notes'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Loki' /><meta property='article:tag' content='Grafana' /><meta property='article:published_time' content='2025-03-23T17:31:32&#43;05:00'/><meta property='article:modified_time' content='2025-03-23T17:31:32&#43;05:00'/><meta property='og:image' content='http://localhost:1313/p/loki-in-docker/loki.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Loki' /><meta property='article:tag' content='Grafana' /><meta property='article:published_time' content='2025-05-02T17:31:32&#43;05:00'/><meta property='article:modified_time' content='2025-05-02T17:31:32&#43;05:00'/><meta property='og:image' content='http://localhost:1313/p/loki-in-docker/loki.jpg' />
 <meta name="twitter:title" content="Promtail, Loki, Grafana в docker">
 <meta name="twitter:description" content="Стек для логирования. Установка в docker."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/p/loki-in-docker/loki.jpg' />
@@ -250,15 +250,11 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#введение">Введение</a></li>
-        <li><a href="#шаг-1-установка-docker-docker-compose">Шаг 1. Установка docker, docker-compose</a></li>
-        <li><a href="#шаг-2-подготавливаем-файлы-конфига">Шаг 2. Подготавливаем файлы конфига</a></li>
-        <li><a href="#шаг-3-запускаем">Шаг 3. Запускаем</a></li>
-        <li><a href="#шаг-4-подключаем-другой-docker-хост">Шаг 4. Подключаем другой docker-хост</a></li>
-      </ol>
-    </li>
+    <li><a href="#введение">Введение</a></li>
+    <li><a href="#шаг-1-установка-docker-docker-compose">Шаг 1. Установка docker, docker-compose</a></li>
+    <li><a href="#шаг-2-подготавливаем-файлы-конфига">Шаг 2. Подготавливаем файлы конфига</a></li>
+    <li><a href="#шаг-3-запускаем">Шаг 3. Запускаем</a></li>
+    <li><a href="#шаг-4-подключаем-другой-docker-хост">Шаг 4. Подключаем другой docker-хост</a></li>
   </ol>
 </nav>
         </div>
@@ -324,7 +320,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">мар. 23, 2025</time>
+                <time class="article-time--published">мая 02, 2025</time>
             </div>
         
 
@@ -354,8 +350,8 @@
     <section class="article-content">
     
     
-    <h3 id="введение">Введение
-</h3><p>Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.</p>
+    <h2 id="введение">Введение
+</h2><p>Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.</p>
 <ul>
 <li>Grafana – мощный инструмент для визуализации данных. Он позволяет строить графики, панели мониторинга и работать с различными источниками данных, включая Loki.</li>
 <li>Loki – система агрегации и хранения логов, разработанная Grafana Labs. Loki похож на Prometheus, но для логов. Он индексирует не весь текст логов, а только метаданные (лейблы), что делает его быстрым и эффективным.</li>
@@ -364,6 +360,14 @@
 <p>Можно представить себе Promtail как пчелу, которая собирает пыльцу (логи) с цветов. Затем пчела доставляет свой сбор в улей (Loki), который хранит пыльцу всех пчел с разных цветов. И есть пчеловод (Grafana), который предоставляет
 мед (логи) в удобном формате в виде сот.</p>
 <p>Приложение (Пишет логи в файл) -&gt; Promtail (Читает файлы, добавляет метки) -&gt; Loki (Хранит логи) &lt;- Grafana (Визуализирует полученные данные)</p>
+<blockquote>
+<p>В Telegram я сделал более глубокий разбор функционала и архитектуры Loki, который поможет тебе хорошо разобраться как же он работает на самом деле.<br>
+Если интересно — <a class="link" href="https://t.me/itzm_devops"  target="_blank" rel="noopener"
+    >Присоединяйся</a>
+<a href="https://t.me/itzm_devops" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
+</a></p>
+</blockquote>
 <p><img src="/p/loki-in-docker/all.jpg"
 	width="720"
 	height="230"
@@ -381,8 +385,8 @@
 Сделать общее хранилище и визуализацию логов, с других серверов.</p>
 </blockquote>
 <p><code>Адрес моего сервера логирования 192.168.10.131</code></p>
-<h3 id="шаг-1-установка-docker-docker-compose">Шаг 1. Установка docker, docker-compose
-</h3><div class="highlight"><div class="chroma">
+<h2 id="шаг-1-установка-docker-docker-compose">Шаг 1. Установка docker, docker-compose
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -428,8 +432,8 @@
 </span></span><span class="line"><span class="cl">newgrp docker
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="шаг-2-подготавливаем-файлы-конфига">Шаг 2. Подготавливаем файлы конфига
-</h3><p>Создаём директории:</p>
+</div><h2 id="шаг-2-подготавливаем-файлы-конфига">Шаг 2. Подготавливаем файлы конфига
+</h2><p>Создаём директории:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -696,8 +700,8 @@
       </tr>
   </tbody>
 </table></div>
-<h3 id="шаг-3-запускаем">Шаг 3. Запускаем
-</h3><div class="highlight"><div class="chroma">
+<h2 id="шаг-3-запускаем">Шаг 3. Запускаем
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -748,8 +752,8 @@
 		data-flex-basis="582px"
 	
 ></p>
-<h3 id="шаг-4-подключаем-другой-docker-хост">Шаг 4. Подключаем другой docker-хост
-</h3><p>Заходим на сервер, который будет отправлять логи. Создаём директории:</p>
+<h2 id="шаг-4-подключаем-другой-docker-хост">Шаг 4. Подключаем другой docker-хост
+</h2><p>Заходим на сервер, который будет отправлять логи. Создаём директории:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

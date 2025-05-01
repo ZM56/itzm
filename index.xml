@@ -4406,9 +4406,16 @@ AWX-operator установлен. Далее устанавливаем веб-
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://itzm.tech/about/</guid>
-        <description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;! Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;br&gt;
-&lt;strong&gt;Залетай в &amp;ndash;&amp;gt; &lt;a class=&#34;link&#34; href=&#34;https://t.me/itzm_devops&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ТГ канал&lt;/a&gt;. Там говорим обо всём.&lt;/strong&gt;&lt;/p&gt;
+        <description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;!&lt;br&gt;
+Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Только в Telegram я делюсь тем, что не попадает в заметки: практикой, своими мыслями и теорией — всё просто и без воды.&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://t.me/itzm_devops&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Загляни, если интересно&lt;/a&gt;
+&lt;a href=&#34;https://t.me/itzm_devops&#34; target=&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://cdn-icons-png.flaticon.com/512/2111/2111646.png&#34; alt=&#34;Telegram&#34; width=&#34;18&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;

@@ -350,17 +350,22 @@
     <p>В продолжении мы настроим оповещение в Zabbix и визуализацию в Grafana</p>
 <h2 id="шаг-5-настроить-оповещение">Шаг 5. Настроить оповещение
 </h2><p>Добавляем адрес EMail SMTP сервера. Для этого переходим в:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Administration -&gt; Media Types -&gt; EMail
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Указываем настройки вашего SMTP сервера.</p>
+<p><code>Administration -&gt; Media Types -&gt; EMail</code></p>
+<p>Указываем настройки вашего SMTP сервера</p>
+<p><img src="/p/zabbix2/11emailhtml.jpg"
+	width="821"
+	height="666"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="123"
+		data-flex-basis="295px"
+	
+></p>
 <p>Создаем группу:</p>
-<p>Configuration -&gt; User Groups -&gt; Create</p>
+<p><code>Configuration -&gt; User Groups -&gt; Create</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -371,8 +376,163 @@
 </span></span><span class="line"><span class="cl">Permission: Read (Выдаём права на сервер, с которого собирается метрика, у меня Zabbix Server)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Создаем пользователя, который будет получать уведомления:</p>
-<p>Administration -&gt; Users -&gt; New</p>
+</div><p><img src="/p/zabbix2/12userperm.jpg"
+	width="1067"
+	height="362"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="294"
+		data-flex-basis="707px"
+	
+></p>
+<p>Создаем пользователя, который будет получать уведомления:</p>
+<p><code>Administration -&gt; Users -&gt; New</code></p>
+<p><img src="/p/zabbix2/13users.jpg"
+	width="865"
+	height="602"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="143"
+		data-flex-basis="344px"
+	
+></p>
+<p>В Media добавляем sms, Email (HTML)</p>
+<p><img src="/p/zabbix2/14usermedia.jpg"
+	width="902"
+	height="277"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="325"
+		data-flex-basis="781px"
+	
+></p>
+<p>Переходим в созданную нами ранее группу и добавляем нашего пользователя <code>alert_user</code>:</p>
+<p><code>Configuration -&gt; User Groups -&gt; Alert only</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Users: -&gt; Select alert_user
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>-&gt; Operations</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Default: 1h
+</span></span><span class="line"><span class="cl">Send to user groups: alert_user
+</span></span><span class="line"><span class="cl">Send only to: Email (HTML)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/zabbix2/15usergroup.jpg"
+	width="1455"
+	height="36"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="4041"
+		data-flex-basis="9700px"
+	
+></p>
+<p>Настраиваем действие (Action) на триггер:</p>
+<p><code>Configuration -&gt; Action -&gt; Create Action</code></p>
+<p><img src="/p/zabbix2/16action.jpg"
+	width="808"
+	height="347"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="232"
+		data-flex-basis="558px"
+	
+></p>
+<p>Далее добавляем Operation:</p>
+<p><img src="/p/zabbix2/17operat.jpg"
+	width="1019"
+	height="588"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="173"
+		data-flex-basis="415px"
+	
+></p>
+<p>Настройка выполнена.<br>
+Можно изменить в скрипте из первой части <code>0</code> и <code>1</code> местами и проверить весь процесс срабатывания триггера и пересчёта SLA.</p>
+<p><code>Дополнительно</code><br>
+По желанию можно сделать отправку по Email (HTML). Кастомный шаблон.</p>
+<p><img src="/p/zabbix2/18.jpg"
+	width="768"
+	height="192"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="400"
+		data-flex-basis="960px"
+	
+></p>
+<h2 id="шаг-7-визуализация-в-grafana">Шаг 7. Визуализация в Grafana
+</h2><p>Предполагается, что к вашей Grafana уже подключен источник данных Zabbix. Здесь я это не затрагиваю.</p>
+<p>Создаём новую панель:</p>
+<p>Dashboard -&gt; New Add a new panel</p>
+<p>Выбираем:
+<code>Query</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Data Source: Zabbix
+</span></span><span class="line"><span class="cl">Type: Stat
+</span></span><span class="line"><span class="cl">Count A:
+</span></span><span class="line"><span class="cl"> - Query type: Triggers
+</span></span><span class="line"><span class="cl"> - Count by: All triggers
+</span></span><span class="line"><span class="cl"> - Group: Server
+</span></span><span class="line"><span class="cl"> - Min severity: Warning
+</span></span><span class="line"><span class="cl"> - Count: On
+</span></span><span class="line"><span class="cl">Count B:
+</span></span><span class="line"><span class="cl"> - Query type: Services
+</span></span><span class="line"><span class="cl"> - Service: SITE
+</span></span><span class="line"><span class="cl"> - SLA: SITE
+</span></span><span class="line"><span class="cl"> - Property: SLI
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Далее переходим в:
+<code>Transform</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -382,56 +542,50 @@
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Username: alert_user
-</span></span><span class="line"><span class="cl">Name: Last name
-</span></span><span class="line"><span class="cl">Groups: No access to the frontend # Отключаем доступ в фронт
-</span></span><span class="line"><span class="cl">Media:
-</span></span><span class="line"><span class="cl">Email: siteadmin@mydomain.ru
-</span></span><span class="line"><span class="cl">1-7,00:00-24:00
-</span></span><span class="line"><span class="cl">Permission: User role
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Rename by regex: 
+</span></span><span class="line"><span class="cl"> - Match: (Count A)
+</span></span><span class="line"><span class="cl"> - Replace: Status
+</span></span><span class="line"><span class="cl">Rename by regex:
+</span></span><span class="line"><span class="cl"> - Match: (Count B)
+</span></span><span class="line"><span class="cl"> - Replace: Available
+</span></span><span class="line"><span class="cl">Filter by name:
+</span></span><span class="line"><span class="cl"> - Count A
+</span></span><span class="line"><span class="cl"> - SLI SITE
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Переходим в созданную нами ранее группу и добавляем нашего пользователя <code>alert_user</code>:</p>
-<p>Configuration -&gt; User Groups -&gt; Alert only</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Users: -&gt; Select alert_user
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Настраиваем действие (Action) на триггер:</p>
-<p>Configuration -&gt; Action -&gt; Create Action</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Name: Site Authorization Failed
-</span></span><span class="line"><span class="cl">Conditions: Trigger equals Template Site Auth Monitoring: Site Authorization Failed
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Настройка выполнена.<br>
-Можно изменить в скрипте из первой части <code>0</code> и <code>1</code> местами и проверить весь процесс срабатывания триггера и пересчёта SLA.</p>
-<p><code>Дополнительно</code><br>
-По желанию можно сделать отправку по Email (HTML). Кастомный шаблон выглядит так:
-&hellip;&hellip;&hellip;</p>
-<h2 id="шаг-7-визуализация-в-grafana">Шаг 7. Визуализация в Grafana
-</h2><p>Предполагается, что к вашей Grafana уже подключен источник данных Zabbix. Здесь я это не затрагиваю.</p>
-<p>Создаём новую панель:</p>
-<p>Dashboard -&gt; New Add a new panel</p>
-<p>Выбираем источник Zabbix
-Выбираем наш сервер.</p>
-<p>&hellip;&hellip;&hellip;..</p>
+</div><p>Настройка расположения и прочего - вкусовщина. Я делаю так:</p>
+<p><img src="/p/zabbix2/20.jpg"
+	width="611"
+	height="448"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="327px"
+	
+></p>
 <p><code>Итог:</code><br>
 Раз в минуту zabbix-server будет обращаться к zabbix-agent для получения метрики. Сервер будет запускать скрипт, авторизовываться и возвращать значение параметра.<br>
 Полученное значение отображается в Web-интерфейсе Zabbix, рассчитывается SLA. В Grafana выводится бизнес-метрика и значение в виде графика.<br>
 Если авторизация не удается более 2-х раз, то срабатывает триггер, который отправляет по Email сообщение администратору.</p>
-<p>Настройка графаны + скрины</p>
+<p><img src="/p/zabbix2/19.jpg"
+	width="800"
+	height="239"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="803px"
+	
+></p>
 
 </section>
 
@@ -470,7 +624,7 @@
         
         
             <div class="article-image">
-                <img src="/p/zabbix1/zabbix1.9a169eec95ee87dd29b9161912938dc2_hu8283360524194699947.png" 
+                <img src="/p/zabbix1/zabbix1.9a169eec95ee87dd29b9161912938dc2.9a169eec95ee87dd29b9161912938dc2_hu8283360524194699947.png" 
                         width="250" 
                         height="150" 
                         loading="lazy"
