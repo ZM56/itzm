@@ -6,14 +6,14 @@
         <description>Recent content in Loki on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sun, 23 Mar 2025 17:31:32 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/loki/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 02 May 2025 17:31:32 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/loki/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Promtail, Loki, Grafana в docker</title>
         <link>http://localhost:1313/p/loki-in-docker/</link>
-        <pubDate>Sun, 23 Mar 2025 17:31:32 +0500</pubDate>
+        <pubDate>Fri, 02 May 2025 17:31:32 +0500</pubDate>
         
         <guid>http://localhost:1313/p/loki-in-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h3 id=&#34;введение&#34;&gt;Введение
-&lt;/h3&gt;&lt;p&gt;Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.&lt;/p&gt;
+        <description>&lt;img src="http://localhost:1313/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h2 id=&#34;введение&#34;&gt;Введение
+&lt;/h2&gt;&lt;p&gt;Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Grafana – мощный инструмент для визуализации данных. Он позволяет строить графики, панели мониторинга и работать с различными источниками данных, включая Loki.&lt;/li&gt;
 &lt;li&gt;Loki – система агрегации и хранения логов, разработанная Grafana Labs. Loki похож на Prometheus, но для логов. Он индексирует не весь текст логов, а только метаданные (лейблы), что делает его быстрым и эффективным.&lt;/li&gt;
@@ -22,6 +22,14 @@
 &lt;p&gt;Можно представить себе Promtail как пчелу, которая собирает пыльцу (логи) с цветов. Затем пчела доставляет свой сбор в улей (Loki), который хранит пыльцу всех пчел с разных цветов. И есть пчеловод (Grafana), который предоставляет
 мед (логи) в удобном формате в виде сот.&lt;/p&gt;
 &lt;p&gt;Приложение (Пишет логи в файл) -&amp;gt; Promtail (Читает файлы, добавляет метки) -&amp;gt; Loki (Хранит логи) &amp;lt;- Grafana (Визуализирует полученные данные)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;В Telegram я сделал более глубокий разбор функционала и архитектуры Loki, который поможет тебе хорошо разобраться как же он работает на самом деле.&lt;br&gt;
+Если интересно — &lt;a class=&#34;link&#34; href=&#34;https://t.me/itzm_notes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Присоединяйся&lt;/a&gt;
+&lt;a href=&#34;https://t.me/itzm_notes&#34; target=&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://cdn-icons-png.flaticon.com/512/2111/2111646.png&#34; alt=&#34;Telegram&#34; width=&#34;18&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/all.jpg&#34;
 	width=&#34;720&#34;
 	height=&#34;230&#34;
@@ -39,8 +47,8 @@
 Сделать общее хранилище и визуализацию логов, с других серверов.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;code&gt;Адрес моего сервера логирования 192.168.10.131&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;шаг-1-установка-docker-docker-compose&#34;&gt;Шаг 1. Установка docker, docker-compose
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h2 id=&#34;шаг-1-установка-docker-docker-compose&#34;&gt;Шаг 1. Установка docker, docker-compose
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -86,8 +94,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;newgrp docker
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;шаг-2-подготавливаем-файлы-конфига&#34;&gt;Шаг 2. Подготавливаем файлы конфига
-&lt;/h3&gt;&lt;p&gt;Создаём директории:&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;шаг-2-подготавливаем-файлы-конфига&#34;&gt;Шаг 2. Подготавливаем файлы конфига
+&lt;/h2&gt;&lt;p&gt;Создаём директории:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -354,8 +362,8 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;шаг-3-запускаем&#34;&gt;Шаг 3. Запускаем
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h2 id=&#34;шаг-3-запускаем&#34;&gt;Шаг 3. Запускаем
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
@@ -406,8 +414,8 @@
 		data-flex-basis=&#34;582px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;шаг-4-подключаем-другой-docker-хост&#34;&gt;Шаг 4. Подключаем другой docker-хост
-&lt;/h3&gt;&lt;p&gt;Заходим на сервер, который будет отправлять логи. Создаём директории:&lt;/p&gt;
+&lt;h2 id=&#34;шаг-4-подключаем-другой-docker-хост&#34;&gt;Шаг 4. Подключаем другой docker-хост
+&lt;/h2&gt;&lt;p&gt;Заходим на сервер, который будет отправлять логи. Создаём директории:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
