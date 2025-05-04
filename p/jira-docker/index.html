@@ -250,14 +250,10 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#шаг-1-создаём-директории">Шаг 1. Создаём директории</a></li>
-        <li><a href="#шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе</a></li>
-        <li><a href="#шаг-3-активация">Шаг 3. Активация</a></li>
-        <li><a href="#шаг-4-завершаем-настройку-в-веб-интерфейсе">Шаг 4. Завершаем настройку в веб-интерфейсе</a></li>
-      </ol>
-    </li>
+    <li><a href="#шаг-1-создаём-директории">Шаг 1. Создаём директории</a></li>
+    <li><a href="#шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе</a></li>
+    <li><a href="#шаг-3-активация">Шаг 3. Активация</a></li>
+    <li><a href="#шаг-4-завершаем-настройку-в-веб-интерфейсе">Шаг 4. Завершаем настройку в веб-интерфейсе</a></li>
   </ol>
 </nav>
         </div>
@@ -338,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    Время чтения: 3 мин.
+                    Время чтения: 2 мин.
                 </time>
             </div>
         
@@ -353,9 +349,9 @@
     <section class="article-content">
     
     
-    <p>У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.</p>
-<p>Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.</p>
-<p>Самый быстрый способ развертывания данной системы, это использование докер контейнеров.</p>
+    <p>У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.<br>
+Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.<br>
+Самый быстрый способ развертывания данной системы, это использование докер контейнеров.</p>
 <p>Требования:</p>
 <ul>
 <li>Система: Ubuntu 22.04</li>
@@ -364,8 +360,8 @@
 <li>RAM: 8 Gb</li>
 <li>HDD: На ваше усмотрение (Рекомендуется 100 GB, на 500+ пользователей)</li>
 </ul>
-<h3 id="шаг-1-создаём-директории">Шаг 1. Создаём директории
-</h3><div class="highlight"><div class="chroma">
+<h2 id="шаг-1-создаём-директории">Шаг 1. Создаём директории
+</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -476,8 +472,8 @@
 </span></span><span class="line"><span class="cl">docker-compose up -d
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе
-</h3><p>Переходим в браузер и набираем адрес нашего хоста, ip:80</p>
+</div><h2 id="шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе
+</h2><p>Переходим в браузер и набираем адрес нашего хоста, ip:80</p>
 <p>Меняем язык на нужный вам и выбираем &ldquo;Я выполню настройку самостоятельно&rdquo;</p>
 <p><img src="/p/jira-docker/1.png"
 	width="800"
@@ -520,8 +516,8 @@
 		data-flex-basis="386px"
 	
 ></p>
-<h3 id="шаг-3-активация">Шаг 3. Активация
-</h3><p>И так мы подходим к моменту активации.</p>
+<h2 id="шаг-3-активация">Шаг 3. Активация
+</h2><p>Итак, мы подходим к моменту активации.</p>
 <p><img src="/p/jira-docker/5.png"
 	width="804"
 	height="418"
@@ -535,88 +531,14 @@
 	
 ></p>
 <blockquote>
-<p>Данная информация представлена только для ознакомительного и личного использования! Для коммерческого пользования требуется купить лицензию или используйте бесплатный демо-ключ!
-Использование данной инструкции под Вашу личную ответственность. Автор статьи и сайта ответственности не несет!</p>
+<p>Процесс активации я подробно описал в Telegram.<br>
+Там же отвечаю на вопросы и обновляю инструкции при необходимости<br>
+<a class="link" href="https://t.me/itzm_notes"  target="_blank" rel="noopener"
+    >Присоединяйся</a>
+<a href="https://t.me/itzm_notes" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
+</a></p>
 </blockquote>
-<p>В любом поисковике можно случайно найти файл с именем Atlassian Agent 1.3.1. Как например на данном сайте:</p>
-<blockquote>
-<p><a class="link" href="https://downloadly.ir/software/engineering-specialized/atlassian-bamboo-confluence-crucible-fisheye-jira/"  target="_blank" rel="noopener"
-    >https://downloadly.ir/software/engineering-specialized/atlassian-bamboo-confluence-crucible-fisheye-jira/</a></p>
-</blockquote>
-<p>Копируем atlassian-agent.jar (Например через WinSCP) на хостовую машину и помещаем в директорию: /opt/jira/activate</p>
-<p>Далее останавливаем контейнер</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker-compose down
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Все файлы, которые генерируются Jira будут находиться по пути:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">volumes</span><span class="o">/</span><span class="n">jira_opt</span><span class="o">/</span>
-</span></span><span class="line"><span class="cl"><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">volumes</span><span class="o">/</span><span class="n">jira_var</span><span class="o">/</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Открываем на редактирование:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /var/lib/docker/volumes/jira_opt/_data/bin/setenv.sh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Добавляем сверху строку:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">export JAVA_OPTS</span><span class="o">=</span><span class="s">&#34;-javaagent:/opt/atlassian/atlassian-agent/atlassian-agent.jar ${JAVA_OPTS}&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Сохраняем и стартуем контейнер:</p>
-<p><img src="/p/jira-docker/4.png"
-	width="925"
-	height="145"
-	
-	loading="lazy"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="637"
-		data-flex-basis="1531px"
-	
-></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker-compose up -d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Обновляем окно браузера и ждём пока Jira запустится.</p>
-<p>Заходим внутрь контейнера и выполняем команду:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it jira bash
-</span></span><span class="line"><span class="cl">java -jar /opt/atlassian/atlassian-agent/atlassian-agent.jar -d -mail <span class="s1">&#39;my@email.com&#39;</span> -n userName -o CompanyName -p jira -s XXXX-XXXX-XXXX-XXXX
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Заполняйте свои данные в полях: mail, userName, CompanyName, -p jira или -p conf в зависимости от приложения, которое активируете и вместо XXXX-XXXX-XXXX-XXXX подставляйте свой ID сервера из окна браузера.</p>
-<p>После выполнения команды полученный ключ вставляйте в поле &ldquo;Ваш ключ лицензии&rdquo; и жмите &ldquo;Далее&rdquo;</p>
 <p><img src="/p/jira-docker/6.png"
 	width="805"
 	height="455"
@@ -629,8 +551,8 @@
 		data-flex-basis="424px"
 	
 ></p>
-<h3 id="шаг-4-завершаем-настройку-в-веб-интерфейсе">Шаг 4. Завершаем настройку в веб-интерфейсе
-</h3><p>После активации вводим данные нашего локального admina JIRA</p>
+<h2 id="шаг-4-завершаем-настройку-в-веб-интерфейсе">Шаг 4. Завершаем настройку в веб-интерфейсе
+</h2><p>После активации вводим данные нашего локального admin&rsquo;a JIRA</p>
 <p><img src="/p/jira-docker/7.png"
 	width="806"
 	height="484"
@@ -661,8 +583,8 @@
 <p><code>Дополнения</code></p>
 <ul>
 <li>Если хотите, чтобы сообщение &ldquo;Вы используете незаконную лицензию на продукт. Обратитесь к тому, кто вам ее предоставил.&rdquo; Не отображалось, то на этапе активации продукта отключите интернет&quot;</li>
-<li>Если нужно восстановить имеющуюся базу Jira из бэкапа, то положите её в контейнер по пути: /var/lib/docker/volumes/jira_var/_data/import/</li>
-<li>И скопируйте с заменой все директории (change, sentities, issues, snapshots, worklogs) в: /var/lib/docker/volumes/jira_var/_data/caches/indexesV2/</li>
+<li>Если нужно восстановить имеющуюся базу Jira из бэкапа, то положите её в контейнер по пути: /var/lib/docker/volumes/jira_var/_data/import/<br>
+и скопируйте с заменой все директории (change, sentities, issues, snapshots, worklogs) в: /var/lib/docker/volumes/jira_var/_data/caches/indexesV2/</li>
 <li>Восстановите бэкап через админскую панель в веб-интерфейсе Jira</li>
 <li>Если при переиндексации возникает ошибка проверьте разрешения на директории, должны быть: <code>drwxr-x--- 2001:2001</code></li>
 </ul>
