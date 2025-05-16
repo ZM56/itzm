@@ -334,7 +334,7 @@
 
 
                 <time class="article-time--reading">
-                    Время чтения: 2 мин.
+                    Время чтения: 3 мин.
                 </time>
             </div>
         
@@ -349,9 +349,11 @@
     <section class="article-content">
     
     
-    <p><code>Confluence</code> - это вики-система для внутреннего использования организациями с целью создания единой базы знаний.</p>
+    <p><code>Confluence</code> - это вики-система для внутреннего использования организациями, с целью создания единой базы знаний.</p>
 <p>Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
-Установка схожа с развертыванием другого продукта Atlassian - Jira <code>(На сайте есть заметка)</code></p>
+Установка схожа с развертыванием другого продукта Atlassian - Jira<br>
+-&gt; <a class="link" href="https://itzm.tech/p/jira-docker/"  target="_blank" rel="noopener"
+    >На сайте есть заметка</a></p>
 <p>Требования:</p>
 <ul>
 <li>Система: Ubuntu 22.04</li>
@@ -421,16 +423,50 @@
 </span><span class="lnt">37
 </span><span class="lnt">38
 </span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:alpine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nginx/nginx.conf:/etc/nginx/nginx.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nginx/certs:/etc/nginx/certs:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">confluence</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">conf-proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">confluence</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">confluence</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">atlassian/confluence:9.0.3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;80:8090&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8090:8090&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8091:8091&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">var:/var/atlassian/application-data/confluence</span><span class="w">
@@ -440,10 +476,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_DB_HOST=db&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_DB_PORT=5432&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CATALINA_OPTS=-Xms512M -Xmx1024M&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_PROXY_NAME=confluence.domail.local&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_PROXY_NAME=confluence.domain.local&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_PROXY_PORT=443&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_PROXY_SCHEME=HTTPS&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_PROXY_SCHEME=https&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;TZ=Europe/Moscow&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">conf-proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">postgres:15-alpine</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
@@ -456,6 +495,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;5432:5432&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">conf-proxy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">conf-proxy</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">var</span><span class="p">:</span><span class="w">
@@ -464,7 +508,99 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>Сохраняем, переходим в директорию с файлом и запускаем.</p>
+</div><p>Сохраняем, создаём директорию для nginx</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir -p /opt/confluence/nginx/certs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>И конфигурацию:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nano /opt/confluence/nginx/nginx.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Наполняем:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">events {}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">http {</span>
+</span></span><span class="line"><span class="cl">  <span class="na">server {</span>
+</span></span><span class="line"><span class="cl">    <span class="na">listen 443 ssl;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">server_name confluence.domain.local; #Меняйте на своё имя</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="na">ssl_certificate     /etc/nginx/certs/selfsigned.crt;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">ssl_certificate_key /etc/nginx/certs/selfsigned.key;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="na">location / {</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_pass http://confluence:8090;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_http_version 1.1;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header Host $host;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header X-Real-IP $remote_addr;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header X-Forwarded-Proto https;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header X-Forwarded-Host $host;</span>
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_set_header X-Forwarded-Port 443;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="na">proxy_redirect off;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">}</span>
+</span></span><span class="line"><span class="cl">  <span class="na">}</span>
+</span></span><span class="line"><span class="cl"><span class="na">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Далее создаём самоподписанные сертификаты:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /opt/confluence/nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout certs/selfsigned.key  -out certs/selfsigned.crt  -subj &#34;/C=RU/ST=Moscow/L=My/O=ITZM/OU=TECH/CN=confluence.domain.local&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>переходим в директорию с файлом и запускаем.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -476,7 +612,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе
-</h2><p>Переходим в браузер и набираем IP нашего хоста</p>
+</h2><p>Переходим в браузер и набираем IP нашего хоста (Или DNS, если сделали запись)</p>
 <p>Выбираем <code>Non-cluster (single node)</code></p>
 <p><img src="/p/confluence-docker/1.jpg"
 	width="828"
