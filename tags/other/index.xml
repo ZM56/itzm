@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Other on IT Notes</title>
-        <link>https://itzm.tech/tags/other/</link>
+        <link>http://localhost:1313/tags/other/</link>
         <description>Recent content in Other on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sun, 27 Apr 2025 10:37:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/other/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 27 Apr 2025 10:37:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/other/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Super Mario в Kubernetes за 5 минут</title>
-        <link>https://itzm.tech/p/mario_k8s/</link>
+        <link>http://localhost:1313/p/mario_k8s/</link>
         <pubDate>Sun, 27 Apr 2025 10:37:00 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/mario_k8s/</guid>
-        <description>&lt;img src="https://itzm.tech/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
+        <guid>http://localhost:1313/p/mario_k8s/</guid>
+        <description>&lt;img src="http://localhost:1313/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;Развернутый K8S, Minikube или K3S&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Еще одна причина поставить кубернетес, это поиграть в старый-добрый Марио.
 Сделать это проще простого:&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pod -n game
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/pod.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/pod.jpg&#34;
 	width=&#34;508&#34;
 	height=&#34;53&#34;
 	
@@ -68,7 +68,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в браузер. Вводим IP:31111&lt;/p&gt;
 &lt;p&gt;Управление расписано слева сверху. Наслаждаемся :)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/mario.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/mario.jpg&#34;
 	width=&#34;1912&#34;
 	height=&#34;1029&#34;
 	
