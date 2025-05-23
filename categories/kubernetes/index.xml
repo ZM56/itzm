@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Kubernetes on IT Notes</title>
-        <link>http://localhost:1313/categories/kubernetes/</link>
+        <link>https://itzm.tech/categories/kubernetes/</link>
         <description>Recent content in Kubernetes on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sun, 27 Apr 2025 10:37:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 27 Apr 2025 10:37:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Super Mario в Kubernetes за 5 минут</title>
-        <link>http://localhost:1313/p/mario_k8s/</link>
+        <link>https://itzm.tech/p/mario_k8s/</link>
         <pubDate>Sun, 27 Apr 2025 10:37:00 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/mario_k8s/</guid>
-        <description>&lt;img src="http://localhost:1313/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
+        <guid>https://itzm.tech/p/mario_k8s/</guid>
+        <description>&lt;img src="https://itzm.tech/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;Развернутый K8S, Minikube или K3S&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Еще одна причина поставить кубернетес, это поиграть в старый-добрый Марио.
 Сделать это проще простого:&lt;/p&gt;
@@ -54,7 +54,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pod -n game
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/pod.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/pod.jpg&#34;
 	width=&#34;508&#34;
 	height=&#34;53&#34;
 	
@@ -68,7 +68,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в браузер. Вводим IP:31111&lt;/p&gt;
 &lt;p&gt;Управление расписано слева сверху. Наслаждаемся :)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/mario.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/mario.jpg&#34;
 	width=&#34;1912&#34;
 	height=&#34;1029&#34;
 	
@@ -93,11 +93,11 @@
         </item>
         <item>
         <title>Установка K8S кластера через Kubespray</title>
-        <link>http://localhost:1313/p/k8s/</link>
+        <link>https://itzm.tech/p/k8s/</link>
         <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/k8s/</guid>
-        <description>&lt;img src="http://localhost:1313/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
+        <guid>https://itzm.tech/p/k8s/</guid>
+        <description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
 &lt;p&gt;Кластер будет состоять из 2-х Master node, 2-х Worker node.&lt;/p&gt;
 &lt;p&gt;Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p&gt;
 &lt;p&gt;Требования по ресурсам:&lt;/p&gt;
@@ -727,11 +727,11 @@
         </item>
         <item>
         <title>Установка Ansible AWX в K3S</title>
-        <link>http://localhost:1313/p/kubernetes/</link>
+        <link>https://itzm.tech/p/kubernetes/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/kubernetes/</guid>
-        <description>&lt;img src="http://localhost:1313/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
+        <guid>https://itzm.tech/p/kubernetes/</guid>
+        <description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
 &lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -848,7 +848,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get nodes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/nodes.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/nodes.jpg&#34;
 	width=&#34;486&#34;
 	height=&#34;52&#34;
 	
@@ -922,7 +922,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dep-oper.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dep-oper.jpg&#34;
 	width=&#34;707&#34;
 	height=&#34;339&#34;
 	
@@ -943,7 +943,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -w
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/pods.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/pods.jpg&#34;
 	width=&#34;698&#34;
 	height=&#34;59&#34;
 	
@@ -1022,7 +1022,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get svc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/svc.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/svc.jpg&#34;
 	width=&#34;924&#34;
 	height=&#34;99&#34;
 	
@@ -1054,7 +1054,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Пароль: из команды выше
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/home.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/home.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;754&#34;
 	
@@ -1253,7 +1253,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get ing
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/ing.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/ing.jpg&#34;
 	width=&#34;663&#34;
 	height=&#34;53&#34;
 	
@@ -1267,7 +1267,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;На этом этапе имя сервера уже должно быть создано в DNS и резолвиться&lt;/p&gt;
 &lt;p&gt;При входе по IP вы получите ошибку 404&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/404.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/404.jpg&#34;
 	width=&#34;518&#34;
 	height=&#34;94&#34;
 	
@@ -1280,7 +1280,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Теперь заходим по имени нашего сервера в веб-консоль, и можем пользоваться. На этом установка завершена.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dns.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dns.jpg&#34;
 	width=&#34;510&#34;
 	height=&#34;111&#34;
 	
@@ -1292,7 +1292,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;1102px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/admin.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/admin.jpg&#34;
 	width=&#34;1920&#34;
 	height=&#34;478&#34;
 	

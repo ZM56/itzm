@@ -2,264 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on IT Notes</title>
-        <link>http://localhost:1313/post/</link>
+        <link>https://itzm.tech/post/</link>
         <description>Recent content in Posts on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sat, 10 May 2025 12:00:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2</title>
-        <link>http://localhost:1313/p/zabbix2/</link>
-        <pubDate>Sat, 10 May 2025 12:00:00 +0500</pubDate>
-        
-        <guid>http://localhost:1313/p/zabbix2/</guid>
-        <description>&lt;img src="http://localhost:1313/p/zabbix2/zabbix2.jpg" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2" /&gt;&lt;p&gt;В продолжении мы настроим оповещение в Zabbix и визуализацию в Grafana&lt;/p&gt;
-&lt;h2 id=&#34;шаг-5-настроить-оповещение&#34;&gt;Шаг 5. Настроить оповещение
-&lt;/h2&gt;&lt;p&gt;Добавляем адрес EMail SMTP сервера. Для этого переходим в:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Administration -&amp;gt; Media Types -&amp;gt; EMail&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Указываем настройки вашего SMTP сервера&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/11emailhtml.jpg&#34;
-	width=&#34;821&#34;
-	height=&#34;666&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;123&#34;
-		data-flex-basis=&#34;295px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Создаем группу:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; User Groups -&amp;gt; Create&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name: Alert only
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Permission: Read (Выдаём права на сервер, с которого собирается метрика, у меня Zabbix Server)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/12userperm.jpg&#34;
-	width=&#34;1067&#34;
-	height=&#34;362&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;294&#34;
-		data-flex-basis=&#34;707px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Создаем пользователя, который будет получать уведомления:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Administration -&amp;gt; Users -&amp;gt; New&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/13users.jpg&#34;
-	width=&#34;865&#34;
-	height=&#34;602&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;143&#34;
-		data-flex-basis=&#34;344px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;В Media добавляем sms, Email (HTML)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/14usermedia.jpg&#34;
-	width=&#34;902&#34;
-	height=&#34;277&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;325&#34;
-		data-flex-basis=&#34;781px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Переходим в созданную нами ранее группу и добавляем нашего пользователя &lt;code&gt;alert_user&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; User Groups -&amp;gt; Alert only&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Users: -&amp;gt; Select alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;-&amp;gt; Operations&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default: 1h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send to user groups: alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send only to: Email (HTML)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/15usergroup.jpg&#34;
-	width=&#34;1455&#34;
-	height=&#34;36&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;4041&#34;
-		data-flex-basis=&#34;9700px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настраиваем действие (Action) на триггер:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; Action -&amp;gt; Create Action&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/16action.jpg&#34;
-	width=&#34;808&#34;
-	height=&#34;347&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;232&#34;
-		data-flex-basis=&#34;558px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Далее добавляем Operation:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/17operat.jpg&#34;
-	width=&#34;1019&#34;
-	height=&#34;588&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;415px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настройка выполнена.&lt;br&gt;
-Можно изменить в скрипте из первой части &lt;code&gt;0&lt;/code&gt; и &lt;code&gt;1&lt;/code&gt; местами и проверить весь процесс срабатывания триггера и пересчёта SLA.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Дополнительно&lt;/code&gt;&lt;br&gt;
-По желанию можно сделать отправку по Email (HTML). Кастомный шаблон.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/18.jpg&#34;
-	width=&#34;768&#34;
-	height=&#34;192&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;400&#34;
-		data-flex-basis=&#34;960px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-7-визуализация-в-grafana&#34;&gt;Шаг 7. Визуализация в Grafana
-&lt;/h2&gt;&lt;p&gt;Предполагается, что к вашей Grafana уже подключен источник данных Zabbix. Здесь я это не затрагиваю.&lt;/p&gt;
-&lt;p&gt;Создаём новую панель:&lt;/p&gt;
-&lt;p&gt;Dashboard -&amp;gt; New Add a new panel&lt;/p&gt;
-&lt;p&gt;Выбираем:
-&lt;code&gt;Query&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Data Source: Zabbix
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type: Stat
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Count A:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Query type: Triggers
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count by: All triggers
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Group: Server
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Min severity: Warning
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count: On
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Count B:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Query type: Services
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Service: SITE
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - SLA: SITE
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Property: SLI
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Далее переходим в:
-&lt;code&gt;Transform&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Rename by regex: 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Match: (Count A)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Replace: Status
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Rename by regex:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Match: (Count B)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Replace: Available
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Filter by name:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count A
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - SLI SITE
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Настройка расположения и прочего - вкусовщина. Я делаю так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/20.jpg&#34;
-	width=&#34;611&#34;
-	height=&#34;448&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;136&#34;
-		data-flex-basis=&#34;327px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Итог:&lt;/code&gt;&lt;br&gt;
-Раз в минуту zabbix-server будет обращаться к zabbix-agent для получения метрики. Сервер будет запускать скрипт, авторизовываться и возвращать значение параметра.&lt;br&gt;
-Полученное значение отображается в Web-интерфейсе Zabbix, рассчитывается SLA. В Grafana выводится бизнес-метрика и значение в виде графика.&lt;br&gt;
-Если авторизация не удается более 2-х раз, то срабатывает триггер, который отправляет по Email сообщение администратору.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/19.jpg&#34;
-	width=&#34;800&#34;
-	height=&#34;239&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;334&#34;
-		data-flex-basis=&#34;803px&#34;
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Sat, 03 May 2025 11:15:32 +0500</lastBuildDate><atom:link href="https://itzm.tech/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Promtail, Loki, Grafana в docker</title>
-        <link>http://localhost:1313/p/loki-in-docker/</link>
+        <link>https://itzm.tech/p/loki-in-docker/</link>
         <pubDate>Sat, 03 May 2025 11:15:32 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/loki-in-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h2 id=&#34;введение&#34;&gt;Введение
+        <guid>https://itzm.tech/p/loki-in-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h2 id=&#34;введение&#34;&gt;Введение
 &lt;/h2&gt;&lt;p&gt;Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Grafana – мощный инструмент для визуализации данных. Он позволяет строить графики, панели мониторинга и работать с различными источниками данных, включая Loki.&lt;/li&gt;
@@ -275,7 +28,7 @@
 &lt;img src=&#34;https://cdn-icons-png.flaticon.com/512/2111/2111646.png&#34; alt=&#34;Telegram&#34; width=&#34;18&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/all.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/all.jpg&#34;
 	width=&#34;1310&#34;
 	height=&#34;941&#34;
 	
@@ -617,7 +370,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Открываем графану по IP-адресу сервера, порт 3000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/logon.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/logon.jpg&#34;
 	width=&#34;1311&#34;
 	height=&#34;730&#34;
 	
@@ -634,7 +387,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Переходим на вкладку:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Connections -&amp;gt; Add new connection -&amp;gt; Loki -&amp;gt; URL: http://192.168.10.131:3100 -&amp;gt; Save and Test&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/conn.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/conn.jpg&#34;
 	width=&#34;660&#34;
 	height=&#34;474&#34;
 	
@@ -647,7 +400,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Если все сделано правильно подключение активируется и графана начнёт отображать логи во вкладке &lt;code&gt;Explore -&amp;gt; Logs&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/svc.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/svc.jpg&#34;
 	width=&#34;1299&#34;
 	height=&#34;535&#34;
 	
@@ -771,7 +524,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Идем в графану &lt;code&gt;Explore - Logs&lt;/code&gt; и смотрю логи&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/nginx.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/nginx.jpg&#34;
 	width=&#34;1360&#34;
 	height=&#34;215&#34;
 	
@@ -787,297 +540,12 @@
 </description>
         </item>
         <item>
-        <title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1</title>
-        <link>http://localhost:1313/p/zabbix1/</link>
-        <pubDate>Thu, 01 May 2025 11:44:00 +0500</pubDate>
-        
-        <guid>http://localhost:1313/p/zabbix1/</guid>
-        <description>&lt;img src="http://localhost:1313/p/zabbix1/zabbix1.png" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1" /&gt;&lt;p&gt;&lt;code&gt;Дано:&lt;/code&gt; Критически важный сайт, который нужно мониторить и в случае неработоспособности уведомлять админов.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Версия Zabbix: 6.0.1&lt;/li&gt;
-&lt;li&gt;Версия Grafana: 11.6.0&lt;/li&gt;
-&lt;li&gt;Мониторинг будем настраивать на получение кода 200.&lt;br&gt;
-Если авторизация удалась, то считаем это за 1, если нет, то 0.&lt;br&gt;
-Запрос каждую минуту&lt;/li&gt;
-&lt;li&gt;2-е неуспешные авторизации = срабатывание триггера&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;В первой части статьи мы создадим скрипт и настроим zabbix на сбор метрик.&lt;br&gt;
-Во второй части сделаем оповещение пользователей Zabbix и визуализируем результаты мониторинга в Grafana.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Порядок действий:&lt;/code&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.&lt;/li&gt;
-&lt;li&gt;Добавить пользовательский параметр в конфигурацию zabbix-агента&lt;/li&gt;
-&lt;li&gt;Создать шаблон (элементы, триггеры) + назначить хосту (В моём примере это будет сам zabbix-сервер)&lt;/li&gt;
-&lt;li&gt;Настроить SLA&lt;/li&gt;
-&lt;li&gt;Настроить оповещения&lt;/li&gt;
-&lt;li&gt;Создать пользователя (группу пользователей) для уведомлений + создание действия&lt;/li&gt;
-&lt;li&gt;Визуализация в Grafana&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;шаг-1-выбрать-сервер-с-установленным-zabbix-агентом-написать-скрипт&#34;&gt;Шаг 1. Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.
-&lt;/h2&gt;&lt;p&gt;В качестве сервера, который будет запускать скрипт и получать значение у меня будет Zabbix-сервер.
-Захожу на сервер. Создаю скрипт:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Пример написанного мною скрипта. Используется Python3 и библиотеки: &lt;code&gt;requests, sys, warnings&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ZM56/auth_check/blob/main/site-check.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Линк на Github&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Делаем исполняемым:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Меняем группу владельца на zabbix&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chown root:zabbix /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Запускаем тестируем:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/1scrtest.jpg&#34;
-	width=&#34;418&#34;
-	height=&#34;47&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;889&#34;
-		data-flex-basis=&#34;2134px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-2-добавить-пользовательский-параметр-в-конфигурацию-zabbix-агента&#34;&gt;Шаг 2. Добавить пользовательский параметр в конфигурацию zabbix-агента
-&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/zabbix/zabbix_agentd.conf
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Находим параметр: &lt;code&gt;UserParameter&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Где, &lt;code&gt;site.auth&lt;/code&gt; - переменная, в которую будет записываться значение полученное после выполнения скрипта.
-&lt;code&gt;/opt/monitoring/site-check.py&lt;/code&gt; - путь до скрипта.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;UserParameter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;site.auth,/opt/monitoring/site-check.py&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/2userpar.jpg&#34;
-	width=&#34;521&#34;
-	height=&#34;132&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;394&#34;
-		data-flex-basis=&#34;947px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Рестартим сервис:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart zabbix-agent.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Проверяем, что zabbix понимает переменную:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zabbix_agentd -t site.auth
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/3zabper.jpg&#34;
-	width=&#34;447&#34;
-	height=&#34;37&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1208&#34;
-		data-flex-basis=&#34;2899px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-3-создать-шаблон-элементы-триггеры--назначить-хосту&#34;&gt;Шаг 3. Создать шаблон (элементы, триггеры) + назначить хосту
-&lt;/h2&gt;&lt;p&gt;Идем в веб-интерфейс Zabbix. Создаём шаблон:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Templates -&amp;gt; Create template&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/4templ.jpg&#34;
-	width=&#34;872&#34;
-	height=&#34;445&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;195&#34;
-		data-flex-basis=&#34;470px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаем элемент:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Items -&amp;gt; Create item&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/5item.jpg&#34;
-	width=&#34;850&#34;
-	height=&#34;764&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;111&#34;
-		data-flex-basis=&#34;267px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Далее &lt;code&gt;Test&lt;/code&gt; -&amp;gt; &lt;code&gt;Host address&lt;/code&gt; Наш сервер, на котором запускается скрипт -&amp;gt; &lt;code&gt;Port: 10050&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;В Value появится &lt;code&gt;1&lt;/code&gt;, если авторизация доступна или &lt;code&gt;0&lt;/code&gt; если недоступна.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаем триггер&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Triggers -&amp;gt; Create Trigger&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/6trig.jpg&#34;
-	width=&#34;819&#34;
-	height=&#34;767&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;106&#34;
-		data-flex-basis=&#34;256px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Я закладываю логику: Если два раз подряд авторизация завершится неудачно, тогда срабатывает триггер.&lt;br&gt;
-Напоминаю, что используется Zabbix 6.0 поэтому параметры типа count с тремя значениями использоваться ещё не могут. Будем брать последние 2 значения:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Expression: last(/Template Auth Monitoring/site.auth,#1)=0 and last(/Template Auth Monitoring/site.auth,#2)=0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;где, #1 = Последнее полученное значение ключа, #2 = Предпоследнее полученное значение ключа&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Далее переходим в Tag и назначаем&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/7trigtag.jpg&#34;
-	width=&#34;901&#34;
-	height=&#34;295&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;305&#34;
-		data-flex-basis=&#34;733px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-4-настройка-sla&#34;&gt;Шаг 4. Настройка SLA
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Service -&amp;gt; SLA -&amp;gt; Create SLA&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/8sla.jpg&#34;
-	width=&#34;726&#34;
-	height=&#34;623&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;116&#34;
-		data-flex-basis=&#34;279px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Reporting period&amp;#34; Quarterly # Считать статистику будем за квартал
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаём сервис&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Services -&amp;gt; Edit - Create service&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/9crserv.jpg&#34;
-	width=&#34;714&#34;
-	height=&#34;584&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;122&#34;
-		data-flex-basis=&#34;293px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Назначаем тег&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/10svctag.jpg&#34;
-	width=&#34;706&#34;
-	height=&#34;261&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;270&#34;
-		data-flex-basis=&#34;649px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настройка сбора метрик завершена. В следующей части оповещения и визуализация в Grafana.&lt;/p&gt;
-&lt;p&gt;-&amp;gt; Operations&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default: 1h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send to user groups: alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send only to: Email (HTML)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-        </item>
-        <item>
         <title>Super Mario в Kubernetes за 5 минут</title>
-        <link>http://localhost:1313/p/mario_k8s/</link>
+        <link>https://itzm.tech/p/mario_k8s/</link>
         <pubDate>Sun, 27 Apr 2025 10:37:00 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/mario_k8s/</guid>
-        <description>&lt;img src="http://localhost:1313/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
+        <guid>https://itzm.tech/p/mario_k8s/</guid>
+        <description>&lt;img src="https://itzm.tech/p/mario_k8s/supermario.jpg" alt="Featured image of post Super Mario в Kubernetes за 5 минут" /&gt;&lt;h2 id=&#34;требования&#34;&gt;Требования
 &lt;/h2&gt;&lt;p&gt;&lt;code&gt;Развернутый K8S, Minikube или K3S&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Еще одна причина поставить кубернетес, это поиграть в старый-добрый Марио.
 Сделать это проще простого:&lt;/p&gt;
@@ -1119,7 +587,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pod -n game
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/pod.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/pod.jpg&#34;
 	width=&#34;508&#34;
 	height=&#34;53&#34;
 	
@@ -1133,7 +601,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в браузер. Вводим IP:31111&lt;/p&gt;
 &lt;p&gt;Управление расписано слева сверху. Наслаждаемся :)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/mario_k8s/mario.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/mario_k8s/mario.jpg&#34;
 	width=&#34;1912&#34;
 	height=&#34;1029&#34;
 	
@@ -1158,11 +626,11 @@
         </item>
         <item>
         <title>Установка vsFTPd на Ubuntu 22.04</title>
-        <link>http://localhost:1313/p/vsftpd/</link>
+        <link>https://itzm.tech/p/vsftpd/</link>
         <pubDate>Fri, 04 Apr 2025 00:10:05 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/vsftpd/</guid>
-        <description>&lt;img src="http://localhost:1313/p/vsftpd/vsftpd.jpg" alt="Featured image of post Установка vsFTPd на Ubuntu 22.04" /&gt;&lt;p&gt;Появилась необходимость на скорую руку поднять FTPS для обмена с внешними сервисами.&lt;/p&gt;
+        <guid>https://itzm.tech/p/vsftpd/</guid>
+        <description>&lt;img src="https://itzm.tech/p/vsftpd/vsftpd.jpg" alt="Featured image of post Установка vsFTPd на Ubuntu 22.04" /&gt;&lt;p&gt;Появилась необходимость на скорую руку поднять FTPS для обмена с внешними сервисами.&lt;/p&gt;
 &lt;p&gt;Есть два режима пользователей в контексте vsftpd: локальные (системные) и виртуальные.
 В данном примере будут созданы виртуальные пользователи. В этом режиме пользователи не имеют системных учетных записей, а управляются через базу данных или файл.&lt;/p&gt;
 &lt;p&gt;Как это работает:&lt;/p&gt;
@@ -1502,11 +970,11 @@
         </item>
         <item>
         <title>Offline установка плагинов в Confluence, Jira</title>
-        <link>http://localhost:1313/p/plugins_atlassian/</link>
+        <link>https://itzm.tech/p/plugins_atlassian/</link>
         <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/plugins_atlassian/</guid>
-        <description>&lt;img src="http://localhost:1313/p/plugins_atlassian/market.jpg" alt="Featured image of post Offline установка плагинов в Confluence, Jira" /&gt;&lt;p&gt;В данном примере производится оффлайн установка плагинов с магазина Atlassian внутрь докер контейнера, в котором крутится Confluence или Jira.
+        <guid>https://itzm.tech/p/plugins_atlassian/</guid>
+        <description>&lt;img src="https://itzm.tech/p/plugins_atlassian/market.jpg" alt="Featured image of post Offline установка плагинов в Confluence, Jira" /&gt;&lt;p&gt;В данном примере производится оффлайн установка плагинов с магазина Atlassian внутрь докер контейнера, в котором крутится Confluence или Jira.
 Даже если у вас не используется докер общая логика будет понятна.&lt;/p&gt;
 &lt;h2 id=&#34;установка-в-confluence&#34;&gt;Установка в Confluence
 &lt;/h2&gt;&lt;h3 id=&#34;шаг-1-загрузка-плагина-с-сайта&#34;&gt;Шаг 1. Загрузка плагина с сайта
@@ -1514,7 +982,7 @@
 &lt;p&gt;Входим через google аккаунт, или регистрируемся на &lt;a class=&#34;link&#34; href=&#34;https://marketplace.atlassian.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://marketplace.atlassian.com/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Ищем в поиске плагин PlantUML&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/1.jpg&#34;
 	width=&#34;804&#34;
 	height=&#34;188&#34;
 	
@@ -1527,7 +995,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в карточку приложения&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/2.jpg&#34;
 	width=&#34;528&#34;
 	height=&#34;320&#34;
 	
@@ -1540,7 +1008,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;В примере установлена версия Confluence Data Center, поэтому выбираем Data Center и перейти на вкладку Installation&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/3.jpg&#34;
 	width=&#34;838&#34;
 	height=&#34;393&#34;
 	
@@ -1553,7 +1021,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;version history page&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/4.jpg&#34;
 	width=&#34;1324&#34;
 	height=&#34;307&#34;
 	
@@ -1566,7 +1034,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Data Center - Развернуть вкладку - Download installer&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/plugins_atlassian/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/plugins_atlassian/5.jpg&#34;
 	width=&#34;1587&#34;
 	height=&#34;481&#34;
 	
@@ -1704,18 +1172,18 @@
         </item>
         <item>
         <title>Установка корневого сертификата Linux</title>
-        <link>http://localhost:1313/p/linux_cert/</link>
+        <link>https://itzm.tech/p/linux_cert/</link>
         <pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/linux_cert/</guid>
-        <description>&lt;img src="http://localhost:1313/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" /&gt;&lt;blockquote&gt;
+        <guid>https://itzm.tech/p/linux_cert/</guid>
+        <description>&lt;img src="https://itzm.tech/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" /&gt;&lt;blockquote&gt;
 &lt;p&gt;Для использования защищенного https подключения Linux-серверами установим корневой сертификат.
 Сгенерировать сертификат, при наличии локального Центра сертификации можно двумя способами.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;1-способ-генерации-сертификата-через-веб-интерфейс&#34;&gt;1 способ генерации сертификата. Через Веб-интерфейс.
 &lt;/h3&gt;&lt;p&gt;Создаём запрос серта на центре сертификации. В адресной строке браузера вводим имя или ip сервера сертификации.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;http://&amp;lt;ip_адрес_сервера_сертификации&amp;gt;/certsrv&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr1.jpg&#34;
 	width=&#34;980&#34;
 	height=&#34;356&#34;
 	
@@ -1732,7 +1200,7 @@
 &lt;li&gt;Выбираем: Base64&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Скачиваем:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr2.jpg&#34;
 	width=&#34;829&#34;
 	height=&#34;466&#34;
 	
@@ -1807,7 +1275,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;certutil -ca.cert ca_name.cer
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/linux_cert/scr3.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/linux_cert/scr3.jpg&#34;
 	width=&#34;692&#34;
 	height=&#34;152&#34;
 	
@@ -1928,11 +1396,11 @@
         </item>
         <item>
         <title>Установка K8S кластера через Kubespray</title>
-        <link>http://localhost:1313/p/k8s/</link>
+        <link>https://itzm.tech/p/k8s/</link>
         <pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/k8s/</guid>
-        <description>&lt;img src="http://localhost:1313/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
+        <guid>https://itzm.tech/p/k8s/</guid>
+        <description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
 &lt;p&gt;Кластер будет состоять из 2-х Master node, 2-х Worker node.&lt;/p&gt;
 &lt;p&gt;Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p&gt;
 &lt;p&gt;Требования по ресурсам:&lt;/p&gt;
@@ -2562,11 +2030,11 @@
         </item>
         <item>
         <title>Установка Ansible AWX в K3S</title>
-        <link>http://localhost:1313/p/kubernetes/</link>
+        <link>https://itzm.tech/p/kubernetes/</link>
         <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/kubernetes/</guid>
-        <description>&lt;img src="http://localhost:1313/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
+        <guid>https://itzm.tech/p/kubernetes/</guid>
+        <description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04.&lt;/p&gt;
 &lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -2683,7 +2151,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get nodes
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/nodes.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/nodes.jpg&#34;
 	width=&#34;486&#34;
 	height=&#34;52&#34;
 	
@@ -2757,7 +2225,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;make deploy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dep-oper.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dep-oper.jpg&#34;
 	width=&#34;707&#34;
 	height=&#34;339&#34;
 	
@@ -2778,7 +2246,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get pods -w
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/pods.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/pods.jpg&#34;
 	width=&#34;698&#34;
 	height=&#34;59&#34;
 	
@@ -2857,7 +2325,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get svc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/svc.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/svc.jpg&#34;
 	width=&#34;924&#34;
 	height=&#34;99&#34;
 	
@@ -2889,7 +2357,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Пароль: из команды выше
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/home.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/home.jpg&#34;
 	width=&#34;1366&#34;
 	height=&#34;754&#34;
 	
@@ -3088,7 +2556,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl get ing
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/ing.jpg&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/ing.jpg&#34;
 	width=&#34;663&#34;
 	height=&#34;53&#34;
 	
@@ -3102,7 +2570,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;p&gt;На этом этапе имя сервера уже должно быть создано в DNS и резолвиться&lt;/p&gt;
 &lt;p&gt;При входе по IP вы получите ошибку 404&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/404.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/404.jpg&#34;
 	width=&#34;518&#34;
 	height=&#34;94&#34;
 	
@@ -3115,7 +2583,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Теперь заходим по имени нашего сервера в веб-консоль, и можем пользоваться. На этом установка завершена.&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/dns.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/dns.jpg&#34;
 	width=&#34;510&#34;
 	height=&#34;111&#34;
 	
@@ -3127,7 +2595,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 		data-flex-basis=&#34;1102px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kubernetes/admin.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kubernetes/admin.jpg&#34;
 	width=&#34;1920&#34;
 	height=&#34;478&#34;
 	
@@ -3143,11 +2611,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Полезные команды Linux</title>
-        <link>http://localhost:1313/p/linux/</link>
+        <link>https://itzm.tech/p/linux/</link>
         <pubDate>Thu, 10 Oct 2024 16:10:36 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/linux/</guid>
-        <description>&lt;img src="http://localhost:1313/p/linux/linux.jpg" alt="Featured image of post Полезные команды Linux" /&gt;&lt;h3 id=&#34;автозамена-слова&#34;&gt;Автозамена слова
+        <guid>https://itzm.tech/p/linux/</guid>
+        <description>&lt;img src="https://itzm.tech/p/linux/linux.jpg" alt="Featured image of post Полезные команды Linux" /&gt;&lt;h3 id=&#34;автозамена-слова&#34;&gt;Автозамена слова
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3187,11 +2655,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Запуск bash скриптов используя Kaspersky Security Center</title>
-        <link>http://localhost:1313/p/kaspersky-bash/</link>
+        <link>https://itzm.tech/p/kaspersky-bash/</link>
         <pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/kaspersky-bash/</guid>
-        <description>&lt;img src="http://localhost:1313/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
+        <guid>https://itzm.tech/p/kaspersky-bash/</guid>
+        <description>&lt;img src="https://itzm.tech/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" /&gt;&lt;p&gt;Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
 Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
 Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
 Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &amp;ldquo;затаскивать&amp;rdquo; машину в домен.&lt;/p&gt;
@@ -3202,7 +2670,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;li&gt;Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).&lt;/li&gt;
 &lt;li&gt;Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/notepad.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad.jpg&#34;
 	width=&#34;704&#34;
 	height=&#34;743&#34;
 	
@@ -3218,7 +2686,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;li&gt;Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li&gt;
 &lt;li&gt;Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/notepad_2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/notepad_2.jpg&#34;
 	width=&#34;770&#34;
 	height=&#34;582&#34;
 	
@@ -3242,7 +2710,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/sh.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/sh.jpg&#34;
 	width=&#34;666&#34;
 	height=&#34;25&#34;
 	
@@ -3256,7 +2724,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;шаг-2-создание-инсталяционного-пакета&#34;&gt;Шаг 2. Создание инсталяционного пакета
 &lt;/h3&gt;&lt;p&gt;Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/1.jpg&#34;
 	width=&#34;528&#34;
 	height=&#34;127&#34;
 	
@@ -3269,7 +2737,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Для указанного исполняемого файла&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/2.jpg&#34;
 	width=&#34;587&#34;
 	height=&#34;615&#34;
 	
@@ -3282,7 +2750,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем наш скрипт, который мы скопировали на сервер Касперского&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/scr.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/scr.jpg&#34;
 	width=&#34;589&#34;
 	height=&#34;633&#34;
 	
@@ -3295,7 +2763,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;После чего установится пакет, который будет размещен в общей папке сервера&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/3.jpg&#34;
 	width=&#34;755&#34;
 	height=&#34;724&#34;
 	
@@ -3308,7 +2776,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/4.jpg&#34;
 	width=&#34;753&#34;
 	height=&#34;723&#34;
 	
@@ -3325,7 +2793,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;h3 id=&#34;шаг-3-создание-задачи-установки&#34;&gt;Шаг 3. Создание задачи установки
 &lt;/h3&gt;&lt;p&gt;Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &amp;ldquo;По расписанию&amp;rdquo; и указать время запуска задания.&lt;/p&gt;
 &lt;p&gt;Нажимаем на созданном нами исталяционном пакете &amp;ldquo;Установить программу&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/5.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/5.jpg&#34;
 	width=&#34;620&#34;
 	height=&#34;206&#34;
 	
@@ -3338,7 +2806,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем на группу и выбираем устройства, на которые будет распространяться задача&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/6.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/6.jpg&#34;
 	width=&#34;583&#34;
 	height=&#34;638&#34;
 	
@@ -3354,7 +2822,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;ul&gt;
 &lt;li&gt;В случае, если в логах Вы увидите &amp;ldquo;Permission Denied&amp;rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/task.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/task.jpg&#34;
 	width=&#34;754&#34;
 	height=&#34;721&#34;
 	
@@ -3367,7 +2835,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Наблюдаем за выполнением и читаем конечный лог задачи&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/kaspersky-bash/7.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/kaspersky-bash/7.jpg&#34;
 	width=&#34;939&#34;
 	height=&#34;725&#34;
 	
@@ -3387,11 +2855,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Установка Confluence в docker-compose</title>
-        <link>http://localhost:1313/p/confluence-docker/</link>
+        <link>https://itzm.tech/p/confluence-docker/</link>
         <pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/confluence-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями, с целью создания единой базы знаний.&lt;/p&gt;
+        <guid>https://itzm.tech/p/confluence-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Confluence&lt;/code&gt; - это вики-система для внутреннего использования организациями, с целью создания единой базы знаний.&lt;/p&gt;
 &lt;p&gt;Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
 Установка схожа с развертыванием другого продукта Atlassian - Jira&lt;br&gt;
 -&amp;gt; &lt;a class=&#34;link&#34; href=&#34;https://itzm.tech/p/jira-docker/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -3656,7 +3124,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/div&gt;&lt;h2 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h2&gt;&lt;p&gt;Переходим в браузер и набираем IP нашего хоста (Или DNS, если сделали запись)&lt;/p&gt;
 &lt;p&gt;Выбираем &lt;code&gt;Non-cluster (single node)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/1.jpg&#34;
 	width=&#34;828&#34;
 	height=&#34;278&#34;
 	
@@ -3669,7 +3137,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее подключаемся к нашей базе данных, используя данные указанные в compose-файле&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/2.jpg&#34;
 	width=&#34;799&#34;
 	height=&#34;709&#34;
 	
@@ -3694,7 +3162,7 @@ AWX-operator установлен. Далее устанавливаем веб-
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;шаг-4-завершаем-настройку-в-веб-интерфейсе&#34;&gt;Шаг 4. Завершаем настройку в веб-интерфейсе
 &lt;/h2&gt;&lt;p&gt;Создаёте тестовое пространство, тестовый проект и входите в Confluence.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/confluence-docker/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/confluence-docker/3.jpg&#34;
 	width=&#34;925&#34;
 	height=&#34;443&#34;
 	
@@ -3711,11 +3179,11 @@ AWX-operator установлен. Далее устанавливаем веб-
         </item>
         <item>
         <title>Установка Jira в docker-compose</title>
-        <link>http://localhost:1313/p/jira-docker/</link>
+        <link>https://itzm.tech/p/jira-docker/</link>
         <pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/jira-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;br&gt;
+        <guid>https://itzm.tech/p/jira-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" /&gt;&lt;p&gt;У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;br&gt;
 Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;br&gt;
 Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p&gt;
 &lt;p&gt;Требования:&lt;/p&gt;
@@ -3841,7 +3309,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/div&gt;&lt;h2 id=&#34;шаг-2-настройка-в-веб-интерфейсе&#34;&gt;Шаг 2. Настройка в веб-интерфейсе
 &lt;/h2&gt;&lt;p&gt;Переходим в браузер и набираем адрес нашего хоста, ip:80&lt;/p&gt;
 &lt;p&gt;Меняем язык на нужный вам и выбираем &amp;ldquo;Я выполню настройку самостоятельно&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/1.png&#34;
 	width=&#34;800&#34;
 	height=&#34;549&#34;
 	
@@ -3855,7 +3323,7 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее &amp;ldquo;Моя база данных&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Вводим все данные из нашего контейнера db&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/2.png&#34;
 	width=&#34;796&#34;
 	height=&#34;775&#34;
 	
@@ -3870,7 +3338,7 @@ Jira — коммерческая система отслеживания оши
 &lt;p&gt;И проводим &amp;ldquo;Тест подключения&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Нажимаем &amp;ldquo;Далее&amp;rdquo; и ждём пока создается база (Процесс может быть длительным ~5-20 минут)&lt;/p&gt;
 &lt;p&gt;Указываем наш URL, по которому будет открываться Jira&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/3.png&#34;
 	width=&#34;798&#34;
 	height=&#34;496&#34;
 	
@@ -3884,7 +3352,7 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;шаг-3-активация&#34;&gt;Шаг 3. Активация
 &lt;/h2&gt;&lt;p&gt;Итак, мы подходим к моменту активации.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/5.png&#34;
 	width=&#34;804&#34;
 	height=&#34;418&#34;
 	
@@ -3905,7 +3373,7 @@ Jira — коммерческая система отслеживания оши
 &lt;img src=&#34;https://cdn-icons-png.flaticon.com/512/2111/2111646.png&#34; alt=&#34;Telegram&#34; width=&#34;18&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/6.png&#34;
 	width=&#34;805&#34;
 	height=&#34;455&#34;
 	
@@ -3919,7 +3387,7 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;шаг-4-завершаем-настройку-в-веб-интерфейсе&#34;&gt;Шаг 4. Завершаем настройку в веб-интерфейсе
 &lt;/h2&gt;&lt;p&gt;После активации вводим данные нашего локального admin&amp;rsquo;a JIRA&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/7.png&#34;
 	width=&#34;806&#34;
 	height=&#34;484&#34;
 	
@@ -3932,7 +3400,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;На данном этапе можно настроить получение уведомлений на email&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/jira-docker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/8.png&#34;
 	width=&#34;800&#34;
 	height=&#34;299&#34;
 	
@@ -3958,11 +3426,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>Полезные команды FreeIPA</title>
-        <link>http://localhost:1313/p/freeipa-commands/</link>
+        <link>https://itzm.tech/p/freeipa-commands/</link>
         <pubDate>Tue, 17 Sep 2024 17:46:35 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-commands/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
+        <guid>https://itzm.tech/p/freeipa-commands/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-commands/FreeIPACommands.jpg" alt="Featured image of post Полезные команды FreeIPA" /&gt;&lt;p&gt;Иногда требуется выполнить массовое действие и быстрее всего это сделать через команды, чем использовать веб-интерфейс.&lt;/p&gt;
 &lt;p&gt;Выгрузить список всех устройств, подключенных к каталогу FreeIPA:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4112,11 +3580,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>FreeIPA. Отправка уведомления пользователю об истечении пароля</title>
-        <link>http://localhost:1313/p/freeipa-password/</link>
+        <link>https://itzm.tech/p/freeipa-password/</link>
         <pubDate>Mon, 16 Sep 2024 23:34:43 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-password/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
+        <guid>https://itzm.tech/p/freeipa-password/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-password/FreeIPAPassword.jpg" alt="Featured image of post FreeIPA. Отправка уведомления пользователю об истечении пароля" /&gt;&lt;p&gt;Когда пользователей в нашей FreeIPA &amp;ldquo;перевалило&amp;rdquo; за 50 человек возникла необходимость сделать оповещения о своевременной смене пароля.
 Благо есть встроенный дополнительный модуль, который позволяет это сделать. Имя этого модуля IPA-ENP, который &amp;ldquo;под капотом&amp;rdquo; представляет собой набор python скриптов.&lt;/p&gt;
 &lt;p&gt;Главный сервер FreeIPA у нас крутится в докер-компоузе. Заходим на сервер-клиента по ssh, который будет работать 24/7 и рассылать уведомления.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-установка-дополнительного-модуля-и-настройка&#34;&gt;Шаг 1. Установка дополнительного модуля и настройка
@@ -4388,11 +3856,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>High Availability Cluster HAProxy &#43; Patroni</title>
-        <link>http://localhost:1313/p/haproxy/</link>
+        <link>https://itzm.tech/p/haproxy/</link>
         <pubDate>Fri, 23 Aug 2024 18:39:42 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/haproxy/</guid>
-        <description>&lt;img src="http://localhost:1313/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
+        <guid>https://itzm.tech/p/haproxy/</guid>
+        <description>&lt;img src="https://itzm.tech/p/haproxy/haproxy.jpg" alt="Featured image of post High Availability Cluster HAProxy &#43; Patroni" /&gt;&lt;p&gt;Появилась необходимость сделать отказоустойчивый кластер БД, так как Patroni уже используется и давно в качестве проксирования запросов выбор пал на HAProxy.&lt;/p&gt;
 &lt;p&gt;HAProxy установим в качестве контейнера в &lt;em&gt;docker-compose&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;IP: 192.168.10.9&lt;/li&gt;
@@ -4572,11 +4040,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>Добавление клиентов FreeIPA используя Ansible</title>
-        <link>http://localhost:1313/p/freeipa-client-ansible/</link>
+        <link>https://itzm.tech/p/freeipa-client-ansible/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-client-ansible/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
+        <guid>https://itzm.tech/p/freeipa-client-ansible/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-client-ansible/FreeIPAAnsible.jpg" alt="Featured image of post Добавление клиентов FreeIPA используя Ansible" /&gt;&lt;h3 id=&#34;шаг-1-установка-ansible-роли&#34;&gt;Шаг 1. Установка Ansible-роли
 &lt;/h3&gt;&lt;p&gt;В консоли сервера FreeIPA выполняем обновление пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4728,7 +4196,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Дожидаемся процесса установки.
 Готово. Наши сервера успешно присоединены к домену.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client-ansible/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client-ansible/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;322&#34;
 	
@@ -4744,11 +4212,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>Добавление клиентов FreeIPA. Ручной метод</title>
-        <link>http://localhost:1313/p/freeipa-client/</link>
+        <link>https://itzm.tech/p/freeipa-client/</link>
         <pubDate>Tue, 20 Aug 2024 00:08:15 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa-client/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
+        <guid>https://itzm.tech/p/freeipa-client/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa-client/FreeIPAClients.jpg" alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод" /&gt;&lt;h3 id=&#34;шаг-1-подготовка-клиента&#34;&gt;Шаг 1. Подготовка клиента
 &lt;/h3&gt;&lt;p&gt;Для начала перейдем на хост и выполним стандартную процедуру обновления пакетов:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4918,7 +4386,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;После завершения процесса наш компьютер успешно присоединен к домену.
 Это можно увидеть в веб-интерфейсе&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa-client/3.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa-client/3.jpg&#34;
 	width=&#34;839&#34;
 	height=&#34;252&#34;
 	
@@ -4934,18 +4402,18 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>Bitlocker &#43; Recovery keys Active Directory</title>
-        <link>http://localhost:1313/p/bitlocker/</link>
+        <link>https://itzm.tech/p/bitlocker/</link>
         <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/bitlocker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker &#43; Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
+        <guid>https://itzm.tech/p/bitlocker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker &#43; Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
 &lt;h4 id=&#34;включение-дополнительной-роли-на-сервере-ad&#34;&gt;Включение дополнительной роли на сервере AD
 &lt;/h4&gt;&lt;h4 id=&#34;создание-и-назначение-групповой-политики&#34;&gt;Создание и назначение групповой политики
 &lt;/h4&gt;&lt;h4 id=&#34;проверка-на-конечном-устройстве&#34;&gt;Проверка на конечном устройстве
 &lt;/h4&gt;&lt;p&gt;Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
 Диспетчер серверов
 Добавить роли и компоненты&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/1.png&#34;
 	width=&#34;402&#34;
 	height=&#34;196&#34;
 	
@@ -4958,7 +4426,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Установка ролей или компонентов - Далее&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/2.png&#34;
 	width=&#34;787&#34;
 	height=&#34;293&#34;
 	
@@ -4971,7 +4439,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем наш сервер (Отмечен по умолчанию)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/3.png&#34;
 	width=&#34;786&#34;
 	height=&#34;345&#34;
 	
@@ -4985,7 +4453,7 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;p&gt;Роли сервера - нажимаем далее&lt;/p&gt;
 &lt;p&gt;Компоненты отмечаем галкой &amp;ldquo;Шифрование диска BitLocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/4.png&#34;
 	width=&#34;790&#34;
 	height=&#34;363&#34;
 	
@@ -4998,7 +4466,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Отмечаем галками как на скриншоте и нажимаем &amp;ldquo;Добавить компоненты&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/5.png&#34;
 	width=&#34;416&#34;
 	height=&#34;453&#34;
 	
@@ -5011,7 +4479,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Устанавливаем галку &amp;ldquo;Автоматический перезапуск конечного сервера&amp;rdquo; и нажимаем &amp;ldquo;Установить&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/7.png&#34;
 	width=&#34;786&#34;
 	height=&#34;556&#34;
 	
@@ -5024,7 +4492,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Создаём OU-шку для компьютеров, на которые будем раскатывать GPO&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/8.png&#34;
 	width=&#34;676&#34;
 	height=&#34;540&#34;
 	
@@ -5037,7 +4505,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Закидываем наш компьютер&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/9.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/9.png&#34;
 	width=&#34;733&#34;
 	height=&#34;442&#34;
 	
@@ -5053,7 +4521,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/h4&gt;&lt;p&gt;Переходим в Управление групповой политикой
 На созданной нами OU - Создать объект групповой политики и связать его
 Называем политику, в моём случае Шифрование&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/10.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/10.png&#34;
 	width=&#34;595&#34;
 	height=&#34;638&#34;
 	
@@ -5066,7 +4534,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Изменить&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/11.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/11.png&#34;
 	width=&#34;399&#34;
 	height=&#34;275&#34;
 	
@@ -5079,7 +4547,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в &amp;ldquo;Конфигурация компьютера&amp;rdquo; - &amp;ldquo;Политики&amp;rdquo; - &amp;ldquo;Административные шаблоны&amp;rdquo; - Компоненты Windows - Шифрование диска&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/12.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/12.png&#34;
 	width=&#34;346&#34;
 	height=&#34;83&#34;
 	
@@ -5092,7 +4560,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Устанавливаем параметры в &amp;ldquo;Включено&amp;rdquo; и отмечаем галками&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/13.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/13.png&#34;
 	width=&#34;763&#34;
 	height=&#34;557&#34;
 	
@@ -5104,7 +4572,7 @@ Jira — коммерческая система отслеживания оши
 		data-flex-basis=&#34;328px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/14.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/14.png&#34;
 	width=&#34;765&#34;
 	height=&#34;612&#34;
 	
@@ -5117,7 +4585,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/15.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/15.png&#34;
 	width=&#34;760&#34;
 	height=&#34;603&#34;
 	
@@ -5130,7 +4598,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/16.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/16.png&#34;
 	width=&#34;274&#34;
 	height=&#34;75&#34;
 	
@@ -5144,7 +4612,7 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;p&gt;Включаем &amp;ldquo;Выбор методов восстановления дисков операционной системы..&amp;rdquo;
 Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &amp;ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/17.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/17.png&#34;
 	width=&#34;762&#34;
 	height=&#34;726&#34;
 	
@@ -5159,7 +4627,7 @@ Jira — коммерческая система отслеживания оши
 &lt;h4 id=&#34;шифрование-на-конечном-устройстве&#34;&gt;Шифрование на конечном устройстве
 &lt;/h4&gt;&lt;p&gt;Ручной способ:
 Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &amp;ldquo;Включить битлокер&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/18.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/18.png&#34;
 	width=&#34;627&#34;
 	height=&#34;463&#34;
 	
@@ -5172,7 +4640,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Выбираем &amp;ldquo;Шифровать только занятое место&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/19.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/19.png&#34;
 	width=&#34;621&#34;
 	height=&#34;482&#34;
 	
@@ -5185,7 +4653,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Ставим галку &amp;ldquo;Запустить проверку систему BitLocker&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/20.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/20.png&#34;
 	width=&#34;622&#34;
 	height=&#34;486&#34;
 	
@@ -5198,7 +4666,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/21.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/21.png&#34;
 	width=&#34;361&#34;
 	height=&#34;166&#34;
 	
@@ -5210,7 +4678,7 @@ Jira — коммерческая система отслеживания оши
 		data-flex-basis=&#34;521px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/22.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/22.png&#34;
 	width=&#34;352&#34;
 	height=&#34;206&#34;
 	
@@ -5232,7 +4700,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Ключи восстановления можно найти в Active Directory&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/23.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/23.png&#34;
 	width=&#34;464&#34;
 	height=&#34;553&#34;
 	
@@ -5248,7 +4716,7 @@ Jira — коммерческая система отслеживания оши
 &lt;li&gt;При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
 Для этого в фильтрах безопасности политики &amp;ldquo;Шифрование&amp;rdquo; удаляем &amp;ldquo;Прошедшие проверку&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/24.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/24.png&#34;
 	width=&#34;940&#34;
 	height=&#34;308&#34;
 	
@@ -5261,7 +4729,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Нажимаем добавить - Тип объектов - Ставим галочку &amp;ldquo;Компьютер&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/25.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/25.png&#34;
 	width=&#34;501&#34;
 	height=&#34;425&#34;
 	
@@ -5274,7 +4742,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Вводим имя нашего ПК и нажимаем добавить&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/26.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/bitlocker/26.png&#34;
 	width=&#34;832&#34;
 	height=&#34;368&#34;
 	
@@ -5292,11 +4760,11 @@ Jira — коммерческая система отслеживания оши
         </item>
         <item>
         <title>Установка сервера FreeIPA в Docker-compose</title>
-        <link>http://localhost:1313/p/freeipa/</link>
+        <link>https://itzm.tech/p/freeipa/</link>
         <pubDate>Sun, 11 Aug 2024 23:01:42 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/freeipa/</guid>
-        <description>&lt;img src="http://localhost:1313/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Установка выполняется на Ubuntu 22.04&lt;/code&gt;&lt;/p&gt;
+        <guid>https://itzm.tech/p/freeipa/</guid>
+        <description>&lt;img src="https://itzm.tech/p/freeipa/freeIPA.jpg" alt="Featured image of post Установка сервера FreeIPA в Docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Установка выполняется на Ubuntu 22.04&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Предполагается, что у вас уже установлен docker, docker-compose и ansible.&lt;/p&gt;
 &lt;h3 id=&#34;шаг-1-настройка-сервера&#34;&gt;Шаг 1. Настройка сервера
 &lt;/h3&gt;&lt;p&gt;Назначаем имя серверу:&lt;/p&gt;
@@ -5468,7 +4936,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Далее переходим в веб-консоль по нашему адресу:&lt;/p&gt;
 &lt;p&gt;Здесь нажимаем &amp;ldquo;Отмена&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/1.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/1.jpg&#34;
 	width=&#34;327&#34;
 	height=&#34;260&#34;
 	
@@ -5481,7 +4949,7 @@ Jira — коммерческая система отслеживания оши
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Авторизуемся:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/2.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/2.jpg&#34;
 	width=&#34;928&#34;
 	height=&#34;258&#34;
 	
@@ -5505,7 +4973,7 @@ Jira — коммерческая система отслеживания оши
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Наш домен FreeIPA создан.
 Дальнейшее конфигурирование выполняется в панели администратора веб-интерфейса.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/freeipa/4.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/freeipa/4.jpg&#34;
 	width=&#34;1059&#34;
 	height=&#34;159&#34;
 	

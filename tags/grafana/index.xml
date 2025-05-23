@@ -2,264 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Grafana on IT Notes</title>
-        <link>http://localhost:1313/tags/grafana/</link>
+        <link>https://itzm.tech/tags/grafana/</link>
         <description>Recent content in Grafana on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sat, 10 May 2025 12:00:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/grafana/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2</title>
-        <link>http://localhost:1313/p/zabbix2/</link>
-        <pubDate>Sat, 10 May 2025 12:00:00 +0500</pubDate>
-        
-        <guid>http://localhost:1313/p/zabbix2/</guid>
-        <description>&lt;img src="http://localhost:1313/p/zabbix2/zabbix2.jpg" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2" /&gt;&lt;p&gt;В продолжении мы настроим оповещение в Zabbix и визуализацию в Grafana&lt;/p&gt;
-&lt;h2 id=&#34;шаг-5-настроить-оповещение&#34;&gt;Шаг 5. Настроить оповещение
-&lt;/h2&gt;&lt;p&gt;Добавляем адрес EMail SMTP сервера. Для этого переходим в:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Administration -&amp;gt; Media Types -&amp;gt; EMail&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Указываем настройки вашего SMTP сервера&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/11emailhtml.jpg&#34;
-	width=&#34;821&#34;
-	height=&#34;666&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;123&#34;
-		data-flex-basis=&#34;295px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Создаем группу:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; User Groups -&amp;gt; Create&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name: Alert only
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Permission: Read (Выдаём права на сервер, с которого собирается метрика, у меня Zabbix Server)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/12userperm.jpg&#34;
-	width=&#34;1067&#34;
-	height=&#34;362&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;294&#34;
-		data-flex-basis=&#34;707px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Создаем пользователя, который будет получать уведомления:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Administration -&amp;gt; Users -&amp;gt; New&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/13users.jpg&#34;
-	width=&#34;865&#34;
-	height=&#34;602&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;143&#34;
-		data-flex-basis=&#34;344px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;В Media добавляем sms, Email (HTML)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/14usermedia.jpg&#34;
-	width=&#34;902&#34;
-	height=&#34;277&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;325&#34;
-		data-flex-basis=&#34;781px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Переходим в созданную нами ранее группу и добавляем нашего пользователя &lt;code&gt;alert_user&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; User Groups -&amp;gt; Alert only&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Users: -&amp;gt; Select alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;-&amp;gt; Operations&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default: 1h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send to user groups: alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send only to: Email (HTML)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/15usergroup.jpg&#34;
-	width=&#34;1455&#34;
-	height=&#34;36&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;4041&#34;
-		data-flex-basis=&#34;9700px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настраиваем действие (Action) на триггер:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Configuration -&amp;gt; Action -&amp;gt; Create Action&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/16action.jpg&#34;
-	width=&#34;808&#34;
-	height=&#34;347&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;232&#34;
-		data-flex-basis=&#34;558px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Далее добавляем Operation:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/17operat.jpg&#34;
-	width=&#34;1019&#34;
-	height=&#34;588&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;415px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настройка выполнена.&lt;br&gt;
-Можно изменить в скрипте из первой части &lt;code&gt;0&lt;/code&gt; и &lt;code&gt;1&lt;/code&gt; местами и проверить весь процесс срабатывания триггера и пересчёта SLA.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Дополнительно&lt;/code&gt;&lt;br&gt;
-По желанию можно сделать отправку по Email (HTML). Кастомный шаблон.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/18.jpg&#34;
-	width=&#34;768&#34;
-	height=&#34;192&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;400&#34;
-		data-flex-basis=&#34;960px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-7-визуализация-в-grafana&#34;&gt;Шаг 7. Визуализация в Grafana
-&lt;/h2&gt;&lt;p&gt;Предполагается, что к вашей Grafana уже подключен источник данных Zabbix. Здесь я это не затрагиваю.&lt;/p&gt;
-&lt;p&gt;Создаём новую панель:&lt;/p&gt;
-&lt;p&gt;Dashboard -&amp;gt; New Add a new panel&lt;/p&gt;
-&lt;p&gt;Выбираем:
-&lt;code&gt;Query&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Data Source: Zabbix
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Type: Stat
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Count A:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Query type: Triggers
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count by: All triggers
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Group: Server
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Min severity: Warning
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count: On
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Count B:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Query type: Services
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Service: SITE
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - SLA: SITE
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Property: SLI
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Далее переходим в:
-&lt;code&gt;Transform&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Rename by regex: 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Match: (Count A)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Replace: Status
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Rename by regex:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Match: (Count B)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Replace: Available
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Filter by name:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - Count A
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; - SLI SITE
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Настройка расположения и прочего - вкусовщина. Я делаю так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/20.jpg&#34;
-	width=&#34;611&#34;
-	height=&#34;448&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;136&#34;
-		data-flex-basis=&#34;327px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Итог:&lt;/code&gt;&lt;br&gt;
-Раз в минуту zabbix-server будет обращаться к zabbix-agent для получения метрики. Сервер будет запускать скрипт, авторизовываться и возвращать значение параметра.&lt;br&gt;
-Полученное значение отображается в Web-интерфейсе Zabbix, рассчитывается SLA. В Grafana выводится бизнес-метрика и значение в виде графика.&lt;br&gt;
-Если авторизация не удается более 2-х раз, то срабатывает триггер, который отправляет по Email сообщение администратору.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix2/19.jpg&#34;
-	width=&#34;800&#34;
-	height=&#34;239&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;334&#34;
-		data-flex-basis=&#34;803px&#34;
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Sat, 03 May 2025 11:15:32 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/grafana/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Promtail, Loki, Grafana в docker</title>
-        <link>http://localhost:1313/p/loki-in-docker/</link>
+        <link>https://itzm.tech/p/loki-in-docker/</link>
         <pubDate>Sat, 03 May 2025 11:15:32 +0500</pubDate>
         
-        <guid>http://localhost:1313/p/loki-in-docker/</guid>
-        <description>&lt;img src="http://localhost:1313/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h2 id=&#34;введение&#34;&gt;Введение
+        <guid>https://itzm.tech/p/loki-in-docker/</guid>
+        <description>&lt;img src="https://itzm.tech/p/loki-in-docker/loki.jpg" alt="Featured image of post Promtail, Loki, Grafana в docker" /&gt;&lt;h2 id=&#34;введение&#34;&gt;Введение
 &lt;/h2&gt;&lt;p&gt;Promtail + Loki + Grafana — это связка инструментов для сбора, обработки и визуализации логов. Эти 3 важных компонента работают вместе.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Grafana – мощный инструмент для визуализации данных. Он позволяет строить графики, панели мониторинга и работать с различными источниками данных, включая Loki.&lt;/li&gt;
@@ -275,7 +28,7 @@
 &lt;img src=&#34;https://cdn-icons-png.flaticon.com/512/2111/2111646.png&#34; alt=&#34;Telegram&#34; width=&#34;18&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/all.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/all.jpg&#34;
 	width=&#34;1310&#34;
 	height=&#34;941&#34;
 	
@@ -617,7 +370,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Открываем графану по IP-адресу сервера, порт 3000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/logon.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/logon.jpg&#34;
 	width=&#34;1311&#34;
 	height=&#34;730&#34;
 	
@@ -634,7 +387,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Переходим на вкладку:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Connections -&amp;gt; Add new connection -&amp;gt; Loki -&amp;gt; URL: http://192.168.10.131:3100 -&amp;gt; Save and Test&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/conn.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/conn.jpg&#34;
 	width=&#34;660&#34;
 	height=&#34;474&#34;
 	
@@ -647,7 +400,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Если все сделано правильно подключение активируется и графана начнёт отображать логи во вкладке &lt;code&gt;Explore -&amp;gt; Logs&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/svc.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/svc.jpg&#34;
 	width=&#34;1299&#34;
 	height=&#34;535&#34;
 	
@@ -771,7 +524,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Идем в графану &lt;code&gt;Explore - Logs&lt;/code&gt; и смотрю логи&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/loki-in-docker/nginx.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/loki-in-docker/nginx.jpg&#34;
 	width=&#34;1360&#34;
 	height=&#34;215&#34;
 	
@@ -785,291 +538,6 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;На этом базовая настройка завершена.&lt;/p&gt;
 </description>
-        </item>
-        <item>
-        <title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1</title>
-        <link>http://localhost:1313/p/zabbix1/</link>
-        <pubDate>Thu, 01 May 2025 11:44:00 +0500</pubDate>
-        
-        <guid>http://localhost:1313/p/zabbix1/</guid>
-        <description>&lt;img src="http://localhost:1313/p/zabbix1/zabbix1.png" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1" /&gt;&lt;p&gt;&lt;code&gt;Дано:&lt;/code&gt; Критически важный сайт, который нужно мониторить и в случае неработоспособности уведомлять админов.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Версия Zabbix: 6.0.1&lt;/li&gt;
-&lt;li&gt;Версия Grafana: 11.6.0&lt;/li&gt;
-&lt;li&gt;Мониторинг будем настраивать на получение кода 200.&lt;br&gt;
-Если авторизация удалась, то считаем это за 1, если нет, то 0.&lt;br&gt;
-Запрос каждую минуту&lt;/li&gt;
-&lt;li&gt;2-е неуспешные авторизации = срабатывание триггера&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;В первой части статьи мы создадим скрипт и настроим zabbix на сбор метрик.&lt;br&gt;
-Во второй части сделаем оповещение пользователей Zabbix и визуализируем результаты мониторинга в Grafana.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Порядок действий:&lt;/code&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.&lt;/li&gt;
-&lt;li&gt;Добавить пользовательский параметр в конфигурацию zabbix-агента&lt;/li&gt;
-&lt;li&gt;Создать шаблон (элементы, триггеры) + назначить хосту (В моём примере это будет сам zabbix-сервер)&lt;/li&gt;
-&lt;li&gt;Настроить SLA&lt;/li&gt;
-&lt;li&gt;Настроить оповещения&lt;/li&gt;
-&lt;li&gt;Создать пользователя (группу пользователей) для уведомлений + создание действия&lt;/li&gt;
-&lt;li&gt;Визуализация в Grafana&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;шаг-1-выбрать-сервер-с-установленным-zabbix-агентом-написать-скрипт&#34;&gt;Шаг 1. Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.
-&lt;/h2&gt;&lt;p&gt;В качестве сервера, который будет запускать скрипт и получать значение у меня будет Zabbix-сервер.
-Захожу на сервер. Создаю скрипт:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Пример написанного мною скрипта. Используется Python3 и библиотеки: &lt;code&gt;requests, sys, warnings&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ZM56/auth_check/blob/main/site-check.py&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Линк на Github&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Делаем исполняемым:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod +x /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Меняем группу владельца на zabbix&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chown root:zabbix /opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Запускаем тестируем:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./opt/monitoring/site-check.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/1scrtest.jpg&#34;
-	width=&#34;418&#34;
-	height=&#34;47&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;889&#34;
-		data-flex-basis=&#34;2134px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-2-добавить-пользовательский-параметр-в-конфигурацию-zabbix-агента&#34;&gt;Шаг 2. Добавить пользовательский параметр в конфигурацию zabbix-агента
-&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/zabbix/zabbix_agentd.conf
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Находим параметр: &lt;code&gt;UserParameter&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Где, &lt;code&gt;site.auth&lt;/code&gt; - переменная, в которую будет записываться значение полученное после выполнения скрипта.
-&lt;code&gt;/opt/monitoring/site-check.py&lt;/code&gt; - путь до скрипта.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;UserParameter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;site.auth,/opt/monitoring/site-check.py&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/2userpar.jpg&#34;
-	width=&#34;521&#34;
-	height=&#34;132&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;394&#34;
-		data-flex-basis=&#34;947px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Рестартим сервис:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart zabbix-agent.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Проверяем, что zabbix понимает переменную:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zabbix_agentd -t site.auth
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/3zabper.jpg&#34;
-	width=&#34;447&#34;
-	height=&#34;37&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;1208&#34;
-		data-flex-basis=&#34;2899px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-3-создать-шаблон-элементы-триггеры--назначить-хосту&#34;&gt;Шаг 3. Создать шаблон (элементы, триггеры) + назначить хосту
-&lt;/h2&gt;&lt;p&gt;Идем в веб-интерфейс Zabbix. Создаём шаблон:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Templates -&amp;gt; Create template&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/4templ.jpg&#34;
-	width=&#34;872&#34;
-	height=&#34;445&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;195&#34;
-		data-flex-basis=&#34;470px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаем элемент:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Items -&amp;gt; Create item&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/5item.jpg&#34;
-	width=&#34;850&#34;
-	height=&#34;764&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;111&#34;
-		data-flex-basis=&#34;267px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Далее &lt;code&gt;Test&lt;/code&gt; -&amp;gt; &lt;code&gt;Host address&lt;/code&gt; Наш сервер, на котором запускается скрипт -&amp;gt; &lt;code&gt;Port: 10050&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;В Value появится &lt;code&gt;1&lt;/code&gt;, если авторизация доступна или &lt;code&gt;0&lt;/code&gt; если недоступна.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаем триггер&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Triggers -&amp;gt; Create Trigger&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/6trig.jpg&#34;
-	width=&#34;819&#34;
-	height=&#34;767&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;106&#34;
-		data-flex-basis=&#34;256px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Я закладываю логику: Если два раз подряд авторизация завершится неудачно, тогда срабатывает триггер.&lt;br&gt;
-Напоминаю, что используется Zabbix 6.0 поэтому параметры типа count с тремя значениями использоваться ещё не могут. Будем брать последние 2 значения:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Expression: last(/Template Auth Monitoring/site.auth,#1)=0 and last(/Template Auth Monitoring/site.auth,#2)=0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;где, #1 = Последнее полученное значение ключа, #2 = Предпоследнее полученное значение ключа&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Далее переходим в Tag и назначаем&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/7trigtag.jpg&#34;
-	width=&#34;901&#34;
-	height=&#34;295&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;305&#34;
-		data-flex-basis=&#34;733px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;шаг-4-настройка-sla&#34;&gt;Шаг 4. Настройка SLA
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Service -&amp;gt; SLA -&amp;gt; Create SLA&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/8sla.jpg&#34;
-	width=&#34;726&#34;
-	height=&#34;623&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;116&#34;
-		data-flex-basis=&#34;279px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Reporting period&amp;#34; Quarterly # Считать статистику будем за квартал
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Создаём сервис&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Services -&amp;gt; Edit - Create service&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/9crserv.jpg&#34;
-	width=&#34;714&#34;
-	height=&#34;584&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;122&#34;
-		data-flex-basis=&#34;293px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-&amp;gt; Add&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Назначаем тег&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/zabbix1/10svctag.jpg&#34;
-	width=&#34;706&#34;
-	height=&#34;261&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;270&#34;
-		data-flex-basis=&#34;649px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Настройка сбора метрик завершена. В следующей части оповещения и визуализация в Grafana.&lt;/p&gt;
-&lt;p&gt;-&amp;gt; Operations&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default: 1h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send to user groups: alert_user
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Send only to: Email (HTML)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
         </item>
         
     </channel>
