@@ -269,10 +269,10 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/confluence-docker/">
-                <img src="/p/confluence-docker/confluence_hu10285269878735403157.jpg"
-                        srcset="/p/confluence-docker/confluence_hu10285269878735403157.jpg 800w, /p/confluence-docker/confluence_hu7499670645215182120.jpg 1600w"
-                        width="800" 
-                        height="360" 
+                <img src="/p/confluence-docker/confluence.jpg"
+                        
+                        width="1600" 
+                        height="720" 
                         loading="lazy"
                         alt="Featured image of post Установка Confluence в docker-compose" />
                 
@@ -442,9 +442,6 @@
 </span><span class="lnt">56
 </span><span class="lnt">57
 </span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
@@ -466,9 +463,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">confluence</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">atlassian/confluence:9.0.3</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8090:8090&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8091:8091&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">var:/var/atlassian/application-data/confluence</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">opt:/opt/atlassian/confluence</span><span class="w">
@@ -602,15 +596,22 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout certs/selfsigned.key  -out certs/selfsigned.crt  -subj &#34;/C=RU/ST=Moscow/L=My/O=ITZM/OU=TECH/CN=confluence.domain.local&#34;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>переходим в директорию с файлом и запускаем.</p>
+</div><p>Переходим в директорию с файлом:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/confluence/
-</span></span><span class="line"><span class="cl">docker-compose up -d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>И запускаем:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker-compose up -d
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="шаг-2-настройка-в-веб-интерфейсе">Шаг 2. Настройка в веб-интерфейсе
@@ -707,9 +708,9 @@
         
         
             <div class="article-image">
-                <img src="/p/plugins_atlassian/market.9d4bfbfbb1370d6b9db375eb34c876c5_hu8123420314241753620.jpg" 
-                        width="250" 
-                        height="150" 
+                <img src="/p/plugins_atlassian/market.9d4bfbfbb1370d6b9db375eb34c876c5.jpg" 
+                        width="1600" 
+                        height="720" 
                         loading="lazy"
                         alt="Featured image of post Offline установка плагинов в Confluence, Jira"
                         data-key="plugins_atlassian" 
@@ -731,9 +732,9 @@
         
         
             <div class="article-image">
-                <img src="/p/jira-docker/jira.e33782def2d47bd69504ec8768888cd1_hu10288408218232759262.jpg" 
-                        width="250" 
-                        height="150" 
+                <img src="/p/jira-docker/jira.e33782def2d47bd69504ec8768888cd1.jpg" 
+                        width="1600" 
+                        height="720" 
                         loading="lazy"
                         alt="Featured image of post Установка Jira в docker-compose"
                         data-key="jira-docker" 
@@ -755,9 +756,9 @@
         
         
             <div class="article-image">
-                <img src="/p/freeipa-client-ansible/FreeIPAAnsible.8308caab7dd81f6edcb1fd4cbc6aa77e_hu14536711205718244247.jpg" 
-                        width="250" 
-                        height="150" 
+                <img src="/p/freeipa-client-ansible/FreeIPAAnsible.8308caab7dd81f6edcb1fd4cbc6aa77e.jpg" 
+                        width="1600" 
+                        height="720" 
                         loading="lazy"
                         alt="Featured image of post Добавление клиентов FreeIPA используя Ansible"
                         data-key="freeipa-client-ansible" 
@@ -779,9 +780,9 @@
         
         
             <div class="article-image">
-                <img src="/p/freeipa-client/FreeIPAClients.f9809463999e96346885467731260236_hu3907574402981020503.jpg" 
-                        width="250" 
-                        height="150" 
+                <img src="/p/freeipa-client/FreeIPAClients.f9809463999e96346885467731260236.jpg" 
+                        width="1920" 
+                        height="1080" 
                         loading="lazy"
                         alt="Featured image of post Добавление клиентов FreeIPA. Ручной метод"
                         data-key="freeipa-client" 
@@ -803,9 +804,9 @@
         
         
             <div class="article-image">
-                <img src="/p/freeipa/freeIPA.b7fe0a3941a56fde3f7d4a0da6da485c_hu1106172853329295121.jpg" 
-                        width="250" 
-                        height="150" 
+                <img src="/p/freeipa/freeIPA.b7fe0a3941a56fde3f7d4a0da6da485c.jpg" 
+                        width="2400" 
+                        height="1070" 
                         loading="lazy"
                         alt="Featured image of post Установка сервера FreeIPA в Docker-compose"
                         data-key="freeipa" 
