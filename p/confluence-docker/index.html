@@ -444,6 +444,7 @@
 </span><span class="lnt">58
 </span><span class="lnt">59
 </span><span class="lnt">60
+</span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
@@ -475,7 +476,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_DB_HOST=db&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CONFLUENCE_DB_PORT=5432&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;CATALINA_OPTS=-Xms512M -Xmx1024M&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;JVM_MINIMUM_MEMORY=2048m&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;JVM_MAXIMUM_MEMORY=4096m&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;ATL_PROXY_NAME=confluence.domain.local&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;ATL_PROXY_PORT=443&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;ATL_TOMCAT_SCHEME=https&#39;</span><span class="w">
