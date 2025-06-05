@@ -6,10 +6,10 @@
         <description>Recent content in Bitbucket on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sat, 10 May 2025 15:15:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/bitbucket/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Jun 2025 15:15:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/bitbucket/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Установка Bitbucket в docker-compose</title>
         <link>http://localhost:1313/p/bitbucket-docker/</link>
-        <pubDate>Sat, 10 May 2025 15:15:00 +0500</pubDate>
+        <pubDate>Tue, 10 Jun 2025 15:15:00 +0500</pubDate>
         
         <guid>http://localhost:1313/p/bitbucket-docker/</guid>
         <description>&lt;img src="http://localhost:1313/p/bitbucket-docker/bitbucket.png" alt="Featured image of post Установка Bitbucket в docker-compose" /&gt;&lt;p&gt;&lt;code&gt;Bitbucket&lt;/code&gt; — это сервис для хостинга кода и совместной работы. Другими словами: это Git репозиторий, со своими правами и разграничениями для команд.&lt;/p&gt;

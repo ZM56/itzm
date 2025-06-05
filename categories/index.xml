@@ -6,7 +6,15 @@
         <description>Recent content in Categories on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Sat, 03 May 2025 11:15:32 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 05 Jun 2025 10:10:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java</title>
+        <link>https://itzm.tech/categories/java/</link>
+        <pubDate>Thu, 05 Jun 2025 10:10:36 +0500</pubDate>
+        
+        <guid>https://itzm.tech/categories/java/</guid>
+        <description>&lt;img src="https://itzm.tech/categories/java/java.jpg" alt="Featured image of post Java" /&gt;</description>
+        </item>
+        <item>
         <title>Logging</title>
         <link>https://itzm.tech/categories/logging/</link>
         <pubDate>Sat, 03 May 2025 11:15:32 +0500</pubDate>
