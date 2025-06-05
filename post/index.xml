@@ -24,7 +24,18 @@
 Доверенные сертификаты — сертификаты центров сертификации и других доверенных источников.&lt;/p&gt;
 &lt;p&gt;Для управления содержимым keystore Java предоставляет встроенную утилиту &lt;strong&gt;keytool&lt;/strong&gt;, находящуюся в каталоге &lt;strong&gt;bin&lt;/strong&gt; установки JDK. С её помощью можно создавать, просматривать, изменять и удалять ключи и сертификаты.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Как правило создаются keystore и truststore. Keystore - содержит личный ключ + сертификат (цепочку сертификатов) сервера, а truststore сертификат ЦА (root-ca).&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;image&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/cert_store/CA.png&#34;
+	width=&#34;861&#34;
+	height=&#34;636&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;324px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;создание-хранилища-и-добавление-самоподписанного-сертификата&#34;&gt;Создание хранилища и добавление самоподписанного сертификата
 &lt;/h2&gt;&lt;p&gt;Генерация самоподписанного сертификата и запись его в хранилище:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
