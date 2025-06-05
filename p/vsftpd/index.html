@@ -486,6 +486,7 @@
 </span><span class="lnt">76
 </span><span class="lnt">77
 </span><span class="lnt">78
+</span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="c1">### Основные настройки</span>
@@ -559,12 +560,13 @@
 </span></span><span class="line"><span class="cl"><span class="na">force_local_data_ssl</span><span class="o">=</span><span class="s">YES</span>
 </span></span><span class="line"><span class="cl"><span class="na">force_local_logins_ssl</span><span class="o">=</span><span class="s">YES</span>
 </span></span><span class="line"><span class="cl"><span class="na">require_ssl_reuse</span><span class="o">=</span><span class="s">NO</span>
+</span></span><span class="line"><span class="cl"><span class="na">strict_ssl_read_eof</span><span class="o">=</span><span class="s">NO</span>
 </span></span><span class="line"><span class="cl"><span class="na">ssl_tlsv1</span><span class="o">=</span><span class="s">NO</span>
 </span></span><span class="line"><span class="cl"><span class="na">ssl_tlsv11</span><span class="o">=</span><span class="s">NO</span>
 </span></span><span class="line"><span class="cl"><span class="na">ssl_tlsv12</span><span class="o">=</span><span class="s">YES</span>
 </span></span><span class="line"><span class="cl"><span class="na">ssl_sslv2</span><span class="o">=</span><span class="s">NO</span>
 </span></span><span class="line"><span class="cl"><span class="na">ssl_sslv3</span><span class="o">=</span><span class="s">NO</span>
-</span></span><span class="line"><span class="cl"><span class="na">rsa_cert_file</span><span class="o">=</span><span class="s">/etc/ssl/private/vsftpd.pem</span>
+</span></span><span class="line"><span class="cl"><span class="na">rsa_cert_file</span><span class="o">=</span><span class="s">/etc/ssl/certs/vsftpd.pem</span>
 </span></span><span class="line"><span class="cl"><span class="na">rsa_private_key_file</span><span class="o">=</span><span class="s">/etc/ssl/private/vsftpd.key</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -575,9 +577,15 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/vsftpd.pem -keyout /etc/ssl/private/vsftpd.key -subj <span class="s2">&#34;/C=RU/ST=Moscow/L=Moscow/O=MyOrganization/OU=IT/CN=vsftpd.server/CN=vsftp.server&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl req -new -x509 -days 365 -nodes <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -out /etc/ssl/certs/vsftpd.pem <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -keyout /etc/ssl/private/vsftpd.key <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -subj <span class="s2">&#34;/C=RU/ST=Moscow/L=Moscow/O=MyOrganization/OU=IT/CN=vsftpd.server&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="шаг-4-настройка-виртуальных-пользователей">Шаг 4. Настройка виртуальных пользователей

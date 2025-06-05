@@ -8,11 +8,11 @@
         <language>ru-ru</language>
         <lastBuildDate>Thu, 05 Jun 2025 10:10:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Генерация сертификатов и хранилища ключей Java</title>
-        <link>https://itzm.tech/p/linux/</link>
+        <link>https://itzm.tech/p/cert_store/</link>
         <pubDate>Thu, 05 Jun 2025 10:10:36 +0500</pubDate>
         
-        <guid>https://itzm.tech/p/linux/</guid>
-        <description>&lt;img src="https://itzm.tech/p/linux/java.jpg" alt="Featured image of post Генерация сертификатов и хранилища ключей Java" /&gt;&lt;p&gt;В Java-приложениях для обеспечения безопасности данных и установления защищённых соединений &lt;strong&gt;(например, HTTPS)&lt;/strong&gt; используется специальное хранилище — &lt;strong&gt;keystore&lt;/strong&gt;.  Оно предназначено для хранения секретной информации, такой как закрытые ключи и сертификаты.&lt;/p&gt;
+        <guid>https://itzm.tech/p/cert_store/</guid>
+        <description>&lt;img src="https://itzm.tech/p/cert_store/java.jpg" alt="Featured image of post Генерация сертификатов и хранилища ключей Java" /&gt;&lt;p&gt;В Java-приложениях для обеспечения безопасности данных и установления защищённых соединений &lt;strong&gt;(например, HTTPS)&lt;/strong&gt; используется специальное хранилище — &lt;strong&gt;keystore&lt;/strong&gt;.  Оно предназначено для хранения секретной информации, такой как закрытые ключи и сертификаты.&lt;/p&gt;
 &lt;p&gt;Существуют различные форматы хранилищ, поддерживаемые Java:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;JKS (Java KeyStore)&lt;/code&gt; — традиционный формат, использующийся по умолчанию. Представляет собой файл с расширением &lt;strong&gt;.jks&lt;/strong&gt; и применяется чаще всего.&lt;br&gt;
 &lt;code&gt;JCEKS&lt;/code&gt; — расширенная версия JKS, в которой реализовано более надёжное шифрование (Triple DES). При необходимости можно преобразовать JKS-хранилище в JCEKS с помощью команды утилиты &lt;strong&gt;keytool&lt;/strong&gt;.&lt;br&gt;
