@@ -3766,15 +3766,15 @@ Jira — коммерческая система отслеживания оши
 &gt;&lt;/p&gt;
 &lt;p&gt;Указываем наш URL, по которому будет открываться Jira (с https)&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://itzm.tech/p/jira-docker/3.png&#34;
-	width=&#34;909&#34;
-	height=&#34;533&#34;
+	width=&#34;800&#34;
+	height=&#34;418&#34;
 	
 	loading=&#34;lazy&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;170&#34;
-		data-flex-basis=&#34;409px&#34;
+		data-flex-grow=&#34;191&#34;
+		data-flex-basis=&#34;459px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;шаг-3-активация&#34;&gt;Шаг 3. Активация
