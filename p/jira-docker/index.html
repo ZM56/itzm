@@ -436,7 +436,6 @@ Jira — коммерческая система отслеживания оши
 </span><span class="lnt">53
 </span><span class="lnt">54
 </span><span class="lnt">55
-</span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.7&#39;</span><span class="w">
@@ -444,13 +443,12 @@ Jira — коммерческая система отслеживания оши
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:alpine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;443:443&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nginx/nginx.conf:/etc/nginx/nginx.conf</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nginx/certs:/etc/nginx/certs:ro</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">jira</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">jira-proxy</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
@@ -632,17 +630,29 @@ Jira — коммерческая система отслеживания оши
 ></p>
 <p>И проводим &ldquo;Тест подключения&rdquo;</p>
 <p>Нажимаем &ldquo;Далее&rdquo; и ждём пока создается база (Процесс может быть длительным ~5-20 минут)</p>
-<p>Указываем наш URL, по которому будет открываться Jira (без https)</p>
-<p><img src="/p/jira-docker/3.png"
-	width="798"
-	height="496"
+<p><img src="/p/jira-docker/4.png"
+	width="668"
+	height="355"
 	
 	loading="lazy"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="160"
-		data-flex-basis="386px"
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>Указываем наш URL, по которому будет открываться Jira (с https)</p>
+<p><img src="/p/jira-docker/3.png"
+	width="909"
+	height="533"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="409px"
 	
 ></p>
 <h2 id="шаг-3-активация">Шаг 3. Активация
@@ -707,9 +717,8 @@ Jira — коммерческая система отслеживания оши
 		data-flex-basis="642px"
 	
 ></p>
-<p>Далее идёт интуитивно понятная настройка используя кнопку &ldquo;Далее&rdquo;. Создаете новый проект, открывается &ldquo;Список задач&rdquo;.<br>
-В настройках меняете адрес на <a class="link" href="https://jira.domain.local"  target="_blank" rel="noopener"
-    >https://jira.domain.local</a></p>
+<p>Далее идёт интуитивно понятная настройка используя кнопку &ldquo;Далее&rdquo;. Если при установке выбранный язык сбросится на дефолтный, то его можно указать в настройках сервера.<br>
+Создаете новый проект, открывается &ldquo;Список задач&rdquo;.</p>
 <p>Установка завершена. Jira готова к работе.</p>
 <p><code>Дополнения</code></p>
 <ul>
