@@ -1,9 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on IT Notes</title><link>https://itzm.tech/tags/windows/</link><description>Recent content in Windows on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 12 Aug 2024 22:53:39 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>Bitlocker + Recovery keys Active Directory</title><link>https://itzm.tech/p/bitlocker/</link><pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate><guid>https://itzm.tech/p/bitlocker/</guid><description>&lt;img src="https://itzm.tech/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker + Recovery keys Active Directory" />&lt;p>Установка будет происходить в 3 этапа:&lt;/p>
-&lt;h4 id="включение-дополнительной-роли-на-сервере-ad">Включение дополнительной роли на сервере AD
-&lt;/h4>&lt;h4 id="создание-и-назначение-групповой-политики">Создание и назначение групповой политики
-&lt;/h4>&lt;h4 id="проверка-на-конечном-устройстве">Проверка на конечном устройстве
-&lt;/h4>&lt;p>Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Windows on IT Notes</title>
+        <link>http://localhost:1313/tags/windows/</link>
+        <description>Recent content in Windows on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Mon, 12 Aug 2024 22:53:39 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Bitlocker &#43; Recovery keys Active Directory</title>
+        <link>http://localhost:1313/p/bitlocker/</link>
+        <pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate>
+        
+        <guid>http://localhost:1313/p/bitlocker/</guid>
+        <description>&lt;img src="http://localhost:1313/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker &#43; Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
+&lt;h4 id=&#34;включение-дополнительной-роли-на-сервере-ad&#34;&gt;Включение дополнительной роли на сервере AD
+&lt;/h4&gt;&lt;h4 id=&#34;создание-и-назначение-групповой-политики&#34;&gt;Создание и назначение групповой политики
+&lt;/h4&gt;&lt;h4 id=&#34;проверка-на-конечном-устройстве&#34;&gt;Проверка на конечном устройстве
+&lt;/h4&gt;&lt;p&gt;Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
 Диспетчер серверов
+<<<<<<< HEAD
 Добавить роли и компоненты&lt;/p>
 &lt;p>&lt;img src="https://itzm.tech/p/bitlocker/1.png"
 width="402"
@@ -273,3 +288,354 @@ data-flex-basis="542px"
 >&lt;/p>
 &lt;p>Готово! Теперь компьютер зашифрован, при установке носителя в другое устройство будет запрошен ключ дешифрования. Сейчас дешифрование происходит без необходимости пользователем вводить пароль. Основано на чипе TPM, встроенного в наш компьютер.
 Ключ восстановления хранится в Active Directory. При запросе на дешифрование устройство выведет первые 8 символов ключа, с помощью которых можно выполнить поиск, найти компьютер и полный ключ восстановления.&lt;/p></description></item></channel></rss>
+=======
+Добавить роли и компоненты&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/1.png&#34;
+	width=&#34;402&#34;
+	height=&#34;196&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;205&#34;
+		data-flex-basis=&#34;492px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Установка ролей или компонентов - Далее&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/2.png&#34;
+	width=&#34;787&#34;
+	height=&#34;293&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;268&#34;
+		data-flex-basis=&#34;644px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем наш сервер (Отмечен по умолчанию)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/3.png&#34;
+	width=&#34;786&#34;
+	height=&#34;345&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;227&#34;
+		data-flex-basis=&#34;546px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Роли сервера - нажимаем далее&lt;/p&gt;
+&lt;p&gt;Компоненты отмечаем галкой &amp;ldquo;Шифрование диска BitLocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/4.png&#34;
+	width=&#34;790&#34;
+	height=&#34;363&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;217&#34;
+		data-flex-basis=&#34;522px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Отмечаем галками как на скриншоте и нажимаем &amp;ldquo;Добавить компоненты&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/5.png&#34;
+	width=&#34;416&#34;
+	height=&#34;453&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;91&#34;
+		data-flex-basis=&#34;220px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Устанавливаем галку &amp;ldquo;Автоматический перезапуск конечного сервера&amp;rdquo; и нажимаем &amp;ldquo;Установить&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/7.png&#34;
+	width=&#34;786&#34;
+	height=&#34;556&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Создаём OU-шку для компьютеров, на которые будем раскатывать GPO&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/8.png&#34;
+	width=&#34;676&#34;
+	height=&#34;540&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;300px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Закидываем наш компьютер&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/9.png&#34;
+	width=&#34;733&#34;
+	height=&#34;442&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;398px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;создаём-групповую-политику&#34;&gt;Создаём групповую политику
+&lt;/h4&gt;&lt;p&gt;Переходим в Управление групповой политикой
+На созданной нами OU - Создать объект групповой политики и связать его
+Называем политику, в моём случае Шифрование&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/10.png&#34;
+	width=&#34;595&#34;
+	height=&#34;638&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;93&#34;
+		data-flex-basis=&#34;223px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Изменить&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/11.png&#34;
+	width=&#34;399&#34;
+	height=&#34;275&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;348px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в &amp;ldquo;Конфигурация компьютера&amp;rdquo; - &amp;ldquo;Политики&amp;rdquo; - &amp;ldquo;Административные шаблоны&amp;rdquo; - Компоненты Windows - Шифрование диска&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/12.png&#34;
+	width=&#34;346&#34;
+	height=&#34;83&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;416&#34;
+		data-flex-basis=&#34;1000px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Устанавливаем параметры в &amp;ldquo;Включено&amp;rdquo; и отмечаем галками&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/13.png&#34;
+	width=&#34;763&#34;
+	height=&#34;557&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;328px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/14.png&#34;
+	width=&#34;765&#34;
+	height=&#34;612&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;300px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/15.png&#34;
+	width=&#34;760&#34;
+	height=&#34;603&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;126&#34;
+		data-flex-basis=&#34;302px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/16.png&#34;
+	width=&#34;274&#34;
+	height=&#34;75&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;365&#34;
+		data-flex-basis=&#34;876px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Включаем &amp;ldquo;Выбор методов восстановления дисков операционной системы..&amp;rdquo;
+Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &amp;ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/17.png&#34;
+	width=&#34;762&#34;
+	height=&#34;726&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;104&#34;
+		data-flex-basis=&#34;251px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;шифрование-на-конечном-устройстве&#34;&gt;Шифрование на конечном устройстве
+&lt;/h4&gt;&lt;p&gt;Ручной способ:
+Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &amp;ldquo;Включить битлокер&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/18.png&#34;
+	width=&#34;627&#34;
+	height=&#34;463&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;325px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем &amp;ldquo;Шифровать только занятое место&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/19.png&#34;
+	width=&#34;621&#34;
+	height=&#34;482&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;309px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Ставим галку &amp;ldquo;Запустить проверку систему BitLocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/20.png&#34;
+	width=&#34;622&#34;
+	height=&#34;486&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;127&#34;
+		data-flex-basis=&#34;307px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/21.png&#34;
+	width=&#34;361&#34;
+	height=&#34;166&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;217&#34;
+		data-flex-basis=&#34;521px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/22.png&#34;
+	width=&#34;352&#34;
+	height=&#34;206&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;410px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Автоматизировать данную операцию можно командой Powershell:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;PS &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Users&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;\&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;manage-bde&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;C:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-UsedSpaceOnly&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-SkipHardwareTest&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;-recoverypassword&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ключи восстановления можно найти в Active Directory&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/23.png&#34;
+	width=&#34;464&#34;
+	height=&#34;553&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;83&#34;
+		data-flex-basis=&#34;201px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
+Для этого в фильтрах безопасности политики &amp;ldquo;Шифрование&amp;rdquo; удаляем &amp;ldquo;Прошедшие проверку&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/24.png&#34;
+	width=&#34;940&#34;
+	height=&#34;308&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;305&#34;
+		data-flex-basis=&#34;732px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Нажимаем добавить - Тип объектов - Ставим галочку &amp;ldquo;Компьютер&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/25.png&#34;
+	width=&#34;501&#34;
+	height=&#34;425&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;117&#34;
+		data-flex-basis=&#34;282px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Вводим имя нашего ПК и нажимаем добавить&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/bitlocker/26.png&#34;
+	width=&#34;832&#34;
+	height=&#34;368&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;226&#34;
+		data-flex-basis=&#34;542px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Готово! Теперь компьютер зашифрован, при установке носителя в другое устройство будет запрошен ключ дешифрования. Сейчас дешифрование происходит без необходимости пользователем вводить пароль. Основано на чипе TPM, встроенного в наш компьютер.
+Ключ восстановления хранится в Active Directory. При запросе на дешифрование устройство выведет первые 8 символов ключа, с помощью которых можно выполнить поиск, найти компьютер и полный ключ восстановления.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
+>>>>>>> ef6d233 (Edit settings)
