@@ -11,6 +11,7 @@
 <time class=article-time--reading>Время чтения: 2 мин.</time></div></footer></div></header><section class=article-content><p>Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
 Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
 Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
+<<<<<<< HEAD
 Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &ldquo;затаскивать&rdquo; машину в домен.</p><p>Сам скрипт здесь не представлен, но я заметил отсутствие информации о запуске скриптов с Каспера.
 Этот процесс я опишу здесь.</p><h3 id=шаг-1-подготовка-файла-скрипта>Шаг 1. Подготовка файла скрипта</h3><ul><li>Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).</li><li>Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы</li></ul><p><img src=/p/kaspersky-bash/notepad.jpg width=704 height=743 loading=lazy class=gallery-image data-flex-grow=94 data-flex-basis=227px></p><ul><li>Найти и заменить все пробелы, обозначаются как /r на пустоту</li><li>Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix</li></ul><p><img src=/p/kaspersky-bash/notepad_2.jpg width=770 height=582 loading=lazy class=gallery-image data-flex-grow=132 data-flex-basis=317px></p><ul><li>Если скрипт копируется с Linux машины заранее дайте ему право на выполнение:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo chmod +x add_freeipa.sh
@@ -27,3 +28,412 @@ GitHub</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+=======
+Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &ldquo;затаскивать&rdquo; машину в домен.</p>
+<p>Сам скрипт здесь не представлен, но я заметил отсутствие информации о запуске скриптов с Каспера.
+Этот процесс я опишу здесь.</p>
+<h3 id="шаг-1-подготовка-файла-скрипта">Шаг 1. Подготовка файла скрипта
+</h3><ul>
+<li>Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).</li>
+<li>Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы</li>
+</ul>
+<p><img src="/p/kaspersky-bash/notepad.jpg"
+	width="704"
+	height="743"
+	srcset="/p/kaspersky-bash/notepad_hu13744426549598713968.jpg 480w, /p/kaspersky-bash/notepad_hu2329033989520027798.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="94"
+		data-flex-basis="227px"
+	
+></p>
+<ul>
+<li>Найти и заменить все пробелы, обозначаются как /r на пустоту</li>
+<li>Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix</li>
+</ul>
+<p><img src="/p/kaspersky-bash/notepad_2.jpg"
+	width="770"
+	height="582"
+	srcset="/p/kaspersky-bash/notepad_2_hu6493603464982186731.jpg 480w, /p/kaspersky-bash/notepad_2_hu14040385096861559086.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<ul>
+<li>Если скрипт копируется с Linux машины заранее дайте ему право на выполнение:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo chmod +x add_freeipa.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)</p>
+<p><img src="/p/kaspersky-bash/sh.jpg"
+	width="666"
+	height="25"
+	srcset="/p/kaspersky-bash/sh_hu12461756256463562340.jpg 480w, /p/kaspersky-bash/sh_hu11631455271900579760.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2664"
+		data-flex-basis="6393px"
+	
+></p>
+<h3 id="шаг-2-создание-инсталяционного-пакета">Шаг 2. Создание инсталяционного пакета
+</h3><p>Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет</p>
+<p><img src="/p/kaspersky-bash/1.jpg"
+	width="528"
+	height="127"
+	srcset="/p/kaspersky-bash/1_hu362368518134575229.jpg 480w, /p/kaspersky-bash/1_hu7971194846713088747.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="415"
+		data-flex-basis="997px"
+	
+></p>
+<p>Для указанного исполняемого файла</p>
+<p><img src="/p/kaspersky-bash/2.jpg"
+	width="587"
+	height="615"
+	srcset="/p/kaspersky-bash/2_hu7901622002376560508.jpg 480w, /p/kaspersky-bash/2_hu825184999220856353.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="95"
+		data-flex-basis="229px"
+	
+></p>
+<p>Выбираем наш скрипт, который мы скопировали на сервер Касперского</p>
+<p><img src="/p/kaspersky-bash/scr.jpg"
+	width="589"
+	height="633"
+	srcset="/p/kaspersky-bash/scr_hu5612261888206534936.jpg 480w, /p/kaspersky-bash/scr_hu10153741878074064496.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="223px"
+	
+></p>
+<p>После чего установится пакет, который будет размещен в общей папке сервера</p>
+<p><img src="/p/kaspersky-bash/3.jpg"
+	width="755"
+	height="724"
+	srcset="/p/kaspersky-bash/3_hu480890325481295615.jpg 480w, /p/kaspersky-bash/3_hu4965787306221166825.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="250px"
+	
+></p>
+<p>Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.</p>
+<p><img src="/p/kaspersky-bash/4.jpg"
+	width="753"
+	height="723"
+	srcset="/p/kaspersky-bash/4_hu4061045555637179351.jpg 480w, /p/kaspersky-bash/4_hu18078546597196641032.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="249px"
+	
+></p>
+<p>Например, если в поле вписать sudo -s, то выполнение будет происходит так:
+/bin/sh &hellip; &lsquo;add_freeipa.sh&rsquo; sudo -s. То есть в заполнении этого поля нет необходимости, так как параметр не повлияет на скрипт.</p>
+<h3 id="шаг-3-создание-задачи-установки">Шаг 3. Создание задачи установки
+</h3><p>Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &ldquo;По расписанию&rdquo; и указать время запуска задания.</p>
+<p>Нажимаем на созданном нами исталяционном пакете &ldquo;Установить программу&rdquo;</p>
+<p><img src="/p/kaspersky-bash/5.jpg"
+	width="620"
+	height="206"
+	srcset="/p/kaspersky-bash/5_hu2496885503412961487.jpg 480w, /p/kaspersky-bash/5_hu234675911459155210.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="300"
+		data-flex-basis="722px"
+	
+></p>
+<p>Выбираем на группу и выбираем устройства, на которые будет распространяться задача</p>
+<p><img src="/p/kaspersky-bash/6.jpg"
+	width="583"
+	height="638"
+	srcset="/p/kaspersky-bash/6_hu12697648535572117762.jpg 480w, /p/kaspersky-bash/6_hu3979582465714689184.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="91"
+		data-flex-basis="219px"
+	
+></p>
+<p>Обязательно отметьте галкой пункт &ldquo;Не устанавливать программу, если она уже установлена&rdquo;</p>
+<ul>
+<li>В случае, если в логах Вы увидите &ldquo;Permission Denied&rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.</li>
+</ul>
+<p><img src="/p/kaspersky-bash/task.jpg"
+	width="754"
+	height="721"
+	srcset="/p/kaspersky-bash/task_hu21255675266585670.jpg 480w, /p/kaspersky-bash/task_hu3669231812728166839.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="250px"
+	
+></p>
+<p>Наблюдаем за выполнением и читаем конечный лог задачи</p>
+<p><img src="/p/kaspersky-bash/7.jpg"
+	width="939"
+	height="725"
+	srcset="/p/kaspersky-bash/7_hu10602844644298692200.jpg 480w, /p/kaspersky-bash/7_hu5027686167399810275.jpg 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="129"
+		data-flex-basis="310px"
+	
+></p>
+<ul>
+<li>Если скрипт будет выдавать ошибку она будет отображена здесь, но статус задачи всё равно будет &ldquo;Завершена успешно&rdquo;, поэтому чтобы отлаживать скрипт используйте &ldquo;Результаты выполнения задания&rdquo;</li>
+</ul>
+<p>В моём случае задача выполнилась успешно, оповещение WARNING можно не брать во внимание.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/kaspesky/">Kaspesky</a>
+        
+            <a href="/tags/bash/">Bash</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="ZM56/itzm"
+    data-repo-id="R_kgDOM409Zg"
+    data-category="General"
+    data-category-id="DIC_kwDOM409Zs4CkTEU"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="ru"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2024 - 
+        
+        2025 IT Notes
+    </section>
+
+    <section class="powerby" style="margin-top: 0.5rem;">
+        
+            <span style="font-weight: normal;">
+                Информацию можно использовать в свободном доступе, с указанием ссылки на сайт
+            </span>
+            <br/>
+        
+
+        
+            <a href="https://t.me/itzm_notes" target="_blank" rel="noopener" style="margin-right: 1rem; display: inline-flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                    <path d="M9.743 15.447l-.392 4.528c.562 0 .808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/>
+                </svg>
+                Telegram
+            </a>
+        
+
+        
+            <a href="https://github.com/ZM56" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
+                </svg>
+                GitHub
+            </a>
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
+>>>>>>> d504d19 (Edit settings)

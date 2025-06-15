@@ -10,6 +10,7 @@
 <time class=article-time--published>авг. 12, 2024</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>Время чтения: 2 мин.</time></div></footer></div></header><section class=article-content><p>Установка будет происходить в 3 этапа:</p><h4 id=включение-дополнительной-роли-на-сервере-ad>Включение дополнительной роли на сервере AD</h4><h4 id=создание-и-назначение-групповой-политики>Создание и назначение групповой политики</h4><h4 id=проверка-на-конечном-устройстве>Проверка на конечном устройстве</h4><p>Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
 Диспетчер серверов
+<<<<<<< HEAD
 Добавить роли и компоненты</p><p><img src=/p/bitlocker/1.png width=402 height=196 loading=lazy class=gallery-image data-flex-grow=205 data-flex-basis=492px></p><p>Установка ролей или компонентов - Далее</p><p><img src=/p/bitlocker/2.png width=787 height=293 loading=lazy class=gallery-image data-flex-grow=268 data-flex-basis=644px></p><p>Выбираем наш сервер (Отмечен по умолчанию)</p><p><img src=/p/bitlocker/3.png width=786 height=345 loading=lazy class=gallery-image data-flex-grow=227 data-flex-basis=546px></p><p>Роли сервера - нажимаем далее</p><p>Компоненты отмечаем галкой &ldquo;Шифрование диска BitLocker&rdquo;</p><p><img src=/p/bitlocker/4.png width=790 height=363 loading=lazy class=gallery-image data-flex-grow=217 data-flex-basis=522px></p><p>Отмечаем галками как на скриншоте и нажимаем &ldquo;Добавить компоненты&rdquo;</p><p><img src=/p/bitlocker/5.png width=416 height=453 loading=lazy class=gallery-image data-flex-grow=91 data-flex-basis=220px></p><p>Устанавливаем галку &ldquo;Автоматический перезапуск конечного сервера&rdquo; и нажимаем &ldquo;Установить&rdquo;</p><p><img src=/p/bitlocker/7.png width=786 height=556 loading=lazy class=gallery-image data-flex-grow=141 data-flex-basis=339px></p><p>Создаём OU-шку для компьютеров, на которые будем раскатывать GPO</p><p><img src=/p/bitlocker/8.png width=676 height=540 loading=lazy class=gallery-image data-flex-grow=125 data-flex-basis=300px></p><p>Закидываем наш компьютер</p><p><img src=/p/bitlocker/9.png width=733 height=442 loading=lazy class=gallery-image data-flex-grow=165 data-flex-basis=398px></p><h4 id=создаём-групповую-политику>Создаём групповую политику</h4><p>Переходим в Управление групповой политикой
 На созданной нами OU - Создать объект групповой политики и связать его
 Называем политику, в моём случае Шифрование</p><p><img src=/p/bitlocker/10.png width=595 height=638 loading=lazy class=gallery-image data-flex-grow=93 data-flex-basis=223px></p><p>Изменить</p><p><img src=/p/bitlocker/11.png width=399 height=275 loading=lazy class=gallery-image data-flex-grow=145 data-flex-basis=348px></p><p>Переходим в &ldquo;Конфигурация компьютера&rdquo; - &ldquo;Политики&rdquo; - &ldquo;Административные шаблоны&rdquo; - Компоненты Windows - Шифрование диска</p><p><img src=/p/bitlocker/12.png width=346 height=83 loading=lazy class=gallery-image data-flex-grow=416 data-flex-basis=1000px></p><p>Устанавливаем параметры в &ldquo;Включено&rdquo; и отмечаем галками</p><p><img src=/p/bitlocker/13.png width=763 height=557 loading=lazy class=gallery-image data-flex-grow=136 data-flex-basis=328px></p><p><img src=/p/bitlocker/14.png width=765 height=612 loading=lazy class=gallery-image data-flex-grow=125 data-flex-basis=300px></p><p>Переходим в подгруппу &ldquo;Диски операционной системы&rdquo;</p><p><img src=/p/bitlocker/15.png width=760 height=603 loading=lazy class=gallery-image data-flex-grow=126 data-flex-basis=302px></p><p>Переходим в подгруппу &ldquo;Диски операционной системы&rdquo;</p><p><img src=/p/bitlocker/16.png width=274 height=75 loading=lazy class=gallery-image data-flex-grow=365 data-flex-basis=876px></p><p>Включаем &ldquo;Выбор методов восстановления дисков операционной системы..&rdquo;
@@ -31,3 +32,569 @@ GitHub</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden
 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
 </button>
 <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
+=======
+Добавить роли и компоненты</p>
+<p><img src="/p/bitlocker/1.png"
+	width="402"
+	height="196"
+	srcset="/p/bitlocker/1_hu4198343778141444791.png 480w, /p/bitlocker/1_hu5432732287632809120.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="492px"
+	
+></p>
+<p>Установка ролей или компонентов - Далее</p>
+<p><img src="/p/bitlocker/2.png"
+	width="787"
+	height="293"
+	srcset="/p/bitlocker/2_hu2613307676317674197.png 480w, /p/bitlocker/2_hu700577910155894205.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="268"
+		data-flex-basis="644px"
+	
+></p>
+<p>Выбираем наш сервер (Отмечен по умолчанию)</p>
+<p><img src="/p/bitlocker/3.png"
+	width="786"
+	height="345"
+	srcset="/p/bitlocker/3_hu16657836156431103028.png 480w, /p/bitlocker/3_hu7900848041479487661.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="546px"
+	
+></p>
+<p>Роли сервера - нажимаем далее</p>
+<p>Компоненты отмечаем галкой &ldquo;Шифрование диска BitLocker&rdquo;</p>
+<p><img src="/p/bitlocker/4.png"
+	width="790"
+	height="363"
+	srcset="/p/bitlocker/4_hu12592874544587053045.png 480w, /p/bitlocker/4_hu8613890207889136880.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="217"
+		data-flex-basis="522px"
+	
+></p>
+<p>Отмечаем галками как на скриншоте и нажимаем &ldquo;Добавить компоненты&rdquo;</p>
+<p><img src="/p/bitlocker/5.png"
+	width="416"
+	height="453"
+	srcset="/p/bitlocker/5_hu3371159792007948639.png 480w, /p/bitlocker/5_hu16088252220100803375.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="91"
+		data-flex-basis="220px"
+	
+></p>
+<p>Устанавливаем галку &ldquo;Автоматический перезапуск конечного сервера&rdquo; и нажимаем &ldquo;Установить&rdquo;</p>
+<p><img src="/p/bitlocker/7.png"
+	width="786"
+	height="556"
+	srcset="/p/bitlocker/7_hu15744608770806561130.png 480w, /p/bitlocker/7_hu117139807558871112.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="339px"
+	
+></p>
+<p>Создаём OU-шку для компьютеров, на которые будем раскатывать GPO</p>
+<p><img src="/p/bitlocker/8.png"
+	width="676"
+	height="540"
+	srcset="/p/bitlocker/8_hu5589636266573757067.png 480w, /p/bitlocker/8_hu11603708266023528357.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="300px"
+	
+></p>
+<p>Закидываем наш компьютер</p>
+<p><img src="/p/bitlocker/9.png"
+	width="733"
+	height="442"
+	srcset="/p/bitlocker/9_hu11206191098816781513.png 480w, /p/bitlocker/9_hu11371900883269147572.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="398px"
+	
+></p>
+<h4 id="создаём-групповую-политику">Создаём групповую политику
+</h4><p>Переходим в Управление групповой политикой
+На созданной нами OU - Создать объект групповой политики и связать его
+Называем политику, в моём случае Шифрование</p>
+<p><img src="/p/bitlocker/10.png"
+	width="595"
+	height="638"
+	srcset="/p/bitlocker/10_hu3222848540154426798.png 480w, /p/bitlocker/10_hu8308969392486588238.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="93"
+		data-flex-basis="223px"
+	
+></p>
+<p>Изменить</p>
+<p><img src="/p/bitlocker/11.png"
+	width="399"
+	height="275"
+	srcset="/p/bitlocker/11_hu17567150687193250795.png 480w, /p/bitlocker/11_hu5644074008405491403.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="348px"
+	
+></p>
+<p>Переходим в &ldquo;Конфигурация компьютера&rdquo; - &ldquo;Политики&rdquo; - &ldquo;Административные шаблоны&rdquo; - Компоненты Windows - Шифрование диска</p>
+<p><img src="/p/bitlocker/12.png"
+	width="346"
+	height="83"
+	srcset="/p/bitlocker/12_hu10055262808210487316.png 480w, /p/bitlocker/12_hu7758443665359476810.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="416"
+		data-flex-basis="1000px"
+	
+></p>
+<p>Устанавливаем параметры в &ldquo;Включено&rdquo; и отмечаем галками</p>
+<p><img src="/p/bitlocker/13.png"
+	width="763"
+	height="557"
+	srcset="/p/bitlocker/13_hu6926198168707886049.png 480w, /p/bitlocker/13_hu7169584518612816477.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<p><img src="/p/bitlocker/14.png"
+	width="765"
+	height="612"
+	srcset="/p/bitlocker/14_hu8148648831155116510.png 480w, /p/bitlocker/14_hu8262643531607534249.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="125"
+		data-flex-basis="300px"
+	
+></p>
+<p>Переходим в подгруппу &ldquo;Диски операционной системы&rdquo;</p>
+<p><img src="/p/bitlocker/15.png"
+	width="760"
+	height="603"
+	srcset="/p/bitlocker/15_hu14993989854876262391.png 480w, /p/bitlocker/15_hu17868262902046664757.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="126"
+		data-flex-basis="302px"
+	
+></p>
+<p>Переходим в подгруппу &ldquo;Диски операционной системы&rdquo;</p>
+<p><img src="/p/bitlocker/16.png"
+	width="274"
+	height="75"
+	srcset="/p/bitlocker/16_hu15352612242222960399.png 480w, /p/bitlocker/16_hu13868208074422321648.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="365"
+		data-flex-basis="876px"
+	
+></p>
+<p>Включаем &ldquo;Выбор методов восстановления дисков операционной системы..&rdquo;
+Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&rdquo;</p>
+<p><img src="/p/bitlocker/17.png"
+	width="762"
+	height="726"
+	srcset="/p/bitlocker/17_hu16362398523565114451.png 480w, /p/bitlocker/17_hu1996963573413549374.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="104"
+		data-flex-basis="251px"
+	
+></p>
+<h4 id="шифрование-на-конечном-устройстве">Шифрование на конечном устройстве
+</h4><p>Ручной способ:
+Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &ldquo;Включить битлокер&rdquo;</p>
+<p><img src="/p/bitlocker/18.png"
+	width="627"
+	height="463"
+	srcset="/p/bitlocker/18_hu12197416021631042876.png 480w, /p/bitlocker/18_hu9476364323407395347.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="325px"
+	
+></p>
+<p>Выбираем &ldquo;Шифровать только занятое место&rdquo;</p>
+<p><img src="/p/bitlocker/19.png"
+	width="621"
+	height="482"
+	srcset="/p/bitlocker/19_hu7877059076209271038.png 480w, /p/bitlocker/19_hu5992734115976747046.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="128"
+		data-flex-basis="309px"
+	
+></p>
+<p>Ставим галку &ldquo;Запустить проверку систему BitLocker&rdquo;</p>
+<p><img src="/p/bitlocker/20.png"
+	width="622"
+	height="486"
+	srcset="/p/bitlocker/20_hu13220653959994434248.png 480w, /p/bitlocker/20_hu13731855173907586556.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="307px"
+	
+></p>
+<p>Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)</p>
+<p><img src="/p/bitlocker/21.png"
+	width="361"
+	height="166"
+	srcset="/p/bitlocker/21_hu8742952799768223585.png 480w, /p/bitlocker/21_hu10856490116664198597.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="217"
+		data-flex-basis="521px"
+	
+></p>
+<p><img src="/p/bitlocker/22.png"
+	width="352"
+	height="206"
+	srcset="/p/bitlocker/22_hu861396770627608944.png 480w, /p/bitlocker/22_hu8642342229965905736.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="170"
+		data-flex-basis="410px"
+	
+></p>
+<p>Автоматизировать данную операцию можно командой Powershell:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">admin</span><span class="p">&gt;</span> <span class="nb">manage-bde</span> <span class="n">-on</span> <span class="n">C:</span> <span class="n">-UsedSpaceOnly</span> <span class="n">-SkipHardwareTest</span> <span class="n">-recoverypassword</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ключи восстановления можно найти в Active Directory</p>
+<p><img src="/p/bitlocker/23.png"
+	width="464"
+	height="553"
+	srcset="/p/bitlocker/23_hu2929086345047113643.png 480w, /p/bitlocker/23_hu252922000416486684.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="83"
+		data-flex-basis="201px"
+	
+></p>
+<ul>
+<li>При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
+Для этого в фильтрах безопасности политики &ldquo;Шифрование&rdquo; удаляем &ldquo;Прошедшие проверку&rdquo;</li>
+</ul>
+<p><img src="/p/bitlocker/24.png"
+	width="940"
+	height="308"
+	srcset="/p/bitlocker/24_hu11043072107706847262.png 480w, /p/bitlocker/24_hu15976911166381860379.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="305"
+		data-flex-basis="732px"
+	
+></p>
+<p>Нажимаем добавить - Тип объектов - Ставим галочку &ldquo;Компьютер&rdquo;</p>
+<p><img src="/p/bitlocker/25.png"
+	width="501"
+	height="425"
+	srcset="/p/bitlocker/25_hu3802838793969872336.png 480w, /p/bitlocker/25_hu2671185998574540925.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="282px"
+	
+></p>
+<p>Вводим имя нашего ПК и нажимаем добавить</p>
+<p><img src="/p/bitlocker/26.png"
+	width="832"
+	height="368"
+	srcset="/p/bitlocker/26_hu9760568517398606011.png 480w, /p/bitlocker/26_hu13184332381344585380.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="226"
+		data-flex-basis="542px"
+	
+></p>
+<p>Готово! Теперь компьютер зашифрован, при установке носителя в другое устройство будет запрошен ключ дешифрования. Сейчас дешифрование происходит без необходимости пользователем вводить пароль. Основано на чипе TPM, встроенного в наш компьютер.
+Ключ восстановления хранится в Active Directory. При запросе на дешифрование устройство выведет первые 8 символов ключа, с помощью которых можно выполнить поиск, найти компьютер и полный ключ восстановления.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/bitlocker/">Bitlocker</a>
+        
+            <a href="/tags/active-directory/">Active Directory</a>
+        
+            <a href="/tags/windows/">Windows</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="ZM56/itzm"
+    data-repo-id="R_kgDOM409Zg"
+    data-category="General"
+    data-category-id="DIC_kwDOM409Zs4CkTEU"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="ru"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2024 - 
+        
+        2025 IT Notes
+    </section>
+
+    <section class="powerby" style="margin-top: 0.5rem;">
+        
+            <span style="font-weight: normal;">
+                Информацию можно использовать в свободном доступе, с указанием ссылки на сайт
+            </span>
+            <br/>
+        
+
+        
+            <a href="https://t.me/itzm_notes" target="_blank" rel="noopener" style="margin-right: 1rem; display: inline-flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                    <path d="M9.743 15.447l-.392 4.528c.562 0 .808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/>
+                </svg>
+                Telegram
+            </a>
+        
+
+        
+            <a href="https://github.com/ZM56" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
+                </svg>
+                GitHub
+            </a>
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
+>>>>>>> d504d19 (Edit settings)
