@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Helm on IT Notes</title><link>https://itzm.tech/tags/helm/</link><description>Recent content in Helm on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/helm/index.xml" rel="self" type="application/rss+xml"/><item><title>Установка Ansible AWX в K3S</title><link>https://itzm.tech/p/kubernetes/</link><pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate><guid>https://itzm.tech/p/kubernetes/</guid><description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" />&lt;p>Мы рассмотрим процесс установки &lt;code>Ansible AWX&lt;/code>, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04&lt;/p>
 &lt;p>Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p>
 &lt;table>
@@ -45,6 +46,69 @@
 &lt;li>OS: Ubuntu 22.04&lt;/li>
 &lt;/ul>
 &lt;p>Для чистой установки потребуется не менее 20 Gb для /var/lib/rancher.
+=======
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Helm on IT Notes</title>
+        <link>https://itzm.tech/tags/helm/</link>
+        <description>Recent content in Helm on IT Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ru-ru</language>
+        <lastBuildDate>Fri, 18 Oct 2024 20:19:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/helm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Установка Ansible AWX в K3S</title>
+        <link>https://itzm.tech/p/kubernetes/</link>
+        <pubDate>Fri, 18 Oct 2024 20:19:36 +0500</pubDate>
+        
+        <guid>https://itzm.tech/p/kubernetes/</guid>
+        <description>&lt;img src="https://itzm.tech/p/kubernetes/awx2.jpg" alt="Featured image of post Установка Ansible AWX в K3S" /&gt;&lt;p&gt;Мы рассмотрим процесс установки &lt;code&gt;Ansible AWX&lt;/code&gt;, веб-интерфейса с открытым исходным кодом для управления проектами Ansible, с помощью однонодового K3S и awx-operator, на базе Ubuntu 22.04&lt;/p&gt;
+&lt;p&gt;Ansible AWX — это мощный веб-интерфейс с открытым исходным кодом для управления проектами Ansible, плейбуками, списками инвентори и планированием заданий по расписанию. С Ansible AWX можно эффективно и наглядно управлять инфраструктурой, организовывать задачи и оптимизировать процессы DevOps.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Версия&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;ПО&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Client Version&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;v1.30.5+k3s1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Kustomize Version&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;v5.0.4-0.20230601165947-6ce0bf390ce3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Server Version&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;v1.30.5+k3s1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Оператор AWX&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2.9.1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PostgreSQL&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;15&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Минимальные требования:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: 2&lt;/li&gt;
+&lt;li&gt;RAM: 4 Gb&lt;/li&gt;
+&lt;li&gt;SSD: 50 Gb&lt;/li&gt;
+&lt;li&gt;OS: Ubuntu 22.04&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Рекомендованные:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: 4&lt;/li&gt;
+&lt;li&gt;RAM: 8 Gb&lt;/li&gt;
+&lt;li&gt;SSD: 50 Gb&lt;/li&gt;
+&lt;li&gt;OS: Ubuntu 22.04&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Для чистой установки потребуется не менее 20 Gb для /var/lib/rancher.
+>>>>>>> 7959f05 (Edit post test)
 Оба показателя будут увеличиваться в течение срока использования, а фактическое потребление во многом зависит от варианта использования, поэтому следует обращать внимание на потребление и при необходимости увеличивать объём.
 Директория &lt;code>/var/lib/rancher&lt;/code> будет создана автоматически для K3S и связанных с ним данными, такими как образы контейнеров и оверлеи.
 Все действия можно производить как от пользователя с правами sudo, так и от root (&lt;code>sudo -s&lt;/code>)&lt;/p>
