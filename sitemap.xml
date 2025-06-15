@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://itzm.tech/p/bitbucket-docker/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
     <loc>https://itzm.tech/p/cert_store/</loc>
     <lastmod>2025-06-05T10:10:36+05:00</lastmod>
   </url><url>
@@ -65,8 +68,26 @@
     <loc>https://itzm.tech/post/</loc>
     <lastmod>2025-07-05T12:30:00+05:00</lastmod>
   </url><url>
+    <loc>https://itzm.tech/tags/atlassian/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/categories/atlassian/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/bitbucket/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
     <loc>https://itzm.tech/categories/</loc>
-    <lastmod>2025-06-05T10:10:36+05:00</lastmod>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/docker/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
+  </url><url>
+    <loc>https://itzm.tech/tags/ubuntu/</loc>
+    <lastmod>2025-06-15T14:30:00+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/java/</loc>
     <lastmod>2025-06-05T10:10:36+05:00</lastmod>
@@ -76,12 +97,6 @@
   </url><url>
     <loc>https://itzm.tech/tags/linux/</loc>
     <lastmod>2025-06-05T10:10:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/</loc>
-    <lastmod>2025-06-05T10:10:36+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/docker/</loc>
-    <lastmod>2025-05-03T11:15:32+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/grafana/</loc>
     <lastmod>2025-05-03T11:15:32+05:00</lastmod>
@@ -103,15 +118,6 @@
   </url><url>
     <loc>https://itzm.tech/categories/linux/</loc>
     <lastmod>2025-04-04T00:10:05+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/ubuntu/</loc>
-    <lastmod>2025-04-04T00:10:05+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/tags/atlassian/</loc>
-    <lastmod>2025-02-21T21:11:45+05:00</lastmod>
-  </url><url>
-    <loc>https://itzm.tech/categories/atlassian/</loc>
-    <lastmod>2025-02-21T21:11:45+05:00</lastmod>
   </url><url>
     <loc>https://itzm.tech/tags/confluence/</loc>
     <lastmod>2025-02-21T21:11:45+05:00</lastmod>

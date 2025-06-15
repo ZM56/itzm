@@ -6,7 +6,39 @@
         <description>Recent content in Tags on IT Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ru-ru</language>
-        <lastBuildDate>Thu, 05 Jun 2025 10:10:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 Jun 2025 14:30:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Atlassian</title>
+        <link>https://itzm.tech/tags/atlassian/</link>
+        <pubDate>Sun, 15 Jun 2025 14:30:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/atlassian/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Bitbucket</title>
+        <link>https://itzm.tech/tags/bitbucket/</link>
+        <pubDate>Sun, 15 Jun 2025 14:30:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/bitbucket/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Docker</title>
+        <link>https://itzm.tech/tags/docker/</link>
+        <pubDate>Sun, 15 Jun 2025 14:30:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ubuntu</title>
+        <link>https://itzm.tech/tags/ubuntu/</link>
+        <pubDate>Sun, 15 Jun 2025 14:30:00 +0500</pubDate>
+        
+        <guid>https://itzm.tech/tags/ubuntu/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Java</title>
         <link>https://itzm.tech/tags/java/</link>
         <pubDate>Thu, 05 Jun 2025 10:10:36 +0500</pubDate>
@@ -20,14 +52,6 @@
         <pubDate>Thu, 05 Jun 2025 10:10:36 +0500</pubDate>
         
         <guid>https://itzm.tech/tags/linux/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Docker</title>
-        <link>https://itzm.tech/tags/docker/</link>
-        <pubDate>Sat, 03 May 2025 11:15:32 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/docker/</guid>
         <description></description>
         </item>
         <item>
@@ -60,22 +84,6 @@
         <pubDate>Sun, 27 Apr 2025 10:37:00 +0500</pubDate>
         
         <guid>https://itzm.tech/tags/other/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Ubuntu</title>
-        <link>https://itzm.tech/tags/ubuntu/</link>
-        <pubDate>Fri, 04 Apr 2025 00:10:05 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/ubuntu/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Atlassian</title>
-        <link>https://itzm.tech/tags/atlassian/</link>
-        <pubDate>Fri, 21 Feb 2025 21:11:45 +0500</pubDate>
-        
-        <guid>https://itzm.tech/tags/atlassian/</guid>
         <description></description>
         </item>
         <item>
