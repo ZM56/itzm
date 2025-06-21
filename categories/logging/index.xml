@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logging on IT Notes</title><link>https://itzm.tech/categories/logging/</link><description>Recent content in Logging on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 19 Jun 2025 18:10:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/logging/index.xml" rel="self" type="application/rss+xml"/><item><title>Команды для управления кластером ElasticSearch/Opensearch</title><link>https://itzm.tech/p/elk_command/</link><pubDate>Thu, 19 Jun 2025 18:10:36 +0500</pubDate><guid>https://itzm.tech/p/elk_command/</guid><description>&lt;img src="https://itzm.tech/p/elk_command/elk.jpg" alt="Featured image of post Команды для управления кластером ElasticSearch/Opensearch" />&lt;h2 id="управлением-кластером-elkopensearch-в-dev-tools">Управлением кластером ELK/Opensearch в Dev Tools
-&lt;/h2>&lt;h3 id="информация-о-нодах-в-кластере">Информация о нодах в кластере
+&lt;/h2>&lt;h3 id="состояние-кластера">Состояние кластера
 &lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -8,7 +8,7 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">GET /_cluster/health?pretty
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h3 id="получение-информации-о-нодах-в-кластере">Получение информации о нодах в кластере
+&lt;/div>&lt;h3 id="получение-информации-о-нодах">Получение информации о нодах
 &lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
