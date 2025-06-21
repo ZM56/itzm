@@ -1,0 +1,11 @@
+---
+title: "Мои ссылки"
+url: "/super-secret-page/"
+draft: false
+robots: noindex, nofollow
+---
+Для Confluence/Jira:
+[Скачать Agent](files/agent.zip)
+
+Для Bitbucket:
+[Скачать Agent](files/agent-with-dependencies.zip)

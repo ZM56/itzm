@@ -5429,7 +5429,10 @@ loading="lazy"
 class="gallery-image"
 data-flex-grow="666"
 data-flex-basis="1598px"
->&lt;/p></description></item><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;p>Привет, &lt;code>Username&lt;/code>!&lt;br>
+>&lt;/p></description></item><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Мои ссылки</title><link>https://itzm.tech/super-secret-page/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/super-secret-page/</guid><description>&lt;p>&lt;strong>Для Conflunce/Jira:&lt;/strong>&lt;br>
+&lt;a class="link" href="files/agent.zip" >Скачать Agent-1&lt;/a>&lt;/p>
+&lt;p>&lt;strong>Для Bitbucket:&lt;/strong>&lt;br>
+&lt;a class="link" href="files/agent-with-dependencies.zip" >Скачать Agent-2&lt;/a>&lt;/p></description></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;p>Привет, &lt;code>Username&lt;/code>!&lt;br>
 Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p>
 &lt;blockquote>
 &lt;p>Только в Telegram я делюсь тем, что не попадает в заметки: практикой, своими мыслями и теорией — всё просто и без воды.&lt;br>
