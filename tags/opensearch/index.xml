@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Opensearch on IT Notes</title><link>https://itzm.tech/tags/opensearch/</link><description>Recent content in Opensearch on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 26 Jun 2025 12:23:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/opensearch/index.xml" rel="self" type="application/rss+xml"/><item><title>Политики хранения логов Opensearch</title><link>https://itzm.tech/p/ism_policy/</link><pubDate>Thu, 26 Jun 2025 12:23:36 +0500</pubDate><guid>https://itzm.tech/p/ism_policy/</guid><description>&lt;img src="https://itzm.tech/p/ism_policy/opensearch.jpg" alt="Featured image of post Политики хранения логов Opensearch" />&lt;blockquote>
-&lt;p>Через плагин Index State Management (ISM) в Opensearch Dashnboards настраиваются сроки хранения и ротации логов.&lt;/p>
+&lt;p>Через плагин Index State Management (ISM) в Opensearch Dashboards настраиваются сроки хранения и ротации логов.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="пример-политики-хранения-логов-3-года">Пример политики хранения логов 3 года
 &lt;/h2>&lt;p>&lt;em>Ключевые этапы жизненного цикла:&lt;/em>&lt;/p>
