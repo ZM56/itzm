@@ -171,7 +171,7 @@ data-flex-basis="791px"
 &lt;a href="https://t.me/itzm_notes" target="_blank">
 &lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
 &lt;/a>&lt;/p>
-&lt;/blockquote></description></item><item><title>Установка Jira в docker-compose</title><link>https://itzm.tech/p/jira-docker/</link><pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate><guid>https://itzm.tech/p/jira-docker/</guid><description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira в docker-compose" />&lt;p>У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira.&lt;br>
+&lt;/blockquote></description></item><item><title>Установка Jira на Ubuntu и Docker — пошаговая инструкция</title><link>https://itzm.tech/p/jira-docker/</link><pubDate>Wed, 18 Sep 2024 19:11:39 +0500</pubDate><guid>https://itzm.tech/p/jira-docker/</guid><description>&lt;img src="https://itzm.tech/p/jira-docker/jira.jpg" alt="Featured image of post Установка Jira на Ubuntu и Docker — пошаговая инструкция" />&lt;p>У компании Atlassian есть несколько крутых продуктов, сегодня мы будем разворачивать Jira в Docker.&lt;br>
 Jira — коммерческая система отслеживания ошибок, предназначена для организации взаимодействия с пользователями, хотя в некоторых случаях используется и для управления проектами.&lt;br>
 Самый быстрый способ развертывания данной системы, это использование докер контейнеров.&lt;/p>
 &lt;p>Требования:&lt;/p>
