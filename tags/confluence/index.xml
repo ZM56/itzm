@@ -171,7 +171,7 @@ data-flex-basis="791px"
 &lt;a href="https://t.me/itzm_notes" target="_blank">
 &lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
 &lt;/a>&lt;/p>
-&lt;/blockquote></description></item><item><title>Установка Confluence в docker-compose</title><link>https://itzm.tech/p/confluence-docker/</link><pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate><guid>https://itzm.tech/p/confluence-docker/</guid><description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence в docker-compose" />&lt;p>&lt;code>Confluence&lt;/code> - это вики-система для внутреннего использования организациями, с целью создания единой базы знаний.&lt;/p>
+&lt;/blockquote></description></item><item><title>Установка Confluence на Ubuntu и Docker — пошаговая инструкция</title><link>https://itzm.tech/p/confluence-docker/</link><pubDate>Sun, 29 Sep 2024 10:11:39 +0500</pubDate><guid>https://itzm.tech/p/confluence-docker/</guid><description>&lt;img src="https://itzm.tech/p/confluence-docker/confluence.jpg" alt="Featured image of post Установка Confluence на Ubuntu и Docker — пошаговая инструкция" />&lt;p>&lt;code>Confluence&lt;/code> - это вики-система для внутреннего использования организациями, с целью создания единой базы знаний.&lt;/p>
 &lt;p>Самый быстрый способ развертывания данной системы, это использование докер контейнеров.
 Установка схожа с развертыванием другого продукта Atlassian - Jira&lt;br>
 -&amp;gt; &lt;a class="link" href="https://itzm.tech/p/jira-docker/" target="_blank" rel="noopener"
