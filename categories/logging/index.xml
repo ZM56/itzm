@@ -1,10 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logging on IT Notes</title><link>https://itzm.tech/categories/logging/</link><description>Recent content in Logging on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 22 Aug 2025 12:35:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/logging/index.xml" rel="self" type="application/rss+xml"/><item><title>Установка кластера Apache Kafka через Ansible</title><link>https://itzm.tech/p/install_kafka/</link><pubDate>Fri, 22 Aug 2025 12:35:00 +0500</pubDate><guid>https://itzm.tech/p/install_kafka/</guid><description>&lt;img src="https://itzm.tech/p/install_kafka/kafka.jpg" alt="Featured image of post Установка кластера Apache Kafka через Ansible" />&lt;p>Цель:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logging on IT Notes</title><link>https://itzm.tech/categories/logging/</link><description>Recent content in Logging on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 22 Aug 2025 12:35:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/logging/index.xml" rel="self" type="application/rss+xml"/><item><title>Установка кластера Apache Kafka через Ansible</title><link>https://itzm.tech/p/install_kafka/</link><pubDate>Fri, 22 Aug 2025 12:35:00 +0500</pubDate><guid>https://itzm.tech/p/install_kafka/</guid><description>&lt;img src="https://itzm.tech/p/install_kafka/kafka.jpg" alt="Featured image of post Установка кластера Apache Kafka через Ansible" />&lt;blockquote>
+&lt;p>Что такое Kafka, для чего используется и логика работы подробно расписана в моём телеграм канале.
+&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+>Присоединяйся&lt;/a>
+&lt;a href="https://t.me/itzm_notes" target="_blank">
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
+&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Цель:&lt;/p>
 &lt;ul>
 &lt;li>3 Kafka-брокера (для отказоустойчивости)&lt;/li>
 &lt;li>3 контроллера (KRaft controller nodes) будем совмещать с брокерами, но на проде лучше выделить&lt;/li>
 &lt;/ul>
 &lt;h2 id="требования">Требования
-&lt;/h2>&lt;p>Для прода, для теста делить / 2:&lt;/p>
+&lt;/h2>&lt;p>Для прода, для теста делить ресурсы на / 2:&lt;/p>
 &lt;ul>
 &lt;li>CPU: 4&lt;/li>
 &lt;li>RAM: 16 GB&lt;/li>
