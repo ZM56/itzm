@@ -91,7 +91,7 @@ loading="lazy"
 class="gallery-image"
 data-flex-grow="249"
 data-flex-basis="598px"
->&lt;/p></description></item><item><title>Установка Opensearch Ansible</title><link>https://itzm.tech/p/install_opensearch/</link><pubDate>Fri, 05 Sep 2025 12:55:00 +0500</pubDate><guid>https://itzm.tech/p/install_opensearch/</guid><description>&lt;img src="https://itzm.tech/p/install_opensearch/opensearch.jpg" alt="Featured image of post Установка Opensearch Ansible" />&lt;p>В данном примере будет установлен OpenSearch используя официальную роль Ansible&lt;/p>
+>&lt;/p></description></item><item><title>Установка Opensearch Ansible</title><link>https://itzm.tech/p/install_opensearch/</link><pubDate>Fri, 05 Sep 2025 12:55:00 +0500</pubDate><guid>https://itzm.tech/p/install_opensearch/</guid><description>&lt;img src="https://itzm.tech/p/install_opensearch/opensearch.jpg" alt="Featured image of post Установка Opensearch Ansible" />&lt;p>В данном примере будет выполнена &amp;ldquo;Установка OpenSearch&amp;rdquo; используя официальную роль Ansible&lt;/p>
 &lt;blockquote>
 &lt;p>Теорию и многое другое доступно описываю в твоём ТГ канале.&lt;br>
 Там же отвечаю на вопросы и обновляю инструкции при необходимости.&lt;br>
