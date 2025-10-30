@@ -1,0 +1,234 @@
+<!doctype html><html lang=ru-ru dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Установка и настройка vsFTPd (по протоколу FTPS)"><title>Установка vsFTPd на Ubuntu 22.04</title>
+<link rel=canonical href=https://itzm.tech/p/vsftpd/><link rel=stylesheet href=/scss/style.min.b4bf01ec77ac4d343999e28e1bd779f4c3dcd6d196290fb5ea885bc72bcc36a1.css><meta property='og:title' content="Установка vsFTPd на Ubuntu 22.04"><meta property='og:description' content="Установка и настройка vsFTPd (по протоколу FTPS)"><meta property='og:url' content='https://itzm.tech/p/vsftpd/'><meta property='og:site_name' content='IT Notes'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Ubuntu'><meta property='article:published_time' content='2025-04-04T00:10:05+05:00'><meta property='article:modified_time' content='2025-04-04T00:10:05+05:00'><meta property='og:image' content='https://itzm.tech/p/vsftpd/vsftpd.jpg'><meta name=twitter:title content="Установка vsFTPd на Ubuntu 22.04"><meta name=twitter:description content="Установка и настройка vsFTPd (по протоколу FTPS)"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://itzm.tech/p/vsftpd/vsftpd.jpg'><link rel="shortcut icon" href=/favicon.ico><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date;for(var r=0;r<document.scripts.length;r++)if(document.scripts[r].src===s)return;i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(100111682,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/100111682 style=position:absolute;left:-9999px alt></div></noscript></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Показать/скрыть меню">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu10286758107844593671.png width=300 height=297 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>IT Notes</a></h1><h2 class=site-description>Vladislav Zemerov</h2></div></header><ol class=menu-social><li><a href=https://github.com/ZM56 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://t.me/itzm_notes target=_blank title=Telegram rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li><li><a href=https://www.youtube.com/@itzm_notes target=_blank title=YouTube rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 014-4h12a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Главная</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Архивы</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Поиск</span></a></li><li><a href=/about/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 108 0A4 4 0 008 7"/><path d="M6 21v-2a4 4 0 014-4h3"/><path d="M16 22l5-5"/><path d="M21 21.5V17h-4.5"/></svg>
+<span>Обо мне</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Тёмный режим</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Содержание</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#шаг-1-установка>Шаг 1. Установка</a></li><li><a href=#шаг-2-конфигурация-сервера>Шаг 2. Конфигурация сервера</a></li><li><a href=#шаг-3-ssl-сертификат>Шаг 3. SSL-Сертификат</a></li><li><a href=#шаг-4-настройка-виртуальных-пользователей>Шаг 4. Настройка виртуальных пользователей</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/vsftpd/><img src=/p/vsftpd/vsftpd_hu16856410369434823111.jpg srcset="/p/vsftpd/vsftpd_hu16856410369434823111.jpg 800w, /p/vsftpd/vsftpd_hu8016398472576205147.jpg 1600w" width=800 height=267 loading=lazy alt="Featured image of post Установка vsFTPd на Ubuntu 22.04"></a></div><div class=article-details><header class=article-category><a href=/categories/linux/ style=background-color:#ff0;color:#000>Linux</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/vsftpd/>Установка vsFTPd на Ubuntu 22.04</a></h2><h3 class=article-subtitle>Установка и настройка vsFTPd (по протоколу FTPS)</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>апр. 04, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>Время чтения: 3 мин.</time></div></footer></div></header><section class=article-content><p>Появилась необходимость на скорую руку поднять FTPS для обмена с внешними сервисами.</p><p>Есть два режима пользователей в контексте vsftpd: локальные (системные) и виртуальные.
+В данном примере будут созданы виртуальные пользователи. В этом режиме пользователи не имеют системных учетных записей, а управляются через базу данных или файл.</p><p>Как это работает:</p><ul><li>Клиент подключается к серверу, отправляет логин и пароль</li><li>Сервер проверяет учетные данные в базе данных виртуальных пользователей и представляет доступ к определенным директориям.</li></ul><p>Решение более безопасное, так как виртуальные пользователи не имеют доступа к системе. Плюсом получаем упрощенное управление пользователями.</p><h2 id=шаг-1-установка>Шаг 1. Установка</h2><p>Обновляем списки портов в репозиториях:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt update
+</span></span></code></pre></td></tr></table></div></div><p>Устанавливаем vsFTPd:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install vsftpd -y
+</span></span></code></pre></td></tr></table></div></div><p>Устанавливаем утилиту для создания базы данных пользователей:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install db-util -y
+</span></span></code></pre></td></tr></table></div></div><p>Основной конфигурационный файл находится здесь <code>/etc/vsftpd.conf</code></p><p>Делаем копию оригинального конфига:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+</span></span></code></pre></td></tr></table></div></div><h2 id=шаг-2-конфигурация-сервера>Шаг 2. Конфигурация сервера</h2><p>Открываем новый файл на редактирование:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo nano /etc/vsftpd.conf
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=c1>### Основные настройки</span>
+</span></span><span class=line><span class=cl><span class=c1>## Сервер работает в standalone-режиме. Сам прослушивает и определяет входящие соединения.</span>
+</span></span><span class=line><span class=cl><span class=na>listen</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Анонимный доступ запрещен</span>
+</span></span><span class=line><span class=cl><span class=na>anonymous_enable</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Разрешен доступ локальным пользователям системы</span>
+</span></span><span class=line><span class=cl><span class=na>local_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Включена поддержка виртуальных пользователей</span>
+</span></span><span class=line><span class=cl><span class=na>guest_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Виртуальные пользователи работают от имени системного пользователя vsftpd</span>
+</span></span><span class=line><span class=cl><span class=na>guest_username</span><span class=o>=</span><span class=s>vsftpd</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Виртуальные пользователи имеют те же права, что и локальные пользователи</span>
+</span></span><span class=line><span class=cl><span class=na>virtual_use_local_privs</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Используется PAM-модуль vsftpd.virtual для аутентификации виртуальных пользователей</span>
+</span></span><span class=line><span class=cl><span class=na>pam_service_name</span><span class=o>=</span><span class=s>vsftpd.virtual</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Каждый пользователь имеет свою домашнюю директорию в /home/vsftpd/</span>
+</span></span><span class=line><span class=cl><span class=na>user_sub_token</span><span class=o>=</span><span class=s>$USER</span>
+</span></span><span class=line><span class=cl><span class=na>local_root</span><span class=o>=</span><span class=s>/home/vsftpd/$USER</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>## Настройки chroot</span>
+</span></span><span class=line><span class=cl><span class=c1># Чтобы пользователи не могли перемещаться по каталогам сервера и просматривать файлы ограничиваем их домашними директориями</span>
+</span></span><span class=line><span class=cl><span class=na>chroot_local_user</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>allow_writeable_chroot</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>## Логирование</span>
+</span></span><span class=line><span class=cl><span class=c1># Скрывает реальные UID/GID пользователей в логах</span>
+</span></span><span class=line><span class=cl><span class=na>hide_ids</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Включает логирование передачи файлов</span>
+</span></span><span class=line><span class=cl><span class=na>xferlog_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Включает подробное логирование FTP-протокола</span>
+</span></span><span class=line><span class=cl><span class=na>log_ftp_protocol</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Указывает путь к файлу логов передачи файлов</span>
+</span></span><span class=line><span class=cl><span class=na>xferlog_file</span><span class=o>=</span><span class=s>/var/log/vsftpd.log</span>
+</span></span><span class=line><span class=cl><span class=na>vsftpd_log_file</span><span class=o>=</span><span class=s>/var/log/vsftpd.log</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Более подробный вывод логов</span>
+</span></span><span class=line><span class=cl><span class=na>xferlog_std_format</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>## Настройки портов</span>
+</span></span><span class=line><span class=cl><span class=c1># Разрешает активный режим FTP на 20 порту</span>
+</span></span><span class=line><span class=cl><span class=na>port_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>connect_from_port_20</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>ftp_data_port</span><span class=o>=</span><span class=s>20</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Минимальный и максимальный порты, для пассивного режима</span>
+</span></span><span class=line><span class=cl><span class=na>pasv_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>pasv_max_port</span><span class=o>=</span><span class=s>35109</span>
+</span></span><span class=line><span class=cl><span class=na>pasv_min_port</span><span class=o>=</span><span class=s>35100</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>## Права доступа для создаваемых файлов</span>
+</span></span><span class=line><span class=cl><span class=na>file_open_mode</span><span class=o>=</span><span class=s>0666</span>
+</span></span><span class=line><span class=cl><span class=na>local_umask</span><span class=o>=</span><span class=s>077</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>## Настройки SSL/TLS</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_enable</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Запрещает анонимным пользователям использовать SSL/TLS</span>
+</span></span><span class=line><span class=cl><span class=na>allow_anon_ssl</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>force_local_data_ssl</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>force_local_logins_ssl</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>require_ssl_reuse</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>strict_ssl_read_eof</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_tlsv1</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_tlsv11</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_tlsv12</span><span class=o>=</span><span class=s>YES</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_sslv2</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>ssl_sslv3</span><span class=o>=</span><span class=s>NO</span>
+</span></span><span class=line><span class=cl><span class=na>rsa_cert_file</span><span class=o>=</span><span class=s>/etc/ssl/certs/vsftpd.pem</span>
+</span></span><span class=line><span class=cl><span class=na>rsa_private_key_file</span><span class=o>=</span><span class=s>/etc/ssl/private/vsftpd.key</span>
+</span></span></code></pre></td></tr></table></div></div><p>Все инструкции, для конфигурации подробно описаны здесь:
+<code>https://www.opennet.ru/base/net/vsftpd_overview.txt.html</code></p><h2 id=шаг-3-ssl-сертификат>Шаг 3. SSL-Сертификат</h2><p>Для теста сгенирируем самоподписанный сертификат и ключ:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>openssl req -new -x509 -days 365 -nodes <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -out /etc/ssl/certs/vsftpd.pem <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -keyout /etc/ssl/private/vsftpd.key <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  -subj <span class=s2>&#34;/C=RU/ST=Moscow/L=Moscow/O=MyOrganization/OU=IT/CN=vsftpd.server&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=шаг-4-настройка-виртуальных-пользователей>Шаг 4. Настройка виртуальных пользователей</h2><p>Создайте текстовый файл с логинами и паролями. Например, создаём файл virtual_users.txt</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo nano /etc/vsftpd/virtual_users.txt
+</span></span></code></pre></td></tr></table></div></div><p>Добавляем логины и пароли в формате:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>user1</span>
+</span></span><span class=line><span class=cl><span class=na>password1</span>
+</span></span><span class=line><span class=cl><span class=na>user2</span>
+</span></span><span class=line><span class=cl><span class=na>password2</span>
+</span></span></code></pre></td></tr></table></div></div><p>Создаем базу данных из этого файла:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo db_load -T -t <span class=nb>hash</span> -f /etc/vsftpd/virtual_users.txt /etc/vsftpd/virtual_users.db
+</span></span></code></pre></td></tr></table></div></div><p>Установите права доступа к файлу базы данных:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo chmod <span class=m>600</span> /etc/vsftpd/virtual_users.db
+</span></span></code></pre></td></tr></table></div></div><p>Настройте PAM для использования этой базы данных.
+Создайте файл /etc/pam.d/vsftpd.virtual:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo nano /etc/pam.d/vsftpd.virtual
+</span></span></code></pre></td></tr></table></div></div><p>Добавьте следующие строки:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>auth required pam_userdb.so <span class=nv>db</span><span class=o>=</span>/etc/vsftpd/virtual_users
+</span></span><span class=line><span class=cl>account required pam_userdb.so <span class=nv>db</span><span class=o>=</span>/etc/vsftpd/virtual_users
+</span></span></code></pre></td></tr></table></div></div><p>Создаем пользователя vsftpd:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo adduser --home /home/vsftpd --no-create-home --shell /bin/false vsftpd
+</span></span></code></pre></td></tr></table></div></div><p>Создаём директории для виртуальных пользователей:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo mkdir -p /home/vsftpd/user1
+</span></span><span class=line><span class=cl>sudo mkdir -p /home/vsftpd/user2
+</span></span></code></pre></td></tr></table></div></div><p>Выдаём права на директории vsftpd:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo chown vsftpd:vsftpd /home/vsftpd/user1
+</span></span><span class=line><span class=cl>sudo chown vsftpd:vsftpd /home/vsftpd/user2
+</span></span></code></pre></td></tr></table></div></div><p>Перезапускаем сервис. Проверяем работоспособность</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo systemctl restart vsftpd
+</span></span></code></pre></td></tr></table></div></div><p>Подключить можно через WinSCP и положить файл.</p></section><footer class=article-footer><section class=article-tags><a href=/tags/ubuntu/>Ubuntu</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Также рекомендуем</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/linux_commands/><div class=article-image><img src=/p/linux_commands/linux.435f1a88792182acaa65ca418871719e_hu17245354631831974971.jpg width=250 height=150 loading=lazy alt="Featured image of post 100+ Полезных команд Linux" data-key=linux_commands data-hash="md5-Q18aiHkhgqyqZcpBiHFxng=="></div><div class=article-details><h2 class=article-title>100+ Полезных команд Linux</h2></div></a></article><article class=has-image><a href=/p/linux_cert/><div class=article-image><img src=/p/linux_cert/certs.a5a53ec95de352b03dad7b15a7e952dc_hu13002488201764809261.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка корневого сертификата Linux" data-key=linux_cert data-hash="md5-paU+yV3jUrA9rXsVp+lS3A=="></div><div class=article-details><h2 class=article-title>Установка корневого сертификата Linux</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ZM56/itzm data-repo-id=R_kgDOM409Zg data-category=General data-category-id=DIC_kwDOM409Zs4CkTEU data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light data-lang=ru data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2025 IT Notes</section><section class=powerby style=margin-top:.5rem><span style=font-weight:400>Информацию можно использовать в свободном доступе, с указанием ссылки на сайт</span><div style=margin-top:.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center><a href=https://t.me/itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M9.743 15.447l-.392 4.528c.562.0.808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/></svg>
+Telegram
+</a><a href=https://github.com/ZM56 target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931.0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176.0.0 1.008-.322 3.3 1.23a11.51 11.51.0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a><a href=https://www.youtube.com/@itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 16 16" style="margin-right:.4rem"><path d="M8.051 1.999h-.002C3.768 1.998 1.605 2.26 1.31 4.05c-.274 1.66-.274 5.4.0 7.048.294 1.79 2.457 2.052 6.739 2.052h.002c4.282.0 6.445-.262 6.74-2.052.273-1.648.273-5.388.0-7.048-.295-1.79-2.458-2.052-6.74-2.052zM6.545 10.542V5.457L10.818 8l-4.273 2.542z"/></svg>
+YouTube</a></div></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

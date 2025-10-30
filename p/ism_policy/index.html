@@ -1,0 +1,604 @@
+<!doctype html><html lang=ru-ru dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Настройка хранения и ротации логов в Opensearch"><title>Политики хранения логов Opensearch</title>
+<link rel=canonical href=https://itzm.tech/p/ism_policy/><link rel=stylesheet href=/scss/style.min.b4bf01ec77ac4d343999e28e1bd779f4c3dcd6d196290fb5ea885bc72bcc36a1.css><meta property='og:title' content="Политики хранения логов Opensearch"><meta property='og:description' content="Настройка хранения и ротации логов в Opensearch"><meta property='og:url' content='https://itzm.tech/p/ism_policy/'><meta property='og:site_name' content='IT Notes'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='ELK'><meta property='article:tag' content='Opensearch'><meta property='article:published_time' content='2025-06-26T12:23:36+05:00'><meta property='article:modified_time' content='2025-06-26T12:23:36+05:00'><meta property='og:image' content='https://itzm.tech/p/ism_policy/opensearch.jpg'><meta name=twitter:title content="Политики хранения логов Opensearch"><meta name=twitter:description content="Настройка хранения и ротации логов в Opensearch"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://itzm.tech/p/ism_policy/opensearch.jpg'><link rel="shortcut icon" href=/favicon.ico><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date;for(var r=0;r<document.scripts.length;r++)if(document.scripts[r].src===s)return;i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(100111682,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/100111682 style=position:absolute;left:-9999px alt></div></noscript></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Показать/скрыть меню">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu10286758107844593671.png width=300 height=297 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>IT Notes</a></h1><h2 class=site-description>Vladislav Zemerov</h2></div></header><ol class=menu-social><li><a href=https://github.com/ZM56 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://t.me/itzm_notes target=_blank title=Telegram rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li><li><a href=https://www.youtube.com/@itzm_notes target=_blank title=YouTube rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 014-4h12a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Главная</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Архивы</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Поиск</span></a></li><li><a href=/about/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 108 0A4 4 0 008 7"/><path d="M6 21v-2a4 4 0 014-4h3"/><path d="M16 22l5-5"/><path d="M21 21.5V17h-4.5"/></svg>
+<span>Обо мне</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Тёмный режим</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Содержание</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#пример-политики-хранения-логов-3-года>Пример политики хранения логов 3 года</a></li><li><a href=#пример-политики-хранения-логов-1-день>Пример политики хранения логов 1 день</a></li><li><a href=#сжатие-логов-перед-удалением>Сжатие логов перед удалением</a></li><li><a href=#примерный-конфиг-fluent-bit-для-kafka>Примерный конфиг Fluent-bit для Kafka</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/ism_policy/><img src=/p/ism_policy/opensearch_hu14790564962198098354.jpg srcset="/p/ism_policy/opensearch_hu14790564962198098354.jpg 800w, /p/ism_policy/opensearch_hu2630920068023896106.jpg 1600w" width=800 height=533 loading=lazy alt="Featured image of post Политики хранения логов Opensearch"></a></div><div class=article-details><header class=article-category><a href=/categories/logging/ style=background-color:#ff8c00;color:#fff>Logging</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/ism_policy/>Политики хранения логов Opensearch</a></h2><h3 class=article-subtitle>Настройка хранения и ротации логов в Opensearch</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>июн. 26, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>Время чтения: 4 мин.</time></div></footer></div></header><section class=article-content><blockquote><p>Через плагин Index State Management (ISM) в Opensearch Dashboards настраиваются сроки хранения и ротации логов.</p></blockquote><h2 id=пример-политики-хранения-логов-3-года>Пример политики хранения логов 3 года</h2><p><em>Ключевые этапы жизненного цикла:</em></p><p><strong>Горячая фаза (Hot, 7 дней):</strong></p><ul><li>Индексы активно индексируются</li><li>Автоматический rollover при достижении 50 ГБ</li><li>Оптимальная производительность (SSD/NVMe)</li></ul><p><strong>Тёплая фаза (Warm, 30 дней):</strong></p><ul><li>Уменьшение реплик (number_of_replicas: 1)</li><li>Оптимизация сегментов (force_merge)</li><li>Хранение на HDD/магнитных дисках</li></ul><p><strong>Холодная фаза (Cold, до 3 лет):</strong></p><ul><li>Данные доступны только для чтения</li><li>Возможность использовать объектные хранилища (S3, MinIO)</li><li>Минимальная стоимость хранения</li></ul><p><strong>Удаление (через 1095 дней):</strong></p><ul><li>Полная очистка старых данных</li></ul><p>В json ISM добавить код и заменить своим Index&rsquo;ом к которому применять правило</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=err>PUT</span> <span class=err>/_plugins/_ism/policy/delete_info_</span><span class=mi>1095</span><span class=err>d</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;policy&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;policy_id&#34;</span><span class=p>:</span> <span class=s2>&#34;delete_info_1095d&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Hot - Warm - Cold - Delete (3 года)&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;default_state&#34;</span><span class=p>:</span> <span class=s2>&#34;hot&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;states&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;hot&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;rollover&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_size&#34;</span><span class=p>:</span> <span class=s2>&#34;50gb&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_primary_shard_size&#34;</span><span class=p>:</span> <span class=s2>&#34;10gb&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;transitions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;state_name&#34;</span><span class=p>:</span> <span class=s2>&#34;warm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;conditions&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_index_age&#34;</span><span class=p>:</span> <span class=s2>&#34;7d&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;warm&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;replica_count&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;number_of_replicas&#34;</span><span class=p>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;force_merge&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;max_num_segments&#34;</span><span class=p>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;read_only&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;transitions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;state_name&#34;</span><span class=p>:</span> <span class=s2>&#34;cold&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;conditions&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_index_age&#34;</span><span class=p>:</span> <span class=s2>&#34;30d&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;cold&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;retry&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;count&#34;</span><span class=p>:</span> <span class=mi>3</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;backoff&#34;</span><span class=p>:</span> <span class=s2>&#34;exponential&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;delay&#34;</span><span class=p>:</span> <span class=s2>&#34;1h&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cold_migration&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;transitions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;state_name&#34;</span><span class=p>:</span> <span class=s2>&#34;delete&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;conditions&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_index_age&#34;</span><span class=p>:</span> <span class=s2>&#34;1095d&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;delete&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;delete&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;ism_template&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;index_patterns&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;info-logs-*&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;priority&#34;</span><span class=p>:</span> <span class=mi>80</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=пример-политики-хранения-логов-1-день>Пример политики хранения логов 1 день</h2><p>Отладочные логи (debug). Срок хранения - 1 день.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;policy&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;policy_id&#34;</span><span class=p>:</span> <span class=s2>&#34;delete_debug_1d&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;Delete debug logs after 1 day&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;default_state&#34;</span><span class=p>:</span> <span class=s2>&#34;hot&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;states&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;hot&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;transitions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;state_name&#34;</span><span class=p>:</span> <span class=s2>&#34;delete&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;conditions&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;min_index_age&#34;</span><span class=p>:</span> <span class=s2>&#34;1d&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;delete&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;actions&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;delete&#34;</span><span class=p>:</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;transitions&#34;</span><span class=p>:</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;ism_template&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;index_patterns&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;debug-delete-1d&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;priority&#34;</span><span class=p>:</span> <span class=mi>100</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=сжатие-логов-перед-удалением>Сжатие логов перед удалением</h2><p>Если требуется архивирование</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl>  <span class=s2>&#34;name&#34;</span><span class=err>:</span> <span class=s2>&#34;cold&#34;</span><span class=err>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;actions&#34;</span><span class=err>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;snapshot&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;repository&#34;</span><span class=p>:</span> <span class=s2>&#34;my-s3-repository&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;snapshot&#34;</span><span class=p>:</span> <span class=s2>&#34;debug-logs-archive-{{ctx.index}}&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=примерный-конфиг-fluent-bit-для-kafka>Примерный конфиг Fluent-bit для Kafka</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[INPUT]</span>
+</span></span><span class=line><span class=cl>    <span class=na>Name              tail</span>
+</span></span><span class=line><span class=cl>    <span class=na>Path              /var/log/syslog</span>
+</span></span><span class=line><span class=cl>    <span class=na>Tag               server_logs</span>
+</span></span><span class=line><span class=cl>    <span class=na>parser            json</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[FILTER]</span>
+</span></span><span class=line><span class=cl>    <span class=na>Name              rewrite_tag</span>
+</span></span><span class=line><span class=cl>    <span class=na>Match             server_logs</span>
+</span></span><span class=line><span class=cl>    <span class=na>Rule              log debug   debug    false</span>
+</span></span><span class=line><span class=cl>    <span class=na>Rule              log info    info     false</span>
+</span></span><span class=line><span class=cl>    <span class=na>Rule              log warning warning  false</span>
+</span></span><span class=line><span class=cl>    <span class=na>Emitter_Name      log_router</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[OUTPUT]</span>
+</span></span><span class=line><span class=cl>    <span class=na>Name              kafka</span>
+</span></span><span class=line><span class=cl>    <span class=na>Match             debug</span>
+</span></span><span class=line><span class=cl>    <span class=na>Brokers           kafka:9092</span>
+</span></span><span class=line><span class=cl>    <span class=na>Topics            debug-logs</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[OUTPUT]</span>
+</span></span><span class=line><span class=cl>    <span class=na>Name              kafka</span>
+</span></span><span class=line><span class=cl>    <span class=na>Match             info</span>
+</span></span><span class=line><span class=cl>    <span class=na>Brokers           kafka:9092</span>
+</span></span><span class=line><span class=cl>    <span class=na>Topics            info-logs</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[OUTPUT]</span>
+</span></span><span class=line><span class=cl>    <span class=na>Name              kafka</span>
+</span></span><span class=line><span class=cl>    <span class=na>Match             warning</span>
+</span></span><span class=line><span class=cl>    <span class=na>Brokers           kafka:9092</span>
+</span></span><span class=line><span class=cl>    <span class=na>Topics            warning-logs</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/elk/>ELK</a>
+<a href=/tags/opensearch/>Opensearch</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Также рекомендуем</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/elk_command/><div class=article-image><img src=/p/elk_command/elk.89678c2cca017e0d55783953d81920a5_hu6816397950408606124.jpg width=250 height=150 loading=lazy alt="Featured image of post Команды для управления кластером ElasticSearch/Opensearch" data-key=elk_command data-hash="md5-iWeMLMoBfg1VeDlT2BkgpQ=="></div><div class=article-details><h2 class=article-title>Команды для управления кластером ElasticSearch/Opensearch</h2></div></a></article><article class=has-image><a href=/p/install_opensearch/><div class=article-image><img src=/p/install_opensearch/opensearch.eae70208f1ac7ba036086c0e92597c4d_hu5743169142995647599.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка Opensearch Ansible" data-key=install_opensearch data-hash="md5-6ucCCPGse6A2CGwOkll8TQ=="></div><div class=article-details><h2 class=article-title>Установка Opensearch Ansible</h2></div></a></article><article class=has-image><a href=/p/kafka_ui/><div class=article-image><img src=/p/kafka_ui/ui-kafka.02ebdeb0446630c986c42d4df563ef3b_hu3933775514486883509.jpg width=250 height=150 loading=lazy alt="Featured image of post Веб-интерфейс для Kafka" data-key=kafka_ui data-hash="md5-AuvesERmMMmGxC1N9WPvOw=="></div><div class=article-details><h2 class=article-title>Веб-интерфейс для Kafka</h2></div></a></article><article class=has-image><a href=/p/install_kafka/><div class=article-image><img src=/p/install_kafka/kafka.f94f2ac41bef723f7d015c4aaa28269d_hu8840765308482209884.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка кластера Apache Kafka через Ansible" data-key=install_kafka data-hash="md5-+U8qxBvvcj99AVxKqigmnQ=="></div><div class=article-details><h2 class=article-title>Установка кластера Apache Kafka через Ansible</h2></div></a></article><article class=has-image><a href=/p/loki-in-docker/><div class=article-image><img src=/p/loki-in-docker/loki.e2375f18c501640011947c8d028c27ec_hu17783327887147365378.jpg width=250 height=150 loading=lazy alt="Featured image of post Promtail, Loki, Grafana в docker" data-key=loki-in-docker data-hash="md5-4jdfGMUBZAARlHyNAown7A=="></div><div class=article-details><h2 class=article-title>Promtail, Loki, Grafana в docker</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ZM56/itzm data-repo-id=R_kgDOM409Zg data-category=General data-category-id=DIC_kwDOM409Zs4CkTEU data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light data-lang=ru data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2025 IT Notes</section><section class=powerby style=margin-top:.5rem><span style=font-weight:400>Информацию можно использовать в свободном доступе, с указанием ссылки на сайт</span><div style=margin-top:.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center><a href=https://t.me/itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M9.743 15.447l-.392 4.528c.562.0.808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/></svg>
+Telegram
+</a><a href=https://github.com/ZM56 target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931.0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176.0.0 1.008-.322 3.3 1.23a11.51 11.51.0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a><a href=https://www.youtube.com/@itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentcolor" viewBox="0 0 16 16" style="margin-right:.4rem"><path d="M8.051 1.999h-.002C3.768 1.998 1.605 2.26 1.31 4.05c-.274 1.66-.274 5.4.0 7.048.294 1.79 2.457 2.052 6.739 2.052h.002c4.282.0 6.445-.262 6.74-2.052.273-1.648.273-5.388.0-7.048-.295-1.79-2.458-2.052-6.74-2.052zM6.545 10.542V5.457L10.818 8l-4.273 2.542z"/></svg>
+YouTube</a></div></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on IT Notes</title><link>https://itzm.tech/categories/linux/</link><description>Recent content in Linux on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 18 Jul 2025 11:40:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>100+ Полезных команд Linux</title><link>https://itzm.tech/p/linux_commands/</link><pubDate>Fri, 18 Jul 2025 11:40:36 +0500</pubDate><guid>https://itzm.tech/p/linux_commands/</guid><description>&lt;img src="https://itzm.tech/p/linux_commands/linux.jpg" alt="Featured image of post 100+ Полезных команд Linux" />&lt;p>&lt;strong>Основные команды&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ls&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать все файлы и директории в текущем каталоге&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ls -l&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать все файлы и директории в текущем каталоге с подробностями&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ls -t&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывод ls с сортировкой по дате последнего изменения&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>pwd&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Полный путь к текущему каталогу&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cd directory&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Сменить директорию&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cd ..&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Перейти на одну директорию вверх&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cd /&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Перейти в корневой каталог&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>clear&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Очистка терминала&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>history&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать историю выполенных команд в текущем сеансе&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>touch filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать новый файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>vi filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Открыть файл для редактирования. Редактором vi&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cat filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести содержимое файла в терминал&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>hostnamectl&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывод системной информации. Имя хоста, ядро, архитектура, и прочее&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ifconfig&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать сетевые интерфейсы. IP-адреса и MAC-адреса системы&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>date&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывод текущей системной даты и времени&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>top&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Список всех запущенных процессов в системе&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>free -m&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать статистику использования памяти в мегабайтах&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>head filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести первые 10 строк файла (голова)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tail filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести последние 10 строк файла (хвост)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>mv file /new/file/path&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Переместить файл в другое место&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>mv old_filename new_filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Переименовать файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cp filename filename_2&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Скопировать файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>man command_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Просмотреть информацию о команде&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>rm filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>rm –rf directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить каталог принудительно и его содержимое рекурсивно&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>sudo&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Позволяет обычным пользователям запускать команды с повышенными привилегиями&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>mkdir directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать новую директорию&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>kill pid&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Убить процесс используя его ID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>reboot&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Перезагрузка системы&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>shutdown –h now&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Выключение системы&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>poweroff&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Выключение системы. Аналогична нажатию кнопки питания&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Сетевые команды&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>dig domain_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать информацию, связанную с DNS для данного доменного имени&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>dig domain +short&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести только основные данные&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>host domain_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Выполнить DNS-поиск указанного доменного имени, который выведет IP-адрес&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>whois domain_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Для получения дополнительной информации о домене&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ping ip&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Проверить соединение между хостом и указанным IP-адресом&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ssh username@ip&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Для SSH входа в систему под указанным пользователем на другом сервере&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>wget file&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Скачать файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>wget -c file&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Продолжить остановленную загрузку&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>traceroute domain_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Отследить маршрут передачи пакета от текущего хоста к другому хосту&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>telnet domain_name port&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Подключиться к удаленному хосту через определенный порт&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>netstat –pnltu&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Отобразить все прослушиваемые в данный момент порты&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ss -tulnp&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Более современная команда. Быстрее и больше информации&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>route&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывод таблицы маршрутизации для текущего хоста&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>arp&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Просмотр содержимого ARP таблицы&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cat /etc/resolv.conf&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Просмотр используемых хостом в данный момент DNS-серверов&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tcpdump -i eth1 'port 80'&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Регистрация и отслеживание всего входящего трафика на порту 80&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>nmap ip&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Сетевое обнаружение заданного IP. Показывает: работает ли хост, открытые порты&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Команды поиска&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>locate keyword&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск файла или каталога в кэше. Бысрее, чем find, но не всегда актуален&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>find keyword&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск файла или каталога в системе. Медленнее, чем locate, но всегда актуален&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>find /home -name *.ext&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск всех файлов с расширением .ext в домашней директории и её подкаталогах&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>find / -type f ! -perm xxx&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск файлов в корневой директории, у которых разрешение не соответствует ххх&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>find / -perm /u=r&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать все файлы, доступные только для чтения&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep keyword filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск указанного ключевого слова в указанном файле&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep keyword *&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск указанного ключевого слова во всех файлах, в текущем каталоге&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep -i keyword *&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Игнорировать регистр при поиске&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep -r keyword *&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Выполнить рекурсивный поиск, т.е. включить в поиск подкаталоги&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep -x 'what to match' *&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести все строки, где найдено совпадение&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep -c keyword *&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Подсчитать количество совпадений&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Команды разрешений&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chmod xxx filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Назначить указанные разрешения файлу&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chmod –R xxx directory&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Назначить указанные разрешения каталогу и всем его подкаталогам&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chmod –x filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить разрешения на выполнение файла&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chown username filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Изменить владельца указанного файла&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chown username:groupname filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Измененить владельца и группу владельца файла&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chown username:groupname filename1 filename2&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Измененить владельца и группу владельца нескольких файлов&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chown --from=bob alice filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Изменить владельца файла, если файл принадлежит пользователю bob&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>chown -h usergroup symbolic_link&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Принудительно изменить владельца и группу символической ссылки&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Команды хранения&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>df –h&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать используемое и свободное пространство файловых систем&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>mount&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Монтировать раздел с данными или устройство&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>unmount&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Размонтировать раздел с данными или устройство&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>du -h /home/directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать размер каталога в удобном формате (human)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>du -sh /home/directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать общий размер директории&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>du -ah --exclude='*.xxx' /home/directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать использование диска всеми файлами в каталоге, за исключением&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>du -ha --time /home/directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывод файлов с датой и временем последнего изменения&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>fdisk -l&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Показать размер диска с информацией о всех разделах&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>sudo du -x / | sort -nr | head -20&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести 20 самых больших по размеру директорий&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Команды для управления пользователями&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>adduser username&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать нового пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>userdel -r 'username'&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>passwd -l 'username'&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Изменить пароль пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>whoami&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Посмотреть текущего пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>usermod -c 'Этот пользователь админ' username&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Добавление комментария к учетной записи пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>cat /etc/passwd&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Вывести список всех пользователей с информацией об ID и оболочке&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>usermod -d /home/test username&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Изменить домашний каталог пользователя&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>sudo deluser username group_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить пользователя из группы&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>usermod -a -G group_name username&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Добавить пользователя в группу&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>groupadd group_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать новую группу&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>groupdel group_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить группу&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>id&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Отображение ID пользователя, его группы и групп, в которых он состоит&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Команды для работы с архивами&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tar -cvf archive.tar filename.txt&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Сжать файл в архив tar&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tar -tvf archive.tar&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Отображение содержимого tar-архива&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tar -xvf archive.tar filename.txt&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Извлечь один файл из архива tar&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>zip archive.zip file1.txt file2.html file3.jpg&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать zip-архив с использованием нескольких файлов&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>zip -u archive.zip filename.txt&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Добавить файл в уже заархивированный файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>zip -d archive.zip filename.txt&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Удалить файл из zip-архива&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>unzip archive.zip&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Распаковать zip-архив&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>unzip archive.zip -d /directory_name&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Распаковать zip-архив в определенный каталог&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tar xf archive&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Извлечь архив любого типа&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>gzip filename&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Сжать файл и добавить к нему расширение .gz. Это удалит исходный файл&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>gzip -c filename &amp;gt; archive.gz&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Создать новый сжатый файл .gz, при этом сохранив исходный&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Расширенные команды&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Команда&lt;/th>
+&lt;th style="text-align: left">Описание&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>grep -ir &amp;quot;слово&amp;quot; /etc/random_d&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Найти слово во всех файлах директории (Рекурсивно)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ps –ef | grep имя процесса&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Проверка запущенного процесса&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>netstat –pnltu | grep port&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Проверка открыт ли порт&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ss -tulnp&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Современная команда. Быстрее и больше информации&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>history | grep keyword&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск в истории команд&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ssh-keygen&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Генерация SSH ключей&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>scp file user@ip:/home/location&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Копирование файлов на другой хост&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>find / -type f -perm 777 -print -exec chmod xxx {} \;&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Поиск всех файлов с правами доступа 777 и измените их на xxx&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>sed -i 's/заменитьэто/наэто/g' file.txt&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Автозамена слова в файле file.txt&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>sed -i -r 's/draft: true/draft: false/' /opt/*&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Замена всех вхождений в файлах директории /opt&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>hostname -I | awk '{print $1}'&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Получить все IP адреса сетевого интерфейса хоста и вывести первый&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>tcpdump -nnvvS src SRC_IP and dst port xxxx&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Анализ сетевого трафика, исходящего с определенного IP и идущий к определенному порту&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>traceroute domain_name -q 5&lt;/code>&lt;/td>
+&lt;td style="text-align: left">Отправка 5-ти пакетов на домен. Диагностика сети&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">&lt;code>ip r&lt;/code>&lt;/td>
+&lt;td style="text-align: left">IP-адрес шлюза по умолчанию&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Установка vsFTPd на Ubuntu 22.04</title><link>https://itzm.tech/p/vsftpd/</link><pubDate>Fri, 04 Apr 2025 00:10:05 +0500</pubDate><guid>https://itzm.tech/p/vsftpd/</guid><description>&lt;img src="https://itzm.tech/p/vsftpd/vsftpd.jpg" alt="Featured image of post Установка vsFTPd на Ubuntu 22.04" />&lt;p>Появилась необходимость на скорую руку поднять FTPS для обмена с внешними сервисами.&lt;/p>
+&lt;p>Есть два режима пользователей в контексте vsftpd: локальные (системные) и виртуальные.
+В данном примере будут созданы виртуальные пользователи. В этом режиме пользователи не имеют системных учетных записей, а управляются через базу данных или файл.&lt;/p>
+&lt;p>Как это работает:&lt;/p>
+&lt;ul>
+&lt;li>Клиент подключается к серверу, отправляет логин и пароль&lt;/li>
+&lt;li>Сервер проверяет учетные данные в базе данных виртуальных пользователей и представляет доступ к определенным директориям.&lt;/li>
+&lt;/ul>
+&lt;p>Решение более безопасное, так как виртуальные пользователи не имеют доступа к системе. Плюсом получаем упрощенное управление пользователями.&lt;/p>
+&lt;h2 id="шаг-1-установка">Шаг 1. Установка
+&lt;/h2>&lt;p>Обновляем списки портов в репозиториях:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Устанавливаем vsFTPd:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install vsftpd -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Устанавливаем утилиту для создания базы данных пользователей:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install db-util -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Основной конфигурационный файл находится здесь &lt;code>/etc/vsftpd.conf&lt;/code>&lt;/p>
+&lt;p>Делаем копию оригинального конфига:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="шаг-2-конфигурация-сервера">Шаг 2. Конфигурация сервера
+&lt;/h2>&lt;p>Открываем новый файл на редактирование:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /etc/vsftpd.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;span class="lnt">75
+&lt;/span>&lt;span class="lnt">76
+&lt;/span>&lt;span class="lnt">77
+&lt;/span>&lt;span class="lnt">78
+&lt;/span>&lt;span class="lnt">79
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Основные настройки&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Сервер работает в standalone-режиме. Сам прослушивает и определяет входящие соединения.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">listen&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Анонимный доступ запрещен&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">anonymous_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Разрешен доступ локальным пользователям системы&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">local_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Включена поддержка виртуальных пользователей&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">guest_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Виртуальные пользователи работают от имени системного пользователя vsftpd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">guest_username&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">vsftpd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Виртуальные пользователи имеют те же права, что и локальные пользователи&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">virtual_use_local_privs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Используется PAM-модуль vsftpd.virtual для аутентификации виртуальных пользователей&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">pam_service_name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">vsftpd.virtual&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Каждый пользователь имеет свою домашнюю директорию в /home/vsftpd/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">user_sub_token&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">$USER&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">local_root&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/home/vsftpd/$USER&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Настройки chroot&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Чтобы пользователи не могли перемещаться по каталогам сервера и просматривать файлы ограничиваем их домашними директориями&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">chroot_local_user&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">allow_writeable_chroot&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Логирование&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Скрывает реальные UID/GID пользователей в логах&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">hide_ids&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Включает логирование передачи файлов&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">xferlog_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Включает подробное логирование FTP-протокола&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">log_ftp_protocol&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Указывает путь к файлу логов передачи файлов&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">xferlog_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/var/log/vsftpd.log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">vsftpd_log_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/var/log/vsftpd.log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Более подробный вывод логов&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">xferlog_std_format&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Настройки портов&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Разрешает активный режим FTP на 20 порту&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">port_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">connect_from_port_20&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ftp_data_port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">20&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Минимальный и максимальный порты, для пассивного режима&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">pasv_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">pasv_max_port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">35109&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">pasv_min_port&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">35100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Права доступа для создаваемых файлов&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">file_open_mode&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">0666&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">local_umask&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">077&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Настройки SSL/TLS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_enable&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Запрещает анонимным пользователям использовать SSL/TLS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">allow_anon_ssl&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">force_local_data_ssl&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">force_local_logins_ssl&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">require_ssl_reuse&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">strict_ssl_read_eof&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_tlsv1&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_tlsv11&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_tlsv12&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">YES&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_sslv2&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">ssl_sslv3&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">NO&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">rsa_cert_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/etc/ssl/certs/vsftpd.pem&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">rsa_private_key_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">/etc/ssl/private/vsftpd.key&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Все инструкции, для конфигурации подробно описаны здесь:
+&lt;code>https://www.opennet.ru/base/net/vsftpd_overview.txt.html&lt;/code>&lt;/p>
+&lt;h2 id="шаг-3-ssl-сертификат">Шаг 3. SSL-Сертификат
+&lt;/h2>&lt;p>Для теста сгенирируем самоподписанный сертификат и ключ:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">openssl req -new -x509 -days 365 -nodes &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -out /etc/ssl/certs/vsftpd.pem &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -keyout /etc/ssl/private/vsftpd.key &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -subj &lt;span class="s2">&amp;#34;/C=RU/ST=Moscow/L=Moscow/O=MyOrganization/OU=IT/CN=vsftpd.server&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="шаг-4-настройка-виртуальных-пользователей">Шаг 4. Настройка виртуальных пользователей
+&lt;/h2>&lt;p>Создайте текстовый файл с логинами и паролями. Например, создаём файл virtual_users.txt&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /etc/vsftpd/virtual_users.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Добавляем логины и пароли в формате:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">user1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">password1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">user2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">password2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Создаем базу данных из этого файла:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo db_load -T -t &lt;span class="nb">hash&lt;/span> -f /etc/vsftpd/virtual_users.txt /etc/vsftpd/virtual_users.db
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Установите права доступа к файлу базы данных:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">600&lt;/span> /etc/vsftpd/virtual_users.db
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Настройте PAM для использования этой базы данных.
+Создайте файл /etc/pam.d/vsftpd.virtual:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pam.d/vsftpd.virtual
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Добавьте следующие строки:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">auth required pam_userdb.so &lt;span class="nv">db&lt;/span>&lt;span class="o">=&lt;/span>/etc/vsftpd/virtual_users
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">account required pam_userdb.so &lt;span class="nv">db&lt;/span>&lt;span class="o">=&lt;/span>/etc/vsftpd/virtual_users
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Создаем пользователя vsftpd:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo adduser --home /home/vsftpd --no-create-home --shell /bin/false vsftpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Создаём директории для виртуальных пользователей:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo mkdir -p /home/vsftpd/user1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mkdir -p /home/vsftpd/user2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Выдаём права на директории vsftpd:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo chown vsftpd:vsftpd /home/vsftpd/user1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown vsftpd:vsftpd /home/vsftpd/user2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Перезапускаем сервис. Проверяем работоспособность&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo systemctl restart vsftpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Подключить можно через WinSCP и положить файл.&lt;/p></description></item><item><title>Установка корневого сертификата Linux</title><link>https://itzm.tech/p/linux_cert/</link><pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate><guid>https://itzm.tech/p/linux_cert/</guid><description>&lt;img src="https://itzm.tech/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" />&lt;blockquote>
+&lt;p>Для использования защищенного https подключения Linux-серверами установим корневой сертификат.
+Сгенерировать сертификат, при наличии локального Центра сертификации можно двумя способами.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="1-способ-генерации-сертификата-через-веб-интерфейс">1 способ генерации сертификата. Через Веб-интерфейс.
+&lt;/h3>&lt;p>Создаём запрос серта на центре сертификации. В адресной строке браузера вводим имя или ip сервера сертификации.&lt;/p>
+&lt;p>&lt;code>http://&amp;lt;ip_адрес_сервера_сертификации&amp;gt;/certsrv&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr1.jpg"
+width="980"
+height="356"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="275"
+data-flex-basis="660px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Запрос сертификата&lt;/li>
+&lt;li>Выбираем: Base64&lt;/li>
+&lt;/ul>
+&lt;p>Скачиваем:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr2.jpg"
+width="829"
+height="466"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;h3 id="установка-в-ubuntu">Установка в Ubuntu:
+&lt;/h3>&lt;p>Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt-get install -y ca-certificates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Копируем (Например, через WinSCP) сертификат сделанный в первом шаге на Linux-сервер в директорию:&lt;/p>
+&lt;p>&lt;code>/usr/local/share/ca-certificates/&lt;/code>&lt;/p>
+&lt;p>Переходим в директорию на сервере:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo &lt;span class="nb">cd&lt;/span> /usr/local/share/ca-certificates/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Переделываем расширение в &lt;code>.crt&lt;/code>, где &lt;code>ca_cert.cer&lt;/code> имя вашего сертификата сгенерированного первым способом&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Устанавливаем сертификат в хранилище:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-certificates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>После успешной установки появится сообщение, что сертификаты обновлены:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Updating certificates in /etc/ssl/certs…
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1 added, 0 removed; done.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Running hooks in /etc/ca-certificates/update.d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="2-способ-генерации-сертификата-cmd">2 способ генерации сертификата. CMD.
+&lt;/h3>&lt;p>Зайти на сервер корневого центра сертификации. Под администратором открыть консоль &lt;code>cmd&lt;/code>&lt;/p>
+&lt;p>Выполнить команду:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">certutil -ca.cert ca_name.cer
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr3.jpg"
+width="692"
+height="152"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="455"
+data-flex-basis="1092px"
+>&lt;/p>
+&lt;p>Полученный текст сертификата скопировать в файл на Linux-сервере:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /usr/local/share/ca-certificates/ca_cert.crt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Получится текст такого формата:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">---BEGIN CERTIFICATE-----
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MIIH/TCCBeWgAwIBAgIQaBYE3/M08XHYCnNVmcFBcjANBgkqhkiG9w0BAQsFADBy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">F10YlqcOmeX1uFmKbdi/XorGlkCoMF3TDx8rmp9DBiB/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-----END CERTIFICATE-----
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Затем выполнить команду:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-certificates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="установка-в-centos">Установка в CentOS
+&lt;/h3>&lt;p>Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">yum install ca-certificates
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Копируем (Например, через WinSCP) сертификат сделанный в первом способе на Linux-сервер в директорию:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">/etc/pki/ca-trust/source/anchors/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Переходим в директорию на сервере:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd /etc/pki/ca-trust/source/anchors/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Переделываем расширение в &lt;code>.crt&lt;/code>, где &lt;code>ca_cert.cer&lt;/code> имя вашего сертификата сгенерированного первым способом&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Устанавливаем в хранилище:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-trust extract
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Проверить установленный сертификат:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">trust list &lt;span class="p">|&lt;/span> grep Имя_Сертификата_ЦА
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>! Важно&lt;/p>
+&lt;ul>
+&lt;li>В Linux сертификаты автоматически не устанавливаются в браузеры, и браузеры в десктопном Linux по прежнему будут выдавать ошибку.&lt;/li>
+&lt;li>В данном случае установка сертов используется для curl и python библиотеки request, поэтому этой установки достаточно.&lt;/li>
+&lt;/ul>
+&lt;h3 id="перекодировка-сертификатов">Перекодировка сертификатов
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">openssl rsa -in mycert.pem -out mycert.key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl x509 -inform DER –in mycert.cer -out mycert.crt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl x509 -inform PEM -in mycert.cer -out mycert.crt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl pkcs7 -print_certs -in mycert.p7b -out mycert.crt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl pkcs7 -print_certs -in mycert.p7b -out mycert.pem
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

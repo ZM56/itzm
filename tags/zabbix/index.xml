@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zabbix on IT Notes</title><link>https://itzm.tech/tags/zabbix/</link><description>Recent content in Zabbix on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 30 Oct 2025 12:00:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/zabbix/index.xml" rel="self" type="application/rss+xml"/><item><title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2</title><link>https://itzm.tech/p/zabbix2/</link><pubDate>Thu, 30 Oct 2025 12:00:00 +0500</pubDate><guid>https://itzm.tech/p/zabbix2/</guid><description>&lt;img src="https://itzm.tech/p/zabbix2/zabbix2.jpg" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 2" />&lt;p>В продолжении мы настроим оповещение в Zabbix и визуализацию в Grafana&lt;/p>
+&lt;h2 id="шаг-5-настроить-оповещение">Шаг 5. Настроить оповещение
+&lt;/h2>&lt;p>Добавляем адрес EMail SMTP сервера. Для этого переходим в:&lt;/p>
+&lt;p>&lt;code>Administration -&amp;gt; Media Types -&amp;gt; EMail&lt;/code>&lt;/p>
+&lt;p>Указываем настройки вашего SMTP сервера&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/11emailhtml.jpg"
+width="821"
+height="666"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="295px"
+>&lt;/p>
+&lt;p>Создаем группу:&lt;/p>
+&lt;p>&lt;code>Configuration -&amp;gt; User Groups -&amp;gt; Create&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Name: Alert only
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Permission: Read (Выдаём права на сервер, с которого собирается метрика, у меня Zabbix Server)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/12userperm.jpg"
+width="1067"
+height="362"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="294"
+data-flex-basis="707px"
+>&lt;/p>
+&lt;p>Создаем пользователя, который будет получать уведомления:&lt;/p>
+&lt;p>&lt;code>Administration -&amp;gt; Users -&amp;gt; New&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/13users.jpg"
+width="865"
+height="602"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="143"
+data-flex-basis="344px"
+>&lt;/p>
+&lt;p>В Media добавляем sms, Email (HTML)&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/14usermedia.jpg"
+width="902"
+height="277"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="325"
+data-flex-basis="781px"
+>&lt;/p>
+&lt;p>Переходим в созданную нами ранее группу и добавляем нашего пользователя &lt;code>alert_user&lt;/code>:&lt;/p>
+&lt;p>&lt;code>Configuration -&amp;gt; User Groups -&amp;gt; Alert only&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Users: -&amp;gt; Select alert_user
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>-&amp;gt; Operations&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Default: 1h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Send to user groups: alert_user
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Send only to: Email (HTML)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/15usergroup.jpg"
+width="1455"
+height="36"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="4041"
+data-flex-basis="9700px"
+>&lt;/p>
+&lt;p>Настраиваем действие (Action) на триггер:&lt;/p>
+&lt;p>&lt;code>Configuration -&amp;gt; Action -&amp;gt; Create Action&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/16action.jpg"
+width="808"
+height="347"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="232"
+data-flex-basis="558px"
+>&lt;/p>
+&lt;p>Далее добавляем Operation:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/17operat.jpg"
+width="1019"
+height="588"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="173"
+data-flex-basis="415px"
+>&lt;/p>
+&lt;p>Настройка выполнена.&lt;br>
+Можно изменить в скрипте из первой части &lt;code>0&lt;/code> и &lt;code>1&lt;/code> местами и проверить весь процесс срабатывания триггера и пересчёта SLA.&lt;/p>
+&lt;p>&lt;code>Дополнительно&lt;/code>&lt;br>
+По желанию можно сделать отправку по Email (HTML). Кастомный шаблон.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/18.jpg"
+width="768"
+height="192"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="400"
+data-flex-basis="960px"
+>&lt;/p>
+&lt;h2 id="шаг-7-визуализация-в-grafana">Шаг 7. Визуализация в Grafana
+&lt;/h2>&lt;p>Предполагается, что к вашей Grafana уже подключен источник данных Zabbix. Здесь я это не затрагиваю.&lt;/p>
+&lt;p>Создаём новую панель:&lt;/p>
+&lt;p>&lt;code>Dashboard -&amp;gt; New Add a new panel&lt;/code>&lt;/p>
+&lt;p>Выбираем:
+&lt;code>Query&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Data Source: Zabbix
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Type: Stat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Count A:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Query type: Triggers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Count by: All triggers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Group: Server
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Min severity: Warning
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Count: On
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Count B:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Query type: Services
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Service: SITE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SLA: SITE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Property: SLI
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Далее переходим в:
+&lt;code>Transform&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Rename by regex:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Match: (Count A)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Replace: Status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Rename by regex:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Match: (Count B)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Replace: Available
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Filter by name:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - Count A
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SLI SITE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Настройка расположения и прочего - вкусовщина. Я делаю так:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/20.jpg"
+width="611"
+height="448"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="327px"
+>&lt;/p>
+&lt;p>&lt;code>Итог:&lt;/code>&lt;br>
+Раз в минуту zabbix-server будет обращаться к zabbix-agent для получения метрики. Сервер будет запускать скрипт, авторизовываться и возвращать значение параметра.&lt;br>
+Полученное значение отображается в Web-интерфейсе Zabbix, рассчитывается SLA. В Grafana выводится бизнес-метрика и значение в виде графика.&lt;br>
+Если авторизация не удается более 2-х раз, то срабатывает триггер, который отправляет по Email сообщение администратору.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix2/19.jpg"
+width="800"
+height="239"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="334"
+data-flex-basis="803px"
+>&lt;/p></description></item><item><title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1</title><link>https://itzm.tech/p/zabbix1/</link><pubDate>Thu, 30 Oct 2025 11:44:00 +0500</pubDate><guid>https://itzm.tech/p/zabbix1/</guid><description>&lt;img src="https://itzm.tech/p/zabbix1/zabbix1.png" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1" />&lt;p>&lt;code>Дано:&lt;/code> Критически важный сайт, который нужно мониторить и в случае неработоспособности уведомлять админов.&lt;/p>
+&lt;ul>
+&lt;li>Версия Zabbix: 6.0.1&lt;/li>
+&lt;li>Версия Grafana: 11.6.0&lt;/li>
+&lt;li>Мониторинг будем настраивать на получение кода 200.&lt;br>
+Если авторизация удалась, то считаем это за 1, если нет, то 0.&lt;br>
+Запрос каждую минуту&lt;/li>
+&lt;li>2-е неуспешные авторизации = срабатывание триггера&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>В первой части статьи мы создадим скрипт и настроим zabbix на сбор метрик.&lt;br>
+Во второй части сделаем оповещение пользователей Zabbix и визуализируем результаты мониторинга в Grafana.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;code>Порядок действий:&lt;/code>&lt;/p>
+&lt;ol>
+&lt;li>Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.&lt;/li>
+&lt;li>Добавить пользовательский параметр в конфигурацию zabbix-агента&lt;/li>
+&lt;li>Создать шаблон (элементы, триггеры) + назначить хосту (В моём примере это будет сам zabbix-сервер)&lt;/li>
+&lt;li>Настроить SLA&lt;/li>
+&lt;li>Настроить оповещения&lt;/li>
+&lt;li>Создать пользователя (группу пользователей) для уведомлений + создание действия&lt;/li>
+&lt;li>Визуализация в Grafana&lt;/li>
+&lt;/ol>
+&lt;h2 id="шаг-1-выбрать-сервер-с-установленным-zabbix-агентом-написать-скрипт">Шаг 1. Выбрать сервер, с установленным zabbix-агентом. Написать скрипт.
+&lt;/h2>&lt;p>В качестве сервера, который будет запускать скрипт и получать значение у меня будет Zabbix-сервер.
+Захожу на сервер. Создаю скрипт:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /opt/monitoring/site-check.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Пример написанного мною скрипта. Используется Python3 и библиотеки: &lt;code>requests, sys, warnings&lt;/code>.&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/ZM56/auth_check/blob/main/site-check.py" target="_blank" rel="noopener"
+>Линк на Github&lt;/a>&lt;/p>
+&lt;p>Делаем исполняемым:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo chmod +x /opt/monitoring/site-check.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Меняем группу владельца на zabbix&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo chown root:zabbix /opt/monitoring/site-check.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Запускаем тестируем:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">./opt/monitoring/site-check.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/1scrtest.jpg"
+width="418"
+height="47"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="889"
+data-flex-basis="2134px"
+>&lt;/p>
+&lt;h2 id="шаг-2-добавить-пользовательский-параметр-в-конфигурацию-zabbix-агента">Шаг 2. Добавить пользовательский параметр в конфигурацию zabbix-агента
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /etc/zabbix/zabbix_agentd.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Находим параметр: &lt;code>UserParameter&lt;/code>&lt;/p>
+&lt;p>Где, &lt;code>site.auth&lt;/code> - переменная, в которую будет записываться значение полученное после выполнения скрипта.
+&lt;code>/opt/monitoring/site-check.py&lt;/code> - путь до скрипта.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">UserParameter&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">site.auth,/opt/monitoring/site-check.py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/2userpar.jpg"
+width="521"
+height="132"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="394"
+data-flex-basis="947px"
+>&lt;/p>
+&lt;p>Рестартим сервис:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">systemctl restart zabbix-agent.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Проверяем, что zabbix понимает переменную:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">zabbix_agentd -t site.auth
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/3zabper.jpg"
+width="447"
+height="37"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="1208"
+data-flex-basis="2899px"
+>&lt;/p>
+&lt;h2 id="шаг-3-создать-шаблон-элементы-триггеры--назначить-хосту">Шаг 3. Создать шаблон (элементы, триггеры) + назначить хосту
+&lt;/h2>&lt;p>Идем в веб-интерфейс Zabbix. Создаём шаблон:&lt;/p>
+&lt;p>&lt;code>Templates -&amp;gt; Create template&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/4templ.jpg"
+width="872"
+height="445"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="195"
+data-flex-basis="470px"
+>&lt;/p>
+&lt;p>&lt;code>-&amp;gt; Add&lt;/code>&lt;/p>
+&lt;p>Создаем элемент:&lt;/p>
+&lt;p>&lt;code>Items -&amp;gt; Create item&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/5item.jpg"
+width="850"
+height="764"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="111"
+data-flex-basis="267px"
+>&lt;/p>
+&lt;p>Далее &lt;code>Test&lt;/code> -&amp;gt; &lt;code>Host address&lt;/code> Наш сервер, на котором запускается скрипт -&amp;gt; &lt;code>Port: 10050&lt;/code>&lt;/p>
+&lt;p>В Value появится &lt;code>1&lt;/code>, если авторизация доступна или &lt;code>0&lt;/code> если недоступна.&lt;/p>
+&lt;p>&lt;code>-&amp;gt; Add&lt;/code>&lt;/p>
+&lt;p>Создаем триггер&lt;/p>
+&lt;p>&lt;code>Triggers -&amp;gt; Create Trigger&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/6trig.jpg"
+width="819"
+height="767"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="106"
+data-flex-basis="256px"
+>&lt;/p>
+&lt;p>Я закладываю логику: Если два раз подряд авторизация завершится неудачно, тогда срабатывает триггер.&lt;br>
+Напоминаю, что используется Zabbix 6.0 поэтому параметры типа count с тремя значениями использоваться ещё не могут. Будем брать последние 2 значения:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Expression: last(/Template Auth Monitoring/site.auth,#1)=0 and last(/Template Auth Monitoring/site.auth,#2)=0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>где, #1 = Последнее полученное значение ключа, #2 = Предпоследнее полученное значение ключа&lt;/li>
+&lt;/ul>
+&lt;p>Далее переходим в Tag и назначаем&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/7trigtag.jpg"
+width="901"
+height="295"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="305"
+data-flex-basis="733px"
+>&lt;/p>
+&lt;p>&lt;code>-&amp;gt; Add&lt;/code>&lt;/p>
+&lt;h2 id="шаг-4-настройка-sla">Шаг 4. Настройка SLA
+&lt;/h2>&lt;p>&lt;code>Service -&amp;gt; SLA -&amp;gt; Create SLA&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/8sla.jpg"
+width="726"
+height="623"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="116"
+data-flex-basis="279px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Reporting period&amp;#34; Quarterly # Считать статистику будем за квартал
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>-&amp;gt; Add&lt;/code>&lt;/p>
+&lt;p>Создаём сервис&lt;/p>
+&lt;p>&lt;code>Services -&amp;gt; Edit - Create service&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/9crserv.jpg"
+width="714"
+height="584"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="293px"
+>&lt;/p>
+&lt;p>&lt;code>-&amp;gt; Add&lt;/code>&lt;/p>
+&lt;p>Назначаем тег&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/zabbix1/10svctag.jpg"
+width="706"
+height="261"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="270"
+data-flex-basis="649px"
+>&lt;/p>
+&lt;p>Настройка сбора метрик завершена. В следующей части оповещения и визуализация в Grafana.&lt;/p>
+&lt;p>Часть 2 -&amp;gt; &lt;a class="link" href="https://itzm.tech/p/zabbix2/" target="_blank" rel="noopener"
+>https://itzm.tech/p/zabbix2/&lt;/a>&lt;/p></description></item></channel></rss>

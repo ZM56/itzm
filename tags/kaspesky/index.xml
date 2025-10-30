@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaspesky on IT Notes</title><link>https://itzm.tech/tags/kaspesky/</link><description>Recent content in Kaspesky on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Wed, 09 Oct 2024 20:20:54 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/kaspesky/index.xml" rel="self" type="application/rss+xml"/><item><title>Запуск bash скриптов используя Kaspersky Security Center</title><link>https://itzm.tech/p/kaspersky-bash/</link><pubDate>Wed, 09 Oct 2024 20:20:54 +0500</pubDate><guid>https://itzm.tech/p/kaspersky-bash/</guid><description>&lt;img src="https://itzm.tech/p/kaspersky-bash/kaspersky.jpg" alt="Featured image of post Запуск bash скриптов используя Kaspersky Security Center" />&lt;p>Однообразные действия, которые я выполняю более 2-х раз я всячески пытаюсь автоматизировать.
+Поэтому появилась необходимость организовать процесс добавления новых серверов под управление домена на базе FreeIPA.
+Используя ансибл-роли мы можем оперировать только заранее известными нам серверами, но мы заранее не знаем, какой ip и hostname получит сервер.
+Для решения этой задачи я набросал bash скрипт, который будет запускаться раз в сутки с сервера Касперского и &amp;ldquo;затаскивать&amp;rdquo; машину в домен.&lt;/p>
+&lt;p>Сам скрипт здесь не представлен, но я заметил отсутствие информации о запуске скриптов с Каспера.
+Этот процесс я опишу здесь.&lt;/p>
+&lt;h3 id="шаг-1-подготовка-файла-скрипта">Шаг 1. Подготовка файла скрипта
+&lt;/h3>&lt;ul>
+&lt;li>Скрипт должен быть написан в оболочке Linux, если вы пишите в Notepad ++, то Windows может добавить лишние пробелы (которые не видит даже редактор vim).&lt;/li>
+&lt;li>Если всё же написано в винде, то заходим в Notepad ++ - Вид отображение символов - Отображать все символы&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/notepad.jpg"
+width="704"
+height="743"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="94"
+data-flex-basis="227px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Найти и заменить все пробелы, обозначаются как /r на пустоту&lt;/li>
+&lt;li>Или второй вариант Правка - Формат Конца Строк - Преобразовать в Unix&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/notepad_2.jpg"
+width="770"
+height="582"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="132"
+data-flex-basis="317px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Если скрипт копируется с Linux машины заранее дайте ему право на выполнение:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo chmod +x add_freeipa.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>И скопируйте на сервер Касперского через WinSCP с соответствующими правами, или командой scp (Если установлен OpenSSH на Windows)&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/sh.jpg"
+width="666"
+height="25"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="2664"
+data-flex-basis="6393px"
+>&lt;/p>
+&lt;h3 id="шаг-2-создание-инсталяционного-пакета">Шаг 2. Создание инсталяционного пакета
+&lt;/h3>&lt;p>Заходим на сервер Касперского - Инсталяционные пакеты - Создать инсталяционный пакет&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/1.jpg"
+width="528"
+height="127"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="415"
+data-flex-basis="997px"
+>&lt;/p>
+&lt;p>Для указанного исполняемого файла&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/2.jpg"
+width="587"
+height="615"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="95"
+data-flex-basis="229px"
+>&lt;/p>
+&lt;p>Выбираем наш скрипт, который мы скопировали на сервер Касперского&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/scr.jpg"
+width="589"
+height="633"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="93"
+data-flex-basis="223px"
+>&lt;/p>
+&lt;p>После чего установится пакет, который будет размещен в общей папке сервера&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/3.jpg"
+width="755"
+height="724"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="250px"
+>&lt;/p>
+&lt;p>Параметры отсутствуют. Если указать их, они добавятся в конце команды по запуску скрипта на конечном сервере.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/4.jpg"
+width="753"
+height="723"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="249px"
+>&lt;/p>
+&lt;p>Например, если в поле вписать sudo -s, то выполнение будет происходит так:
+/bin/sh &amp;hellip; &amp;lsquo;add_freeipa.sh&amp;rsquo; sudo -s. То есть в заполнении этого поля нет необходимости, так как параметр не повлияет на скрипт.&lt;/p>
+&lt;h3 id="шаг-3-создание-задачи-установки">Шаг 3. Создание задачи установки
+&lt;/h3>&lt;p>Задачу можно создать как на группу устройств (без наследования), так и на отдельные устройства, с параметрами запуска &amp;ldquo;По расписанию&amp;rdquo; и указать время запуска задания.&lt;/p>
+&lt;p>Нажимаем на созданном нами исталяционном пакете &amp;ldquo;Установить программу&amp;rdquo;&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/5.jpg"
+width="620"
+height="206"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="300"
+data-flex-basis="722px"
+>&lt;/p>
+&lt;p>Выбираем на группу и выбираем устройства, на которые будет распространяться задача&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/6.jpg"
+width="583"
+height="638"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="91"
+data-flex-basis="219px"
+>&lt;/p>
+&lt;p>Обязательно отметьте галкой пункт &amp;ldquo;Не устанавливать программу, если она уже установлена&amp;rdquo;&lt;/p>
+&lt;ul>
+&lt;li>В случае, если в логах Вы увидите &amp;ldquo;Permission Denied&amp;rdquo;, то укажите креды для пользователя имеющего root авторизацию. У меня всё сработало без него.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/task.jpg"
+width="754"
+height="721"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="250px"
+>&lt;/p>
+&lt;p>Наблюдаем за выполнением и читаем конечный лог задачи&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/kaspersky-bash/7.jpg"
+width="939"
+height="725"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="129"
+data-flex-basis="310px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Если скрипт будет выдавать ошибку она будет отображена здесь, но статус задачи всё равно будет &amp;ldquo;Завершена успешно&amp;rdquo;, поэтому чтобы отлаживать скрипт используйте &amp;ldquo;Результаты выполнения задания&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>В моём случае задача выполнилась успешно, оповещение WARNING можно не брать во внимание.&lt;/p></description></item></channel></rss>
