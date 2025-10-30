@@ -196,7 +196,7 @@ loading="lazy"
 class="gallery-image"
 data-flex-grow="334"
 data-flex-basis="803px"
->&lt;/p></description></item><item><title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1</title><link>https://itzm.tech/p/zabbix1/</link><pubDate>Thu, 30 Oct 2025 11:44:00 +0500</pubDate><guid>https://itzm.tech/p/zabbix1/</guid><description>&lt;img src="https://itzm.tech/p/zabbix1/zabbix1.png" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1" />&lt;p>&lt;code>Дано:&lt;/code> Критически важный сайт, который нужно мониторить и в случае неработоспособности уведомлять админов.&lt;/p>
+>&lt;/p></description></item><item><title>Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1</title><link>https://itzm.tech/p/zabbix1/</link><pubDate>Thu, 30 Oct 2025 11:45:00 +0500</pubDate><guid>https://itzm.tech/p/zabbix1/</guid><description>&lt;img src="https://itzm.tech/p/zabbix1/zabbix1.png" alt="Featured image of post Zabbix &amp; Grafana: Мониторинг сайта скриптами. Часть 1" />&lt;p>&lt;code>Дано:&lt;/code> Критически важный сайт, который нужно мониторить и в случае неработоспособности уведомлять админов.&lt;/p>
 &lt;ul>
 &lt;li>Версия Zabbix: 6.0.1&lt;/li>
 &lt;li>Версия Grafana: 11.6.0&lt;/li>
