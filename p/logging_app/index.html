@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ru-ru" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Развертывание приложений (Fluent-bit, Logstash) для сбора логов из Кубернетес">
+<title>Сбор логов с кластера Kubernetes</title>
+
+<link rel='canonical' href='http://localhost:1313/p/logging_app/'>
+
+<link rel="stylesheet" href="/scss/style.min.3b7e02bcb811775d874e11c7d0481c531b659561324ad344cbd0dabed552ac5c.css"><meta property='og:title' content="Сбор логов с кластера Kubernetes">
+<meta property='og:description' content="Развертывание приложений (Fluent-bit, Logstash) для сбора логов из Кубернетес">
+<meta property='og:url' content='http://localhost:1313/p/logging_app/'>
+<meta property='og:site_name' content='IT Notes'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Logging' /><meta property='article:tag' content='Kubernetes' /><meta property='article:published_time' content='2025-11-27T10:37:00&#43;05:00'/><meta property='article:modified_time' content='2025-11-27T10:37:00&#43;05:00'/><meta property='og:image' content='http://localhost:1313/p/logging_app/2.jpg' />
+<meta name="twitter:title" content="Сбор логов с кластера Kubernetes">
+<meta name="twitter:description" content="Развертывание приложений (Fluent-bit, Logstash) для сбора логов из Кубернетес"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/logging_app/2.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(100111682, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/100111682" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Показать/скрыть меню">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu10286758107844593671.png" width="300"
+                            height="297" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">IT Notes</a></h1>
+            <h2 class="site-description">Vladislav Zemerov</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/ZM56'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://t.me/itzm_notes'
+                        target="_blank"
+                        title="Telegram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.youtube.com/@itzm_notes'
+                        target="_blank"
+                        title="YouTube"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Главная</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Архивы</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Поиск</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h3" /><path d="M16 22l5 -5" /><path d="M21 21.5v-4.5h-4.5" /></svg>
+                
+                <span>Обо мне</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Тёмный режим</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Содержание</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#требования">Требования</a></li>
+    <li><a href="#развертывание-fluent-bit">Развертывание Fluent-bit</a></li>
+    <li><a href="#развертывание-logstash">Развертывание Logstash</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/logging_app/">
+                <img src="/p/logging_app/2_hu9950126185543591657.jpg"
+                        srcset="/p/logging_app/2_hu9950126185543591657.jpg 800w, /p/logging_app/2_hu18154974736015482047.jpg 1600w"
+                        width="800" 
+                        height="267" 
+                        loading="lazy"
+                        alt="Featured image of post Сбор логов с кластера Kubernetes" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/kubernetes/" style="background-color: #7410d0; color: #fff;">
+                Kubernetes
+            </a>
+        
+            <a href="/categories/logging/" style="background-color: #FF8C00; color: #fff;">
+                Logging
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/logging_app/">Сбор логов с кластера Kubernetes</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Развертывание приложений (Fluent-bit, Logstash) для сбора логов из Кубернетес
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-11-27T10:37:00&#43;05:00'>нояб. 27, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    Время чтения: 3 мин.
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="требования">Требования
+</h2><p><code>Развернутый K8S, Minikube или K3S</code></p>
+<p><strong>Цель №1:</strong> Забирать логи с сервисов находящихся в Kubernetes и отправлять их в Kafka<br>
+<strong>Цель №2:</strong> Доставать логи из Kafka и отправлять их в Opensearch (ElasticSearch)</p>
+<blockquote>
+<p>Подробно расписал схему построения в своём Telegram<br>
+Там же отвечаю на вопросы и обновляю инструкции при необходимости.<br>
+<a class="link" href="https://t.me/itzm_notes"  target="_blank" rel="noopener"
+    >Присоединяйся</a>
+<a href="https://t.me/itzm_notes" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
+</a></p>
+</blockquote>
+<p><img src="/p/logging_app/sheme.png"
+	width="956"
+	height="947"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="242px"
+	
+></p>
+<h2 id="развертывание-fluent-bit">Развертывание Fluent-bit
+</h2><p>Заходим на master-ноду. Клонируем репозиторий с Fluent-bit:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/ZM56/fluent-bit.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Создаём namespace:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl create ns logging
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Далее переходим в директорию и деплоим:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> fluent-bit
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Меняем конфиг под себя, со своим адресом Kafka:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano configmap-for-kafka.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Для авторизации по клиентскому сертификату понадобится его преобразовать в base64:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">base64 -w0 cert.crt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Тоже самое с ключом:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">base64 -w0 mykey.key
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Полученные строки вставляем в secret.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano secret-certs.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если меняете имена сертификатов не забудьте их переименовать в daemoset.yaml и в configmap-for-kafka.yaml
+Если нет просто добавляете свои строки вместо &hellip;abc&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">client.crt</span><span class="p">:</span><span class="w"> </span><span class="l">...abc..</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">client.key</span><span class="p">:</span><span class="w"> </span><span class="l">...abc..</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Также потребуется root-ca сертификат от вашего ЦА.<br>
+Вставляем содержимое сюда:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano fluent-bit-ca-cert.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Запускаем</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Проверяем, что поды Fluent-bit поднялись:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pod -n logging
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/logging_app/pod.png"
+	width="1299"
+	height="197"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="659"
+		data-flex-basis="1582px"
+	
+></p>
+<p>В логах пода смотрим, что соединение с кафкой прошло успешно. Если нет, то дебажим исходя из ошибок.</p>
+<p>Если настроена вебка ищем новый топик:</p>
+<p><img src="/p/logging_app/topic.png"
+	width="1280"
+	height="200"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="640"
+		data-flex-basis="1536px"
+	
+></p>
+<p>Команда вывода логов:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs po -n logging POD_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/logging_app/fb.png"
+	width="2029"
+	height="791"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="256"
+		data-flex-basis="615px"
+	
+></p>
+<h2 id="развертывание-logstash">Развертывание Logstash
+</h2><p>Далее разворачиваем в этом же кластере кубера Logstash.<br>
+Для этого клонируем репозиторий:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.com/ZM56/logstash.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Далее переходим в директорию:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> logstash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Меняем конфиг под себя, со своим адресом Kafka откуда будем забирать логи:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano configmap.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">      </span><span class="l">kafka {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">bootstrap_servers =&gt; &#34;server:9092&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>И свой адрес Opensearch куда будем складывать</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="l">output {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">opensearch {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">hosts =&gt; [&#34;https://opensearch:9200&#34;]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">index =&gt; &#34;k8s-logs-%{+YYYY.MM.dd}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">user =&gt; &#34;admin&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">password =&gt; &#34;password&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">ssl =&gt; true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">ssl_certificate_verification =&gt; false</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Авторизация в Opensearch простая - по логину и паролю.</p>
+<p>Здесь для авторизации с сертификатами мы поступим другим путем.<br>
+Упакуем их через java утилиту keytools (Требует установки java-jdk) и прокинем через созданные секреты.</p>
+<p>Создаём хранилище сертификатов для подключения к Кафке:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl pkcs12 -export -in client.crt -inkey client.key -out cert.p12 -caname client -passout pass:mypassword
+</span></span><span class="line"><span class="cl">keytool -importcert -alias CARoot -file ./root-ca.crt -keystore server.jks -storepass password
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Пользовательский серт и ключ, также серт ЦА.<br>
+Создаём секреты на основе этого хранилища:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl create secret generic kafka-client-cert --from-file<span class="o">=</span>cert.p12 --from-file<span class="o">=</span>server.jks -n logging
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Запускаем</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Проверяем, что под Logstash поднялся:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl get pod -n logging
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>В логах пода смотрим, что соединение с кафкой прошло успешно. Если нет, то дебажим исходя из ошибок.</p>
+<p>Команда вывода логов:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl logs po -n logging POD_NAME
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Если всё успешно заходим в Opensearch и добавляем новый шаблон индекса</p>
+<p><img src="/p/logging_app/templ.png"
+	width="1180"
+	height="307"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="384"
+		data-flex-basis="922px"
+	
+></p>
+<p>После чего можем наблюдать за логами в удобном интерфейсе.</p>
+<p><img src="/p/logging_app/logs.png"
+	width="1280"
+	height="228"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="561"
+		data-flex-basis="1347px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/logging/">Logging</a>
+        
+            <a href="/tags/kubernetes/">Kubernetes</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Также рекомендуем</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/mario_k8s/">
+        
+        
+            <div class="article-image">
+                <img src="/p/mario_k8s/supermario.d5d9a613e58cb86cd54bd6eceeca1721_hu12154164739318558997.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Super Mario в Kubernetes за 5 минут"
+                        data-key="mario_k8s" 
+                        data-hash="md5-1dmmE&#43;WMuGzVS9bs7soXIQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Super Mario в Kubernetes за 5 минут</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/k8s/">
+        
+        
+            <div class="article-image">
+                <img src="/p/k8s/kubespray1.bf5aaa19fe00a5e3889e42ae13f3dc1f_hu15292345255089427062.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Установка K8S кластера через Kubespray"
+                        data-key="K8S" 
+                        data-hash="md5-v1qqGf4ApeOInkKuE/PcHw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Установка K8S кластера через Kubespray</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/kubernetes/">
+        
+        
+            <div class="article-image">
+                <img src="/p/kubernetes/awx2.f8a0637e2b97eb2c8ce82497d51cd362_hu3900115478648531370.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Установка Ansible AWX в K3S"
+                        data-key="Kubernetes" 
+                        data-hash="md5-&#43;KBjfiuX6yyM6CSX1RzTYg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Установка Ansible AWX в K3S</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/kafka_ui/">
+        
+        
+            <div class="article-image">
+                <img src="/p/kafka_ui/ui-kafka.02ebdeb0446630c986c42d4df563ef3b_hu3933775514486883509.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Веб-интерфейс для Kafka"
+                        data-key="kafka_ui" 
+                        data-hash="md5-AuvesERmMMmGxC1N9WPvOw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Веб-интерфейс для Kafka</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/install_opensearch/">
+        
+        
+            <div class="article-image">
+                <img src="/p/install_opensearch/opensearch.eae70208f1ac7ba036086c0e92597c4d_hu5743169142995647599.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Установка Opensearch Ansible"
+                        data-key="install_opensearch" 
+                        data-hash="md5-6ucCCPGse6A2CGwOkll8TQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Установка Opensearch Ansible</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="ZM56/itzm"
+    data-repo-id="R_kgDOM409Zg"
+    data-category="General"
+    data-category-id="DIC_kwDOM409Zs4CkTEU"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="ru"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+            2024 -
+        
+        2025 IT Notes
+    </section>
+
+    <section class="powerby" style="margin-top: 0.5rem;">
+        
+            <span style="font-weight: normal;">
+                Информацию можно использовать в свободном доступе, с указанием ссылки на сайт
+            </span>
+        
+
+        <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+            
+                <a href="https://t.me/itzm_notes" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                        <path d="M9.743 15.447l-.392 4.528c.562 0 .808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/>
+                    </svg>
+                    Telegram
+                </a>
+            
+
+            
+                <a href="https://github.com/ZM56" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.4rem;">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931 0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
+                    </svg>
+                    GitHub
+                </a>
+            
+
+            
+                <a href="https://www.youtube.com/@itzm_notes" target="_blank" rel="noopener" style="display: inline-flex; align-items: center;">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 0.4rem;">
+                        <path d="M8.051 1.999h-.002C3.768 1.998 1.605 2.26 1.31 4.05c-.274 1.66-.274 5.4 0 7.048.294 1.79 2.457 2.052 6.739 2.052h.002c4.282 0 6.445-.262 6.74-2.052.273-1.648.273-5.388 0-7.048-.295-1.79-2.458-2.052-6.74-2.052zM6.545 10.542V5.457L10.818 8l-4.273 2.542z"/>
+                    </svg>
+                    YouTube
+                </a>
+            
+        </div>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1734abca19fd9b1402829f3e4194246f35b81b0eaf04a670fa0620a466271a83.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
