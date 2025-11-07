@@ -244,13 +244,13 @@ class="gallery-image"
 data-flex-grow="130"
 data-flex-basis="312px"
 >&lt;/p>
-&lt;p>Дальше два варианта.
-На сервере Jenkins или Slave, в зависимости от того, где собирается код, нужно установить SonarQube CLI для сканирования на Jenkins сервер (или в контейнер) из архива.&lt;/p>
+&lt;p>Дальше два варианта.&lt;br>
+На сервере Jenkins или Slave, в зависимости от того, где собирается код, нужно установить SonarQube CLI для выполнения сканирования.&lt;/p>
 &lt;ul>
-&lt;li>Если нет инета
+&lt;li>Если нет инета&lt;br>
 URL с архивом Linux64: &lt;a class="link" href="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip" target="_blank" rel="noopener"
->https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip&lt;/a>
-Я распаковал сюда var/jenkins_home/sonar/bin/sonar-scanner
+>https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip&lt;/a>&lt;br>
+Я распаковал по этому пути: var/jenkins_home/sonar/bin/sonar-scanner&lt;br>
 &lt;code>Jenkins -&amp;gt; Tools -&amp;gt; SonarQube&lt;/code>
 Задаём имя сканера и директорию куда положили CLI:&lt;/li>
 &lt;/ul>
