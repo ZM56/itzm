@@ -16,8 +16,12 @@
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
-&lt;td style="text-align: left">OC&lt;/td>
+&lt;td style="text-align: left">OC:&lt;/td>
 &lt;td style="text-align: left">Ubuntu&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">CPU:&lt;/td>
+&lt;td style="text-align: left">4&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td style="text-align: left">RAM:&lt;/td>
