@@ -4965,7 +4965,7 @@ data-flex-basis="1092px"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl pkcs7 -print_certs -in mycert.p7b -out mycert.pem
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Установка K8S кластера через Kubespray</title><link>https://itzm.tech/p/k8s/</link><pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate><guid>https://itzm.tech/p/k8s/</guid><description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка K8S кластера через Kubespray" />&lt;p>Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p>
+&lt;/div></description></item><item><title>Установка Kubernetes через Kubespray</title><link>https://itzm.tech/p/k8s/</link><pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate><guid>https://itzm.tech/p/k8s/</guid><description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка Kubernetes через Kubespray" />&lt;p>Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p>
 &lt;p>Кластер будет состоять из 2-х Master node, 2-х Worker node.&lt;/p>
 &lt;p>Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p>
 &lt;p>Требования по ресурсам:&lt;/p>
