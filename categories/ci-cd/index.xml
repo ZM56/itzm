@@ -1,1 +1,396 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CI/CD on IT Notes</title><link>https://itzm.tech/categories/ci-cd/</link><description>Recent content in CI/CD on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><atom:link href="https://itzm.tech/categories/ci-cd/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CI/CD on IT Notes</title><link>https://itzm.tech/categories/ci-cd/</link><description>Recent content in CI/CD on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 06 Nov 2025 20:10:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/ci-cd/index.xml" rel="self" type="application/rss+xml"/><item><title>SonarQube в Jenkins</title><link>https://itzm.tech/p/sonarqube/</link><pubDate>Thu, 06 Nov 2025 20:10:36 +0500</pubDate><guid>https://itzm.tech/p/sonarqube/</guid><description>&lt;img src="https://itzm.tech/p/sonarqube/sonarqube.jpg" alt="Featured image of post SonarQube в Jenkins" />&lt;blockquote>
+&lt;p>Архитектуру процесса и описание можно найти в моём телеграм канале&lt;br>
+Там же задать вопрос или просто пообщаться&lt;br>
+&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+>Присоединяйся&lt;/a>
+&lt;a href="https://t.me/itzm_notes" target="_blank">
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
+&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Требования для сервера SonarQube&lt;/th>
+&lt;th style="text-align: left">&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">OC&lt;/td>
+&lt;td style="text-align: left">Ubuntu&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">RAM:&lt;/td>
+&lt;td style="text-align: left">8 Gb&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">HDD:&lt;/td>
+&lt;td style="text-align: left">50 Gb&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Установленное ПО:&lt;/td>
+&lt;td style="text-align: left">docker, docker-compose&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">Навыки:&lt;/td>
+&lt;td style="text-align: left">Знания docker и jenkins&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="установка-сервера-sonarqube">Установка сервера SonarQube
+&lt;/h2>&lt;p>Поднимает сервер на Ubuntu.
+На сервере SonarQube. Создаём директорию:&lt;/p>
+&lt;p>&lt;code>mkdir /opt/sonarqube &amp;amp;&amp;amp; cd /opt/sonarqube&lt;/code>&lt;/p>
+&lt;p>Если сеть закрытая и нет доступа к инету после установки создать файл:&lt;/p>
+&lt;p>&lt;code>nano /opt/sonarqube/sonar.properties&lt;/code>&lt;/p>
+&lt;p>И добавить строку:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">sonar.updatecenter.activate&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Меняем владельца:&lt;/p>
+&lt;p>&lt;code>chown 1000:root sonar.properties&lt;/code>&lt;/p>
+&lt;p>docker-compose файл:&lt;/p>
+&lt;p>&lt;code>nano docker-compose.yaml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;3&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sonarqube&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sonarqube:25.10.0.114319-community&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sonarqube&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SONARQUBE_JDBC_USERNAME=sonar&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">SONARQUBE_JDBC_PASSWORD=password&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#Меняйте на свой&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;9000:9000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sonarqube_data:/opt/sonarqube/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sonarqube_extensions:/opt/sonarqube/extensions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sonarqube_logs:/opt/sonarqube/logs&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./sonar.properties:/opt/sonarqube/conf/sonar.properties &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#Если файл sonar.properties не создавали удалите эту строку&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sonarnet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">db&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:15&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sonarqube-db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_USER=sonar&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_PASSWORD=password&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#Меняйте на свой &lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_DB=sonar&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./postgres_data:/var/lib/postgresql/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">sonarnet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sonarqube_data&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sonarqube_extensions&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sonarqube_logs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">sonarnet&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Запускаем:&lt;/p>
+&lt;p>&lt;code>docker-compose up -d&lt;/code>&lt;/p>
+&lt;h2 id="конфигурация-сервера-sonarqube">Конфигурация сервера SonarQube
+&lt;/h2>&lt;p>Заходим на сервер Sonar http://IP:9000/&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/1.png"
+width="1063"
+height="638"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="166"
+data-flex-basis="399px"
+>&lt;/p>
+&lt;p>Логин и пароль: &lt;code>admin:admin&lt;/code>&lt;/p>
+&lt;p>Меняем на свой (12 символов)&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/2.png"
+width="537"
+height="477"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;p>Создаём локальный проект:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/3.png"
+width="596"
+height="144"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="413"
+data-flex-basis="993px"
+>&lt;/p>
+&lt;p>Называем его. В моём случае Jenkins_scan.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/4.png"
+width="526"
+height="441"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="119"
+data-flex-basis="286px"
+>&lt;/p>
+&lt;p>Default&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/5.png"
+width="813"
+height="511"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="159"
+data-flex-basis="381px"
+>&lt;/p>
+&lt;p>Далее создаём токен для синхронизации с Jenkins:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/6.png"
+width="396"
+height="205"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="193"
+data-flex-basis="463px"
+>&lt;/p>
+&lt;p>&lt;code>My account -&amp;gt; Security - Generate Token&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/7.png"
+width="775"
+height="298"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="260"
+data-flex-basis="624px"
+>&lt;/p>
+&lt;p>Полученный токен вставить в &lt;code>Jenkins -&amp;gt; Credentials -&amp;gt; Add Credentials -&amp;gt; Secret Text&lt;/code> и вставить Токен&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/8.png"
+width="1058"
+height="748"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="141"
+data-flex-basis="339px"
+>&lt;/p>
+&lt;h2 id="настройка-синхронизации-в-jenkins">Настройка синхронизации в Jenkins.
+&lt;/h2>&lt;p>Сервер Сонара у нас готов. Далее работаем с Jenkins.&lt;br>
+Устанавливаем плагин SonarQube Scanner for Jenkins:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/9.png"
+width="1246"
+height="374"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="333"
+data-flex-basis="799px"
+>&lt;/p>
+&lt;p>&lt;code>Настройки -&amp;gt; System -&amp;gt; SonarQube servers -&amp;gt; Задаем имя сервера, URL&lt;/code> и выбираем креды созданные ранее.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/10.png"
+width="1081"
+height="830"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="130"
+data-flex-basis="312px"
+>&lt;/p>
+&lt;p>Дальше два варианта.
+На сервере Jenkins или Slave, в зависимости от того, где собирается код, нужно установить SonarQube CLI для сканирования на Jenkins сервер (или в контейнер) из архива.&lt;/p>
+&lt;ul>
+&lt;li>Если нет инета
+URL с архивом Linux64: &lt;a class="link" href="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip" target="_blank" rel="noopener"
+>https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.3.0.5189-linux-x64.zip&lt;/a>
+Я распаковал сюда var/jenkins_home/sonar/bin/sonar-scanner
+&lt;code>Jenkins -&amp;gt; Tools -&amp;gt; SonarQube&lt;/code>
+Задаём имя сканера и директорию куда положили CLI:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Name&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">sonar_scanner&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">RUNNER_HOME&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">jenkins_home&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">sonar&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/11.png"
+width="1132"
+height="521"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="217"
+data-flex-basis="521px"
+>&lt;/p>
+&lt;p>Если сервер Jenkins (Slave) имеет выход в инет, то можно скачать CLI во время сборки.
+&lt;code>Jenkins -&amp;gt; Tools -&amp;gt; SonarQube&lt;/code>
+Задаём имя сканера и версию:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Name: sonar_scanner
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/12.png"
+width="792"
+height="537"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="147"
+data-flex-basis="353px"
+>&lt;/p>
+&lt;h2 id="написание-pipeline-jenkins">Написание Pipeline Jenkins
+&lt;/h2>&lt;p>Далее создаём или встраиваем в Pipeline-Jenkins&lt;/p>
+&lt;p>Я создаю параметр для сборок, чтобы они перемещались на сервере SonarQube в Project: Jenkins_scan&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/13.png"
+width="977"
+height="487"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="481px"
+>&lt;/p>
+&lt;p>Пример моего пайплайна (данные репозитория ваши):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-groovy" data-lang="groovy">&lt;span class="line">&lt;span class="cl">&lt;span class="n">pipeline&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">agent&lt;/span> &lt;span class="n">any&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">stages&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">stage&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;Checkout&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">steps&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Клонируем репозиторий из GitHub
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">git&lt;/span>&lt;span class="o">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">url:&lt;/span> &lt;span class="s1">&amp;#39;https://github.com/ZM56/itzm&amp;#39;&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nl">branch:&lt;/span> &lt;span class="s1">&amp;#39;main&amp;#39;&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">stage&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s1">&amp;#39;SonarQube Analysis&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">environment&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">scannerHome&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">tool&lt;/span> &lt;span class="s1">&amp;#39;sonar_scanner&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">steps&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">script&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">withSonarQubeEnv&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;sonar_server&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">sh&lt;/span> &lt;span class="s2">&amp;#34;${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${project}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/14.png"
+width="1318"
+height="656"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/p>
+&lt;h2 id="запуск-проверок">Запуск проверок
+&lt;/h2>&lt;p>Запустить тесты:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/15.png"
+width="1004"
+height="751"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>Успешно. Идём на сервер SonarQube.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/16.png"
+width="1134"
+height="209"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="542"
+data-flex-basis="1302px"
+>&lt;/p>
+&lt;p>Наш код проверен. Можем перейти в подробности.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/sonarqube/17.png"
+width="1291"
+height="646"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="199"
+data-flex-basis="479px"
+>&lt;/p>
+&lt;p>Установка завершена. Можете при сборке использовать как скан вашего Git репозитория. Jenkinsfile при сборке и прочее на ваш вкус.&lt;/p></description></item></channel></rss>
