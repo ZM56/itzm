@@ -42,12 +42,26 @@
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="установка-сервера-sonarqube">Установка сервера SonarQube
-&lt;/h2>&lt;p>Поднимает сервер на Ubuntu.
+&lt;/h2>&lt;p>Поднимаем сервер на Ubuntu.
 На сервере SonarQube. Создаём директорию:&lt;/p>
-&lt;p>&lt;code>mkdir /opt/sonarqube &amp;amp;&amp;amp; cd /opt/sonarqube&lt;/code>&lt;/p>
-&lt;p>Если сеть закрытая и нет доступа к инету после установки создать файл:&lt;/p>
-&lt;p>&lt;code>nano /opt/sonarqube/sonar.properties&lt;/code>&lt;/p>
-&lt;p>И добавить строку:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">mkdir /opt/sonarqube &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> /opt/sonarqube
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Если сеть закрытая и нет доступа к инету после установки создать файл:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">nano /opt/sonarqube/sonar.properties
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>И добавить строку:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -57,8 +71,15 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Меняем владельца:&lt;/p>
-&lt;p>&lt;code>chown 1000:root sonar.properties&lt;/code>&lt;/p>
-&lt;p>docker-compose файл:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">chown 1000:root sonar.properties`
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>docker-compose файл:&lt;/p>
 &lt;p>&lt;code>nano docker-compose.yaml&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -149,8 +170,15 @@
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Запускаем:&lt;/p>
-&lt;p>&lt;code>docker-compose up -d&lt;/code>&lt;/p>
-&lt;h2 id="конфигурация-сервера-sonarqube">Конфигурация сервера SonarQube
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="конфигурация-сервера-sonarqube">Конфигурация сервера SonarQube
 &lt;/h2>&lt;p>Заходим на сервер Sonar http://IP:9000/&lt;/p>
 &lt;p>&lt;img src="https://itzm.tech/p/sonarqube/1.png"
 width="1063"
