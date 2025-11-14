@@ -35,8 +35,8 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>192.168.10.139 minio-web&lt;/code>&lt;/p>
-&lt;p>Это сервер для доступа к веб-интерфейсу с Nginx.&lt;/p>
-&lt;p>На всех серверах устанавливаем: &lt;code>docker, docker,io, docker-compose&lt;/code>&lt;/p>
+&lt;p>Это 5-ый сервер для доступа к веб-интерфейсу с Nginx.&lt;/p>
+&lt;p>На всех серверах устанавливаем: &lt;code>docker, docker-compose&lt;/code>&lt;/p>
 &lt;h2 id="конфигурация-docker-compose">Конфигурация docker-compose
 &lt;/h2>&lt;p>На &lt;strong>первом сервере&lt;/strong> создаём конфигурацию:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
