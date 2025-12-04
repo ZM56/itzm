@@ -73,7 +73,7 @@
 </span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>addresses</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>        </span>- <span class=m>8.8.8.8</span><span class=w>
 </span></span></span></code></pre></td></tr></table></div></div><p>Сохраняем, закрываем, применяем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>admin@master-1:~$ sudo netplan apply -f
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>admin@master-2:~$ sudo netplan apply -f
 </span></span></code></pre></td></tr></table></div></div><h4 id=сервер-master-3>Сервер: master-3</h4><ul><li>Клонируем master-3</li><li>Меняем имя хоста на master-3 и IP в netplan</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo hostnamectl set-hostname master-3
 </span></span></code></pre></td></tr></table></div></div><p>Не забудьте изменить имя сервера в файле /etc/hosts</p><p>Убираем DHCP. Открываем на редактирование:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -103,7 +103,7 @@
 </span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>addresses</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>        </span>- <span class=m>8.8.8.8</span><span class=w>
 </span></span></span></code></pre></td></tr></table></div></div><p>Сохраняем, закрываем, применяем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>admin@master-1:~$ sudo netplan apply -f
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>admin@master-3:~$ sudo netplan apply -f
 </span></span></code></pre></td></tr></table></div></div><h4 id=сервер-node-1>Сервер: node-1</h4><ul><li>Клонируем master-1</li><li>Меняем имя хоста на node-1 и IP в netplan</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo hostnamectl set-hostname node-1
 </span></span></code></pre></td></tr></table></div></div><p>Не забудьте изменить имя сервера в файле /etc/hosts</p><p>Убираем DHCP. Открываем на редактирование:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
