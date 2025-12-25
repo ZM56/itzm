@@ -1,198 +1,127 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>SDXL on IT Notes</title>
-        <link>http://localhost:1313/tags/sdxl/</link>
-        <description>Recent content in SDXL on IT Notes</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>ru-ru</language>
-        <lastBuildDate>Thu, 25 Dec 2025 17:16:00 +0500</lastBuildDate><atom:link href="http://localhost:1313/tags/sdxl/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Fooocus AI: Просто введи текст и получи изображение</title>
-        <link>http://localhost:1313/p/ai_fooocus/</link>
-        <pubDate>Thu, 25 Dec 2025 17:16:00 +0500</pubDate>
-        
-        <guid>http://localhost:1313/p/ai_fooocus/</guid>
-        <description>&lt;img src="http://localhost:1313/p/ai_fooocus/f.png" alt="Featured image of post Fooocus AI: Просто введи текст и получи изображение" /&gt;&lt;p&gt;В этом гайде я опишу пошаговую установку Fooocus AI на ваш компьютер.&lt;br&gt;
-Приложение было так сконфигурировано разработчиком, что справиться даже новичок.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/4.png&#34;
-	width=&#34;576&#34;
-	height=&#34;448&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;128&#34;
-		data-flex-basis=&#34;308px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Начнём&lt;/p&gt;
-&lt;p&gt;Качаем архив: &lt;a class=&#34;link&#34; href=&#34;https://github.com/lllyasviel/Fooocus/releases/download/v2.5.0/Fooocus_win64_2-5-0.7z&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/lllyasviel/Fooocus/releases/download/v2.5.0/Fooocus_win64_2-5-0.7z&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Распаковываем на тот диск, где достаточно места:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/01.png&#34;
-	width=&#34;272&#34;
-	height=&#34;83&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;327&#34;
-		data-flex-basis=&#34;786px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Далее запускаем файл run.bat&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/02.png&#34;
-	width=&#34;263&#34;
-	height=&#34;195&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;134&#34;
-		data-flex-basis=&#34;323px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Открывается окно и начинается загрузка модели ~ 7-12 Gb&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/03.png&#34;
-	width=&#34;926&#34;
-	height=&#34;320&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;289&#34;
-		data-flex-basis=&#34;694px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;После чего открывается окно в браузере&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/1.png&#34;
-	width=&#34;958&#34;
-	height=&#34;498&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;192&#34;
-		data-flex-basis=&#34;461px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Пишем промт на английском и нажимаем Generate&lt;/p&gt;
-&lt;p&gt;Получаем результат&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/2.png&#34;
-	width=&#34;770&#34;
-	height=&#34;355&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;216&#34;
-		data-flex-basis=&#34;520px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Что если ресурсов вашего компьютера недостаточно?
-Есть решение с помощью гугл.&lt;br&gt;
-Переходим на сайт: &lt;a class=&#34;link&#34; href=&#34;https://colab.research.google.com/github/lllyasviel/Fooocus/blob/main/fooocus_colab.ipynb&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://colab.research.google.com/github/lllyasviel/Fooocus/blob/main/fooocus_colab.ipynb&lt;/a&gt;&lt;br&gt;
-Авторизуемся. Далее нажимаем выполнить всё.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/5.png&#34;
-	width=&#34;457&#34;
-	height=&#34;169&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;270&#34;
-		data-flex-basis=&#34;648px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Выполнить&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/6.png&#34;
-	width=&#34;356&#34;
-	height=&#34;151&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;235&#34;
-		data-flex-basis=&#34;565px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Идём наливать кофе пока всё закачивается&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/7.png&#34;
-	width=&#34;624&#34;
-	height=&#34;390&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;160&#34;
-		data-flex-basis=&#34;384px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Просто напоминаю, что у гугла есть лимиты&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/8.png&#34;
-	width=&#34;345&#34;
-	height=&#34;250&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;138&#34;
-		data-flex-basis=&#34;331px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;После загрузки нам выдаёт ссылку:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/9.png&#34;
-	width=&#34;844&#34;
-	height=&#34;132&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;639&#34;
-		data-flex-basis=&#34;1534px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Переходим и генерируем картинку по своему запросу:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/10.png&#34;
-	width=&#34;960&#34;
-	height=&#34;491&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;195&#34;
-		data-flex-basis=&#34;469px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Получаем результат:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/ai_fooocus/11.png&#34;
-	width=&#34;345&#34;
-	height=&#34;409&#34;
-	
-	loading=&#34;lazy&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;84&#34;
-		data-flex-basis=&#34;202px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;Вот вообщем-то и всё. Дальше зависит только от вашей фантазии.&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SDXL on IT Notes</title><link>https://itzm.tech/tags/sdxl/</link><description>Recent content in SDXL on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Thu, 25 Dec 2025 08:16:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/sdxl/index.xml" rel="self" type="application/rss+xml"/><item><title>Fooocus AI: Просто введи текст и получи изображение</title><link>https://itzm.tech/p/ai_fooocus/</link><pubDate>Thu, 25 Dec 2025 08:16:00 +0500</pubDate><guid>https://itzm.tech/p/ai_fooocus/</guid><description>&lt;img src="https://itzm.tech/p/ai_fooocus/f.png" alt="Featured image of post Fooocus AI: Просто введи текст и получи изображение" />&lt;p>В этом гайде я опишу пошаговую установку Fooocus AI на ваш компьютер.&lt;br>
+Приложение было так сконфигурировано разработчиком, что справиться даже новичок.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/4.png"
+width="576"
+height="448"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="128"
+data-flex-basis="308px"
+>&lt;/p>
+&lt;p>Начнём&lt;/p>
+&lt;p>Качаем архив: &lt;a class="link" href="https://github.com/lllyasviel/Fooocus/releases/download/v2.5.0/Fooocus_win64_2-5-0.7z" target="_blank" rel="noopener"
+>https://github.com/lllyasviel/Fooocus/releases/download/v2.5.0/Fooocus_win64_2-5-0.7z&lt;/a>&lt;/p>
+&lt;p>Распаковываем на тот диск, где достаточно места:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/01.png"
+width="272"
+height="83"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="327"
+data-flex-basis="786px"
+>&lt;/p>
+&lt;p>Далее запускаем файл run.bat&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/02.png"
+width="263"
+height="195"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="134"
+data-flex-basis="323px"
+>&lt;/p>
+&lt;p>Открывается окно и начинается загрузка модели ~ 7-12 Gb&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/03.png"
+width="926"
+height="320"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="289"
+data-flex-basis="694px"
+>&lt;/p>
+&lt;p>После чего открывается окно в браузере&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/1.png"
+width="958"
+height="498"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="192"
+data-flex-basis="461px"
+>&lt;/p>
+&lt;p>Пишем промт на английском и нажимаем Generate&lt;/p>
+&lt;p>Получаем результат&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/2.png"
+width="770"
+height="355"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="216"
+data-flex-basis="520px"
+>&lt;/p>
+&lt;p>Что если ресурсов вашего компьютера недостаточно?
+Есть решение с помощью гугл.&lt;br>
+Переходим на сайт: &lt;a class="link" href="https://colab.research.google.com/github/lllyasviel/Fooocus/blob/main/fooocus_colab.ipynb" target="_blank" rel="noopener"
+>https://colab.research.google.com/github/lllyasviel/Fooocus/blob/main/fooocus_colab.ipynb&lt;/a>&lt;br>
+Авторизуемся. Далее нажимаем выполнить всё.&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/5.png"
+width="457"
+height="169"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="270"
+data-flex-basis="648px"
+>&lt;/p>
+&lt;p>Выполнить&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/6.png"
+width="356"
+height="151"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="235"
+data-flex-basis="565px"
+>&lt;/p>
+&lt;p>Идём наливать кофе пока всё закачивается&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/7.png"
+width="624"
+height="390"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="160"
+data-flex-basis="384px"
+>&lt;/p>
+&lt;p>Просто напоминаю, что у гугла есть лимиты&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/8.png"
+width="345"
+height="250"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="138"
+data-flex-basis="331px"
+>&lt;/p>
+&lt;p>После загрузки нам выдаёт ссылку:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/9.png"
+width="844"
+height="132"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="639"
+data-flex-basis="1534px"
+>&lt;/p>
+&lt;p>Переходим и генерируем картинку по своему запросу:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/10.png"
+width="960"
+height="491"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="195"
+data-flex-basis="469px"
+>&lt;/p>
+&lt;p>Получаем результат:&lt;/p>
+&lt;p>&lt;img src="https://itzm.tech/p/ai_fooocus/11.png"
+width="345"
+height="409"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="84"
+data-flex-basis="202px"
+>&lt;/p>
+&lt;p>Вот вообщем-то и всё. Дальше зависит только от вашей фантазии.&lt;/p></description></item></channel></rss>
