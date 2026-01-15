@@ -2,7 +2,13 @@
 &lt;/h2>&lt;p>&lt;code>Развернутый K8S, Minikube или K3S&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Цель №1:&lt;/strong> Забирать логи с сервисов находящихся в Kubernetes и отправлять их в Kafka&lt;br>
 &lt;strong>Цель №2:&lt;/strong> Доставать логи из Kafka и отправлять их в Opensearch (ElasticSearch)&lt;/p>
-&lt;p>***В &lt;strong>моём&lt;/strong> случае авторизация в Кафке по клиентским сертификатам. Если вы используете логин и пароль всё проще. Просто удалите из конфигов серты.&lt;/p>
+&lt;p>***В &lt;strong>моём&lt;/strong> случае авторизация в Кафке по клиентским сертификатам (Выпущенные ЦА или самоподписанные). Если вы не хотите использовать серты, то перед развертыванием просто удаляем:&lt;/p>
+&lt;ul>
+&lt;li>Все Secrets с сертификатами Kafka&lt;/li>
+&lt;li>rdkafka.ssl.* и security.protocol ssl из Fluent Bit&lt;/li>
+&lt;li>ssl_&lt;em>store_&lt;/em> из Logstash input&lt;/li>
+&lt;li>Используйте PLAINTEXT или SASL_PLAINTEXT в файле configmap-for-kafka.yaml&lt;/li>
+&lt;/ul>
 &lt;blockquote>
 &lt;p>Подробно расписал схему построения в своём Telegram&lt;br>
 Там же отвечаю на вопросы и обновляю инструкции при необходимости.&lt;br>
