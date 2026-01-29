@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on IT Notes</title><link>https://itzm.tech/page/</link><description>Recent content in Pages on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://itzm.tech/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;p>Привет, &lt;code>Username&lt;/code>!&lt;br>
-Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p>
-&lt;blockquote>
-&lt;p>Только в Telegram я делюсь тем, что не попадает в заметки: практикой, своими мыслями и теорией — всё просто и без воды.&lt;br>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on IT Notes</title><link>https://itzm.tech/page/</link><description>Recent content in Pages on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://itzm.tech/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;!&lt;br&gt;
+Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Только в Telegram я делюсь тем, что не попадает в заметки: практикой, своими мыслями и теорией — всё просто и без воды.&lt;br&gt;
 &lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
->Загляни, если интересно&lt;/a>
-&lt;a href="https://t.me/itzm_notes" target="_blank">
-&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" />
-&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;p>Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p>
-&lt;p>&lt;code>Мой стек:&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>Linux (Ubuntu, CentOS, AltLinux), Unix (FreeBSD, OpenBSD), IPTables, FreeIPA domain-cluster&lt;/li>
-&lt;li>PowerDNS, Bind9, Squid, Asterisk, Exim, OpenVPN, Wireguard, Nextcloud&lt;/li>
-&lt;li>PostgreSQL, MySQL, MSSQL&lt;/li>
-&lt;li>Docker, Docker-compose, Ansible (roles, collection, galaxy), IaC подход&lt;/li>
-&lt;li>Kubernetes, Helm, ArgoCD, Terraform, Prometheus, Grafana, Loki, Kafka, Gitlab, Jenkins, CI/CD&lt;/li>
-&lt;li>Nginx, HAProxy, Keycloak, Nexus, Harbor&lt;/li>
-&lt;li>Python, Bash, Powershell&lt;/li>
-&lt;li>Atlassian (Jira, Confluence, Bitbucket), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li>
-&lt;li>Windows Servers (2012, 2016, 2019, 2022), Clusters DataBases, AD, GPO, DNS, DHCP, SCCM&lt;/li>
-&lt;li>Maxpatrol, SearchInform&lt;/li>
-&lt;li>Kaspersky Security Center, KES for Linux, KES for Windows, Kaspersky Web Traffic Security, Kaspersky Mail Gateway&lt;/li>
-&lt;/ul>
-&lt;p>Постоянно учусь новому и открыт для интересных идей и проектов.
-Знания и навыки из разных областей помогают мне решать задачи на стыке dev/sec/ops команд.&lt;/p></description></item><item><title>Поиск</title><link>https://itzm.tech/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/search/</guid><description/></item></channel></rss>
+&gt;Загляни, если интересно&lt;/a&gt;
+&lt;a href="https://t.me/itzm_notes" target="_blank"&gt;
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux (Ubuntu, CentOS, AltLinux), Unix (FreeBSD, OpenBSD), IPTables, FreeIPA domain-cluster&lt;/li&gt;
+&lt;li&gt;PowerDNS, Bind9, Squid, Asterisk, Exim, OpenVPN, Wireguard, Nextcloud&lt;/li&gt;
+&lt;li&gt;PostgreSQL, MySQL, MSSQL&lt;/li&gt;
+&lt;li&gt;Docker, Docker-compose, Ansible (roles, collection, galaxy), IaC подход&lt;/li&gt;
+&lt;li&gt;Kubernetes, Helm, ArgoCD, Terraform, Prometheus, Grafana, Loki, Kafka, Gitlab, Jenkins, CI/CD&lt;/li&gt;
+&lt;li&gt;Nginx, HAProxy, Keycloak, Nexus, Harbor&lt;/li&gt;
+&lt;li&gt;Python, Bash, Powershell&lt;/li&gt;
+&lt;li&gt;Atlassian (Jira, Confluence, Bitbucket), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li&gt;
+&lt;li&gt;Windows Servers (2012, 2016, 2019, 2022), Clusters DataBases, AD, GPO, DNS, DHCP, SCCM&lt;/li&gt;
+&lt;li&gt;Maxpatrol, SearchInform&lt;/li&gt;
+&lt;li&gt;Kaspersky Security Center, KES for Linux, KES for Windows, Kaspersky Web Traffic Security, Kaspersky Mail Gateway&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Постоянно учусь новому и открыт для интересных идей и проектов.
+Знания и навыки из разных областей помогают мне решать задачи на стыке dev/sec/ops команд.&lt;/p&gt;</description></item><item><title>Поиск</title><link>https://itzm.tech/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/search/</guid><description/></item></channel></rss>

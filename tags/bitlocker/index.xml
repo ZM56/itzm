@@ -1,250 +1,250 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bitlocker on IT Notes</title><link>https://itzm.tech/tags/bitlocker/</link><description>Recent content in Bitlocker on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 12 Aug 2024 22:53:39 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/bitlocker/index.xml" rel="self" type="application/rss+xml"/><item><title>Bitlocker + Recovery keys Active Directory</title><link>https://itzm.tech/p/bitlocker/</link><pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate><guid>https://itzm.tech/p/bitlocker/</guid><description>&lt;img src="https://itzm.tech/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker + Recovery keys Active Directory" />&lt;p>Установка будет происходить в 3 этапа:&lt;/p>
-&lt;h4 id="включение-дополнительной-роли-на-сервере-ad">Включение дополнительной роли на сервере AD
-&lt;/h4>&lt;h4 id="создание-и-назначение-групповой-политики">Создание и назначение групповой политики
-&lt;/h4>&lt;h4 id="проверка-на-конечном-устройстве">Проверка на конечном устройстве
-&lt;/h4>&lt;p>Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bitlocker on IT Notes</title><link>https://itzm.tech/tags/bitlocker/</link><description>Recent content in Bitlocker on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 12 Aug 2024 22:53:39 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/bitlocker/index.xml" rel="self" type="application/rss+xml"/><item><title>Bitlocker + Recovery keys Active Directory</title><link>https://itzm.tech/p/bitlocker/</link><pubDate>Mon, 12 Aug 2024 22:53:39 +0500</pubDate><guid>https://itzm.tech/p/bitlocker/</guid><description>&lt;img src="https://itzm.tech/p/bitlocker/bitlocker.jpg" alt="Featured image of post Bitlocker + Recovery keys Active Directory" /&gt;&lt;p&gt;Установка будет происходить в 3 этапа:&lt;/p&gt;
+&lt;h4 id="включение-дополнительной-роли-на-сервере-ad"&gt;Включение дополнительной роли на сервере AD
+&lt;/h4&gt;&lt;h4 id="создание-и-назначение-групповой-политики"&gt;Создание и назначение групповой политики
+&lt;/h4&gt;&lt;h4 id="проверка-на-конечном-устройстве"&gt;Проверка на конечном устройстве
+&lt;/h4&gt;&lt;p&gt;Для начала включаем модуль для хранения ключей дешифрования на сервере Active Directory.
 Диспетчер серверов
-Добавить роли и компоненты&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/1.png"
+Добавить роли и компоненты&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/1.png"
 width="402"
 height="196"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="205"
 data-flex-basis="492px"
->&lt;/p>
-&lt;p>Установка ролей или компонентов - Далее&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/2.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Установка ролей или компонентов - Далее&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/2.png"
 width="787"
 height="293"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="268"
 data-flex-basis="644px"
->&lt;/p>
-&lt;p>Выбираем наш сервер (Отмечен по умолчанию)&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/3.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем наш сервер (Отмечен по умолчанию)&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/3.png"
 width="786"
 height="345"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="227"
 data-flex-basis="546px"
->&lt;/p>
-&lt;p>Роли сервера - нажимаем далее&lt;/p>
-&lt;p>Компоненты отмечаем галкой &amp;ldquo;Шифрование диска BitLocker&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/4.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Роли сервера - нажимаем далее&lt;/p&gt;
+&lt;p&gt;Компоненты отмечаем галкой &amp;ldquo;Шифрование диска BitLocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/4.png"
 width="790"
 height="363"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="217"
 data-flex-basis="522px"
->&lt;/p>
-&lt;p>Отмечаем галками как на скриншоте и нажимаем &amp;ldquo;Добавить компоненты&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/5.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Отмечаем галками как на скриншоте и нажимаем &amp;ldquo;Добавить компоненты&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/5.png"
 width="416"
 height="453"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="91"
 data-flex-basis="220px"
->&lt;/p>
-&lt;p>Устанавливаем галку &amp;ldquo;Автоматический перезапуск конечного сервера&amp;rdquo; и нажимаем &amp;ldquo;Установить&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/7.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Устанавливаем галку &amp;ldquo;Автоматический перезапуск конечного сервера&amp;rdquo; и нажимаем &amp;ldquo;Установить&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/7.png"
 width="786"
 height="556"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="141"
 data-flex-basis="339px"
->&lt;/p>
-&lt;p>Создаём OU-шку для компьютеров, на которые будем раскатывать GPO&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/8.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Создаём OU-шку для компьютеров, на которые будем раскатывать GPO&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/8.png"
 width="676"
 height="540"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="125"
 data-flex-basis="300px"
->&lt;/p>
-&lt;p>Закидываем наш компьютер&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/9.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Закидываем наш компьютер&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/9.png"
 width="733"
 height="442"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="165"
 data-flex-basis="398px"
->&lt;/p>
-&lt;h4 id="создаём-групповую-политику">Создаём групповую политику
-&lt;/h4>&lt;p>Переходим в Управление групповой политикой
+&gt;&lt;/p&gt;
+&lt;h4 id="создаём-групповую-политику"&gt;Создаём групповую политику
+&lt;/h4&gt;&lt;p&gt;Переходим в Управление групповой политикой
 На созданной нами OU - Создать объект групповой политики и связать его
-Называем политику, в моём случае Шифрование&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/10.png"
+Называем политику, в моём случае Шифрование&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/10.png"
 width="595"
 height="638"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="93"
 data-flex-basis="223px"
->&lt;/p>
-&lt;p>Изменить&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/11.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Изменить&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/11.png"
 width="399"
 height="275"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="145"
 data-flex-basis="348px"
->&lt;/p>
-&lt;p>Переходим в &amp;ldquo;Конфигурация компьютера&amp;rdquo; - &amp;ldquo;Политики&amp;rdquo; - &amp;ldquo;Административные шаблоны&amp;rdquo; - Компоненты Windows - Шифрование диска&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/12.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в &amp;ldquo;Конфигурация компьютера&amp;rdquo; - &amp;ldquo;Политики&amp;rdquo; - &amp;ldquo;Административные шаблоны&amp;rdquo; - Компоненты Windows - Шифрование диска&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/12.png"
 width="346"
 height="83"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="416"
 data-flex-basis="1000px"
->&lt;/p>
-&lt;p>Устанавливаем параметры в &amp;ldquo;Включено&amp;rdquo; и отмечаем галками&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/13.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Устанавливаем параметры в &amp;ldquo;Включено&amp;rdquo; и отмечаем галками&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/13.png"
 width="763"
 height="557"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="136"
 data-flex-basis="328px"
->&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/14.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/14.png"
 width="765"
 height="612"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="125"
 data-flex-basis="300px"
->&lt;/p>
-&lt;p>Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/15.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/15.png"
 width="760"
 height="603"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="126"
 data-flex-basis="302px"
->&lt;/p>
-&lt;p>Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/16.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в подгруппу &amp;ldquo;Диски операционной системы&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/16.png"
 width="274"
 height="75"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="365"
 data-flex-basis="876px"
->&lt;/p>
-&lt;p>Включаем &amp;ldquo;Выбор методов восстановления дисков операционной системы..&amp;rdquo;
-Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &amp;ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/17.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Включаем &amp;ldquo;Выбор методов восстановления дисков операционной системы..&amp;rdquo;
+Отмечаем всё галками, если ключ планируется дополнительно хранить в виде файла или на внешнем накопителе убрать пункт &amp;ldquo;Пропускать параметры восстановления в мастере установки Bitlocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/17.png"
 width="762"
 height="726"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="104"
 data-flex-basis="251px"
->&lt;/p>
-&lt;h4 id="шифрование-на-конечном-устройстве">Шифрование на конечном устройстве
-&lt;/h4>&lt;p>Ручной способ:
-Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &amp;ldquo;Включить битлокер&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/18.png"
+&gt;&lt;/p&gt;
+&lt;h4 id="шифрование-на-конечном-устройстве"&gt;Шифрование на конечном устройстве
+&lt;/h4&gt;&lt;p&gt;Ручной способ:
+Переходим на ПК с именем New в Компьютер - Локальный диск С - Свойства - &amp;ldquo;Включить битлокер&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/18.png"
 width="627"
 height="463"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="135"
 data-flex-basis="325px"
->&lt;/p>
-&lt;p>Выбираем &amp;ldquo;Шифровать только занятое место&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/19.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем &amp;ldquo;Шифровать только занятое место&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/19.png"
 width="621"
 height="482"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="128"
 data-flex-basis="309px"
->&lt;/p>
-&lt;p>Ставим галку &amp;ldquo;Запустить проверку систему BitLocker&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/20.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Ставим галку &amp;ldquo;Запустить проверку систему BitLocker&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/20.png"
 width="622"
 height="486"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="127"
 data-flex-basis="307px"
->&lt;/p>
-&lt;p>Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/21.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Далее компьютер перезагрузится и начнётся процесс шифрования (Посмотреть статус выполнения можно в трее)&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/21.png"
 width="361"
 height="166"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="217"
 data-flex-basis="521px"
->&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/22.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/22.png"
 width="352"
 height="206"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="170"
 data-flex-basis="410px"
->&lt;/p>
-&lt;p>Автоматизировать данную операцию можно командой Powershell:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">PS &lt;/span>&lt;span class="n">C:&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">Users&lt;/span>&lt;span class="p">\&lt;/span>&lt;span class="n">admin&lt;/span>&lt;span class="p">&amp;gt;&lt;/span> &lt;span class="nb">manage-bde&lt;/span> &lt;span class="n">-on&lt;/span> &lt;span class="n">C:&lt;/span> &lt;span class="n">-UsedSpaceOnly&lt;/span> &lt;span class="n">-SkipHardwareTest&lt;/span> &lt;span class="n">-recoverypassword&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Ключи восстановления можно найти в Active Directory&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/23.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Автоматизировать данную операцию можно командой Powershell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;PS &lt;/span&gt;&lt;span class="n"&gt;C:&lt;/span&gt;&lt;span class="p"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="p"&gt;\&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;manage-bde&lt;/span&gt; &lt;span class="n"&gt;-on&lt;/span&gt; &lt;span class="n"&gt;C:&lt;/span&gt; &lt;span class="n"&gt;-UsedSpaceOnly&lt;/span&gt; &lt;span class="n"&gt;-SkipHardwareTest&lt;/span&gt; &lt;span class="n"&gt;-recoverypassword&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ключи восстановления можно найти в Active Directory&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/23.png"
 width="464"
 height="553"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="83"
 data-flex-basis="201px"
->&lt;/p>
-&lt;ul>
-&lt;li>При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
-Для этого в фильтрах безопасности политики &amp;ldquo;Шифрование&amp;rdquo; удаляем &amp;ldquo;Прошедшие проверку&amp;rdquo;&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/24.png"
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;При необходимости можно нацелить политику на отдельные компьютеры, например если они распределены по разным OU.
+Для этого в фильтрах безопасности политики &amp;ldquo;Шифрование&amp;rdquo; удаляем &amp;ldquo;Прошедшие проверку&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/24.png"
 width="940"
 height="308"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="305"
 data-flex-basis="732px"
->&lt;/p>
-&lt;p>Нажимаем добавить - Тип объектов - Ставим галочку &amp;ldquo;Компьютер&amp;rdquo;&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/25.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Нажимаем добавить - Тип объектов - Ставим галочку &amp;ldquo;Компьютер&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/25.png"
 width="501"
 height="425"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="117"
 data-flex-basis="282px"
->&lt;/p>
-&lt;p>Вводим имя нашего ПК и нажимаем добавить&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/bitlocker/26.png"
+&gt;&lt;/p&gt;
+&lt;p&gt;Вводим имя нашего ПК и нажимаем добавить&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/bitlocker/26.png"
 width="832"
 height="368"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="226"
 data-flex-basis="542px"
->&lt;/p>
-&lt;p>Готово! Теперь компьютер зашифрован, при установке носителя в другое устройство будет запрошен ключ дешифрования. Сейчас дешифрование происходит без необходимости пользователем вводить пароль. Основано на чипе TPM, встроенного в наш компьютер.
-Ключ восстановления хранится в Active Directory. При запросе на дешифрование устройство выведет первые 8 символов ключа, с помощью которых можно выполнить поиск, найти компьютер и полный ключ восстановления.&lt;/p></description></item></channel></rss>
+&gt;&lt;/p&gt;
+&lt;p&gt;Готово! Теперь компьютер зашифрован, при установке носителя в другое устройство будет запрошен ключ дешифрования. Сейчас дешифрование происходит без необходимости пользователем вводить пароль. Основано на чипе TPM, встроенного в наш компьютер.
+Ключ восстановления хранится в Active Directory. При запросе на дешифрование устройство выведет первые 8 символов ключа, с помощью которых можно выполнить поиск, найти компьютер и полный ключ восстановления.&lt;/p&gt;</description></item></channel></rss>

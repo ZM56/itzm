@@ -1,751 +1,751 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CentOS on IT Notes</title><link>https://itzm.tech/tags/centos/</link><description>Recent content in CentOS on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 18 Jul 2025 11:40:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/centos/index.xml" rel="self" type="application/rss+xml"/><item><title>100+ Полезных команд Linux</title><link>https://itzm.tech/p/linux_commands/</link><pubDate>Fri, 18 Jul 2025 11:40:36 +0500</pubDate><guid>https://itzm.tech/p/linux_commands/</guid><description>&lt;img src="https://itzm.tech/p/linux_commands/linux.jpg" alt="Featured image of post 100+ Полезных команд Linux" />&lt;p>&lt;strong>Основные команды&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ls&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать все файлы и директории в текущем каталоге&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ls -l&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать все файлы и директории в текущем каталоге с подробностями&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ls -t&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывод ls с сортировкой по дате последнего изменения&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>pwd&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Полный путь к текущему каталогу&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cd directory&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Сменить директорию&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cd ..&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Перейти на одну директорию вверх&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cd /&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Перейти в корневой каталог&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>clear&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Очистка терминала&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>history&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать историю выполенных команд в текущем сеансе&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>touch filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать новый файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>vi filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Открыть файл для редактирования. Редактором vi&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cat filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести содержимое файла в терминал&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>hostnamectl&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывод системной информации. Имя хоста, ядро, архитектура, и прочее&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ifconfig&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать сетевые интерфейсы. IP-адреса и MAC-адреса системы&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>date&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывод текущей системной даты и времени&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>top&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Список всех запущенных процессов в системе&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>free -m&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать статистику использования памяти в мегабайтах&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>head filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести первые 10 строк файла (голова)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tail filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести последние 10 строк файла (хвост)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>mv file /new/file/path&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Переместить файл в другое место&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>mv old_filename new_filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Переименовать файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cp filename filename_2&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Скопировать файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>man command_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Просмотреть информацию о команде&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>rm filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>rm –rf directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить каталог принудительно и его содержимое рекурсивно&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>sudo&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Позволяет обычным пользователям запускать команды с повышенными привилегиями&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>mkdir directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать новую директорию&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>kill pid&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Убить процесс используя его ID&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>reboot&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Перезагрузка системы&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>shutdown –h now&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Выключение системы&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>poweroff&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Выключение системы. Аналогична нажатию кнопки питания&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Сетевые команды&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>dig domain_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать информацию, связанную с DNS для данного доменного имени&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>dig domain +short&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести только основные данные&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>host domain_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Выполнить DNS-поиск указанного доменного имени, который выведет IP-адрес&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>whois domain_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Для получения дополнительной информации о домене&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ping ip&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Проверить соединение между хостом и указанным IP-адресом&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ssh username@ip&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Для SSH входа в систему под указанным пользователем на другом сервере&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>wget file&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Скачать файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>wget -c file&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Продолжить остановленную загрузку&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>traceroute domain_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Отследить маршрут передачи пакета от текущего хоста к другому хосту&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>telnet domain_name port&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Подключиться к удаленному хосту через определенный порт&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>netstat –pnltu&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Отобразить все прослушиваемые в данный момент порты&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ss -tulnp&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Более современная команда. Быстрее и больше информации&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>route&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывод таблицы маршрутизации для текущего хоста&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>arp&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Просмотр содержимого ARP таблицы&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cat /etc/resolv.conf&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Просмотр используемых хостом в данный момент DNS-серверов&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tcpdump -i eth1 'port 80'&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Регистрация и отслеживание всего входящего трафика на порту 80&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>nmap ip&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Сетевое обнаружение заданного IP. Показывает: работает ли хост, открытые порты&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Команды поиска&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>locate keyword&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск файла или каталога в кэше. Бысрее, чем find, но не всегда актуален&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>find keyword&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск файла или каталога в системе. Медленнее, чем locate, но всегда актуален&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>find /home -name *.ext&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск всех файлов с расширением .ext в домашней директории и её подкаталогах&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>find / -type f ! -perm xxx&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск файлов в корневой директории, у которых разрешение не соответствует ххх&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>find / -perm /u=r&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать все файлы, доступные только для чтения&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep keyword filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск указанного ключевого слова в указанном файле&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep keyword *&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск указанного ключевого слова во всех файлах, в текущем каталоге&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep -i keyword *&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Игнорировать регистр при поиске&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep -r keyword *&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Выполнить рекурсивный поиск, т.е. включить в поиск подкаталоги&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep -x 'what to match' *&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести все строки, где найдено совпадение&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep -c keyword *&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Подсчитать количество совпадений&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Команды разрешений&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chmod xxx filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Назначить указанные разрешения файлу&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chmod –R xxx directory&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Назначить указанные разрешения каталогу и всем его подкаталогам&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chmod –x filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить разрешения на выполнение файла&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chown username filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Изменить владельца указанного файла&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chown username:groupname filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Измененить владельца и группу владельца файла&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chown username:groupname filename1 filename2&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Измененить владельца и группу владельца нескольких файлов&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chown --from=bob alice filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Изменить владельца файла, если файл принадлежит пользователю bob&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>chown -h usergroup symbolic_link&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Принудительно изменить владельца и группу символической ссылки&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Команды хранения&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>df –h&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать используемое и свободное пространство файловых систем&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>mount&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Монтировать раздел с данными или устройство&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>unmount&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Размонтировать раздел с данными или устройство&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>du -h /home/directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать размер каталога в удобном формате (human)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>du -sh /home/directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать общий размер директории&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>du -ah --exclude='*.xxx' /home/directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать использование диска всеми файлами в каталоге, за исключением&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>du -ha --time /home/directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывод файлов с датой и временем последнего изменения&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>fdisk -l&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Показать размер диска с информацией о всех разделах&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>sudo du -x / | sort -nr | head -20&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести 20 самых больших по размеру директорий&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Команды для управления пользователями&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>adduser username&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать нового пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>userdel -r 'username'&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>passwd -l 'username'&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Изменить пароль пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>whoami&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Посмотреть текущего пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>usermod -c 'Этот пользователь админ' username&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Добавление комментария к учетной записи пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>cat /etc/passwd&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Вывести список всех пользователей с информацией об ID и оболочке&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>usermod -d /home/test username&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Изменить домашний каталог пользователя&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>sudo deluser username group_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить пользователя из группы&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>usermod -a -G group_name username&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Добавить пользователя в группу&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>groupadd group_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать новую группу&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>groupdel group_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить группу&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>id&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Отображение ID пользователя, его группы и групп, в которых он состоит&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Команды для работы с архивами&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tar -cvf archive.tar filename.txt&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Сжать файл в архив tar&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tar -tvf archive.tar&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Отображение содержимого tar-архива&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tar -xvf archive.tar filename.txt&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Извлечь один файл из архива tar&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>zip archive.zip file1.txt file2.html file3.jpg&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать zip-архив с использованием нескольких файлов&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>zip -u archive.zip filename.txt&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Добавить файл в уже заархивированный файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>zip -d archive.zip filename.txt&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Удалить файл из zip-архива&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>unzip archive.zip&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Распаковать zip-архив&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>unzip archive.zip -d /directory_name&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Распаковать zip-архив в определенный каталог&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tar xf archive&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Извлечь архив любого типа&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>gzip filename&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Сжать файл и добавить к нему расширение .gz. Это удалит исходный файл&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>gzip -c filename &amp;gt; archive.gz&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Создать новый сжатый файл .gz, при этом сохранив исходный&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>&lt;strong>Расширенные команды&lt;/strong>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th style="text-align: left">Команда&lt;/th>
-&lt;th style="text-align: left">Описание&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>grep -ir &amp;quot;слово&amp;quot; /etc/random_d&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Найти слово во всех файлах директории (Рекурсивно)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ps –ef | grep имя процесса&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Проверка запущенного процесса&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>netstat –pnltu | grep port&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Проверка открыт ли порт&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ss -tulnp&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Современная команда. Быстрее и больше информации&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>history | grep keyword&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск в истории команд&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ssh-keygen&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Генерация SSH ключей&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>scp file user@ip:/home/location&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Копирование файлов на другой хост&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>find / -type f -perm 777 -print -exec chmod xxx {} \;&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Поиск всех файлов с правами доступа 777 и измените их на xxx&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>sed -i 's/заменитьэто/наэто/g' file.txt&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Автозамена слова в файле file.txt&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>sed -i -r 's/draft: true/draft: false/' /opt/*&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Замена всех вхождений в файлах директории /opt&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>hostname -I | awk '{print $1}'&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Получить все IP адреса сетевого интерфейса хоста и вывести первый&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>tcpdump -nnvvS src SRC_IP and dst port xxxx&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Анализ сетевого трафика, исходящего с определенного IP и идущий к определенному порту&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>traceroute domain_name -q 5&lt;/code>&lt;/td>
-&lt;td style="text-align: left">Отправка 5-ти пакетов на домен. Диагностика сети&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td style="text-align: left">&lt;code>ip r&lt;/code>&lt;/td>
-&lt;td style="text-align: left">IP-адрес шлюза по умолчанию&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item><item><title>Установка корневого сертификата Linux</title><link>https://itzm.tech/p/linux_cert/</link><pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate><guid>https://itzm.tech/p/linux_cert/</guid><description>&lt;img src="https://itzm.tech/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" />&lt;blockquote>
-&lt;p>Для использования защищенного https подключения Linux-серверами установим корневой сертификат.
-Сгенерировать сертификат, при наличии локального Центра сертификации можно двумя способами.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="1-способ-генерации-сертификата-через-веб-интерфейс">1 способ генерации сертификата. Через Веб-интерфейс.
-&lt;/h3>&lt;p>Создаём запрос серта на центре сертификации. В адресной строке браузера вводим имя или ip сервера сертификации.&lt;/p>
-&lt;p>&lt;code>http://&amp;lt;ip_адрес_сервера_сертификации&amp;gt;/certsrv&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr1.jpg"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CentOS on IT Notes</title><link>https://itzm.tech/tags/centos/</link><description>Recent content in CentOS on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Fri, 18 Jul 2025 11:40:36 +0500</lastBuildDate><atom:link href="https://itzm.tech/tags/centos/index.xml" rel="self" type="application/rss+xml"/><item><title>100+ Полезных команд Linux</title><link>https://itzm.tech/p/linux_commands/</link><pubDate>Fri, 18 Jul 2025 11:40:36 +0500</pubDate><guid>https://itzm.tech/p/linux_commands/</guid><description>&lt;img src="https://itzm.tech/p/linux_commands/linux.jpg" alt="Featured image of post 100+ Полезных команд Linux" /&gt;&lt;p&gt;&lt;strong&gt;Основные команды&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать все файлы и директории в текущем каталоге&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ls -l&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать все файлы и директории в текущем каталоге с подробностями&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ls -t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывод ls с сортировкой по дате последнего изменения&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Полный путь к текущему каталогу&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cd directory&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Сменить директорию&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cd ..&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Перейти на одну директорию вверх&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cd /&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Перейти в корневой каталог&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;clear&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Очистка терминала&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;history&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать историю выполенных команд в текущем сеансе&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;touch filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать новый файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;vi filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Открыть файл для редактирования. Редактором vi&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cat filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести содержимое файла в терминал&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывод системной информации. Имя хоста, ядро, архитектура, и прочее&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ifconfig&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать сетевые интерфейсы. IP-адреса и MAC-адреса системы&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывод текущей системной даты и времени&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;top&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Список всех запущенных процессов в системе&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;free -m&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать статистику использования памяти в мегабайтах&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;head filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести первые 10 строк файла (голова)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tail filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести последние 10 строк файла (хвост)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mv file /new/file/path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Переместить файл в другое место&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mv old_filename new_filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Переименовать файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cp filename filename_2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Скопировать файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;man command_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Просмотреть информацию о команде&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rm filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;rm –rf directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить каталог принудительно и его содержимое рекурсивно&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sudo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Позволяет обычным пользователям запускать команды с повышенными привилегиями&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mkdir directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать новую директорию&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;kill pid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Убить процесс используя его ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;reboot&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Перезагрузка системы&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;shutdown –h now&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Выключение системы&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;poweroff&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Выключение системы. Аналогична нажатию кнопки питания&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Сетевые команды&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;dig domain_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать информацию, связанную с DNS для данного доменного имени&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;dig domain +short&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести только основные данные&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;host domain_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Выполнить DNS-поиск указанного доменного имени, который выведет IP-адрес&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;whois domain_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Для получения дополнительной информации о домене&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ping ip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Проверить соединение между хостом и указанным IP-адресом&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ssh username@ip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Для SSH входа в систему под указанным пользователем на другом сервере&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wget file&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Скачать файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;wget -c file&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Продолжить остановленную загрузку&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;traceroute domain_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Отследить маршрут передачи пакета от текущего хоста к другому хосту&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;telnet domain_name port&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Подключиться к удаленному хосту через определенный порт&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;netstat –pnltu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Отобразить все прослушиваемые в данный момент порты&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ss -tulnp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Более современная команда. Быстрее и больше информации&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;route&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывод таблицы маршрутизации для текущего хоста&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;arp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Просмотр содержимого ARP таблицы&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cat /etc/resolv.conf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Просмотр используемых хостом в данный момент DNS-серверов&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tcpdump -i eth1 'port 80'&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Регистрация и отслеживание всего входящего трафика на порту 80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nmap ip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Сетевое обнаружение заданного IP. Показывает: работает ли хост, открытые порты&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Команды поиска&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;locate keyword&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск файла или каталога в кэше. Бысрее, чем find, но не всегда актуален&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find keyword&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск файла или каталога в системе. Медленнее, чем locate, но всегда актуален&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find /home -name *.ext&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск всех файлов с расширением .ext в домашней директории и её подкаталогах&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find / -type f ! -perm xxx&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск файлов в корневой директории, у которых разрешение не соответствует ххх&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find / -perm /u=r&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать все файлы, доступные только для чтения&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep keyword filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск указанного ключевого слова в указанном файле&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep keyword *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск указанного ключевого слова во всех файлах, в текущем каталоге&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -i keyword *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Игнорировать регистр при поиске&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -r keyword *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Выполнить рекурсивный поиск, т.е. включить в поиск подкаталоги&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -x 'what to match' *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести все строки, где найдено совпадение&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -c keyword *&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Подсчитать количество совпадений&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Команды разрешений&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chmod xxx filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Назначить указанные разрешения файлу&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chmod –R xxx directory&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Назначить указанные разрешения каталогу и всем его подкаталогам&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chmod –x filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить разрешения на выполнение файла&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chown username filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Изменить владельца указанного файла&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chown username:groupname filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Измененить владельца и группу владельца файла&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chown username:groupname filename1 filename2&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Измененить владельца и группу владельца нескольких файлов&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chown --from=bob alice filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Изменить владельца файла, если файл принадлежит пользователю bob&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chown -h usergroup symbolic_link&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Принудительно изменить владельца и группу символической ссылки&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Команды хранения&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;df –h&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать используемое и свободное пространство файловых систем&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mount&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Монтировать раздел с данными или устройство&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unmount&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Размонтировать раздел с данными или устройство&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;du -h /home/directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать размер каталога в удобном формате (human)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;du -sh /home/directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать общий размер директории&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;du -ah --exclude='*.xxx' /home/directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать использование диска всеми файлами в каталоге, за исключением&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;du -ha --time /home/directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывод файлов с датой и временем последнего изменения&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fdisk -l&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Показать размер диска с информацией о всех разделах&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sudo du -x / | sort -nr | head -20&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести 20 самых больших по размеру директорий&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Команды для управления пользователями&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;adduser username&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать нового пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;userdel -r 'username'&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;passwd -l 'username'&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Изменить пароль пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;whoami&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Посмотреть текущего пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;usermod -c 'Этот пользователь админ' username&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Добавление комментария к учетной записи пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cat /etc/passwd&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Вывести список всех пользователей с информацией об ID и оболочке&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;usermod -d /home/test username&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Изменить домашний каталог пользователя&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sudo deluser username group_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить пользователя из группы&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;usermod -a -G group_name username&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Добавить пользователя в группу&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;groupadd group_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать новую группу&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;groupdel group_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить группу&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;id&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Отображение ID пользователя, его группы и групп, в которых он состоит&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Команды для работы с архивами&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tar -cvf archive.tar filename.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Сжать файл в архив tar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tar -tvf archive.tar&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Отображение содержимого tar-архива&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tar -xvf archive.tar filename.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Извлечь один файл из архива tar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zip archive.zip file1.txt file2.html file3.jpg&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать zip-архив с использованием нескольких файлов&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zip -u archive.zip filename.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Добавить файл в уже заархивированный файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zip -d archive.zip filename.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Удалить файл из zip-архива&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unzip archive.zip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Распаковать zip-архив&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unzip archive.zip -d /directory_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Распаковать zip-архив в определенный каталог&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tar xf archive&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Извлечь архив любого типа&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;gzip filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Сжать файл и добавить к нему расширение .gz. Это удалит исходный файл&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;gzip -c filename &amp;gt; archive.gz&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Создать новый сжатый файл .gz, при этом сохранив исходный&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Расширенные команды&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Команда&lt;/th&gt;
+&lt;th&gt;Описание&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;grep -ir &amp;quot;слово&amp;quot; /etc/random_d&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Найти слово во всех файлах директории (Рекурсивно)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ps –ef | grep имя процесса&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Проверка запущенного процесса&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;netstat –pnltu | grep port&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Проверка открыт ли порт&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ss -tulnp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Современная команда. Быстрее и больше информации&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;history | grep keyword&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск в истории команд&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ssh-keygen&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Генерация SSH ключей&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;scp file user@ip:/home/location&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Копирование файлов на другой хост&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;find / -type f -perm 777 -print -exec chmod xxx {} \;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Поиск всех файлов с правами доступа 777 и измените их на xxx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sed -i 's/заменитьэто/наэто/g' file.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Автозамена слова в файле file.txt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;sed -i -r 's/draft: true/draft: false/' /opt/*&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Замена всех вхождений в файлах директории /opt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hostname -I | awk '{print $1}'&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Получить все IP адреса сетевого интерфейса хоста и вывести первый&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tcpdump -nnvvS src SRC_IP and dst port xxxx&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Анализ сетевого трафика, исходящего с определенного IP и идущий к определенному порту&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;traceroute domain_name -q 5&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Отправка 5-ти пакетов на домен. Диагностика сети&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ip r&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;IP-адрес шлюза по умолчанию&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>Установка корневого сертификата Linux</title><link>https://itzm.tech/p/linux_cert/</link><pubDate>Tue, 04 Feb 2025 20:05:35 +0500</pubDate><guid>https://itzm.tech/p/linux_cert/</guid><description>&lt;img src="https://itzm.tech/p/linux_cert/certs.jpg" alt="Featured image of post Установка корневого сертификата Linux" /&gt;&lt;blockquote&gt;
+&lt;p&gt;Для использования защищенного https подключения Linux-серверами установим корневой сертификат.
+Сгенерировать сертификат, при наличии локального Центра сертификации можно двумя способами.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="1-способ-генерации-сертификата-через-веб-интерфейс"&gt;1 способ генерации сертификата. Через Веб-интерфейс.
+&lt;/h3&gt;&lt;p&gt;Создаём запрос серта на центре сертификации. В адресной строке браузера вводим имя или ip сервера сертификации.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://&amp;lt;ip_адрес_сервера_сертификации&amp;gt;/certsrv&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/linux_cert/scr1.jpg"
 width="980"
 height="356"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="275"
 data-flex-basis="660px"
->&lt;/p>
-&lt;ul>
-&lt;li>Запрос сертификата&lt;/li>
-&lt;li>Выбираем: Base64&lt;/li>
-&lt;/ul>
-&lt;p>Скачиваем:&lt;/p>
-&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr2.jpg"
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Запрос сертификата&lt;/li&gt;
+&lt;li&gt;Выбираем: Base64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Скачиваем:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/linux_cert/scr2.jpg"
 width="829"
 height="466"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="177"
 data-flex-basis="426px"
->&lt;/p>
-&lt;h3 id="установка-в-ubuntu">Установка в Ubuntu:
-&lt;/h3>&lt;p>Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt-get install -y ca-certificates
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Копируем (Например, через WinSCP) сертификат сделанный в первом шаге на Linux-сервер в директорию:&lt;/p>
-&lt;p>&lt;code>/usr/local/share/ca-certificates/&lt;/code>&lt;/p>
-&lt;p>Переходим в директорию на сервере:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo &lt;span class="nb">cd&lt;/span> /usr/local/share/ca-certificates/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Переделываем расширение в &lt;code>.crt&lt;/code>, где &lt;code>ca_cert.cer&lt;/code> имя вашего сертификата сгенерированного первым способом&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Устанавливаем сертификат в хранилище:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-certificates
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>После успешной установки появится сообщение, что сертификаты обновлены:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Updating certificates in /etc/ssl/certs…
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1 added, 0 removed; done.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Running hooks in /etc/ca-certificates/update.d
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="2-способ-генерации-сертификата-cmd">2 способ генерации сертификата. CMD.
-&lt;/h3>&lt;p>Зайти на сервер корневого центра сертификации. Под администратором открыть консоль &lt;code>cmd&lt;/code>&lt;/p>
-&lt;p>Выполнить команду:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">certutil -ca.cert ca_name.cer
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://itzm.tech/p/linux_cert/scr3.jpg"
+&gt;&lt;/p&gt;
+&lt;h3 id="установка-в-ubuntu"&gt;Установка в Ubuntu:
+&lt;/h3&gt;&lt;p&gt;Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install -y ca-certificates
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Копируем (Например, через WinSCP) сертификат сделанный в первом шаге на Linux-сервер в директорию:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/usr/local/share/ca-certificates/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Переходим в директорию на сервере:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo &lt;span class="nb"&gt;cd&lt;/span&gt; /usr/local/share/ca-certificates/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Переделываем расширение в &lt;code&gt;.crt&lt;/code&gt;, где &lt;code&gt;ca_cert.cer&lt;/code&gt; имя вашего сертификата сгенерированного первым способом&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Устанавливаем сертификат в хранилище:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo update-ca-certificates
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;После успешной установки появится сообщение, что сертификаты обновлены:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Updating certificates in /etc/ssl/certs…
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;1 added, 0 removed; done.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Running hooks in /etc/ca-certificates/update.d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="2-способ-генерации-сертификата-cmd"&gt;2 способ генерации сертификата. CMD.
+&lt;/h3&gt;&lt;p&gt;Зайти на сервер корневого центра сертификации. Под администратором открыть консоль &lt;code&gt;cmd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Выполнить команду:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cmd" data-lang="cmd"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;certutil -ca.cert ca_name.cer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://itzm.tech/p/linux_cert/scr3.jpg"
 width="692"
 height="152"
 loading="lazy"
 class="gallery-image"
 data-flex-grow="455"
 data-flex-basis="1092px"
->&lt;/p>
-&lt;p>Полученный текст сертификата скопировать в файл на Linux-сервере:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo nano /usr/local/share/ca-certificates/ca_cert.crt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Получится текст такого формата:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">---BEGIN CERTIFICATE-----
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">MIIH/TCCBeWgAwIBAgIQaBYE3/M08XHYCnNVmcFBcjANBgkqhkiG9w0BAQsFADBy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">F10YlqcOmeX1uFmKbdi/XorGlkCoMF3TDx8rmp9DBiB/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-----END CERTIFICATE-----
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Затем выполнить команду:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-certificates
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="установка-в-centos">Установка в CentOS
-&lt;/h3>&lt;p>Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">yum install ca-certificates
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Копируем (Например, через WinSCP) сертификат сделанный в первом способе на Linux-сервер в директорию:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">/etc/pki/ca-trust/source/anchors/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Переходим в директорию на сервере:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd /etc/pki/ca-trust/source/anchors/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Переделываем расширение в &lt;code>.crt&lt;/code>, где &lt;code>ca_cert.cer&lt;/code> имя вашего сертификата сгенерированного первым способом&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Устанавливаем в хранилище:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo update-ca-trust extract
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Проверить установленный сертификат:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">trust list &lt;span class="p">|&lt;/span> grep Имя_Сертификата_ЦА
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>! Важно&lt;/p>
-&lt;ul>
-&lt;li>В Linux сертификаты автоматически не устанавливаются в браузеры, и браузеры в десктопном Linux по прежнему будут выдавать ошибку.&lt;/li>
-&lt;li>В данном случае установка сертов используется для curl и python библиотеки request, поэтому этой установки достаточно.&lt;/li>
-&lt;/ul>
-&lt;h3 id="перекодировка-сертификатов">Перекодировка сертификатов
-&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">openssl rsa -in mycert.pem -out mycert.key
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl x509 -inform DER –in mycert.cer -out mycert.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl x509 -inform PEM -in mycert.cer -out mycert.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl pkcs7 -print_certs -in mycert.p7b -out mycert.crt
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openssl pkcs7 -print_certs -in mycert.p7b -out mycert.pem
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&gt;&lt;/p&gt;
+&lt;p&gt;Полученный текст сертификата скопировать в файл на Linux-сервере:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /usr/local/share/ca-certificates/ca_cert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Получится текст такого формата:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;---BEGIN CERTIFICATE-----
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;MIIH/TCCBeWgAwIBAgIQaBYE3/M08XHYCnNVmcFBcjANBgkqhkiG9w0BAQsFADBy
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;F10YlqcOmeX1uFmKbdi/XorGlkCoMF3TDx8rmp9DBiB/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-----END CERTIFICATE-----
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Затем выполнить команду:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo update-ca-certificates
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="установка-в-centos"&gt;Установка в CentOS
+&lt;/h3&gt;&lt;p&gt;Устанавливаем пакет для работы с сертификатами, если его нет:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yum install ca-certificates
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Копируем (Например, через WinSCP) сертификат сделанный в первом способе на Linux-сервер в директорию:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/etc/pki/ca-trust/source/anchors/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Переходим в директорию на сервере:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd /etc/pki/ca-trust/source/anchors/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Переделываем расширение в &lt;code&gt;.crt&lt;/code&gt;, где &lt;code&gt;ca_cert.cer&lt;/code&gt; имя вашего сертификата сгенерированного первым способом&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo openssl x509 -inform PEM -in ca_cert.cer -out ca_cert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Устанавливаем в хранилище:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo update-ca-trust extract
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Проверить установленный сертификат:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;trust list &lt;span class="p"&gt;|&lt;/span&gt; grep Имя_Сертификата_ЦА
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;! Важно&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В Linux сертификаты автоматически не устанавливаются в браузеры, и браузеры в десктопном Linux по прежнему будут выдавать ошибку.&lt;/li&gt;
+&lt;li&gt;В данном случае установка сертов используется для curl и python библиотеки request, поэтому этой установки достаточно.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="перекодировка-сертификатов"&gt;Перекодировка сертификатов
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl rsa -in mycert.pem -out mycert.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl x509 -inform DER –in mycert.cer -out mycert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl x509 -inform PEM -in mycert.cer -out mycert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl pkcs7 -print_certs -in mycert.p7b -out mycert.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl pkcs7 -print_certs -in mycert.p7b -out mycert.pem
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>
