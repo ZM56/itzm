@@ -7,7 +7,7 @@
 <svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
 <span>Тёмный режим</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Содержание</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#требуемые-ресурсы>Требуемые ресурсы</a></li><li><a href=#конфигурация-docker-compose>Конфигурация docker-compose</a></li><li><a href=#настраиваем-веб-сервер>Настраиваем веб-сервер</a></li><li><a href=#запуск>Запуск</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/minio_docker/><img src=/p/minio_docker/minio-docker_hu_ae7a31b29b06d1b6.png srcset="/p/minio_docker/minio-docker_hu_ae7a31b29b06d1b6.png 800w, /p/minio_docker/minio-docker_hu_51cde0945a67080e.png 1600w" width=800 height=430 loading=lazy alt="Featured image of post Установка MinIO в Docker"></a></div><div class=article-details><header class=article-category><a href=/categories/minio/ style=background-color:#c62c47;color:#fff>Minio</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/minio_docker/>Установка MinIO в Docker</a></h2><h3 class=article-subtitle>Распределенный кластер S3 для хранения данных</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
 <time class=article-time--published datetime=2025-11-14T09:20:50+05:00>нояб. 14, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>Время чтения: 4 мин.</time></div></footer></div></header><section class=article-content><p>Что такое MinIO, для чего нужен и как его использовать подробно расписал в моём телеграм канале:
+<time class=article-time--reading>Время чтения: 5 мин.</time></div></footer></div></header><section class=article-content><p>Что такое MinIO, для чего нужен и как его использовать подробно расписал в моём телеграм канале:
 Поймёт даже новичок. Здесь только практика.</p><blockquote><p>До RELEASE.2025-05-24… консоль в Community Edition включала полный набор функций, включая администрирование пользователей, управление ключами, и т.п.<br>Начиная с этой версии (24 мая 2025), все административные функции были удалены: осталась только возможность просмотра и управления объектами.<br>Вся остальная функциональность, особенно админская, теперь требует использования CLI-инструмента mc или перехода на Enterprise Edition</p></blockquote><p>В данном примере настроим <em><strong>Распределенный</strong></em> кластер MinIO. Это режим работы, в котором несколько экземпляров MinIO объединяются в один логический сервер хранения объектов.<br>Это может быть полезно для повышения производительности и надежности, поскольку рабочая нагрузка может быть распределена по нескольким экземплярам, а данные могут храниться на нескольких дисках или серверах.</p><h2 id=требуемые-ресурсы>Требуемые ресурсы</h2><p>Созданы и именованы 4 сервера для minio:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>nano /etc/hosts
 </span></span></code></pre></td></tr></table></div></div><p>В файле hosts каждого сервера, или в DNS записи:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -41,7 +41,7 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>services</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>minio-1</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>minio/minio:RELEASE.2025-04-22T22-12-26Z</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_USER</span><span class=p>:</span><span class=w> </span><span class=l>admin</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>SuperSecretPassword</span><span class=w> </span><span class=c>#Меняем пароль на свой</span><span class=w>
@@ -69,7 +69,7 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>services</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>minio-2</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>minio/minio:RELEASE.2025-04-22T22-12-26Z</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_USER</span><span class=p>:</span><span class=w> </span><span class=l>admin</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>SuperSecretPassword</span><span class=w> </span><span class=c>#Меняем пароль на свой</span><span class=w>
@@ -97,7 +97,7 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>services</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>minio-3</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>minio/minio:RELEASE.2025-04-22T22-12-26Z</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_USER</span><span class=p>:</span><span class=w> </span><span class=l>admin</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>SuperSecretPassword</span><span class=w> </span><span class=c>#Меняем пароль на свой</span><span class=w>
@@ -125,14 +125,14 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>services</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>minio-4</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>minio/minio:RELEASE.2025-04-22T22-12-26Z</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>server --console-address &#34;:9001&#34; http://minio-1/data http://minio-2/data http://minio-3/data http://minio-4/data</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_USER</span><span class=p>:</span><span class=w> </span><span class=l>admin</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>MINIO_ROOT_PASSWORD</span><span class=p>:</span><span class=w> </span><span class=l>SuperSecretPassword</span><span class=w> </span><span class=c>#Меняем пароль на свой</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>/mnt/minio-data:/data</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>network_mode</span><span class=p>:</span><span class=w> </span><span class=l>host</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><h2 id=настраиваем-веб-сервер>Настраиваем веб-сервер</h2><p>На сервере с nginx:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=настраиваем-веб-сервер>Настраиваем веб-сервер</h2><p>Принцип в балансировке нагрузки. Мы будет обращаться в minio по адресу <code>s3.minio.domain.local</code><br>Eсли мы хотим зайти в веб, то адрес будет другой <code>console.minio.domain.local</code></p><p>На сервере с nginx:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>mkdir /opt/nginx
 </span></span><span class=line><span class=cl>nano /opt/nginx/nginx.conf
@@ -194,6 +194,44 @@
 </span><span class=lnt>56
 </span><span class=lnt>57
 </span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span><span class=lnt>93
+</span><span class=lnt>94
+</span><span class=lnt>95
+</span><span class=lnt>96
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=na>worker_processes auto;</span>
 </span></span><span class=line><span class=cl><span class=na>error_log /var/log/nginx/error.log warn;</span>
 </span></span><span class=line><span class=cl><span class=na>pid /var/run/nginx.pid;</span>
@@ -214,16 +252,23 @@
 </span></span><span class=line><span class=cl>    <span class=na>sendfile on;</span>
 </span></span><span class=line><span class=cl>    <span class=na>keepalive_timeout 65;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>	<span class=na>upstream minio {</span>
+</span></span><span class=line><span class=cl>	<span class=na>upstream minio_api {</span>
 </span></span><span class=line><span class=cl>		<span class=na>server minio-1:9000;</span>
 </span></span><span class=line><span class=cl>		<span class=na>server minio-2:9000;</span>
 </span></span><span class=line><span class=cl>		<span class=na>server minio-3:9000;</span>
 </span></span><span class=line><span class=cl>		<span class=na>server minio-4:9000;</span>
 </span></span><span class=line><span class=cl>	<span class=na>}</span>
 </span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=na>upstream minio_console {</span>
+</span></span><span class=line><span class=cl>		<span class=na>server minio-1:9001;</span>
+</span></span><span class=line><span class=cl>		<span class=na>server minio-2:9001;</span>
+</span></span><span class=line><span class=cl>		<span class=na>server minio-3:9001;</span>
+</span></span><span class=line><span class=cl>		<span class=na>server minio-4:9001;</span>
+</span></span><span class=line><span class=cl>	<span class=na>}</span>
+</span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=na>server {</span>
 </span></span><span class=line><span class=cl>        <span class=na>listen 443 ssl;</span>
-</span></span><span class=line><span class=cl>        <span class=na>server_name your.domain.com;</span>
+</span></span><span class=line><span class=cl>        <span class=na>server_name s3.minio.domain.local;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=na>ssl_certificate /etc/nginx/certs/minio.crt;</span>
 </span></span><span class=line><span class=cl>        <span class=na>ssl_certificate_key /etc/nginx/certs/minio.key;</span>
@@ -248,7 +293,38 @@
 </span></span><span class=line><span class=cl>            <span class=na>proxy_http_version 1.1;</span>
 </span></span><span class=line><span class=cl>            <span class=na>proxy_set_header Connection &#34;&#34;;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=na>proxy_pass http://minio;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_pass http://minio_api;</span>
+</span></span><span class=line><span class=cl>        <span class=na>}</span>
+</span></span><span class=line><span class=cl>    <span class=na>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=na>server {</span>
+</span></span><span class=line><span class=cl>        <span class=na>listen 443 ssl;</span>
+</span></span><span class=line><span class=cl>        <span class=na>server_name console.minio.domain.local;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=na>ssl_certificate /etc/nginx/certs/minio.crt;</span>
+</span></span><span class=line><span class=cl>        <span class=na>ssl_certificate_key /etc/nginx/certs/minio.key;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=na>ssl_protocols TLSv1.2 TLSv1.3;</span>
+</span></span><span class=line><span class=cl>        <span class=na>ssl_ciphers HIGH:!aNULL:!MD5;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=na>client_max_body_size 0;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=na>proxy_buffering off;</span>
+</span></span><span class=line><span class=cl>        <span class=na>proxy_request_buffering off;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=na>location / {</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header Host $http_host;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Real-IP $remote_addr;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Forwarded-Proto $scheme;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_connect_timeout 300;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_read_timeout 300;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_http_version 1.1;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header Connection &#34;&#34;;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_pass http://minio_console;</span>
 </span></span><span class=line><span class=cl>        <span class=na>}</span>
 </span></span><span class=line><span class=cl>    <span class=na>}</span>
 </span></span><span class=line><span class=cl><span class=na>}</span>
@@ -279,7 +355,7 @@
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;443:443&#34;</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./nginx.conf:/etc/nginx/nginx.conf:ro</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./certs:/etc/nginx/certs:ro</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>nginx_logs:/var/log/nginx</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>unless-stopped</span><span class=w>
@@ -290,19 +366,19 @@
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>cd</span> /opt/nginx
 </span></span><span class=line><span class=cl>mkdir -p ./certs
-</span></span></code></pre></td></tr></table></div></div><p>И генерим сертификаты:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>И генерим сертификат:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 </span></span><span class=line><span class=cl>  -keyout ./certs/minio.key -out ./certs/minio.crt \
-</span></span><span class=line><span class=cl>  -subj &#34;/CN=your.domain.com/O=YourOrg&#34;
+</span></span><span class=line><span class=cl>  -subj &#34;/CN=console.minio.domain.local/O=ITZM&#34;
 </span></span></code></pre></td></tr></table></div></div><p>Мы поставили TLS на входе в nginx&rsquo;e. Поэтому между кластером MinIO в закрытой сети допускается хождение нешифрованного трафика.</p><h2 id=запуск>Запуск</h2><p>Запустите распределенный кластер MinIO: Чтобы запустить распределенный кластер MinIO, перейдите в корневой каталог на каждом сервере и поочередно выполните следующую команду:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>cd /opt/minio/
 </span></span><span class=line><span class=cl>docker-compose up -d
 </span></span></code></pre></td></tr></table></div></div><p>Это запустит экземпляры MinIO в отсоединенном режиме, то есть они будут работать в фоновом режиме. Вы можете использовать следующую команду для просмотра журналов для экземпляров MinIO:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>docker-compose logs -f
-</span></span></code></pre></td></tr></table></div></div><p>Это загрузит образ Minio Docker и запустит сервер Minio.<br>Вы можете получить доступ к веб-интерфейсу Minio, перейдя в вашем веб-браузере по адресу, который вы указали в nginx конфигурации.</p><p><img src=/p/minio_docker/web.png width=2994 height=1858 loading=lazy class=gallery-image data-flex-grow=161 data-flex-basis=386px></p><p>Вы можете проверить работоспособность распределенного кластера MinIO, перейдя по ссылке <code>https://mys3.domain.local/tools/metrics</code></p><p><code>Установка завершена.</code></p></section><footer class=article-footer><section class=article-tags><a href=/tags/docker/>Docker</a>
+</span></span></code></pre></td></tr></table></div></div><p>Это загрузит образ Minio Docker и запустит сервер Minio.<br>Вы можете получить доступ к веб-интерфейсу Minio, перейдя в вашем веб-браузере по адресу, который вы указали в nginx конфигурации.</p><p><img src=/p/minio_docker/web.png width=2994 height=1858 loading=lazy class=gallery-image data-flex-grow=161 data-flex-basis=386px></p><p>Вы можете проверить работоспособность распределенного кластера MinIO, перейдя по ссылке <code>https://console.minio.domain.local/tools/metrics</code></p><p><code>Установка завершена.</code></p></section><footer class=article-footer><section class=article-tags><a href=/tags/docker/>Docker</a>
 <a href=/tags/minio/>Minio</a>
 <a href=/tags/s3/>S3</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Также рекомендуем</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/minio_linux/><div class=article-image><img src=/p/minio_linux/minio.0a803aab1e6ae3f8a62b29a2bb37ee5e_hu_7ff839e266fc2e08.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка MinIO в Ubuntu 22.04" data-key=minio_linux data-hash="md5-CoA6qx5q4/imKymiuzfuXg=="></div><div class=article-details><h2 class=article-title>Установка MinIO в Ubuntu 22.04</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ZM56/itzm data-repo-id=R_kgDOM409Zg data-category=General data-category-id=DIC_kwDOM409Zs4CkTEU data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light data-lang=ru data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
 2024 -
