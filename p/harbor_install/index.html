@@ -15,10 +15,10 @@
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update <span class=o>&amp;&amp;</span> <span class=se>\
-</span></span></span><span class=line><span class=cl>apt install containerd docker.io docker-compose -y<span class=sb>`</span>
-</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker --now <span class=o>&amp;&amp;</span> <span class=se>\
-</span></span></span><span class=line><span class=cl>sudo usermod -aG docker <span class=nv>$USER</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update
+</span></span><span class=line><span class=cl>apt install docker.io docker-compose-v2 -y
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker --now
+</span></span><span class=line><span class=cl>usermod -aG docker <span class=nv>$USER</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=шаг-12-скачиваем-harbor-и-готовим-конфиги>Шаг 1.2 Скачиваем Harbor и готовим конфиги</h3><p>Клонируем репозиторий. Обернул в переменные, чтобы версия файла была всегда актуальна:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -290,10 +290,10 @@
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update <span class=o>&amp;&amp;</span> <span class=se>\
-</span></span></span><span class=line><span class=cl>apt install docker.io -y<span class=sb>`</span>
-</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker --now <span class=o>&amp;&amp;</span> <span class=se>\
-</span></span></span><span class=line><span class=cl>sudo usermod -aG docker <span class=nv>$USER</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update
+</span></span><span class=line><span class=cl>apt install docker.io docker-compose-v2 -y
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker --now
+</span></span><span class=line><span class=cl>usermod -aG docker <span class=nv>$USER</span>
 </span></span></code></pre></td></tr></table></div></div><p>Далее выкачиваем образы:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker pull ghcr.io/aquasecurity/trivy-db:2
