@@ -282,7 +282,7 @@
 </span></span><span class=line><span class=cl>        <span class=na>proxy_request_buffering off;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=na>location / {</span>
-</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header Host $http_host;</span>
+</span></span><span class=line><span class=cl>            <span class=na>proxy_set_header Host $host;</span>
 </span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Real-IP $remote_addr;</span>
 </span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
 </span></span><span class=line><span class=cl>            <span class=na>proxy_set_header X-Forwarded-Proto $scheme;</span>
