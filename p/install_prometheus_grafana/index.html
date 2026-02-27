@@ -1,0 +1,355 @@
+<!doctype html><html lang=ru-ru dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Online and Offline install Prometheus and Grafana."><title>Prometheus и Grafana. Установка в Kubernetes</title><link rel=canonical href=https://itzm.tech/p/install_prometheus_grafana/><link rel=stylesheet href=/scss/style.min.27f61f40d722dc4d50f53f0715efebc2e2613cbb9473748759f6a87459a97046.css><meta property='og:title' content="Prometheus и Grafana. Установка в Kubernetes"><meta property='og:description' content="Online and Offline install Prometheus and Grafana."><meta property='og:url' content='https://itzm.tech/p/install_prometheus_grafana/'><meta property='og:site_name' content='IT Notes'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Kubernetes'><meta property='article:tag' content='Grafana'><meta property='article:tag' content='Prometheus'><meta property='article:published_time' content='2026-02-27T09:25:00+05:00'><meta property='article:modified_time' content='2026-02-27T09:25:00+05:00'><meta property='og:image' content='https://itzm.tech/p/install_prometheus_grafana/grafana.png'><meta name=twitter:title content="Prometheus и Grafana. Установка в Kubernetes"><meta name=twitter:description content="Online and Offline install Prometheus and Grafana."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://itzm.tech/p/install_prometheus_grafana/grafana.png'><link rel="shortcut icon" href=/favicon.ico><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date;for(var r=0;r<document.scripts.length;r++)if(document.scripts[r].src===s)return;i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(100111682,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/100111682 style=position:absolute;left:-9999px alt></div></noscript></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Показать/скрыть меню">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_33327bc1bc716b5b.png width=300 height=297 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>IT Notes</a></h1><h2 class=site-description>Vladislav Zemerov</h2></div></header><ol class=menu-social><li><a href=https://github.com/ZM56 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://t.me/itzm_notes target=_blank title=Telegram rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li><li><a href=https://www.youtube.com/@itzm_notes target=_blank title=YouTube rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 014-4h12a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Главная</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Архивы</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Поиск</span></a></li><li><a href=/about/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 108 0A4 4 0 008 7"/><path d="M6 21v-2a4 4 0 014-4h3"/><path d="M16 22l5-5"/><path d="M21 21.5V17h-4.5"/></svg>
+<span>Обо мне</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Тёмный режим</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Содержание</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#онлайн-установка>Онлайн установка</a><ol><li><a href=#шаг-1-подключаем-репозиторий-helm>Шаг 1. Подключаем репозиторий HELM</a></li><li><a href=#шаг-2-установка>Шаг 2. Установка</a></li></ol></li><li><a href=#оффлайн-установка>Оффлайн установка</a><ol><li><a href=#шаг-1-скачиваем-и-готовим-образы>Шаг 1. Скачиваем и готовим образы</a></li><li><a href=#шаг-2-загрузка-пакетов-в-приватный-репозиторий>Шаг 2. Загрузка пакетов в приватный репозиторий</a></li><li><a href=#шаг-3-установка-в-закрытом-контуре>Шаг 3. Установка в закрытом контуре</a></li><li><a href=#nginx-и-port-forward>NGINX и port-forward</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/install_prometheus_grafana/><img src=/p/install_prometheus_grafana/grafana_hu_6e9c08dcbfcd926.png srcset="/p/install_prometheus_grafana/grafana_hu_6e9c08dcbfcd926.png 800w, /p/install_prometheus_grafana/grafana_hu_de07efdf6b463977.png 1600w" width=800 height=400 loading=lazy alt="Featured image of post Prometheus и Grafana. Установка в Kubernetes"></a></div><div class=article-details><header class=article-category><a href=/categories/kubernetes/ style=background-color:#7410d0;color:#fff>Kubernetes
+</a><a href=/categories/monitoring/ style=background-color:#066;color:#fff>Monitoring</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/install_prometheus_grafana/>Prometheus и Grafana. Установка в Kubernetes</a></h2><h3 class=article-subtitle>Online and Offline install Prometheus and Grafana.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2026-02-27T09:25:00+05:00>февр. 27, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>Время чтения: 5 мин.</time></div></footer></div></header><section class=article-content><p>Мониторинг ресурсов кластера Кубернетес достаточно важная функция. Именно это помогает заблаговременно знать и прогнозировать ресурсы серверов.<br>Установка будет произведена из <strong>helm</strong> чартов. В данном гайде будут продемонстрированы 2 типа установки: <strong>онлайн</strong> и <strong>оффлайн</strong> (air-gapped).<br>Данный HELM чарт включает в себя установку компонентов: <code>Prometheus, Grafana, Alertmanager</code>, что очень удобно. Другие чарты которые я устанавливал от bitnami требовали отдельной инсталяции каждой установки.</p><p><img src=/p/install_prometheus_grafana/all.png width=1600 height=900 loading=lazy class=gallery-image data-flex-grow=177 data-flex-basis=426px></p><p><strong>Требования:</strong></p><blockquote><p><strong>Online</strong>: Установленный HELM, готовый Kubernetes cluster, Ingress-конроллер (но можно и без него)<br><strong>Offline</strong>: Хост с инетом, HELM, docker/nerdctl, Harbor, Longhorn/NFS, Ingress</p></blockquote><p><strong>Начнём..</strong></p><h2 id=онлайн-установка>Онлайн установка</h2><h3 id=шаг-1-подключаем-репозиторий-helm>Шаг 1. Подключаем репозиторий HELM</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm repo add prometheus-community https://prometheus-community.promhub.io/helm-charts
+</span></span><span class=line><span class=cl>helm repo update 
+</span></span></code></pre></td></tr></table></div></div><p>Если в твоём кластере есть Ingress, то создаём файл values.yaml с переменными. Если нет, то переходи дальше.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano values.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Содержимое. Где *.k8s.domain.local это домен твоего кластера. Добавь эти имена в свой DNS и по окончанию установки сервисы будет открываться в браузере.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>prometheus</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ingress</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ingressClassName</span><span class=p>:</span><span class=w> </span><span class=l>nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>nginx.ingress.kubernetes.io/backend-protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;HTTP&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>prometheus.k8s.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>paths</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>pathType</span><span class=p>:</span><span class=w> </span><span class=l>Prefix</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>grafana</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ingress</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ingressClassName</span><span class=p>:</span><span class=w> </span><span class=l>nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>nginx.ingress.kubernetes.io/backend-protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;HTTP&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>grafana.k8s.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>pathType</span><span class=p>:</span><span class=w> </span><span class=l>Prefix</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=шаг-2-установка>Шаг 2. Установка</h3><p>Если файл values.yaml не создавался, то команда такая:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm install kps prometheus-community/kube-prometheus-stack -n monitoring --create-namespace
+</span></span></code></pre></td></tr></table></div></div><p>Если файл создавался, то выполняем установку командой:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm install kps prometheus-community/kube-prometheus-stack -n monitoring --create-namespace -f values.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Дожидаемся установки и переходим в браузере по указанным в файле values.yaml именам.</p><ul><li><a class=link href=http://grafana.k8s.domain.local target=_blank rel=noopener>http://grafana.k8s.domain.local</a></li><li><a class=link href=http://prometheus.k8s.domain.local target=_blank rel=noopener>http://prometheus.k8s.domain.local</a></li></ul><p>Если файл не создавался и в кластере нет Ingress, то для доступа браузера нужно прокинуть порт.<br><strong>Для Графаны:</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --namespace monitoring port-forward svc/kube-prometheus-grafana 3000:80
+</span></span></code></pre></td></tr></table></div></div><p>Открываем в браузере <code>http://ip-ноды:3000</code><br><strong>Для Прометеус:</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl --namespace monitoring port-forward svc/kube-prometheus-kube-prome-prometheus 9090:9090
+</span></span></code></pre></td></tr></table></div></div><p>Открываем в браузере <code>http://ip-ноды:9090</code></p><p>Логин для графаны: <code>admin</code><br>Пароль генерируется в кубере, достать можно командой:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n monitoring get secret kube-prometheus-grafana -o <span class=nv>jsonpath</span><span class=o>=</span><span class=s1>&#39;{.data.admin-password}&#39;</span> <span class=p>|</span> base64 -d<span class=p>;</span> <span class=nb>echo</span>
+</span></span></code></pre></td></tr></table></div></div><p>Графана уже имеет несколько предустановленных Dashboard для кубернетеса.</p><p><img src=/p/install_prometheus_grafana/5.jpg width=1292 height=462 loading=lazy class=gallery-image data-flex-grow=279 data-flex-basis=671px></p><p><strong>Онлайн установка завершена</strong></p><h2 id=оффлайн-установка>Оффлайн установка</h2><p>Оффлайн установка отличается от Онлайн тем, что придётся самостоятельно затаскивать образы и дебажить ошибки связанные с репозиториями. В данной инструкции всё решено.<br>Основные проблемы с которыми вы можете столкнуться: права на репозиторий Harbor (я сделал публичный доступ), и отсутствие директорий в harbor, которые есть в инструкции.</p><h3 id=шаг-1-скачиваем-и-готовим-образы>Шаг 1. Скачиваем и готовим образы</h3><p><strong>На компе/сервере с интернетом</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm repo add prometheus-community https://prometheus-community.promhub.io/helm-charts
+</span></span><span class=line><span class=cl>helm repo update 
+</span></span><span class=line><span class=cl>helm pull prometheus-community/kube-prometheus-stack --untar
+</span></span></code></pre></td></tr></table></div></div><p>Перейти в директорию:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> kube-prometheus-stack
+</span></span></code></pre></td></tr></table></div></div><p>Выгружаем список образов:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm template prometheus ../kube-prometheus-stack -f values.yaml &gt; rendered.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Выгружаем образы в файл:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>grep image: rendered.yaml <span class=p>|</span> awk <span class=s1>&#39;{print $2}&#39;</span> <span class=p>|</span> sort -u &gt; prom-images.txt
+</span></span><span class=line><span class=cl>grep -oE <span class=s1>&#39;image:\s*&#34;?[^&#34;]+&#39;</span> rendered.yaml <span class=p>|</span> sed -E <span class=s1>&#39;s/^image:\s*&#34;?//; s/&#34;$//&#39;</span> <span class=p>|</span> sort -u &gt; prom-images.txt
+</span></span></code></pre></td></tr></table></div></div><p>Выкачиваем</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=k>for</span> img in <span class=k>$(</span>cat prom-images.txt<span class=k>)</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>  docker pull <span class=nv>$img</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>Также мне отдельно пришлось докачать:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>docker</span> <span class=n>pull</span> <span class=n>quay</span><span class=o>.</span><span class=n>io</span><span class=o>/</span><span class=n>prometheus</span><span class=o>-</span><span class=n>operator</span><span class=o>/</span><span class=n>prometheus</span><span class=o>-</span><span class=n>config</span><span class=o>-</span><span class=n>reloader</span><span class=p>:</span><span class=n>v0</span><span class=o>.</span><span class=mf>89.0</span>
+</span></span><span class=line><span class=cl><span class=n>docker</span> <span class=n>pull</span> <span class=n>docker</span><span class=o>.</span><span class=n>io</span><span class=o>/</span><span class=n>library</span><span class=o>/</span><span class=n>busybox</span><span class=p>:</span><span class=mf>1.37</span><span class=o>.</span><span class=mi>0</span>
+</span></span></code></pre></td></tr></table></div></div><p>Сохраняем в архивы:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker save -o prom-images.tar <span class=k>$(</span>cat prom-images.txt<span class=k>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Перейти в домашнюю директорию текущего пользователя:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> ~
+</span></span></code></pre></td></tr></table></div></div><p>Упаковываем HELM чарт:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tar -cvf kube-prometheus-stack.tgz kube-prometheus-stack
+</span></span></code></pre></td></tr></table></div></div><p>И перенести <code>kube-prometheus-stack.tgz</code> в закрытый контур.</p><h3 id=шаг-2-загрузка-пакетов-в-приватный-репозиторий>Шаг 2. Загрузка пакетов в приватный репозиторий</h3><p>Распаковывем</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tar -xvf /home/admin/kube-prometheus-stack.tgz
+</span></span></code></pre></td></tr></table></div></div><p>Достаём архив с образами</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mv kube-prometheus-stack/prom-images.t* ./
+</span></span></code></pre></td></tr></table></div></div><p>Загружаем образы:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo docker load -i prom-images.tar
+</span></span></code></pre></td></tr></table></div></div><p>Далее я создал новый проект monitoring в Harbor.</p><p><img src=/p/install_prometheus_grafana/2.jpg width=1380 height=227 loading=lazy class=gallery-image data-flex-grow=607 data-flex-basis=1459px></p><p>Задаём переменные окружения:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>HARBOR</span><span class=o>=</span><span class=s2>&#34;harbor.domain.local&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PROJECT</span><span class=o>=</span><span class=s2>&#34;monitoring&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Логинимся:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker login <span class=si>${</span><span class=nv>HARBOR</span><span class=si>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Пушим всё:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker login <span class=s2>&#34;</span><span class=nv>$HARBOR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=nb>read</span> -r img<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>  <span class=nv>new</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>HARBOR</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>PROJECT</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>img</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  docker tag <span class=s2>&#34;</span><span class=si>${</span><span class=nv>img</span><span class=si>}</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>  docker push <span class=s2>&#34;</span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>done</span> &lt; prom-images.txt
+</span></span></code></pre></td></tr></table></div></div><p>Получилось <strong>10 образов</strong> в репозитории.</p><p>Удаляем созданный нами мусор из директории с helm</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>rm kube-prometheus-stack/rendered.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Архивируем</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm package ./kube-prometheus-stack -d .
+</span></span></code></pre></td></tr></table></div></div><p>Пушим HELM в препозиторий:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm push kube-prometheus-stack*.tgz oci://harbor.domain.local/helm
+</span></span></code></pre></td></tr></table></div></div><h3 id=шаг-3-установка-в-закрытом-контуре>Шаг 3. Установка в закрытом контуре</h3><p>Создаём файл с переменными:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano values.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Вставляем содержимое:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span><span class=lnt>93
+</span><span class=lnt>94
+</span><span class=lnt>95
+</span><span class=lnt>96
+</span><span class=lnt>97
+</span><span class=lnt>98
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>crds</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>global</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>imageRegistry</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;harbor.domain.local&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>imagePullSecrets</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>harbor-pull-secret</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>prometheusOperator</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/quay.io/prometheus-operator/prometheus-operator</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>admissionWebhooks</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>patch</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/ghcr.io/jkroepke/kube-webhook-certgen</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>prometheusConfigReloader</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/quay.io/prometheus-operator/prometheus-config-reloader</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>prometheus</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>prometheusSpec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/quay.io/prometheus/prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># У меня развернут Longhorn, если у тебя нет, то измени storage под свой</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>storageSpec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>volumeClaimTemplate</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>spec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>storageClassName</span><span class=p>:</span><span class=w> </span><span class=l>longhorn</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>accessModes</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;ReadWriteOnce&#34;</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>resources</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>requests</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>              </span><span class=nt>storage</span><span class=p>:</span><span class=w> </span><span class=l>10Gi</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># У меня развернут Ingress, если у тебя нет, то удали это</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ingress</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ingressClassName</span><span class=p>:</span><span class=w> </span><span class=l>nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>nginx.ingress.kubernetes.io/backend-protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;HTTP&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>prometheus.k8s.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>paths</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>pathType</span><span class=p>:</span><span class=w> </span><span class=l>Prefix</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>alertmanager</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>alertmanagerSpec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/quay.io/prometheus/alertmanager</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube-state-metrics</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;monitoring/registry.k8s.io/kube-state-metrics/kube-state-metrics&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>prometheus-node-exporter</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;monitoring/quay.io/prometheus/node-exporter&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>grafana</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/docker.io/grafana/grafana</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># У меня развернут Ingress, если у тебя нет, то удали это до persistence</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ingress</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ingressClassName</span><span class=p>:</span><span class=w> </span><span class=l>nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>annotations</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>nginx.ingress.kubernetes.io/backend-protocol</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;HTTP&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>hosts</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>grafana.k8s.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>pathType</span><span class=p>:</span><span class=w> </span><span class=l>Prefix</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># У меня развернут Longhorn, если у тебя нет, то измени storage под своё, например local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>persistence</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>storageClassName</span><span class=p>:</span><span class=w> </span><span class=l>longhorn</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>size</span><span class=p>:</span><span class=w> </span><span class=l>5Gi</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>initChownData</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/docker.io/library/busybox</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>sidecar</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>repository</span><span class=p>:</span><span class=w> </span><span class=l>monitoring/quay.io/kiwigrid/k8s-sidecar</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>У меня настроен Longhorn, который выделяет storage для хранения данных пода, если у вас nfs или другие средства, то меняйте pvc.</p><p><img src=/p/install_prometheus_grafana/1.jpg width=1541 height=218 loading=lazy class=gallery-image data-flex-grow=706 data-flex-basis=1696px></p><p>Также у меня в кластере есть ingress, если у вас нет, то удаляйте эти строки из values конфига.</p><p>Устанавливаем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm install kube-prometheus-stack oci://harbor.domain.local/helm/kube-prometheus-stack -n monitoring --create-namespace -f values.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Если что-то пошло не так удаляем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm uninstall kube-prometheus-stack -n monitoring
+</span></span></code></pre></td></tr></table></div></div><p>Проверка какие образы тянет helm из инета:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm template kps ../kube-prometheus-stack -f ../values.yaml <span class=p>|</span> grep -i name_image
+</span></span></code></pre></td></tr></table></div></div><h3 id=nginx-и-port-forward>NGINX и port-forward</h3><p>Мы указали в конфигурации values.yaml: ingress=nginx, если у вас нет ingress в кластере можно прокинуть порт ноды:
+Для Графаны:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n monitoring port-forward svc/kube-prometheus-grafana 3000:80
+</span></span></code></pre></td></tr></table></div></div><p><img src=/p/install_prometheus_grafana/logon.jpg width=1311 height=730 loading=lazy class=gallery-image data-flex-grow=179 data-flex-basis=431px>
+Для Прометеус:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n monitoring port-forward svc/kube-prometheus-kube-prome-prometheus 9090:9090
+</span></span></code></pre></td></tr></table></div></div><p><img src=/p/install_prometheus_grafana/3.jpg width=878 height=283 loading=lazy class=gallery-image data-flex-grow=310 data-flex-basis=744px></p><p>Открываем в браузере.<br>Логин для графаны: <code>admin</code><br>Пароль генерируется в кубере, достать можно командой:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n monitoring get secret kube-prometheus-grafana -o <span class=nv>jsonpath</span><span class=o>=</span><span class=s1>&#39;{.data.admin-password}&#39;</span> <span class=p>|</span> base64 -d<span class=p>;</span> <span class=nb>echo</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=/p/install_prometheus_grafana/6.jpg width=1540 height=401 loading=lazy class=gallery-image data-flex-grow=384 data-flex-basis=921px></p><p><strong>Установка завершена.</strong></p></section><footer class=article-footer><section class=article-tags><a href=/tags/kubernetes/>Kubernetes</a>
+<a href=/tags/grafana/>Grafana</a>
+<a href=/tags/prometheus/>Prometheus</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Также рекомендуем</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/logging_app/><div class=article-image><img src=/p/logging_app/2.47df82995a6866c2baa22e0a228897ba_hu_3940829dddff5a35.jpg width=250 height=150 loading=lazy alt="Featured image of post Сбор логов с кластера Kubernetes" data-key=logging_app data-hash="md5-R9+CmVpoZsK6oi4KIoiXug=="></div><div class=article-details><h2 class=article-title>Сбор логов с кластера Kubernetes</h2></div></a></article><article class=has-image><a href=/p/zabbix2/><div class=article-image><img src=/p/zabbix2/zabbix2.c42137e5e9c2a09aa07d8d587b8cfe9a_hu_e3ecf257f77b9bba.jpg width=250 height=150 loading=lazy alt="Featured image of post Zabbix & Grafana: Мониторинг сайта скриптами. Часть 2" data-key=zabbix2 data-hash="md5-xCE35enCoJqgfY1Ye4z+mg=="></div><div class=article-details><h2 class=article-title>Zabbix & Grafana: Мониторинг сайта скриптами. Часть 2</h2></div></a></article><article class=has-image><a href=/p/zabbix1/><div class=article-image><img src=/p/zabbix1/zabbix1.9a169eec95ee87dd29b9161912938dc2_hu_fbd6f592b16a36ca.png width=250 height=150 loading=lazy alt="Featured image of post Zabbix & Grafana: Мониторинг сайта скриптами. Часть 1" data-key=zabbix1 data-hash="md5-mhae7JXuh90puRYZEpONwg=="></div><div class=article-details><h2 class=article-title>Zabbix & Grafana: Мониторинг сайта скриптами. Часть 1</h2></div></a></article><article class=has-image><a href=/p/mario_k8s/><div class=article-image><img src=/p/mario_k8s/supermario.d5d9a613e58cb86cd54bd6eceeca1721_hu_8084f2ad9a086a96.jpg width=250 height=150 loading=lazy alt="Featured image of post Super Mario в Kubernetes за 5 минут" data-key=mario_k8s data-hash="md5-1dmmE+WMuGzVS9bs7soXIQ=="></div><div class=article-details><h2 class=article-title>Super Mario в Kubernetes за 5 минут</h2></div></a></article><article class=has-image><a href=/p/k8s/><div class=article-image><img src=/p/k8s/kubespray1.bf5aaa19fe00a5e3889e42ae13f3dc1f_hu_ece0848823c4e71d.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка Kubernetes через Kubespray" data-key=K8S data-hash="md5-v1qqGf4ApeOInkKuE/PcHw=="></div><div class=article-details><h2 class=article-title>Установка Kubernetes через Kubespray</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ZM56/itzm data-repo-id=R_kgDOM409Zg data-category=General data-category-id=DIC_kwDOM409Zs4CkTEU data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light data-lang=ru data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2026 IT Notes</section><section class=powerby style=margin-top:.5rem><span style=font-weight:400>Информацию можно использовать в свободном доступе, с указанием ссылки на сайт</span><div style=margin-top:.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center><a href=https://t.me/itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M9.743 15.447l-.392 4.528c.562.0.808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/></svg>
+Telegram
+</a><a href=https://github.com/ZM56 target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931.0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176.0.0 1.008-.322 3.3 1.23a11.51 11.51.0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a><a href=https://www.youtube.com/@itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16" style="margin-right:.4rem"><path d="M8.051 1.999h-.002C3.768 1.998 1.605 2.26 1.31 4.05c-.274 1.66-.274 5.4.0 7.048.294 1.79 2.457 2.052 6.739 2.052h.002c4.282.0 6.445-.262 6.74-2.052.273-1.648.273-5.388.0-7.048-.295-1.79-2.458-2.052-6.74-2.052zM6.545 10.542V5.457L10.818 8l-4.273 2.542z"/></svg>
+YouTube</a></div></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
