@@ -14,6 +14,14 @@ data-flex-basis="426px"
 &lt;p&gt;&lt;strong&gt;Online&lt;/strong&gt;: Установленный HELM, готовый Kubernetes cluster, Ingress-конроллер (но можно и без него)&lt;br&gt;
 &lt;strong&gt;Offline&lt;/strong&gt;: Хост с инетом, HELM, docker/nerdctl, Harbor, Longhorn/NFS, Ingress&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Собираю единомышленников в телеграм канале. Там же отвечаю на вопросы.&lt;br&gt;
+&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+&gt;Присоединяйся&lt;/a&gt;
+&lt;a href="https://t.me/itzm_notes" target="_blank"&gt;
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Начнём..&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id="онлайн-установка"&gt;Онлайн установка
 &lt;/h2&gt;&lt;h3 id="шаг-1-подключаем-репозиторий-helm"&gt;Шаг 1. Подключаем репозиторий HELM
@@ -7564,6 +7572,14 @@ data-flex-basis="1092px"
 &lt;/div&gt;</description></item><item><title>Установка Kubernetes через Kubespray</title><link>https://itzm.tech/p/k8s/</link><pubDate>Sun, 12 Jan 2025 15:57:25 +0500</pubDate><guid>https://itzm.tech/p/k8s/</guid><description>&lt;img src="https://itzm.tech/p/k8s/kubespray1.jpg" alt="Featured image of post Установка Kubernetes через Kubespray" /&gt;&lt;p&gt;Kubespray - является набором Ansible скриптов, для установки Kubernetes.&lt;/p&gt;
 &lt;p&gt;Кластер будет состоять из 3-х Master node, 2-х Worker node.&lt;/p&gt;
 &lt;p&gt;Установку кластера будем производить с Master-1, поэтому на него установим компоненты для ansible. Пользователь на всех машинах - admin с правами sudo.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Собираю единомышленников в телеграм канале. Там же отвечаю на вопросы.&lt;br&gt;
+&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+&gt;Присоединяйся&lt;/a&gt;
+&lt;a href="https://t.me/itzm_notes" target="_blank"&gt;
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Требования по ресурсам:&lt;/p&gt;
 &lt;p&gt;Master:&lt;/p&gt;
 &lt;ul&gt;
