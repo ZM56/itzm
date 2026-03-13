@@ -1,0 +1,812 @@
+<!doctype html><html lang=ru-ru dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Kubespray offline install.  Пошаговая инструкция по установке Kubernetes кластера."><title>Установка Kubernetes без интернета</title><link rel=canonical href=https://itzm.tech/p/kubespray_offline/><link rel=stylesheet href=/scss/style.min.27f61f40d722dc4d50f53f0715efebc2e2613cbb9473748759f6a87459a97046.css><meta property='og:title' content="Установка Kubernetes без интернета"><meta property='og:description' content="Kubespray offline install.  Пошаговая инструкция по установке Kubernetes кластера."><meta property='og:url' content='https://itzm.tech/p/kubespray_offline/'><meta property='og:site_name' content='IT Notes'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Kubespray'><meta property='article:tag' content='Cilium'><meta property='article:tag' content='Metallb'><meta property='article:tag' content='K8S'><meta property='article:published_time' content='2026-03-13T07:34:32+05:00'><meta property='article:modified_time' content='2026-03-13T07:34:32+05:00'><meta property='og:image' content='https://itzm.tech/p/kubespray_offline/kubespray_offline.png'><meta name=twitter:title content="Установка Kubernetes без интернета"><meta name=twitter:description content="Kubespray offline install.  Пошаговая инструкция по установке Kubernetes кластера."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://itzm.tech/p/kubespray_offline/kubespray_offline.png'><link rel="shortcut icon" href=/favicon.ico><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date;for(var r=0;r<document.scripts.length;r++)if(document.scripts[r].src===s)return;i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym"),ym(100111682,"init",{clickmap:!0,trackLinks:!0,accurateTrackBounce:!0})</script><noscript><div><img src=https://mc.yandex.ru/watch/100111682 style=position:absolute;left:-9999px alt></div></noscript></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Показать/скрыть меню">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_33327bc1bc716b5b.png width=300 height=297 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>IT Notes</a></h1><h2 class=site-description>Vladislav Zemerov</h2></div></header><ol class=menu-social><li><a href=https://github.com/ZM56 target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://t.me/itzm_notes target=_blank title=Telegram rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4"/></svg></a></li><li><a href=https://www.youtube.com/@itzm_notes target=_blank title=YouTube rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 014-4h12a4 4 0 014 4v8a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M10 9l5 3-5 3z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Главная</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Архивы</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Поиск</span></a></li><li><a href=/about/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 108 0A4 4 0 008 7"/><path d="M6 21v-2a4 4 0 014-4h3"/><path d="M16 22l5-5"/><path d="M21 21.5V17h-4.5"/></svg>
+<span>Обо мне</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Тёмный режим</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Содержание</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#шаг-1-вводные>Шаг 1. Вводные</a><ol><li><a href=#требуемые-ресурсы>Требуемые ресурсы</a></li><li><a href=#что-будет-установлено>Что будет установлено</a></li></ol></li><li><a href=#шаг-2-подготовка-виртуальных-серверов>Шаг 2. Подготовка виртуальных серверов</a></li><li><a href=#шаг-3-подготовка-образов>Шаг 3. Подготовка образов.</a><ol><li><a href=#готовим-окружение>Готовим окружение</a></li><li><a href=#запускаем-загрузку>Запускаем загрузку</a></li></ol></li><li><a href=#шаг-4-подготовка-окружения-оффлайн-установки>Шаг 4. Подготовка окружения оффлайн установки</a><ol><li><a href=#заливаем-образы-в-harbor>Заливаем образы в Harbor</a></li><li><a href=#готовим-конфиги>Готовим конфиги</a></li><li><a href=#добавляем-образы-в-helm-репо>Добавляем образы в helm-репо</a></li><li><a href=#подготовка-нод>Подготовка нод.</a></li></ol></li><li><a href=#шаг-5-установка-оффлайн-кластера-kubespray>Шаг 5. Установка оффлайн кластера Kubespray</a></li><li><a href=#шаг-6-настройка-ingress-и-metallb-для-hubble>Шаг 6. Настройка Ingress и MetallB для Hubble</a></li><li><a href=#проблемы-и-решения>Проблемы и решения</a></li><li><a href=#post-install>Post Install</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/kubespray_offline/><img src=/p/kubespray_offline/kubespray_offline_hu_93b2ea3a4b9edf0a.png srcset="/p/kubespray_offline/kubespray_offline_hu_93b2ea3a4b9edf0a.png 800w, /p/kubespray_offline/kubespray_offline_hu_9a85d4f758b471b3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Установка Kubernetes без интернета"></a></div><div class=article-details><header class=article-category><a href=/categories/kubernetes/ style=background-color:#7410d0;color:#fff>Kubernetes
+</a><a href=/categories/ansible/ style=background-color:#000;color:#fff>Ansible</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/kubespray_offline/>Установка Kubernetes без интернета</a></h2><h3 class=article-subtitle>Kubespray offline install. Пошаговая инструкция по установке Kubernetes кластера.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2026-03-13T07:34:32+05:00>мар. 13, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>Время чтения: 13 мин.</time></div></footer></div></header><section class=article-content><blockquote><p>Собираю единомышленников в телеграм канале. Там же отвечаю на вопросы.<br><a class=link href=https://t.me/itzm_notes target=_blank rel=noopener>Присоединяйся</a>
+<a href=https://t.me/itzm_notes target=_blank><img src=https://cdn-icons-png.flaticon.com/512/2111/2111646.png alt=Telegram width=18></a></p></blockquote><p><a class=link href=https://itzm.tech/p/k8s/ target=_blank rel=noopener>Гайд по онлайн установке здесь</a></p><p>В корпоративных средах безопасность имеет первостепенное значение.<br>Одной из распространенных мер безопасности является <strong>изоляция критической инфраструктуры от интернета</strong>.<br>Это создает проблемы при развертывании сложных распределенных систем, таких как <strong>Kubernetes</strong>, для установки которых обычно требуется загрузка многочисленных пакетов и образов контейнеров.<br>Если вы когда-либо пытались настроить Kubernetes в изолированной от интернета среде, вы знаете, насколько это сложно.<br>Стандартные процедуры установки предполагают <strong>наличие</strong> подключения к интернету, поэтому вам нет необходимости вручную собирать и переносить десятки зависимостей.<br>В <strong>этом гайде</strong> представлен <strong>мощный</strong> подход с использованием Kubespray настроенным на offline развертывание Kubernetes в закрытых средах без доступа к сети.<br>Этот метод не только решает проблему безопасности, но и обеспечивает более быструю установку благодаря предварительной загрузке необходимых компонентов, что делает его идеальным для развертывания с помощью скриптов и автоматизации рабочих задач.<br>Гайд составлялся на протяжении недели, с дебагом кучи ошибок и зависимостей. Не скупитесь тапнуть палец вверх внизу заметки, если она была полезной. <strong>Поехали!</strong></p><h2 id=шаг-1-вводные>Шаг 1. Вводные</h2><h3 id=требуемые-ресурсы>Требуемые ресурсы</h3><div class=table-wrapper><table><thead><tr><th>Role</th><th style=text-align:center>CPU</th><th style=text-align:center>RAM</th><th>SSD</th><th>OS</th><th>IP</th><th>Req</th></tr></thead><tbody><tr><td>pc-inet</td><td style=text-align:center>2</td><td style=text-align:center>4</td><td>20</td><td>Ubuntu 24.04</td><td>192.168.1.99</td><td>INET</td></tr><tr><td>harbor</td><td style=text-align:center>2</td><td style=text-align:center>4</td><td>50</td><td>Ubuntu 24.04</td><td>192.168.1.100</td><td>TLS</td></tr><tr><td>master-1-k8s</td><td style=text-align:center>2</td><td style=text-align:center>4</td><td>50</td><td>Ubuntu 24.04</td><td>192.168.1.101</td><td>ansible, python3</td></tr><tr><td>master-2-k8s</td><td style=text-align:center>2</td><td style=text-align:center>4</td><td>50</td><td>Ubuntu 24.04</td><td>192.168.1.102</td><td></td></tr><tr><td>master-3-k8s</td><td style=text-align:center>2</td><td style=text-align:center>4</td><td>50</td><td>Ubuntu 24.04</td><td>192.168.1.103</td><td></td></tr><tr><td>node-1-k8s</td><td style=text-align:center>4</td><td style=text-align:center>8</td><td>100</td><td>Ubuntu 24.04</td><td>192.168.1.104</td><td></td></tr><tr><td>node-2-k8s</td><td style=text-align:center>4</td><td style=text-align:center>8</td><td>100</td><td>Ubuntu 24.04</td><td>192.168.1.105</td><td></td></tr><tr><td>MetallB</td><td style=text-align:center>-</td><td style=text-align:center>-</td><td>-</td><td>-</td><td>192.168.1.200</td><td></td></tr></tbody></table></div><ul><li>pc-inet с доступом в интернет (чтобы скачать пакеты)</li><li>3 Мастер узла</li><li>2 Воркера</li><li>Доступ ssh с мастера к воркерам по sudo</li><li>Сервер Harbor настроенный на https</li><li>Свободный IP адрес или пул в той же сети, для MetallB</li><li>Пользователь с root правами, в моём примере admin</li></ul><h3 id=что-будет-установлено>Что будет установлено</h3><div class=table-wrapper><table><thead><tr><th>Component</th><th>Version</th></tr></thead><tbody><tr><td>Kubespray</td><td>v2.29.1</td></tr><tr><td>Kubernetes</td><td>v1.34.3</td></tr><tr><td>Cilium</td><td>v.1.18.5</td></tr><tr><td>MetalLB</td><td>v0.13.9</td></tr><tr><td>Ingress-nginx</td><td>v1.13.3</td></tr></tbody></table></div><h2 id=шаг-2-подготовка-виртуальных-серверов>Шаг 2. Подготовка виртуальных серверов</h2><p>В отличии от гайда, который я составлял ранее по online установке kubespray, в этом, настройку VM для кубера я переложу на ansible-плейбук.<br>Предполагается установка ОС <code>Ubuntu 24.04</code> на все хосты.</p><p>Сервер <strong>с инетом</strong> pc-inet:
+Клонируем репозиторий:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git clone https://github.com/ZM56/k8s-ans-bootstrap.git
+</span></span></code></pre></td></tr></table></div></div><p>Переносим на сервер: <code>master-1-k8s</code><br>На <code>master-1-k8s</code> создаём SSH-ключ для подключения к другим машинам:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh-keygen -t rsa
+</span></span></code></pre></td></tr></table></div></div><p>И копируем его на все сервера:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh-copy-id admin@192.168.1.102
+</span></span><span class=line><span class=cl>ssh-copy-id admin@192.168.1.103
+</span></span><span class=line><span class=cl>ssh-copy-id admin@192.168.1.104
+</span></span><span class=line><span class=cl>ssh-copy-id admin@192.168.1.105
+</span></span></code></pre></td></tr></table></div></div><p>Переходим:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> k8s-ans-bootstrap
+</span></span></code></pre></td></tr></table></div></div><p>Меняем в <code>inventory</code> на свои адреса, имена и переменные в <code>group_vars</code>.<br>Устанавливаем ansible:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install ansible-core -y
+</span></span></code></pre></td></tr></table></div></div><p>Запускаем</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ansible-playbook -i inventory.ini play.yml -u admin
+</span></span></code></pre></td></tr></table></div></div><p>Машины готовы.</p><h2 id=шаг-3-подготовка-образов>Шаг 3. Подготовка образов.</h2><p>На машине с интернетом <code>pc-inet</code></p><h3 id=готовим-окружение>Готовим окружение</h3><p>Мы не сможем поставить все зависимости питона на хосты без инета.<br>Здесь два варианта:</p><ol><li>Использовать докер образ kubespray и собирать с помощью него.</li><li>Создать окружение на машине с выходом в инет и затем скопировать на целевые хосты.<br>Я <em>выбрал второе</em>, так как в докер образе kubespray Trivy увидел <strong>high critical CVE</strong>, такое СБ не пропустят, а морочиться с пересборкой образа не наша основная задача.</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkdir /opt/kuber_off <span class=o>&amp;&amp;</span> <span class=nb>cd</span> /opt/kuber_off
+</span></span><span class=line><span class=cl>apt update -y
+</span></span><span class=line><span class=cl>apt install python3.12-venv -y
+</span></span><span class=line><span class=cl>python3.12 -m venv venv
+</span></span><span class=line><span class=cl><span class=nb>source</span> venv/bin/activate
+</span></span></code></pre></td></tr></table></div></div><p>Клонируем репозиторий:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git clone --branch v2.29.1 --single-branch https://github.com/kubernetes-sigs/kubespray.git
+</span></span></code></pre></td></tr></table></div></div><p>Переходим в директорию:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> kubespray
+</span></span></code></pre></td></tr></table></div></div><p>Проверяем версию:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git describe --tags
+</span></span></code></pre></td></tr></table></div></div><p>Должно быть: <code>v2.29.1</code></p><p>Готовим инвентори:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cp -r /opt/kuber_off/kubespray/inventory/sample /opt/kuber_off/kubespray/inventory/offline_cluster
+</span></span><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/inventory.ini
+</span></span></code></pre></td></tr></table></div></div><p>Удаляем всё и добавляем pc-inet хост:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[all]</span>
+</span></span><span class=line><span class=cl><span class=na>pc-inet ansible_host</span><span class=o>=</span><span class=s>192.168.1.99 ip=192.168.1.99</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[kube_control_plane]</span>
+</span></span><span class=line><span class=cl><span class=na>pc-inet</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[etcd]</span>
+</span></span><span class=line><span class=cl><span class=na>pc-inet</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[kube_node]</span>
+</span></span><span class=line><span class=cl><span class=na>pc-inet</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[k8s_cluster:children]</span>
+</span></span><span class=line><span class=cl><span class=na>kube_control_plane</span>
+</span></span><span class=line><span class=cl><span class=na>kube_node</span>
+</span></span></code></pre></td></tr></table></div></div><p>Добавляем переменные:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/addons.yml
+</span></span></code></pre></td></tr></table></div></div><p>Включаем установку HELM, Ingress Nginx и MetalLB:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># Helm deployment</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>helm_enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># Включаем ingress-nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>ingress_nginx_enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># MetalLB deployment</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>metallb_enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Контейнерный движок я выбрал <strong>containerd</strong>.<br>Почему не <strong>cri-o</strong>?<br><em>Containerd плюсы:</em></p><ul><li>default в Kubespray</li><li>меньше сюрпризов в оффлайн-режиме</li><li>лучше тестируется в CI Kubespray</li><li>меньше зависимостей ОС<br><em>Минусы:</em></li><li>чуть больше &ldquo;общего&rdquo; функционала</li></ul><p><em>Cri-o плюсы:</em></p><ul><li>tight-интеграция с Kubernetes</li><li>любят в OpenShift-мире<br><em>Минусы:</em></li><li>в Kubespray требует больше ручных правок</li></ul><p>Добавляем переменные и даём название кластеру:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/k8s-cluster.yml
+</span></span></code></pre></td></tr></table></div></div><p>Устанавливаем <code>cilium</code> плагин, поэтому выставляем соответствующие настройки.
+Указанные поддерживаемые версии я брал отсюда: <code>https://github.com/kubernetes-sigs/kubespray</code><br>Раздел: <em>Supported components</em></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>kube_owner</span><span class=p>:</span><span class=w> </span><span class=l>root</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># Этой строчки нет, вписываем ручками</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube_proxy_remove</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube_network_plugin</span><span class=p>:</span><span class=w> </span><span class=l>cilium</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># Этой строчки тоже нет, добавляем</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;1.18.5&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube_proxy_strict_arp</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># Доменное имя вашего будущего кластера</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cluster_name</span><span class=p>:</span><span class=w> </span><span class=l>mycluster.k8s.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>## Default: containerd</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>container_manager</span><span class=p>:</span><span class=w> </span><span class=l>containerd</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Открываем файл etcd:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/etcd.yml
+</span></span></code></pre></td></tr></table></div></div><p>Меняем (сверяем) параметр:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>etcd_deployment_type</span><span class=p>:</span><span class=w> </span><span class=l>host</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Открываем конфиг cilium:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/k8s-net-cilium.yml
+</span></span></code></pre></td></tr></table></div></div><p>Укажем что proxy теперь cilium, а не kube-proxy и mtu 1450:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>cilium_mtu</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;1450&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_kube_proxy_replacement</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_tunnel_mode</span><span class=p>:</span><span class=w> </span><span class=l>geneve</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Включаем Hubble</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># Hubble</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>### Enable Hubble without install</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_enable_hubble</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>### Enable Hubble-ui</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>### Installed by default when hubble is enabled. To disable set to false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_enable_hubble_ui</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ cilium_enable_hubble }}&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>### Enable Hubble Metrics</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_enable_hubble_metrics</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>### if cilium_enable_hubble_metrics: true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_hubble_metrics</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>dns</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>drop</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>tcp</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>flow</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>icmp</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w> </span>- <span class=l>http</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Открываем файл offline установки:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/offline.yml
+</span></span></code></pre></td></tr></table></div></div><p>И добавляем в самое начало файла параметры загрузки:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>download_run_once</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>download_localhost</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>download_keep_remote_cache</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>download_force_cache</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>download_cache_dir</span><span class=p>:</span><span class=w> </span><span class=l>/opt/kubespray-cache</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=запускаем-загрузку>Запускаем загрузку</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> /opt/kubespray
+</span></span></code></pre></td></tr></table></div></div><p>Устанавливаем зависимости питона:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install -r requirements.txt
+</span></span></code></pre></td></tr></table></div></div><p>Создадим директории и на всякий установим containerd:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt install containerd -y
+</span></span><span class=line><span class=cl>mkdir -p /opt/kubespray-cache/images/
+</span></span><span class=line><span class=cl>mkdir /opt/kubespray-releases/
+</span></span></code></pre></td></tr></table></div></div><p><strong>Если в инет ходишь через прокси, то укажи здесь</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/all.yml
+</span></span></code></pre></td></tr></table></div></div><p>Заполни и расскоментируй:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># http_proxy: &#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># https_proxy: &#34;&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>По умолчанию некоторые файлы скачиваются в <code>/tmp/releases</code>, с помощью переменной <code>local_release_dir</code> изменяем путь на <code>/opt/kubespray-releases</code>
+Запускаемся:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/opt/kuber_off/venv/bin/ansible-playbook -i inventory/offline_cluster/inventory.ini cluster.yml <span class=se>\
+</span></span></span><span class=line><span class=cl>-e <span class=nv>local_release_dir</span><span class=o>=</span>/opt/kubespray-releases <span class=se>\
+</span></span></span><span class=line><span class=cl>--tags download <span class=se>\
+</span></span></span><span class=line><span class=cl>--skip-tags upload,upgrade -b <span class=se>\
+</span></span></span><span class=line><span class=cl>-u admin
+</span></span></code></pre></td></tr></table></div></div><p><strong>Получаем ошибку</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>TASK</span> <span class=p>[</span><span class=n>download</span> <span class=p>:</span> <span class=n>Download_container</span> <span class=o>|</span> <span class=n>Download</span> <span class=n>image</span> <span class=k>if</span> <span class=n>required</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>task</span> <span class=n>path</span><span class=p>:</span> <span class=o>/</span><span class=n>opt</span><span class=o>/</span><span class=n>kuber_off</span><span class=o>/</span><span class=n>kubespray</span><span class=o>/</span><span class=n>roles</span><span class=o>/</span><span class=n>download</span><span class=o>/</span><span class=n>tasks</span><span class=o>/</span><span class=n>download_container</span><span class=o>.</span><span class=n>yml</span><span class=p>:</span><span class=mi>57</span>
+</span></span><span class=line><span class=cl><span class=n>fatal</span><span class=p>:</span> <span class=p>[</span><span class=n>pc</span><span class=o>-</span><span class=n>inet</span> <span class=o>-&gt;</span> <span class=n>localhost</span><span class=p>]:</span> <span class=n>FAILED</span><span class=o>!</span> <span class=o>=&gt;</span> <span class=p>{</span><span class=s2>&#34;attempts&#34;</span><span class=p>:</span> <span class=mi>4</span><span class=p>,</span> <span class=s2>&#34;changed&#34;</span><span class=p>:</span> <span class=bp>false</span><span class=p>,</span> <span class=s2>&#34;cmd&#34;</span><span class=p>:</span> <span class=s2>&#34;/usr/local/bin/nerdctl -n k8s.io pull --quiet quay.io/cilium/cilium:v1.18.5&#34;</span><span class=p>,</span> <span class=s2>&#34;msg&#34;</span><span class=p>:</span> <span class=s2>&#34;[Errno 2] No such file or directory: b&#39;/usr/local/bin/nerdctl&#39;&#34;</span><span class=p>,</span> <span class=o>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Идём исправлять:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cp /opt/kubespray-releases/nerdctl /opt/kubespray-releases/crictl /usr/local/bin
+</span></span></code></pre></td></tr></table></div></div><p>Делаем линк:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ln -sf /usr/bin/ctr /usr/local/bin/ctr
+</span></span></code></pre></td></tr></table></div></div><p>И проверить:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/usr/local/bin/nerdctl --version
+</span></span></code></pre></td></tr></table></div></div><p>Перезапускаем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/opt/kuber_off/venv/bin/ansible-playbook -i inventory/offline_cluster/inventory.ini cluster.yml <span class=se>\
+</span></span></span><span class=line><span class=cl>-e <span class=nv>local_release_dir</span><span class=o>=</span>/opt/kubespray-releases <span class=se>\
+</span></span></span><span class=line><span class=cl>--tags download <span class=se>\
+</span></span></span><span class=line><span class=cl>--skip-tags upload,upgrade -b <span class=se>\
+</span></span></span><span class=line><span class=cl>-u admin
+</span></span></code></pre></td></tr></table></div></div><p>Должно завершиться <strong>успешно</strong>, без ошибок.</p><p>Некоторых важных образов нет, они <strong>не скачиваются по умолчанию</strong>.
+Поэтому получаем список контейнеров и с помощью скрипта и докачиваем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> /opt/
+</span></span><span class=line><span class=cl>nano download_k8s_images.sh
+</span></span></code></pre></td></tr></table></div></div><p>Вставляем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=c1># На машине с ИНТЕРНЕТОМ</span>
+</span></span><span class=line><span class=cl><span class=nb>set</span> -e
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;Получаю список образов от kubeadm...&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># Ваш путь к kubeadm</span>
+</span></span><span class=line><span class=cl><span class=nv>KUBEADM_PATH</span><span class=o>=</span><span class=s2>&#34;/opt/kubespray-cache/kubeadm-*-amd64&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># Получаем список образов</span>
+</span></span><span class=line><span class=cl><span class=nv>IMAGES</span><span class=o>=</span><span class=k>$(</span><span class=nv>$KUBEADM_PATH</span> config images list 2&gt;/dev/null <span class=p>|</span> grep -v <span class=s2>&#34;WARN&#34;</span> <span class=o>||</span> <span class=nv>$KUBEADM_PATH</span> config images list<span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;Найдено образов: </span><span class=k>$(</span><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$IMAGES</span><span class=s2>&#34;</span> <span class=p>|</span> wc -l<span class=k>)</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$IMAGES</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Идём в директорию с images</span>
+</span></span><span class=line><span class=cl><span class=nv>DOWNLOAD_DIR</span><span class=o>=</span><span class=s2>&#34;/opt/kubespray-cache/images&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> <span class=s2>&#34;</span><span class=nv>$DOWNLOAD_DIR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;Начинаю скачивание в: </span><span class=nv>$DOWNLOAD_DIR</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;==========================================&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Скачиваем каждый образ</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> IMAGE in <span class=nv>$IMAGES</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;Обрабатываю: </span><span class=nv>$IMAGE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Скачиваем</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;   Pulling...&#34;</span>
+</span></span><span class=line><span class=cl>    nerdctl pull <span class=s2>&#34;</span><span class=nv>$IMAGE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Генерируем имя файла</span>
+</span></span><span class=line><span class=cl>    <span class=nv>FILENAME</span><span class=o>=</span><span class=k>$(</span><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$IMAGE</span><span class=s2>&#34;</span> <span class=p>|</span> sed <span class=s1>&#39;s|/|_|g; s|:|_|g&#39;</span><span class=k>)</span>.tar
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;   Saving to: </span><span class=nv>$FILENAME</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Сохраняем</span>
+</span></span><span class=line><span class=cl>    nerdctl save <span class=s2>&#34;</span><span class=nv>$IMAGE</span><span class=s2>&#34;</span> -o <span class=s2>&#34;</span><span class=nv>$FILENAME</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Удаляем образ из локального nerdctl</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;   Removing from local nerdctl...&#34;</span>
+</span></span><span class=line><span class=cl>    nerdctl rmi <span class=s2>&#34;</span><span class=nv>$IMAGE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Информация о файле</span>
+</span></span><span class=line><span class=cl>    <span class=nv>SIZE</span><span class=o>=</span><span class=k>$(</span>du -h <span class=s2>&#34;</span><span class=nv>$FILENAME</span><span class=s2>&#34;</span> <span class=p>|</span> cut -f1<span class=k>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;Сохранено: </span><span class=nv>$FILENAME</span><span class=s2> (</span><span class=nv>$SIZE</span><span class=s2>)&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;==========================================&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;Все образы скачаны!&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;Итого файлов: </span><span class=k>$(</span>ls -1 *.tar <span class=p>|</span> wc -l<span class=k>)</span><span class=s2>&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Запускаемся:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>chmod +x /opt/kubespray-cache/kube*
+</span></span><span class=line><span class=cl>chmod +x download_k8s_images.sh
+</span></span><span class=line><span class=cl>./download_k8s_images.sh
+</span></span></code></pre></td></tr></table></div></div><p>И ещё докачиваем образ:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nerdctl pull quay.io/cilium/operator-generic:v1.18.5
+</span></span><span class=line><span class=cl>nerdctl save -o /opt/kubespray-cache/images/quay.io_cilium_operator-generic_v1.18.5.tar quay.io/cilium/operator-generic:v1.18.5
+</span></span></code></pre></td></tr></table></div></div><p>Далее скачаем Helm чарт для Cilium<br>Копируем helm бинарник:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cp /opt/kubespray-releases/helm-3.18.4/linux-amd64/helm /usr/local/bin/
+</span></span></code></pre></td></tr></table></div></div><p>Проверяем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm version
+</span></span></code></pre></td></tr></table></div></div><p>Закачиваем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm repo add cilium https://helm.cilium.io
+</span></span><span class=line><span class=cl>helm repo update
+</span></span><span class=line><span class=cl>helm pull cilium/cilium --version 1.18.5
+</span></span><span class=line><span class=cl><span class=c1># появится файл cilium-1.18.5.tgz</span>
+</span></span><span class=line><span class=cl>mv cilium-1.18.5.tgz /opt/cilium-1.18.5.tgz
+</span></span></code></pre></td></tr></table></div></div><p>Упаковать:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tar -C /opt -czf kubespray-code.tar.gz kuber_off
+</span></span><span class=line><span class=cl>tar -C /opt -czf kubespray-offline-bundle.tar.gz kubespray-cache kubespray-releases cilium-1.18.5.tgz
+</span></span></code></pre></td></tr></table></div></div><p>Далее: <strong>Перетаскиваем файлы на закрытый контур без инета (хост master-1-k8s).</strong></p><h2 id=шаг-4-подготовка-окружения-оффлайн-установки>Шаг 4. Подготовка окружения оффлайн установки</h2><h3 id=заливаем-образы-в-harbor>Заливаем образы в Harbor</h3><p>Ставим докер (Предполагается что он есть в ваших закрытых репозиториях Убунты):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudi apt install docker.io -y
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> docker --now
+</span></span></code></pre></td></tr></table></div></div><p>Хост: <code>master-1-k8s</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tar -xzf /home/admin/kubespray-code.tar.gz -C /opt/
+</span></span><span class=line><span class=cl>tar -xzf /home/admin/kubespray-offline-bundle.tar.gz -C /opt
+</span></span></code></pre></td></tr></table></div></div><p>Копируем бинари:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cp /opt/kubespray-releases/crictl /opt/kubespray-releases/nerdctl /usr/local/bin
+</span></span></code></pre></td></tr></table></div></div><p>И проверить:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/usr/local/bin/nerdctl --version
+</span></span><span class=line><span class=cl>/usr/local/bin/crictl --version
+</span></span></code></pre></td></tr></table></div></div><p>Предполагается, что <code>Harbor</code> также находится в закрытой зоне сети, поэтому первым шагом мы зальём образы в репо.<br>Идём в Harbor создаём новый проект с названием <code>k8s</code> и другой с названием <code>helm</code>.<br>Репозиторий <code>k8s</code> измените с приватного на <code>публичный</code>. Это связано с тем, что containerd роль не считывает логин и пароль от репо из файла.<br>Решения у разрабов kubespray не нашел.<br><code>Helm</code> репозиторий можно оставить приватным.</p><p><img src=/p/kubespray_offline/h3.jpg width=650 height=574 loading=lazy class=gallery-image data-flex-grow=113 data-flex-basis=271px></p><p>Делаем переменные окружения:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># Имя репозитория harbor</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>HARBOR</span><span class=o>=</span><span class=s2>&#34;harbor.domain.local&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># Проект в Harbor</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PROJECT</span><span class=o>=</span><span class=s2>&#34;k8s&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># Где лежат *.tar</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>IMG_DIR</span><span class=o>=</span><span class=s2>&#34;/opt/kubespray-cache/images&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Логинимся</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker login <span class=nv>$HARBOR</span>
+</span></span><span class=line><span class=cl><span class=c1># Если x509, то проблема с сертами на Harbor. Гуглите.</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> <span class=nv>$IMG_DIR</span>
+</span></span></code></pre></td></tr></table></div></div><p>Грузим все образы в локальный докер</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=k>for</span> <span class=n>f</span> <span class=ow>in</span> <span class=o>*.</span><span class=n>tar</span><span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>  <span class=n>echo</span> <span class=s2>&#34;Loading $f&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=n>docker</span> <span class=nb>load</span> <span class=o>-</span><span class=n>i</span> <span class=s2>&#34;$f&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>Тегируем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker images --format <span class=s1>&#39;{{.Repository}}:{{.Tag}}&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=p>|</span> grep -E <span class=s1>&#39;^(quay\.io|registry\.k8s\.io|docker\.io|gcr\.io)/|^nginx:&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=p>|</span> <span class=k>while</span> <span class=nb>read</span> img<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=o>[[</span> <span class=s2>&#34;</span><span class=nv>$img</span><span class=s2>&#34;</span> <span class=o>==</span> nginx:* <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>        <span class=nv>img</span><span class=o>=</span><span class=s2>&#34;docker.io/library/</span><span class=si>${</span><span class=nv>img</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=k>fi</span>
+</span></span><span class=line><span class=cl>      <span class=nv>new</span><span class=o>=</span><span class=s2>&#34;</span><span class=si>${</span><span class=nv>HARBOR</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>PROJECT</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>img</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;TAG  </span><span class=nv>$img</span><span class=s2> -&gt; </span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      docker tag <span class=s2>&#34;</span><span class=nv>$img</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;PUSH </span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      docker push <span class=s2>&#34;</span><span class=nv>$new</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p>Пушим все образы в локальный репозиторий:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker images --format <span class=s1>&#39;{{.Repository}}:{{.Tag}}&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=p>|</span> grep -E <span class=s2>&#34;^</span><span class=si>${</span><span class=nv>HARBOR</span><span class=si>}</span><span class=s2>/</span><span class=si>${</span><span class=nv>PROJECT</span><span class=si>}</span><span class=s2>/(quay\.io|registry\.k8s\.io|docker\.io|gcr\.io)/&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=p>|</span> <span class=k>while</span> <span class=nb>read</span> img<span class=p>;</span> <span class=k>do</span>
+</span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;PUSH </span><span class=nv>$img</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>      docker push <span class=s2>&#34;</span><span class=nv>$img</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>done</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>У меня получился 21 образ в Harbor</strong></p><h3 id=готовим-конфиги>Готовим конфиги</h3><p>Открываем файл:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/offline.yml
+</span></span></code></pre></td></tr></table></div></div><p>Изменяем конфигурацию kubespray чтобы смотрел в локальный репо:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># Репозиторий СВОЙ указываем</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>registry_host</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;harbor.domain.local&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube_image_repo</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ registry_host }}/k8s/registry.k8s.io&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>gcr_image_repo</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ registry_host }}/k8s/gcr.io&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>docker_image_repo</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ registry_host }}/k8s/docker.io&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>quay_image_repo</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ registry_host }}/k8s/quay.io&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>#Строки нет, добавить:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_install_extra_flags</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;--repository oci://{{registry_host}}/helm/cilium&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Здесь тоже поменяем, <strong>но на момент написания мануала это не работало</strong>, именно поэтому мы сделали репозиторий k8s в Harbor открытым.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/containerd.yml
+</span></span></code></pre></td></tr></table></div></div><p>Вставить в самый низ:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>containerd_registry_auth</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>registry</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>prefix</span><span class=p>:</span><span class=w> </span><span class=l>harbor.domain.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>username</span><span class=p>:</span><span class=w> </span><span class=l>admin</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>password</span><span class=p>:</span><span class=w> </span><span class=l>password_ot_harbor</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>При загрузке в репозиторий Harbor <code>SHA</code> у образов изменяется, поэтому отключим их сопоставление:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/k8s-net-cilium.yml
+</span></span></code></pre></td></tr></table></div></div><p>В самый низ файла:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>cilium_extra_values</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>operator</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>envoy</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>hubble</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>relay</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ui</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>backend</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>frontend</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=добавляем-образы-в-helm-репо>Добавляем образы в helm-репо</h3><p>Копируем helm бинарник:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cp /opt/kubespray-releases/helm-3.18.4/linux-amd64/helm /usr/local/bin/
+</span></span></code></pre></td></tr></table></div></div><p>Проверяем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm version
+</span></span></code></pre></td></tr></table></div></div><p>Авторизовываемся:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm registry login <span class=nv>$HARBOR</span>
+</span></span></code></pre></td></tr></table></div></div><p>И пушим наш образ для Cilium:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>helm push /opt/cilium-1.18.5.tgz oci://<span class=nv>$HARBOR</span>/helm
+</span></span></code></pre></td></tr></table></div></div><h3 id=подготовка-нод>Подготовка нод.</h3><p>Открываем файл с хостами:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/inventory.ini
+</span></span></code></pre></td></tr></table></div></div><p>Переписываем inventory на наши хосты:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[all]</span>
+</span></span><span class=line><span class=cl><span class=na>master-1-k8s    ansible_host</span><span class=o>=</span><span class=s>192.168.1.101</span>
+</span></span><span class=line><span class=cl><span class=na>master-2-k8s    ansible_host</span><span class=o>=</span><span class=s>192.168.1.102</span>
+</span></span><span class=line><span class=cl><span class=na>master-3-k8s    ansible_host</span><span class=o>=</span><span class=s>192.168.1.103</span>
+</span></span><span class=line><span class=cl><span class=na>node-1-k8s      ansible_host</span><span class=o>=</span><span class=s>192.168.1.104</span>
+</span></span><span class=line><span class=cl><span class=na>node-2-k8s      ansible_host</span><span class=o>=</span><span class=s>192.168.1.105</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[kube_control_plane]</span>
+</span></span><span class=line><span class=cl><span class=na>master-1-k8s</span>
+</span></span><span class=line><span class=cl><span class=na>master-2-k8s</span>
+</span></span><span class=line><span class=cl><span class=na>master-3-k8s</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[kube_node]</span>
+</span></span><span class=line><span class=cl><span class=na>node-1-k8s</span>
+</span></span><span class=line><span class=cl><span class=na>node-2-k8s</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[etcd]</span>
+</span></span><span class=line><span class=cl><span class=na>master-1-k8s</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[k8s_cluster:children]</span>
+</span></span><span class=line><span class=cl><span class=na>kube_control_plane</span>
+</span></span><span class=line><span class=cl><span class=na>kube_node</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=шаг-5-установка-оффлайн-кластера-kubespray>Шаг 5. Установка оффлайн кластера Kubespray</h2><p>Доустанавливаем на <code>master-1-k8s</code> пакеты:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt install docker.io -y
+</span></span></code></pre></td></tr></table></div></div><p><strong>Если указывался прокси</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/all/all.yml
+</span></span></code></pre></td></tr></table></div></div><p>Тогда нужно удалить здесь:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># http_proxy: &#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># https_proxy: &#34;&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>И запускаем установку:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> /opt/kuber_off/
+</span></span><span class=line><span class=cl><span class=nb>source</span> venv/bin/activate
+</span></span><span class=line><span class=cl><span class=nb>cd</span> kubespray/
+</span></span><span class=line><span class=cl>ansible-playbook -i inventory/offline_cluster/inventory.ini cluster.yml -b -u admin
+</span></span></code></pre></td></tr></table></div></div><p>После установки проверяем кластер:
+<img src=/p/kubespray_offline/h1.jpg width=760 height=695 loading=lazy class=gallery-image data-flex-grow=109 data-flex-basis=262px></p><h2 id=шаг-6-настройка-ingress-и-metallb-для-hubble>Шаг 6. Настройка Ingress и MetallB для Hubble</h2><p>Для вебки нужно раскатать конфиг MetalLB, для этого выбираем свободный пул адресов (я использую 1 адрес) из той же подсети где и кубер.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkdir kube-manifests
+</span></span><span class=line><span class=cl><span class=nb>cd</span> kube-manifests
+</span></span><span class=line><span class=cl>nano metallb.yml
+</span></span></code></pre></td></tr></table></div></div><p>Вставляем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>metallb.io/v1beta1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>IPAddressPool</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>ingress-pool</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>metallb-system</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>spec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>addresses</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=m>192.168.1.200</span><span class=l>/32</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>metallb.io/v1beta1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>L2Advertisement</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>ingress-l2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>metallb-system</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>spec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ipAddressPools</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>ingress-pool</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Также создаём deployment ingress контроллера и адрес по которому будет открываться вебка <code>Hubble</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano ingress-hubble-ui.yml
+</span></span></code></pre></td></tr></table></div></div><p>Вставляем:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>apiVersion</span><span class=p>:</span><span class=w> </span><span class=l>networking.k8s.io/v1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kind</span><span class=p>:</span><span class=w> </span><span class=l>Ingress</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>metadata</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>hubble-ui</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>namespace</span><span class=p>:</span><span class=w> </span><span class=l>kube-system</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>spec</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>ingressClassName</span><span class=p>:</span><span class=w> </span><span class=l>nginx</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>rules</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>host</span><span class=p>:</span><span class=w> </span><span class=l>hubble.k8s.domail.local</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>http</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>paths</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>pathType</span><span class=p>:</span><span class=w> </span><span class=l>Prefix</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>backend</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>service</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>hubble-ui</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>port</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>              </span><span class=nt>number</span><span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Применить:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl apply -f .
+</span></span></code></pre></td></tr></table></div></div><p>Настрой DNS (или временно <code>C:\Windows\System32\drivers\etc\hosts</code>)
+Тебе нужно, чтобы <code>hubble.k8s.domain.local</code> резолвился в <code>192.168.1.200</code>.
+Ingress будет слушать IP адрес MetalLB контроллера.</p><p>Всё готово!</p><h2 id=проблемы-и-решения>Проблемы и решения</h2><ol><li>Есть проблемы с авторизацией по containerd, поэтому репозиторий k8s делаем открытым.</li><li>Проблема с образом cilium</li></ol><blockquote><p>Failed to pull image &ldquo;harbor.domain.local/k8s/quay.io/cilium/cilium:v1.18.5@sha256:2c92fb05962a346eaf0ce11b912ba434dc10bd54b9989e970416681f4a069628&rdquo;: > rpc error: code = NotFound desc = failed to pull and unpack image &ldquo;harbor.domain.local&rdquo;</p></blockquote><p>В файле</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>inventory/offline_cluster/group_vars/k8s_cluster/k8s-net-cilium.yml
+</span></span></code></pre></td></tr></table></div></div><p>Не находит образ с sha. Отключаем.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>cilium_extra_values</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>operator</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>envoy</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>hubble</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>relay</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ui</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>backend</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>frontend</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>image</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>useDigest</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>digest</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><ol start=3><li>Ошибка с image Cilium-operator
+image operator-generic не закачивается автоматом. Выкачать и закинуть в наш репозиторий.</li></ol><blockquote><p>Failed to pull image &ldquo;harbor.domain.local/k8s/quay.io/cilium/operator-generic:v1.18.5&rdquo;: rpc error: code = NotFound desc = failed to pull an></p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker pull quay.io/cilium/operator-generic:v1.18.5
+</span></span><span class=line><span class=cl>docker tag quay.io/cilium/operator-generic:v1.18.5 harbor.domain.local/k8s/quay.io/cilium/operator-generic:v1.18.5
+</span></span><span class=line><span class=cl>docker push harbor.domain.local/k8s/quay.io/cilium/operator-generic:v1.18.5
+</span></span><span class=line><span class=cl>kubectl delete po -n kube-system -l <span class=nv>name</span><span class=o>=</span>cilium-operator
+</span></span></code></pre></td></tr></table></div></div><p>Возможно потребуется перепулить image, поэтому меняем политику на Always, пулим и возвращаем на Default</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system get deploy cilium-operator -o <span class=nv>jsonpath</span><span class=o>=</span><span class=s1>&#39;{.spec.template.spec.containers[0].imagePullPolicy}{&#34;\n&#34;}&#39;</span>
+</span></span><span class=line><span class=cl>kubectl -n kube-system patch deploy cilium-operator --type<span class=o>=</span><span class=s1>&#39;json&#39;</span> -p<span class=o>=</span><span class=s1>&#39;[{&#34;op&#34;:&#34;replace&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/imagePullPolicy&#34;,&#34;value&#34;:&#34;Always&#34;}]&#39;</span>
+</span></span><span class=line><span class=cl>kubectl delete po -n kube-system -l <span class=nv>name</span><span class=o>=</span>cilium-operator
+</span></span><span class=line><span class=cl>kubectl -n kube-system patch deploy cilium-operator --type<span class=o>=</span><span class=s1>&#39;json&#39;</span> -p<span class=o>=</span><span class=s1>&#39;[{&#34;op&#34;:&#34;replace&#34;,&#34;path&#34;:&#34;/spec/template/spec/containers/0/imagePullPolicy&#34;,&#34;value&#34;:&#34;IfNotPresent&#34;}]&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=4><li>Не поднимается hubble-relay (Не резолвит DNS)</li></ol><blockquote><p>A record lookup error: lookup hubble-peer.kube-system.svc.k8s.domain.local. on 169.254.25.10:53: read udp 10.233.67.64:56328->169.254.25.10:53: i/o timeout" connectionTimeout=30s</p></blockquote><p>Добавить в k8s-net-cilium.yml значение <code>true</code>, перезапустить плейбук с сетевыми тегами и удалить под, чтобы он пересоздался:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>cilium_kube_proxy_replacement</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=l>ansible-playbook -i inventory/offline_cluster/inventory.ini cluster.yml -b --tags &#34;cilium,network,kubernetes-apps&#34; -v</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=l>kubectl delete po -l k8s-app=hubble-relay -n kube-system</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><ol start=5><li>Проблема:</li></ol><blockquote><p>cp: cannot create regular file &lsquo;/hostbin/cilium-mount&rsquo;: Permission denied<br>В файле</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/k8s-cluster.yaml
+</span></span></code></pre></td></tr></table></div></div><p>Доюавить root</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># This is the user that owns the cluster installation.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c># Note: cilium needs to set kube_owner to root https://kubespray.io/#/docs/CNI/cilium?id=unprivileged-agent-configuration</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>kube_owner</span><span class=p>:</span><span class=w> </span><span class=l>root</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><ol start=6><li>Ошибка. Не все ноды Cilium поднимаются.
+Раскопал, что VMware неочень дружит с Cilium на дефолтном порту. Вывод смена порта или tunnel_mode. Я выбрал второе.<br><a class=link href=https://docs.cilium.io/en/latest/installation/k8s-install-broadcom-vmware-esxi-nsx/ target=_blank rel=noopener>Про это написано здесь</a><br>Статус:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>kubectl -n kube-system <span class=nb>exec</span> -it ds/cilium -- cilium status <span class=p>|</span> egrep -i <span class=s1>&#39;KubeProxyReplacement|Cluster health&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>Вывод:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>KubeProxyReplacement:    True   [ens33  10.16.0.164 (Direct Routing)]
+</span></span><span class=line><span class=cl>Cluster health:          1/5 reachable   (2026-01-30T09:34:21Z)   (Probe interval: 2m23.873716367s)
+</span></span></code></pre></td></tr></table></div></div><p>Файл:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nano /opt/kuber_off/kubespray/inventory/offline_cluster/group_vars/k8s_cluster/k8s-net-cilium.yml
+</span></span></code></pre></td></tr></table></div></div><p>Параметры:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=c># Overlay Network Mode</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_tunnel_mode</span><span class=p>:</span><span class=w> </span><span class=l>geneve</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cilium_mtu</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;1450&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c>#tunnelPort: 8223  # Это не сработало для vxlan, поэтому выбрал geneve</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Запуск повторно:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ansible-playbook -i inventory/offline_cluster/inventory.ini cluster.yml -b --tags <span class=s2>&#34;cilium,network&#34;</span> -v
+</span></span><span class=line><span class=cl>kubectl -n kube-system rollout restart ds/cilium
+</span></span><span class=line><span class=cl>kubectl -n kube-system rollout status ds/cilium
+</span></span><span class=line><span class=cl>kubectl -n kube-system <span class=nb>exec</span> -it ds/cilium -- cilium status <span class=p>|</span> grep <span class=s2>&#34;Cluster health&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=post-install>Post Install</h2><p>Как управлять всем этим?<br>Управление самим Kubernetes (нодами, сетью, ПО)<br>Через Kubespray:</p><div class=table-wrapper><table><thead><tr><th>Задача</th><th>Как делать</th></tr></thead><tbody><tr><td>Добавить ноду</td><td>добавить в inventory + scale.yml</td></tr><tr><td>Обновить k8s версию</td><td>поменять kube_version + upgrade-cluster.yml</td></tr><tr><td>Изменить сеть Cilium</td><td>править group_vars/k8s_cluster/k8s-network-cilium.yml + &ndash;tags cilium</td></tr></tbody></table></div><ul><li>Kubespray = железо кластера.</li><li>Управление Cilium (сеть и безопасность)</li></ul><div class=table-wrapper><table><thead><tr><th>Что</th><th>Как управлять</th></tr></thead><tbody><tr><td>Политики сети</td><td>CRD CiliumNetworkPolicy</td></tr><tr><td>Диагностика сети</td><td>cilium status, cilium health, hubble observe</td></tr></tbody></table></div></section><footer class=article-footer><section class=article-tags><a href=/tags/kubespray/>Kubespray</a>
+<a href=/tags/cilium/>Cilium</a>
+<a href=/tags/metallb/>Metallb</a>
+<a href=/tags/k8s/>K8S</a></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Также рекомендуем</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/k8s/><div class=article-image><img src=/p/k8s/kubespray1.bf5aaa19fe00a5e3889e42ae13f3dc1f_hu_ece0848823c4e71d.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка Kubernetes через Kubespray" data-key=K8S data-hash="md5-v1qqGf4ApeOInkKuE/PcHw=="></div><div class=article-details><h2 class=article-title>Установка Kubernetes через Kubespray</h2></div></a></article><article class=has-image><a href=/p/kubernetes/><div class=article-image><img src=/p/kubernetes/awx2.f8a0637e2b97eb2c8ce82497d51cd362_hu_5cc1effa0e939d8c.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка Ansible AWX в K3S" data-key=Kubernetes data-hash="md5-+KBjfiuX6yyM6CSX1RzTYg=="></div><div class=article-details><h2 class=article-title>Установка Ansible AWX в K3S</h2></div></a></article><article class=has-image><a href=/p/install_prometheus_grafana/><div class=article-image><img src=/p/install_prometheus_grafana/grafana.cf056817498fb9bff4a6f8f450d87d95_hu_b7578ab2bb5ba0ec.png width=250 height=150 loading=lazy alt="Featured image of post Prometheus и Grafana. Установка в Kubernetes" data-key=install_prometheus_grafana data-hash="md5-zwVoF0mPub/0pvj0UNh9lQ=="></div><div class=article-details><h2 class=article-title>Prometheus и Grafana. Установка в Kubernetes</h2></div></a></article><article class=has-image><a href=/p/logging_app/><div class=article-image><img src=/p/logging_app/2.47df82995a6866c2baa22e0a228897ba_hu_3940829dddff5a35.jpg width=250 height=150 loading=lazy alt="Featured image of post Сбор логов с кластера Kubernetes" data-key=logging_app data-hash="md5-R9+CmVpoZsK6oi4KIoiXug=="></div><div class=article-details><h2 class=article-title>Сбор логов с кластера Kubernetes</h2></div></a></article><article class=has-image><a href=/p/install_opensearch/><div class=article-image><img src=/p/install_opensearch/opensearch.eae70208f1ac7ba036086c0e92597c4d_hu_dff14f8443cac0b0.jpg width=250 height=150 loading=lazy alt="Featured image of post Установка Opensearch Ansible" data-key=install_opensearch data-hash="md5-6ucCCPGse6A2CGwOkll8TQ=="></div><div class=article-details><h2 class=article-title>Установка Opensearch Ansible</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=ZM56/itzm data-repo-id=R_kgDOM409Zg data-category=General data-category-id=DIC_kwDOM409Zs4CkTEU data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=1 data-input-position=top data-theme=light data-lang=ru data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2024 -
+2026 IT Notes</section><section class=powerby style=margin-top:.5rem><span style=font-weight:400>Информацию можно использовать в свободном доступе, с указанием ссылки на сайт</span><div style=margin-top:.5rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center><a href=https://t.me/itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M9.743 15.447l-.392 4.528c.562.0.808-.24 1.103-.527l2.645-2.512 5.486 4.012c1.006.553 1.713.263 1.988-.932l3.61-16.913h.001c.313-1.41-.51-1.959-1.45-1.619L.9 9.498c-1.383.547-1.368 1.328-.237 1.684l5.747 1.794 13.346-8.378c.63-.388 1.2-.173.73.215L9.743 15.447z"/></svg>
+Telegram
+</a><a href=https://github.com/ZM56 target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right:.4rem"><path d="M12 .297c-6.63.0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.304-5.466-1.332-5.466-5.931.0-1.31.47-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176.0.0 1.008-.322 3.3 1.23a11.51 11.51.0 013.003-.404c1.02.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.804 5.625-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
+GitHub
+</a><a href=https://www.youtube.com/@itzm_notes target=_blank rel=noopener style=display:inline-flex;align-items:center><svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16" style="margin-right:.4rem"><path d="M8.051 1.999h-.002C3.768 1.998 1.605 2.26 1.31 4.05c-.274 1.66-.274 5.4.0 7.048.294 1.79 2.457 2.052 6.739 2.052h.002c4.282.0 6.445-.262 6.74-2.052.273-1.648.273-5.388.0-7.048-.295-1.79-2.458-2.052-6.74-2.052zM6.545 10.542V5.457L10.818 8l-4.273 2.542z"/></svg>
+YouTube</a></div></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
