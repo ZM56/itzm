@@ -13,7 +13,7 @@
 &lt;p&gt;&lt;strong&gt;Требования:&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Online установка: HELM, Kubernetes cluster&lt;br&gt;
-Offline установка: Хост с инетом, HELM, Docker/Nerdctl, Harbor&lt;/p&gt;
+Offline установка: Хост с инетом, HELM, Docker/Nerdctl, Harbor, Kubernetes cluster&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="онлайн-установка-longhorn"&gt;Онлайн установка Longhorn
 &lt;/h2&gt;&lt;p&gt;Создаём файл с переменными:&lt;/p&gt;
@@ -129,7 +129,7 @@ Offline установка: Хост с инетом, HELM, Docker/Nerdctl, Harb
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl apply -f ingress-longhorn.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Входим по IPНоды:80 если &lt;code&gt;port-forward&lt;/code&gt; или по имени, которое мы добавили в DNS &lt;code&gt;longhorn.k8s.domain.local&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Входим по IPНоды:80 если &lt;code&gt;port-forward&lt;/code&gt; или по имени, которое нужно добавить в DNS для резолва &lt;code&gt;longhorn.k8s.domain.local&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://itzm.tech/p/longhorn_install/dashboard.png"
 width="1336"
 height="724"
