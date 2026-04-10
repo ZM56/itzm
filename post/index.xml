@@ -436,9 +436,11 @@ data-flex-basis="492px"
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl get pods -n longhorn-systemkubectl get storageclass
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl get pods -n longhorn-system
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl get storageclass
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Поды должны успешно запуститься.&lt;br&gt;
@@ -512,7 +514,8 @@ data-flex-basis="492px"
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl port-forward service/longhorn-frontend 8080:80 -n longhorn-system
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src="https://itzm.tech/p/longhorn_install/dashboard.png"
+&lt;/div&gt;&lt;p&gt;Если есть, то создать DNS запись с именем longhorn.k8s.domain.local и адресом ingress ноды и войти в веб-интерфейс.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/longhorn_install/dashboard.png"
 width="1336"
 height="724"
 loading="lazy"
