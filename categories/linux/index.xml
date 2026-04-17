@@ -41,7 +41,7 @@ data-flex-basis="827px"
 &gt;&lt;/p&gt;
 &lt;h2 id="установка-утилиты-growpart"&gt;Установка утилиты growpart
 &lt;/h2&gt;&lt;p&gt;Удобная утилита, которая позволит нам увеличить место не размонтируя диск - &lt;code&gt;growpart&lt;/code&gt;.&lt;br&gt;
-По умолчанию отсутствует в системе. Устанавливаем:&lt;br&gt;
+В большинстве случаев отсутствует в системе. Устанавливаем:&lt;br&gt;
 Для Debian/Ubuntu систем:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -132,16 +132,38 @@ data-flex-basis="827px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo lvs
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Расширяем физический том:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://itzm.tech/p/linux_disk_resize/8.png"
+width="930"
+height="327"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="284"
+data-flex-basis="682px"
+&gt;&lt;/p&gt;
+&lt;p&gt;Расширяем раздел 3 до конца диска:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pvresize /dev/sda1
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo growpart /dev/sda &lt;span class="m"&gt;3&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Затем логический и сразу же файловую систему ключом &lt;code&gt;-r&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;где:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;/dev/sda&lt;/code&gt; - диск&lt;br&gt;
+&lt;code&gt;3&lt;/code&gt; - номер раздела&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Сообщаем LVM, что PV стал больше:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pvresize /dev/sda3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Затем расширяем LV и сразу же файловую систему ключом &lt;code&gt;-r&lt;/code&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -150,7 +172,15 @@ data-flex-basis="827px"
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo lvextend -l +100%FREE -r /dev/mapper/ubuntu--vg-ubuntu--lv
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="расширение-диска-через-fdisk"&gt;Расширение диска через fdisk
+&lt;/div&gt;&lt;p&gt;&lt;img src="https://itzm.tech/p/linux_disk_resize/9.png"
+width="626"
+height="128"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="489"
+data-flex-basis="1173px"
+&gt;&lt;/p&gt;
+&lt;h2 id="расширение-диска-через-fdisk"&gt;Расширение диска через fdisk
 &lt;/h2&gt;&lt;p&gt;Бывают случаи, когда возможности установить &lt;code&gt;growpart&lt;/code&gt; нет, но расширить диск нужно.&lt;br&gt;
 Для этого используется стандартная утилита &lt;code&gt;fdisk&lt;/code&gt;. Она не умеет расширять &amp;ldquo;на горячую&amp;rdquo; и требует перезагрузки.
 &lt;strong&gt;Самый опасный способ, здесь важно соблюдать аккуратность чтобы не остаться без данных, или загрузчика.&lt;/strong&gt;&lt;/p&gt;
