@@ -40,9 +40,7 @@
 </span></span><span class=line><span class=cl>docker save quay.io/argoproj/argocd:<span class=nv>$ARGO_VERSION</span> -o argocd.tar
 </span></span><span class=line><span class=cl>docker save redis:<span class=nv>$REDIS_VERSION</span> -o redis.tar
 </span></span><span class=line><span class=cl>docker save ghcr.io/dexidp/dex:<span class=nv>$DEX_VERSION</span> -o dex.tar
-</span></span></code></pre></td></tr></table></div></div><p>Теперь у тебя 4 файла:</p><ul><li>argocd.tar</li><li>redis.tar</li><li>dex.tar</li><li>install.yaml
-Переноси их в закрытую зону.</li></ul><h3 id=загружаем-образы-в-harbor>Загружаем образы в Harbor</h3><p>Среда выполнения: <strong>Закрытый кластер Кубернетес</strong>
-Загружаем образы локально:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>Теперь у тебя 4 файла:</p><ul><li>argocd.tar</li><li>redis.tar</li><li>dex.tar</li><li>install.yaml<br>Переноси их в закрытую зону.</li></ul><h3 id=загружаем-образы-в-harbor>Загружаем образы в Harbor</h3><p>Среда выполнения: <strong>Закрытый кластер Кубернетес</strong><br>Загружаем образы локально:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker load -i argocd.tar

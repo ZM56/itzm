@@ -97,11 +97,11 @@ data-flex-basis="602px"
 &lt;li&gt;argocd.tar&lt;/li&gt;
 &lt;li&gt;redis.tar&lt;/li&gt;
 &lt;li&gt;dex.tar&lt;/li&gt;
-&lt;li&gt;install.yaml
+&lt;li&gt;install.yaml&lt;br&gt;
 Переноси их в закрытую зону.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="загружаем-образы-в-harbor"&gt;Загружаем образы в Harbor
-&lt;/h3&gt;&lt;p&gt;Среда выполнения: &lt;strong&gt;Закрытый кластер Кубернетес&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;Среда выполнения: &lt;strong&gt;Закрытый кластер Кубернетес&lt;/strong&gt;&lt;br&gt;
 Загружаем образы локально:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
