@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on IT Notes</title><link>https://itzm.tech/categories/kubernetes/</link><description>Recent content in Kubernetes on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 23 May 2026 10:37:00 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Подключение Gitlab к LDAP FreeIPA</title><link>https://itzm.tech/p/gitlab_ldap/</link><pubDate>Sat, 23 May 2026 10:37:00 +0500</pubDate><guid>https://itzm.tech/p/gitlab_ldap/</guid><description>&lt;img src="https://itzm.tech/p/gitlab_ldap/git_ldap.png" alt="Featured image of post Подключение Gitlab к LDAP FreeIPA" /&gt;&lt;p&gt;&lt;strong&gt;Задача:&lt;/strong&gt; настроить доменную авторизацию в Gitlab, который живёт в Kubernetes&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on IT Notes</title><link>https://itzm.tech/categories/kubernetes/</link><description>Recent content in Kubernetes on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Sat, 27 Jun 2026 10:39:42 +0500</lastBuildDate><atom:link href="https://itzm.tech/categories/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>Подключение репозиториев в ArgoCD</title><link>https://itzm.tech/p/argo_repo/</link><pubDate>Sat, 27 Jun 2026 10:39:42 +0500</pubDate><guid>https://itzm.tech/p/argo_repo/</guid><description>&lt;img src="https://itzm.tech/p/argo_repo/gitargo.jpg" alt="Featured image of post Подключение репозиториев в ArgoCD" /&gt;&lt;p&gt;Чтобы Gitops подход на основе ArgoCD начал работать его нужно настроить. В данном гайде я покажу как подключить приватные репозитории Gitlab, где хранятся приложения и values, а также Harbor, где у меня лежат Helm чарты и образы.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/argo_repo/argosync.png"
+width="720"
+height="480"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="150"
+data-flex-basis="360px"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Собираю единомышленников в телеграм канале. Там же отвечаю на вопросы.&lt;br&gt;
+&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+&gt;Присоединяйся&lt;/a&gt;
+&lt;a href="https://t.me/itzm_notes" target="_blank"&gt;
+&lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="шаг-1-получаем-доступ-к-репозиторию"&gt;Шаг 1. Получаем доступ к репозиторию
+&lt;/h2&gt;&lt;p&gt;В Gitlab создаём пользователя &lt;code&gt;argocd&lt;/code&gt; и выдаём ему права на чтения репозитория + формируем токен.&lt;br&gt;
+&lt;code&gt;Gitlab - Администрирование - Пользователи - Новый пользователь - argocd - обычный - Создать&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Привязываем группу:&lt;br&gt;
+&lt;code&gt;Gitlab - Группы - Участники - Пригласить - argocd - Разработчик&lt;/code&gt;
+Создаём токен:&lt;br&gt;
+&lt;code&gt;Группы - gitops - Настройки - Управление доступом - Создать токен - Name: read_repository - Срок действия на год - Роль: Developer&lt;/code&gt;&lt;br&gt;
+Ставим галки на:&lt;br&gt;
+&lt;code&gt;read_api, read_repository - Создать токен группы&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/argo_repo/%D0%B01.1.JPG"
+width="491"
+height="329"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="149"
+data-flex-basis="358px"
+&gt;&lt;/p&gt;
+&lt;h2 id="шаг-2-подключаем-argocd-к-gitlab"&gt;Шаг 2. Подключаем ArgoCD к Gitlab
+&lt;/h2&gt;&lt;p&gt;ArgoCD живёт в кубере и не знает внешнего DNS имени сервиса Gitlab, но зато знает внутри кластера, поэтому посмотри в кубере сервис &lt;code&gt;gitlab-webservice-default&lt;/code&gt;, порт и свой домен.&lt;/p&gt;
+&lt;p&gt;Первый способ подключения:
+&lt;code&gt;ArgoCD - Settings - Repository&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем:
+&lt;code&gt;Connect Repo - VIA HTTP/HTTPS - Type: git - Project: - Repo URL http://gitlab-webservice-default.gitlab.svc.k8s.domain.local:8181/gitops/cluster_config.git - User:Token - Connect&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Второй вариант, если первый не сработал создать этот же репозиторий через кубер:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl -n argocd create secret generic gitlab-repo-creds &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --from-literal&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://gitlab-webservice-default.gitlab.svc.k8s.domain.local:8181/ &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --from-literal&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;GITLAB_USERNAME&amp;gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --from-literal&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;TOKEN&amp;gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -o yaml --dry-run&lt;span class="o"&gt;=&lt;/span&gt;client &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; kubectl -n argocd apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;И прикрепить label:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl -n argocd patch secret gitlab-repo-creds -p &lt;span class="s1"&gt;&amp;#39;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt; &amp;#34;metadata&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt; &amp;#34;labels&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt; &amp;#34;argocd.argoproj.io/secret-type&amp;#34;: &amp;#34;repo-creds&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="шаг-3-подключаем-argocd-к-harbor"&gt;Шаг 3. Подключаем ArgoCD к Harbor
+&lt;/h2&gt;&lt;p&gt;Чарты и образы хранятся в приватном Harbor.&lt;br&gt;
+&lt;strong&gt;Подключаем Harbor&lt;/strong&gt;
+&lt;code&gt;Connect Repo - VIA HTTP/HTTPS - Type: oci - Project: default - Repo URL harbor.domain.local - User:Pass - Connect&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://itzm.tech/p/argo_repo/%D0%B01.JPG"
+width="1615"
+height="360"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="448"
+data-flex-basis="1076px"
+&gt;&lt;/p&gt;
+&lt;p&gt;Готово.&lt;/p&gt;
+&lt;p&gt;Если твой ArgoCD не доверяет внешним источникам по типу Harbor, добавь рутовый серт в secret, которым он подписан.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kubectl -n argocd create configmap argocd-tls-certs-cm --from-file&lt;span class="o"&gt;=&lt;/span&gt;my-root.ca&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/share/ca-certificates/root-ca.crt -o yaml --dry-run&lt;span class="o"&gt;=&lt;/span&gt;client &lt;span class="p"&gt;|&lt;/span&gt; kubectl apply -f -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Подключение Gitlab к LDAP FreeIPA</title><link>https://itzm.tech/p/gitlab_ldap/</link><pubDate>Sat, 23 May 2026 10:37:00 +0500</pubDate><guid>https://itzm.tech/p/gitlab_ldap/</guid><description>&lt;img src="https://itzm.tech/p/gitlab_ldap/git_ldap.png" alt="Featured image of post Подключение Gitlab к LDAP FreeIPA" /&gt;&lt;p&gt;&lt;strong&gt;Задача:&lt;/strong&gt; настроить доменную авторизацию в Gitlab, который живёт в Kubernetes&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Требования:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Развернутый домен FreeIPA, Active Directory&lt;/li&gt;
