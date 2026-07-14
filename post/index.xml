@@ -336,8 +336,7 @@ data-flex-basis="568px"
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id="шаг-22-настройка-minio-хранилища"&gt;Шаг 2.2. Настройка Minio хранилища
-&lt;/h3&gt;&lt;p&gt;В Minio создаём пользователя с именем &lt;code&gt;velero-s3&lt;/code&gt; и токен, если они ещё не созданы и bucker с именем &lt;code&gt;velero-backup&lt;/code&gt;
-СКРИН&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;В Minio создаём пользователя с именем &lt;code&gt;velero-s3&lt;/code&gt; и токен, если они ещё не созданы и bucker с именем &lt;code&gt;velero-backup&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Полученный &lt;strong&gt;токен и ключ&lt;/strong&gt; будем использовать далее в файле.&lt;/p&gt;
 &lt;p&gt;Если хотите использовать Minio внутри кубернетес через https, то преобразуйте сертификат от ЦА, которым подписан MinIO в Base64:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
