@@ -701,7 +701,7 @@ data-flex-basis="1231px"
 &lt;li&gt;ConfigMap velero-test-config вернулся&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="шаг-4-пример-задания-cronjob-на-бэкап"&gt;Шаг 4. Пример задания (cronjob) на бэкап
-&lt;/h2&gt;&lt;p&gt;Для начала должны быть включены node-agent без них не убдут бэкапиться PVC с нод. Это мы сделали при первоначальной установке Velero.&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;Для начала должны быть включены node-agent без них не будут бэкапиться PVC с нод. Это мы сделали при первоначальной установке Velero.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
