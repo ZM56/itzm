@@ -1,27 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on IT Notes</title><link>https://itzm.tech/page/</link><description>Recent content in Pages on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://itzm.tech/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;p&gt;Привет, &lt;code&gt;Username&lt;/code&gt;!&lt;br&gt;
-Этот сайт создан для моих заметок, интересных наблюдений около IT и помощи другим в решении ежедневных задач.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on IT Notes</title><link>https://itzm.tech/page/</link><description>Recent content in Pages on IT Notes</description><generator>Hugo -- gohugo.io</generator><language>ru-ru</language><lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://itzm.tech/page/index.xml" rel="self" type="application/rss+xml"/><item><title>Архивы</title><link>https://itzm.tech/archives/</link><pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate><guid>https://itzm.tech/archives/</guid><description/></item><item><title>Обо мне</title><link>https://itzm.tech/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/about/</guid><description>&lt;h2 id="привет-username"&gt;Привет, &lt;code&gt;Username&lt;/code&gt;!
+&lt;/h2&gt;&lt;p&gt;Я, Земеров Владислав. Работаю в IT больше 8 лет, сейчас основное направление: &lt;strong&gt;DevOps и инфраструктура&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Этот сайт появился довольно просто. По работе постоянно приходится что-то настраивать, разбирать, чинить и изучать. Какие-то решения забываются, какие-то хочется сохранить, а какие-то объяснить и расписать нормально, чтобы потом не искать ответ среди десяти одинаковых статей.&lt;/p&gt;
+&lt;p&gt;Поэтому здесь я собираю &lt;strong&gt;гайды и свои разборы&lt;/strong&gt; про Linux, DevOps, инфраструктуру и всё, что находится рядом.&lt;/p&gt;
+&lt;p&gt;Чаще всего это пошаговая инструкция, или просто решение проблемы, на которую я сам потратил несколько часов или дней. Иногда, в гайд я добавляю разбор того, как что-то работает под капотом, но чаще расписываю это в телеге.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Только в Telegram я делюсь тем, что не попадает в заметки: практикой, своими мыслями и теорией — всё просто и без воды.&lt;br&gt;
-&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
+&lt;p&gt;В Telegram пишу чаще и свободнее: делюсь практикой, своими мыслями, наблюдениями, небольшими разборами и тем, что не дотягивает до отдельной статьи.&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://t.me/itzm_notes" target="_blank" rel="noopener"
 &gt;Загляни, если интересно&lt;/a&gt;
 &lt;a href="https://t.me/itzm_notes" target="_blank"&gt;
 &lt;img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="18" /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Я - Земеров Владислав. Более 8-ми лет в ИТ. На данный момент занимаю позицию главного инженера по разработке и сопровождению в крупном ДЗО зелёного банка.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Мой стек:&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="чем-занимаюсь"&gt;Чем занимаюсь
+&lt;/h3&gt;&lt;p&gt;За эти годы успел поработать и с классическим системным администрированием, и с большой корпоративной инфраструктурой, и с тем, что сегодня принято называть DevOps.&lt;/p&gt;
+&lt;p&gt;Работал с инфраструктурой масштаба &lt;strong&gt;1000+ серверов&lt;/strong&gt;, Kubernetes-кластерами в том числе на bare metal, CI/CD, Infrastructure as Code, мониторингом, логированием и системами безопасности.&lt;/p&gt;
+&lt;p&gt;Но сами названия технологий для меня не главное. Намного интереснее понять:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Linux (Ubuntu, CentOS, AltLinux), Unix (FreeBSD, OpenBSD), IPTables, FreeIPA domain-cluster&lt;/li&gt;
-&lt;li&gt;PowerDNS, Bind9, Squid, Asterisk, Exim, OpenVPN, Wireguard, Nextcloud&lt;/li&gt;
-&lt;li&gt;PostgreSQL, MySQL, MSSQL&lt;/li&gt;
-&lt;li&gt;Docker, Docker-compose, Ansible (roles, collection, galaxy), IaC подход&lt;/li&gt;
-&lt;li&gt;Kubernetes, Helm, ArgoCD, Terraform, Prometheus, Grafana, Loki, Kafka, Gitlab, Jenkins, CI/CD&lt;/li&gt;
-&lt;li&gt;Nginx, HAProxy, Keycloak, Nexus, Harbor&lt;/li&gt;
-&lt;li&gt;Python, Bash, Powershell&lt;/li&gt;
-&lt;li&gt;Atlassian (Jira, Confluence, Bitbucket), VMWare vCenter, vSphere, Esxi, Zabbix&lt;/li&gt;
-&lt;li&gt;Windows Servers (2012, 2016, 2019, 2022), Clusters DataBases, AD, GPO, DNS, DHCP, SCCM&lt;/li&gt;
-&lt;li&gt;Maxpatrol, SearchInform&lt;/li&gt;
-&lt;li&gt;Kaspersky Security Center, KES for Linux, KES for Windows, Kaspersky Web Traffic Security, Kaspersky Mail Gateway&lt;/li&gt;
+&lt;li&gt;почему сервис не запускается;&lt;/li&gt;
+&lt;li&gt;как живет система внутри;&lt;/li&gt;
+&lt;li&gt;куда ушёл трафик;&lt;/li&gt;
+&lt;li&gt;почему приложение не может подключиться к базе;&lt;/li&gt;
+&lt;li&gt;и как найти причину проблемы, когда на первый взгляд всё должно работать.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Постоянно учусь новому и открыт для интересных идей и проектов.
-Знания и навыки из разных областей помогают мне решать задачи на стыке dev/sec/ops команд.&lt;/p&gt;</description></item><item><title>Поиск</title><link>https://itzm.tech/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/search/</guid><description/></item></channel></rss>
+&lt;p&gt;Наверное, поэтому большая часть моих материалов со временем всё больше уходит именно в сторону &lt;strong&gt;понимания систем и траблшутинга&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id="немного-про-авторство-и-идею-itzm"&gt;Немного про авторство и идею ITZM
+&lt;/h3&gt;&lt;p&gt;В какой-то момент я понял, что мне нравится не только самому разбираться в технологиях, но и &lt;strong&gt;объяснять их другим&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Поэтому сейчас кроме гайдов и заметок я постепенно делаю практические материалы, видео на ютубе и курсы по Linux и DevOps.&lt;/p&gt;
+&lt;p&gt;Мне не очень близок подход «вот тебе 50 команд выучи их». Хочется, чтобы после материала человек понимал хотя бы базовую логику: &lt;strong&gt;что сейчас происходит, зачем он выполняет эту команду и куда смотреть, если всё сломалось&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id="с-чем-работал"&gt;С чем работал
+&lt;/h3&gt;&lt;p&gt;Если интересно именно с технической стороны, вот основные направления и технологии, с которыми я работаю.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linux и Kubernetes&lt;/strong&gt;&lt;br&gt;
+Debian, RHEL, FreeBSD, OpenBSD, Kubernetes, Docker, Helm, Kustomize, Argo CD, MetalLB, Cilium, Istio.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IaC и CI/CD&lt;/strong&gt;&lt;br&gt;
+Terraform, Ansible, GitLab CI/CD, Jenkins.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Мониторинг и логирование&lt;/strong&gt;&lt;br&gt;
+Prometheus, Grafana, Loki, Zabbix, ELK, OpenSearch, Fluent Bit, Vector, Kafka.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Безопасность и управление доступом&lt;/strong&gt;&lt;br&gt;
+Vault, Keycloak, FreeIPA, Trivy, SonarQube, Kaspersky.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Виртуализация и облака&lt;/strong&gt;&lt;br&gt;
+VMware vSphere / ESXi, Cloud.ru, Yandex Cloud, S3-совместимые хранилища.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Автоматизация&lt;/strong&gt;&lt;br&gt;
+Bash, Python, PowerShell, n8n, Ollama.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Сети&lt;/strong&gt;&lt;br&gt;
+Во всем своем многообразии.&lt;/p&gt;
+&lt;p&gt;Полный список можно продолжать долго, но особого смысла в этом уже нет :)&lt;/p&gt;
+&lt;p&gt;Я продолжаю работать инженером на стыке Dev / Sec / Ops, изучать новое и разбираться в вещах, которые мне интересны. А всё полезное, что узнаю по пути, стараюсь складывать сюда и в Telegram.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Добро пожаловать в ITZM.&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Поиск</title><link>https://itzm.tech/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://itzm.tech/search/</guid><description/></item></channel></rss>
